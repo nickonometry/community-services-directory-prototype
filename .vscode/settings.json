@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "svelte.plugin.svelte.format.config.printWidth": 250,
+  "prettier.endOfLine": "lf",
+  "prettier.configPath": ".prettierrc",
+  "prettier.bracketSameLine": true,
+  "prettier.printWidth": 250,
+  "prettier.proseWrap": "never",
+  "prettier.singleAttributePerLine": true,
+  "prettier.tabWidth": 1,
+  "prettier.htmlWhitespaceSensitivity": "ignore"
+}

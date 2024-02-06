@@ -1,0 +1,31 @@
+export async function loadForgeComponents() {
+  import('@tylertech/forge/esm/app-bar/app-bar');
+  import('@tylertech/forge/esm/scaffold');
+  import('@tylertech/forge/esm/stack');
+  import('@tylertech/forge/esm/toolbar');
+  import('@tylertech/forge/esm/card');
+  import('@tylertech/forge/esm/list');
+  import('@tylertech/forge/esm/button');
+  import('@tylertech/forge/esm/icon-button');
+  import('@tylertech/forge/esm/icon');
+  import('@tylertech/forge/esm/expansion-panel');
+  import('@tylertech/forge/esm/drawer');
+  import('@tylertech/forge/esm/dialog');
+  import('@tylertech/forge/esm/circular-progress');
+  import('@tylertech/forge/esm/badge');
+  import('@tylertech/forge/esm/open-icon');
+  import('@tylertech/forge/esm/inline-message');
+  import('@tylertech/forge/esm/banner');
+  import('@tylertech/forge/esm/button-area');
+  import('@tylertech/forge/esm/page-state');
+  import('@tylertech/forge/esm/text-field');
+  import('@tylertech/forge/esm/stepper');
+  import('@tylertech/forge/esm/radio');
+  import('@tylertech/forge/esm/autocomplete');
+  import('@tylertech/forge/esm/select');
+  import('@tylertech/forge/esm/split-view');
+  import('@tylertech/forge/esm/slider');
+  import('@tylertech/forge/esm/table');
+  import('@tylertech/forge/esm/view-switcher');
+  import('@tylertech/forge/esm/tooltip');
+}

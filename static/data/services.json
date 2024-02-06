@@ -1,0 +1,196 @@
+{
+  "services": [
+    {
+      "name": "Online Permit Application",
+      "lastAccessDate": "2024-02-05",
+      "status": "Active",
+      "department": "Department of Building and Safety"
+    },
+    {
+      "name": "Property Tax Payment",
+      "lastAccessDate": "2024-01-30",
+      "status": "Active",
+      "department": "County Tax Assessor"
+    },
+    {
+      "name": "Public Records Request",
+      "lastAccessDate": "2024-02-01",
+      "status": "Active",
+      "department": "City Clerk's Office"
+    },
+    {
+      "name": "Trash Pickup Schedule",
+      "lastAccessDate": "2024-01-28",
+      "status": "Active",
+      "department": "Department of Sanitation"
+    },
+    {
+      "name": "Parks and Recreation Reservations",
+      "lastAccessDate": "2024-02-02",
+      "status": "Active",
+      "department": "Department of Parks and Recreation"
+    },
+    {
+      "name": "Business License Renewal",
+      "lastAccessDate": "2024-01-25",
+      "status": "Active",
+      "department": "Business Affairs Division"
+    },
+    {
+      "name": "Traffic Violation Payment",
+      "lastAccessDate": "2024-01-27",
+      "status": "Active",
+      "department": "Department of Traffic Enforcement"
+    },
+    {
+      "name": "Library Book Reservation",
+      "lastAccessDate": "2024-02-03",
+      "status": "Active",
+      "department": "Public Library"
+    },
+    {
+      "name": "Emergency Alerts Subscription",
+      "lastAccessDate": "2024-02-04",
+      "status": "Active",
+      "department": "Emergency Management Agency"
+    },
+    {
+      "name": "Job Application Submission",
+      "lastAccessDate": "2024-01-29",
+      "status": "Active",
+      "department": "Human Resources Department"
+    },
+    {
+      "name": "Water Bill Payment",
+      "lastAccessDate": "2024-01-31",
+      "status": "Active",
+      "department": "Department of Water Services"
+    },
+    {
+      "name": "Building Inspection Request",
+      "lastAccessDate": "2024-02-01",
+      "status": "Active",
+      "department": "Department of Building and Safety"
+    },
+    {
+      "name": "Community Event Permits",
+      "lastAccessDate": "2024-02-03",
+      "status": "Active",
+      "department": "Office of Special Events"
+    },
+    {
+      "name": "Street Maintenance Requests",
+      "lastAccessDate": "2024-01-26",
+      "status": "Active",
+      "department": "Department of Public Works"
+    },
+    {
+      "name": "Senior Citizen Services Enrollment",
+      "lastAccessDate": "2024-02-02",
+      "status": "Active",
+      "department": "Department of Aging"
+    },
+    {
+      "name": "Public Transportation Pass Purchase",
+      "lastAccessDate": "2024-01-28",
+      "status": "Active",
+      "department": "Transportation Authority"
+    },
+    {
+      "name": "Noise Complaint Submission",
+      "lastAccessDate": "2024-02-04",
+      "status": "Active",
+      "department": "City Noise Control Office"
+    },
+    {
+      "name": "Zoning Information Request",
+      "lastAccessDate": "2024-01-30",
+      "status": "Active",
+      "department": "Zoning and Planning Department"
+    },
+    {
+      "name": "Animal Control Services",
+      "lastAccessDate": "2024-02-05",
+      "status": "Active",
+      "department": "Animal Services Division"
+    },
+    {
+      "name": "Youth Recreation Programs Registration",
+      "lastAccessDate": "2024-02-01",
+      "status": "Active",
+      "department": "Department of Parks and Recreation"
+    },
+    {
+      "name": "Economic Development Grants Application",
+      "lastAccessDate": "2024-01-29",
+      "status": "Active",
+      "department": "Economic Development Office"
+    },
+    {
+      "name": "Citizen Complaint Submission",
+      "lastAccessDate": "2024-02-02",
+      "status": "Active",
+      "department": "Citizen Relations Bureau"
+    },
+    {
+      "name": "Housing Assistance Application",
+      "lastAccessDate": "2024-01-27",
+      "status": "Active",
+      "department": "Housing and Urban Development Department"
+    },
+    {
+      "name": "Health and Wellness Clinic Appointments",
+      "lastAccessDate": "2024-02-03",
+      "status": "Active",
+      "department": "Department of Health Services"
+    },
+    {
+      "name": "Fire Department Inspection Request",
+      "lastAccessDate": "2024-01-25",
+      "status": "Active",
+      "department": "Fire Prevention Bureau"
+    },
+    {
+      "name": "Community Garden Plot Reservation",
+      "lastAccessDate": "2024-02-04",
+      "status": "Active",
+      "department": "Community Services Department"
+    },
+    {
+      "name": "Cultural Arts Grant Application",
+      "lastAccessDate": "2024-01-31",
+      "status": "Active",
+      "department": "Arts and Culture Office"
+    },
+    {
+      "name": "Road Repair and Maintenance Requests",
+      "lastAccessDate": "2024-02-01",
+      "status": "Active",
+      "department": "Department of Public Works"
+    },
+    {
+      "name": "Green Energy Rebate Application",
+      "lastAccessDate": "2024-01-26",
+      "status": "Active",
+      "department": "Sustainability and Environmental Affairs Office"
+    },
+    {
+      "name": "Community Watch Program Registration",
+      "lastAccessDate": "2024-02-05",
+      "status": "Active",
+      "department": "Police Department"
+    },
+    {
+      "name": "Emergency Shelter Information",
+      "lastAccessDate": "2024-01-30",
+      "status": "Active",
+      "department": "Emergency Management Agency"
+    },
+    {
+      "name": "Homelessness Outreach Services",
+      "lastAccessDate": "2024-02-02",
+      "status": "Active",
+      "department": "Social Services Department"
+    }
+  ]
+}
