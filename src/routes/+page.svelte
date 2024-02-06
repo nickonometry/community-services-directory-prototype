@@ -48,17 +48,17 @@
   });
 </script>
 
-<forge-toolbar>
-  <h2 slot="start" class="forge-typography--heading3">Services</h2>
-  <forge-stack slot="end" inline>
-    <forge-button variant="raised" href="/create-service-link">
-      <forge-icon name="add" external></forge-icon>
-      <span>Add a service</span>
-    </forge-button>
-  </forge-stack>
-</forge-toolbar>
 <div class="page-container">
   <forge-card class="table-card">
+    <forge-toolbar>
+      <h2 slot="start" class="forge-typography--heading3">Services</h2>
+      <forge-stack slot="end" inline>
+        <forge-button variant="raised" href="/create-service-link">
+          <forge-icon name="add" external></forge-icon>
+          <span>Add a service</span>
+        </forge-button>
+      </forge-stack>
+    </forge-toolbar>
     <!-- <forge-toolbar>
       <forge-text-field id="text-field" slot="start">
         <forge-icon slot="leading" name="filter_list" external></forge-icon>
