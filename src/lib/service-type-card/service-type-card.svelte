@@ -22,18 +22,21 @@
         <div class="service-card__inner">
           <forge-icon name={icon} external external-type={iconLibrary}></forge-icon>
           <span id="button-area-heading" class="forge-typography--heading2">{serviceType} service</span>
+          <div>
+            <forge-icon name="info_outline" external class="info"></forge-icon>
+            <forge-tooltip position="top-start" flip="never" delay="250">
+              <div class="tooltip__inner">
+                <forge-icon slot="icon" name="info_outline" external></forge-icon>
+                <forge-stack gap="4px">
+                  <div class="forge-typography--heading2">{serviceType}</div>
+                  <div class="forge-typography--body1">{serviceDescription}</div>
+                </forge-stack>
+              </div>
+            </forge-tooltip>
+          </div>
         </div>
       </div>
     </forge-button-area>
-    <forge-tooltip position="top" delay="0">
-      <div class="tooltip__inner">
-        <forge-icon slot="icon" name={icon} external external-type={iconLibrary}></forge-icon>
-        <forge-stack gap="4px">
-          <div class="forge-typography--heading2">{serviceType}</div>
-          <div class="forge-typography--body1">{serviceDescription}</div>
-        </forge-stack>
-      </div>
-    </forge-tooltip>
   </forge-card>
 </div>
 
@@ -51,7 +54,7 @@
 
   .service-card__inner {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
     gap: 16px;
     align-items: center;
     padding: 16px;
@@ -59,6 +62,10 @@
     forge-icon {
       font-size: 44px;
       color: var(--forge-theme-text-medium);
+    }
+
+    .info {
+      font-size: 24px;
     }
   }
 
@@ -75,6 +82,7 @@
 
     forge-icon {
       font-size: 36px;
+      color: white;
     }
   }
 </style>
