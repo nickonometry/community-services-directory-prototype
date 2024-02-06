@@ -25,7 +25,7 @@
         </div>
       </div>
     </forge-button-area>
-    <forge-tooltip position="top">
+    <forge-tooltip position="top" delay="0">
       <div class="tooltip__inner">
         <forge-icon slot="icon" name={icon} external external-type={iconLibrary}></forge-icon>
         <forge-stack gap="4px">
