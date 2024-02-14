@@ -1,12 +1,13 @@
 // store.js
 import { writable } from 'svelte/store';
 
-export const serviceLinkForm = writable({
+export const customServiceLinkForm = writable({
   serviceType: '',
-  title: '',
-  description: '',
-  feature: null,
-  partnerAccess: null,
+  serviceTitle: '',
+  serviceDescription: '',
+  isFeatured: false,
+  allowPartnerAccess: false,
+  status: '',
   icon: '',
   group: '',
   planning: '',

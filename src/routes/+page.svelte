@@ -1,16 +1,93 @@
 <script>
   import { onMount } from 'svelte';
+  import { browser } from '$app/environment';
+  import { servicesCache } from '../globalStore';
+  import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
+  import { randomBrightColorPicker } from '../lib/utils/color-picker';
 
   export let data;
+  servicesCache.update((state) => ({ ...state, data }));
+
   let table;
-  let services = data.data.services.sort((a, b) =>
-    a.name.toLowerCase() > b.name.toLowerCase() ? 1 : b.name.toLowerCase() > a.name.toLowerCase() ? -1 : 0
+  let services = data.data.sort((a, b) =>
+    a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
   );
+
+  const createIcon = (iconName) => {
+    let icon = document.createElement('forge-icon');
+    icon.name = iconName;
+    icon.setAttribute('external', 'true');
+    return icon;
+  };
+
+  const createServiceAvatarIcon = (index, div, data) => {
+    let avatar = document.createElement('forge-avatar');
+    avatar.style.setProperty('--forge-avatar-background', randomBrightColorPicker());
+    let icon = createIcon(data.iconName);
+    icon.style.color = 'white';
+    avatar.appendChild(icon);
+    return avatar;
+  };
+
+  const createFeaturedIcon = (index, div, data) => {
+    if (!data.isFeatured) {
+      return;
+    }
+    let icon = createIcon('check_circle');
+    icon.style.color = 'var(--forge-theme-tertiary)';
+    return icon;
+  };
+
+  const createPartnerAccessIcon = (index, div, data) => {
+    if (!data.allowPartnerAccess) {
+      return;
+    }
+    let icon = createIcon('groups');
+    icon.style.color = 'var(--forge-theme-on-secondary-container)';
+    return icon;
+  };
+
+  const createActionIconButton = () => {
+    let iconButton = document.createElement('forge-icon-button');
+    iconButton.ariaLabel = 'Edit this service';
+    let icon = createIcon('chevron_right');
+    icon.style.color = 'var(--forge-theme-text-medium)';
+    iconButton.appendChild(icon);
+    return iconButton;
+  };
+
+  const createStatusBadge = (index, div, data) => {
+    let badge = document.createElement('forge-badge');
+    // badge.innerText = data.status;
+    // badge.style.setProperty('--forge-badge-shape', '4px');
+    if (data.status.toLowerCase() === 'active') {
+      badge.theme = 'success';
+      badge.setAttribute('strong', 'false');
+      badge.innerText = 'Published';
+    } else {
+      badge.theme = 'info-secondary';
+      badge.innerText = 'Unpublished';
+    }
+    return badge;
+  };
 
   let columnConfigurations = [
     {
-      property: 'name',
+      property: 'iconName',
+      template: (i, div, data) => createServiceAvatarIcon(i, div, data),
+      width: '96px'
+    },
+    {
+      property: 'serviceTitle',
       header: 'Service Name',
+      sortable: true,
+      initialSort: true,
+      filter: true,
+      width: '50ch'
+    },
+    {
+      property: 'serviceDescription',
+      header: 'Service Description',
       sortable: true,
       initialSort: true,
       filter: true
@@ -19,7 +96,8 @@
       property: 'lastAccessDate',
       header: 'Last Accessed',
       sortable: true,
-      filter: true
+      filter: true,
+      width: '150px'
     },
     {
       property: 'department',
@@ -31,13 +109,31 @@
       property: 'status',
       header: 'Status',
       sortable: true,
-      filter: true
+      filter: true,
+      template: (i, div, data) => createStatusBadge(i, div, data)
+    },
+    {
+      property: 'isFeatured',
+      header: 'Featured',
+      sortable: true,
+      filter: true,
+      template: (i, div, data) => createFeaturedIcon(i, div, data),
+      align: 'center'
+    },
+    {
+      property: 'allowPartnerAccess',
+      header: 'Allow partner access',
+      sortable: true,
+      filter: true,
+      template: (i, div, data) => createPartnerAccessIcon(i, div, data),
+      align: 'center'
     },
     {
       property: 'actions',
-      header: 'Actions',
+      header: '',
       sortable: true,
-      filter: true
+      filter: true,
+      template: (i, div, data) => createActionIconButton(i, div, data)
     }
   ];
 
@@ -46,6 +142,18 @@
     table.data = services;
     table.columnConfigurations = columnConfigurations;
   });
+
+  const openFullPreview = () => {
+    if (browser) {
+      const dialog = document.createElement('forge-dialog');
+      document.body.append(dialog);
+      dialog.open = true;
+      let pd = new previewDialog({
+        target: dialog,
+        props: { dialogRef: dialog }
+      });
+    }
+  };
 </script>
 
 <div class="page-container">
@@ -53,20 +161,20 @@
     <forge-toolbar>
       <h2 slot="start" class="forge-typography--heading3">Services</h2>
       <forge-stack slot="end" inline>
-        <forge-button variant="raised" href="/create-service-link">
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <forge-button on:click={openFullPreview}>
+          <forge-icon name="preview" external></forge-icon>
+          <span>Preview as a resident</span>
+        </forge-button>
+        <forge-button href="/create-service-link">
           <forge-icon name="add" external></forge-icon>
           <span>Add a service</span>
         </forge-button>
       </forge-stack>
     </forge-toolbar>
-    <!-- <forge-toolbar>
-      <forge-text-field id="text-field" slot="start">
-        <forge-icon slot="leading" name="filter_list" external></forge-icon>
-        <input type="text" id="text-field-input" placeholder="Filter services" />
-      </forge-text-field>
-    </forge-toolbar> -->
     {#if services.length}
-      <forge-table data={services} {columnConfigurations}></forge-table>
+      <forge-table data={services} {columnConfigurations} roomy></forge-table>
     {/if}
   </forge-card>
 </div>

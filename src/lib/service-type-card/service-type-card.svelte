@@ -24,7 +24,7 @@
           <span id="button-area-heading" class="forge-typography--heading2">{serviceType} service</span>
           <div>
             <forge-icon name="info_outline" external class="info"></forge-icon>
-            <forge-tooltip position="top-start" flip="never" delay="250">
+            <forge-tooltip position="top-start" delay="250">
               <div class="tooltip__inner">
                 <forge-icon slot="icon" name="info_outline" external></forge-icon>
                 <forge-stack gap="4px">

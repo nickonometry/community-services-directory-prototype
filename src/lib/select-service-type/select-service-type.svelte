@@ -1,22 +1,32 @@
 <script>
   import ServiceTypeCard from '../service-type-card/service-type-card.svelte';
-  import { serviceLinkForm } from '../store';
+  import { fade } from 'svelte/transition';
+  import { customServiceLinkForm } from '../store';
+  export let showValidation = false;
   let currentSelected = '';
   const onServiceSelected = (serviceName) => {
+    showValidation = false;
     let service = serviceName.toLowerCase();
     currentSelected = service;
-    updateServiceInStore(serviceName);
+    updateServiceTypeInStore(serviceName);
   };
 
-  function updateServiceInStore(serviceName) {
-    serviceLinkForm.update((state) => ({ ...state, serviceType: serviceName }));
+  function updateServiceTypeInStore(type) {
+    customServiceLinkForm.update((state) => ({ ...state, serviceType: type.toLowerCase() }));
   }
 </script>
 
 <forge-toolbar no-border>
   <h3 slot="start" class="forge-typography--heading3">Select a service type</h3>
 </forge-toolbar>
+
 <div class="service-type__container">
+  {#if showValidation}
+    <forge-inline-message class="span-full" theme="warning">
+      <forge-icon slot="icon" name="warning" external></forge-icon>
+      <div>A service type is required</div>
+    </forge-inline-message>
+  {/if}
   <ServiceTypeCard
     isSelected={currentSelected === 'custom'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
@@ -57,5 +67,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+
+  forge-inline-message::part(root) {
+    width: 100%;
   }
 </style>

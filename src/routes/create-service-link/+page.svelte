@@ -1,12 +1,13 @@
 <script>
-  import CreateServiceLinkForm from '$lib/create-service-link-form/create-service-link-form.svelte';
   import { onMount } from 'svelte';
   import SelectServiceType from '../../lib/select-service-type/select-service-type.svelte';
   import PreviewStep from '../../lib/preview-step/preview-step.svelte';
-  import { serviceLinkForm } from '../../lib/store';
+  import { customServiceLinkForm } from '../../lib/store';
+  import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
   let stepper;
   let steps = [];
   let stepSelected = 0;
+  let showValidation = false;
 
   onMount(() => {
     stepper = document.querySelector('#stepper');
@@ -22,14 +23,23 @@
       { label: 'Service details', optionalLabel: 'Not started', completed: false },
       { label: 'Preview', completed: false }
     ];
-
     stepper.steps = steps;
   });
 
   const onNextClicked = () => {
+    if (!$customServiceLinkForm.serviceType) {
+      showValidation = true;
+      return;
+    }
     steps[stepSelected].completed = true;
+    steps[stepSelected].optionalLabel = 'Completed';
     stepper.steps = steps;
     stepSelected = stepSelected + 1;
+    stepper.selectedIndex = stepSelected;
+  };
+
+  const onPreviousClicked = () => {
+    stepSelected = stepSelected - 1;
     stepper.selectedIndex = stepSelected;
   };
 
@@ -42,26 +52,40 @@
   <forge-drawer slot="body-left">
     <forge-toolbar slot="header" class="stepper-toolbar" no-border>
       <div slot="start">
-        <forge-icon-button>
+        <forge-icon-button href="/" aria-label="Go back">
           <forge-icon name="arrow_back" external></forge-icon>
         </forge-icon-button>
         <h2 class="forge-typography--heading3">Service library</h2>
       </div>
     </forge-toolbar>
-    <div class="padding-16">
-      <forge-stepper vertical="true" id="stepper"> </forge-stepper>
-    </div>
+    <forge-stepper vertical="true" id="stepper"> </forge-stepper>
   </forge-drawer>
   <div slot="body" class="step-container">
     <forge-card class="step-container__card">
       <forge-view-switcher index={stepSelected}>
-        <forge-view><SelectServiceType /></forge-view>
-        <forge-view><CreateServiceLinkForm /></forge-view>
+        <forge-view>
+          <SelectServiceType {showValidation} />
+        </forge-view>
+        <forge-view>
+          {#if $customServiceLinkForm.serviceType === 'custom'}
+            <CustomServiceLinkForm />
+          {/if}
+          {#if $customServiceLinkForm.serviceType === 'integration'}
+            Integration form
+          {/if}
+          {#if $customServiceLinkForm.serviceType === 'tcp'}
+            TCP form
+          {/if}
+          {#if $customServiceLinkForm.serviceType === 'partner'}
+            Partner form
+          {/if}
+        </forge-view>
         <forge-view>
           <PreviewStep />
         </forge-view>
       </forge-view-switcher>
       <forge-toolbar inverted>
+        <forge-button variant="outlined" on:click={onPreviousClicked} slot="start" disabled={stepSelected === 0}>Previous</forge-button>
         <forge-stack slot="end" inline>
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -73,7 +97,7 @@
         </forge-stack>
       </forge-toolbar>
     </forge-card>
-    <!-- <p>{JSON.stringify($serviceLinkForm, 0, 2)}</p> -->
+    <!-- <p>{JSON.stringify($customServiceLinkForm, 0, 2)}</p> -->
   </div>
 </forge-scaffold>
 

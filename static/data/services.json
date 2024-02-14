@@ -1,196 +1,167 @@
-{
-  "services": [
-    {
-      "name": "Online Permit Application",
-      "lastAccessDate": "2024-02-05",
-      "status": "Active",
-      "department": "Department of Building and Safety"
-    },
-    {
-      "name": "Property Tax Payment",
-      "lastAccessDate": "2024-01-30",
-      "status": "Active",
-      "department": "County Tax Assessor"
-    },
-    {
-      "name": "Public Records Request",
-      "lastAccessDate": "2024-02-01",
-      "status": "Active",
-      "department": "City Clerk's Office"
-    },
-    {
-      "name": "Trash Pickup Schedule",
-      "lastAccessDate": "2024-01-28",
-      "status": "Active",
-      "department": "Department of Sanitation"
-    },
-    {
-      "name": "Parks and Recreation Reservations",
-      "lastAccessDate": "2024-02-02",
-      "status": "Active",
-      "department": "Department of Parks and Recreation"
-    },
-    {
-      "name": "Business License Renewal",
-      "lastAccessDate": "2024-01-25",
-      "status": "Active",
-      "department": "Business Affairs Division"
-    },
-    {
-      "name": "Traffic Violation Payment",
-      "lastAccessDate": "2024-01-27",
-      "status": "Active",
-      "department": "Department of Traffic Enforcement"
-    },
-    {
-      "name": "Library Book Reservation",
-      "lastAccessDate": "2024-02-03",
-      "status": "Active",
-      "department": "Public Library"
-    },
-    {
-      "name": "Emergency Alerts Subscription",
-      "lastAccessDate": "2024-02-04",
-      "status": "Active",
-      "department": "Emergency Management Agency"
-    },
-    {
-      "name": "Job Application Submission",
-      "lastAccessDate": "2024-01-29",
-      "status": "Active",
-      "department": "Human Resources Department"
-    },
-    {
-      "name": "Water Bill Payment",
-      "lastAccessDate": "2024-01-31",
-      "status": "Active",
-      "department": "Department of Water Services"
-    },
-    {
-      "name": "Building Inspection Request",
-      "lastAccessDate": "2024-02-01",
-      "status": "Active",
-      "department": "Department of Building and Safety"
-    },
-    {
-      "name": "Community Event Permits",
-      "lastAccessDate": "2024-02-03",
-      "status": "Active",
-      "department": "Office of Special Events"
-    },
-    {
-      "name": "Street Maintenance Requests",
-      "lastAccessDate": "2024-01-26",
-      "status": "Active",
-      "department": "Department of Public Works"
-    },
-    {
-      "name": "Senior Citizen Services Enrollment",
-      "lastAccessDate": "2024-02-02",
-      "status": "Active",
-      "department": "Department of Aging"
-    },
-    {
-      "name": "Public Transportation Pass Purchase",
-      "lastAccessDate": "2024-01-28",
-      "status": "Active",
-      "department": "Transportation Authority"
-    },
-    {
-      "name": "Noise Complaint Submission",
-      "lastAccessDate": "2024-02-04",
-      "status": "Active",
-      "department": "City Noise Control Office"
-    },
-    {
-      "name": "Zoning Information Request",
-      "lastAccessDate": "2024-01-30",
-      "status": "Active",
-      "department": "Zoning and Planning Department"
-    },
-    {
-      "name": "Animal Control Services",
-      "lastAccessDate": "2024-02-05",
-      "status": "Active",
-      "department": "Animal Services Division"
-    },
-    {
-      "name": "Youth Recreation Programs Registration",
-      "lastAccessDate": "2024-02-01",
-      "status": "Active",
-      "department": "Department of Parks and Recreation"
-    },
-    {
-      "name": "Economic Development Grants Application",
-      "lastAccessDate": "2024-01-29",
-      "status": "Active",
-      "department": "Economic Development Office"
-    },
-    {
-      "name": "Citizen Complaint Submission",
-      "lastAccessDate": "2024-02-02",
-      "status": "Active",
-      "department": "Citizen Relations Bureau"
-    },
-    {
-      "name": "Housing Assistance Application",
-      "lastAccessDate": "2024-01-27",
-      "status": "Active",
-      "department": "Housing and Urban Development Department"
-    },
-    {
-      "name": "Health and Wellness Clinic Appointments",
-      "lastAccessDate": "2024-02-03",
-      "status": "Active",
-      "department": "Department of Health Services"
-    },
-    {
-      "name": "Fire Department Inspection Request",
-      "lastAccessDate": "2024-01-25",
-      "status": "Active",
-      "department": "Fire Prevention Bureau"
-    },
-    {
-      "name": "Community Garden Plot Reservation",
-      "lastAccessDate": "2024-02-04",
-      "status": "Active",
-      "department": "Community Services Department"
-    },
-    {
-      "name": "Cultural Arts Grant Application",
-      "lastAccessDate": "2024-01-31",
-      "status": "Active",
-      "department": "Arts and Culture Office"
-    },
-    {
-      "name": "Road Repair and Maintenance Requests",
-      "lastAccessDate": "2024-02-01",
-      "status": "Active",
-      "department": "Department of Public Works"
-    },
-    {
-      "name": "Green Energy Rebate Application",
-      "lastAccessDate": "2024-01-26",
-      "status": "Active",
-      "department": "Sustainability and Environmental Affairs Office"
-    },
-    {
-      "name": "Community Watch Program Registration",
-      "lastAccessDate": "2024-02-05",
-      "status": "Active",
-      "department": "Police Department"
-    },
-    {
-      "name": "Emergency Shelter Information",
-      "lastAccessDate": "2024-01-30",
-      "status": "Active",
-      "department": "Emergency Management Agency"
-    },
-    {
-      "name": "Homelessness Outreach Services",
-      "lastAccessDate": "2024-02-02",
-      "status": "Active",
-      "department": "Social Services Department"
-    }
-  ]
-}
+[
+  {
+    "serviceTitle": "Renew Driver's License",
+    "lastAccessDate": "2024-02-10",
+    "department": "Department of Motor Vehicles",
+    "status": "Inactive",
+    "serviceDescription": "Renew your driver's license online with ease.",
+    "isFeatured": false,
+    "allowPartnerAccess": true,
+    "iconName": "directions_car",
+    "url": "https://example.gov/dmv/renew-license"
+  },
+  {
+    "serviceTitle": "Apply for Social Security Benefits",
+    "lastAccessDate": "2024-02-08",
+    "department": "Social Security Administration",
+    "status": "Inactive",
+    "serviceDescription": "Apply for retirement, disability, and Medicare benefits online.",
+    "isFeatured": false,
+    "allowPartnerAccess": true,
+    "iconName": "account_balance",
+    "url": "https://example.gov/social-security/apply-benefits"
+  },
+  {
+    "serviceTitle": "File Taxes",
+    "lastAccessDate": "2024-02-09",
+    "department": "Internal Revenue Service",
+    "status": "Active",
+    "serviceDescription": "File federal income taxes online securely.",
+    "isFeatured": false,
+    "allowPartnerAccess": true,
+    "iconName": "attach_money",
+    "url": "https://example.gov/irs/file-taxes"
+  },
+  {
+    "serviceTitle": "Apply for Passport",
+    "lastAccessDate": "2024-02-06",
+    "department": "U.S. Department of State",
+    "status": "Active",
+    "serviceDescription": "Apply for or renew a U.S. passport online.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "flight",
+    "url": "https://example.gov/passport/apply"
+  },
+  {
+    "serviceTitle": "Apply for Medicaid",
+    "lastAccessDate": "2024-02-05",
+    "department": "Department of Health and Human Services",
+    "status": "Active",
+    "serviceDescription": "Apply for Medicaid health coverage for low-income families.",
+    "isFeatured": true,
+    "allowPartnerAccess": true,
+    "iconName": "local_hospital",
+    "url": "https://example.gov/medicaid/apply"
+  },
+  {
+    "serviceTitle": "Renew Vehicle Registration",
+    "lastAccessDate": "2024-02-07",
+    "department": "Department of Motor Vehicles",
+    "status": "Active",
+    "serviceDescription": "Renew your vehicle registration online.",
+    "isFeatured": true,
+    "allowPartnerAccess": true,
+    "iconName": "directions_car",
+    "url": "https://example.gov/dmv/renew-registration"
+  },
+  {
+    "serviceTitle": "Apply for Unemployment Benefits",
+    "lastAccessDate": "2024-02-04",
+    "department": "Department of Labor",
+    "status": "Inactive",
+    "serviceDescription": "File for unemployment benefits online.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "work",
+    "url": "https://example.gov/unemployment/apply"
+  },
+  {
+    "serviceTitle": "Apply for Student Aid (FAFSA)",
+    "lastAccessDate": "2024-02-03",
+    "department": "U.S. Department of Education",
+    "status": "Inactive",
+    "serviceDescription": "Apply for federal student aid online.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "school",
+    "url": "https://example.gov/fafsa/apply"
+  },
+  {
+    "serviceTitle": "Apply for Small Business Loan",
+    "lastAccessDate": "2024-02-02",
+    "department": "Small Business Administration",
+    "status": "Active",
+    "serviceDescription": "Apply for a small business loan online.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "business_center",
+    "url": "https://example.gov/sba/apply-loan"
+  },
+  {
+    "serviceTitle": "Check Flight Status",
+    "lastAccessDate": "2024-02-01",
+    "department": "Federal Aviation Administration",
+    "status": "Active",
+    "serviceDescription": "Check the status of flights within the U.S.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "flight",
+    "url": "https://example.gov/faa/check-flight-status"
+  },
+  {
+    "serviceTitle": "Apply for Housing Assistance",
+    "lastAccessDate": "2024-01-31",
+    "department": "Department of Housing and Urban Development",
+    "status": "Active",
+    "serviceDescription": "Apply for housing assistance programs online.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "home",
+    "url": "https://example.gov/hud/apply-housing-assistance"
+  },
+  {
+    "serviceTitle": "Renew Passport",
+    "lastAccessDate": "2024-01-30",
+    "department": "U.S. Department of State",
+    "status": "Active",
+    "serviceDescription": "Renew your U.S. passport online.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "flight_takeoff",
+    "url": "https://example.gov/passport/renew"
+  },
+  {
+    "serviceTitle": "Find a National Park",
+    "lastAccessDate": "2024-01-29",
+    "department": "National Park Service",
+    "status": "Active",
+    "serviceDescription": "Find a national park near you.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "nature_people",
+    "url": "https://example.gov/nps/find-park"
+  },
+  {
+    "serviceTitle": "Apply for SNAP Benefits",
+    "lastAccessDate": "2024-01-28",
+    "department": "Department of Agriculture",
+    "status": "Active",
+    "serviceDescription": "Apply for Supplemental Nutrition Assistance Program (SNAP) benefits online.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "local_grocery_store",
+    "url": "https://example.gov/usda/apply-snap"
+  },
+  {
+    "serviceTitle": "Find a Job",
+    "lastAccessDate": "2024-01-27",
+    "department": "Department of Labor",
+    "status": "Active",
+    "serviceDescription": "Search and apply for job openings.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "work",
+    "url": "https://example.gov/dol/find-job"
+  }
+]
