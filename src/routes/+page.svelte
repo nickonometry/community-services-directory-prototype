@@ -165,7 +165,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <forge-button on:click={openFullPreview}>
           <forge-icon name="preview" external></forge-icon>
-          <span>Preview as a resident</span>
+          <span>Resident preview</span>
         </forge-button>
         <forge-button href="/create-service-link">
           <forge-icon name="add" external></forge-icon>
