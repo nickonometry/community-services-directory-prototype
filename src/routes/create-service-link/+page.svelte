@@ -3,9 +3,12 @@
   import { beforeNavigate } from '$app/navigation';
   import SelectServiceType from '../../lib/select-service-type/select-service-type.svelte';
   import PreviewStep from '../../lib/preview-step/preview-step.svelte';
+  import { browser } from '$app/environment';
   import { customServiceLinkForm, clearForm } from '../../lib/custom-form-store';
   import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../globalStore';
+  import confirmationDialog from '../../lib/confirmation-dialog/confirmation-dialog.svelte';
+
   let stepper;
   let steps = [];
   let stepSelected = 0;
@@ -50,13 +53,20 @@
   };
 
   const onSave = () => {
-    console.log('saving form');
-    console.log($servicesCache);
-
     servicesCache.update((state) => [...state, $customServiceLinkForm]);
+    openConfirmationDialog();
+  };
 
-    console.log('form saved, store updated');
-    console.log($servicesCache);
+  const openConfirmationDialog = () => {
+    if (browser) {
+      const dialog = document.createElement('forge-dialog');
+      document.body.append(dialog);
+      dialog.open = true;
+      let pd = new confirmationDialog({
+        target: dialog,
+        props: { dialogRef: dialog }
+      });
+    }
   };
 </script>
 
@@ -104,8 +114,6 @@
     </forge-stack>
   </forge-toolbar>
 </forge-card>
-
-<!-- <p>{JSON.stringify($customServiceLinkForm, 0, 2)}</p> -->
 
 <style lang="scss">
   .stepper-toolbar {

@@ -28,7 +28,7 @@
     This is a visual, non-interactive preview of your service directory as your residents will see it. Press escape or click outside of the dialog to
     close it.
   </div>
-  <forge-button slot="dismiss-button" on:click={closeDialog} variant="outlined">
+  <forge-button slot="dismiss-button" on:click={closeDialog}>
     <forge-icon name="close" external></forge-icon>
     Close preview dialog
   </forge-button>
