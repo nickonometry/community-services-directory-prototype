@@ -24,11 +24,8 @@
 </forge-toolbar> -->
 <forge-banner theme="danger" can-dismiss="false">
   <forge-icon id="leading-icon" slot="icon" name="add_alert" external></forge-icon>
-  <div id="text">
-    This is a visual, non-interactive preview of your service directory as your residents will see it. Press escape or click outside of the dialog to
-    close it.
-  </div>
-  <forge-button slot="dismiss-button" on:click={closeDialog}>
+  <div id="text">This is a visual, non-interactive preview of your service directory as your residents will see it. Press escape or click outside of the dialog to close it.</div>
+  <forge-button slot="dismiss-button" on:click={closeDialog} variant="outlined">
     <forge-icon name="close" external></forge-icon>
     Close preview dialog
   </forge-button>
