@@ -66,9 +66,17 @@ h6 {
 }
 
 .flex-center--row {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 16px;
+}
+
+.flex-gap-0 {
+  gap: 0;
+}
+
+.flex-gap-8 {
+  gap: 8px;
 }
 
 .truncate {

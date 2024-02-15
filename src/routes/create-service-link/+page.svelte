@@ -53,65 +53,52 @@
   };
 </script>
 
-<forge-scaffold>
-  <!-- <forge-drawer slot="body-left">
-    <forge-toolbar slot="header" class="stepper-toolbar" no-border>
-      <div slot="start">
-        <forge-icon-button href="/" aria-label="Go back">
-          <forge-icon name="arrow_back" external></forge-icon>
-        </forge-icon-button>
-        <h2 class="forge-typography--heading3">Service library</h2>
-      </div>
-    </forge-toolbar>
-  </forge-drawer> -->
-  <div slot="body" class="step-container">
-    <forge-card class="step-container__card">
-      <forge-toolbar>
-        <div slot="start">
-          <h2 class="forge-typography--heading3">Create a new service</h2>
-        </div>
-      </forge-toolbar>
-      <div class="padding-16">
-        <forge-stepper id="stepper" linear></forge-stepper>
-      </div>
-      <forge-view-switcher index={stepSelected}>
-        <forge-view>
-          <SelectServiceType {showValidation} />
-        </forge-view>
-        <forge-view>
-          {#if $customServiceLinkForm.serviceType === 'custom'}
-            <CustomServiceLinkForm />
-          {/if}
-          {#if $customServiceLinkForm.serviceType === 'integration'}
-            Integration form
-          {/if}
-          {#if $customServiceLinkForm.serviceType === 'tcp'}
-            TCP form
-          {/if}
-          {#if $customServiceLinkForm.serviceType === 'partner'}
-            Partner form
-          {/if}
-        </forge-view>
-        <forge-view>
-          <PreviewStep />
-        </forge-view>
-      </forge-view-switcher>
-      <forge-toolbar inverted>
-        <forge-button variant="outlined" on:click={onPreviousClicked} slot="start" disabled={stepSelected === 0}>Previous</forge-button>
-        <forge-stack slot="end" inline>
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
-          <!-- svelte-ignore a11y-no-static-element-interactions -->
-          {#if stepSelected === 2}
-            <forge-button variant="raised" on:click={onSave}>Save</forge-button>
-          {:else}
-            <forge-button variant="raised" on:click={onNextClicked}>Next</forge-button>
-          {/if}
-        </forge-stack>
-      </forge-toolbar>
-    </forge-card>
-    <!-- <p>{JSON.stringify($customServiceLinkForm, 0, 2)}</p> -->
+<forge-card class="step-container__card">
+  <forge-toolbar>
+    <div slot="start">
+      <h2 class="forge-typography--heading3">Create a new service</h2>
+    </div>
+  </forge-toolbar>
+  <div class="padding-16">
+    <forge-stepper id="stepper" linear></forge-stepper>
   </div>
-</forge-scaffold>
+  <forge-view-switcher index={stepSelected}>
+    <forge-view>
+      <SelectServiceType {showValidation} />
+    </forge-view>
+    <forge-view>
+      {#if $customServiceLinkForm.serviceType === 'custom'}
+        <CustomServiceLinkForm />
+      {/if}
+      {#if $customServiceLinkForm.serviceType === 'integration'}
+        Integration form
+      {/if}
+      {#if $customServiceLinkForm.serviceType === 'tcp'}
+        TCP form
+      {/if}
+      {#if $customServiceLinkForm.serviceType === 'partner'}
+        Partner form
+      {/if}
+    </forge-view>
+    <forge-view>
+      <PreviewStep />
+    </forge-view>
+  </forge-view-switcher>
+  <forge-toolbar inverted>
+    <forge-button variant="outlined" on:click={onPreviousClicked} slot="start" disabled={stepSelected === 0}>Previous</forge-button>
+    <forge-stack slot="end" inline>
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
+      {#if stepSelected === 2}
+        <forge-button variant="raised" on:click={onSave}>Save</forge-button>
+      {:else}
+        <forge-button variant="raised" on:click={onNextClicked}>Next</forge-button>
+      {/if}
+    </forge-stack>
+  </forge-toolbar>
+</forge-card>
+
+<!-- <p>{JSON.stringify($customServiceLinkForm, 0, 2)}</p> -->
 
 <style lang="scss">
   .stepper-toolbar {
@@ -131,6 +118,8 @@
 
     &__card {
       --forge-card-padding: 0;
+      max-width: 1024px;
+      margin: 24px auto;
     }
   }
 

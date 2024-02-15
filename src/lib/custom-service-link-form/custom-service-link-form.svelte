@@ -3,6 +3,7 @@
   import IconPicker from '../icon-picker/icon-picker.svelte';
   import { customServiceLinkForm } from '../store';
   import { servicesCache } from '../../globalStore';
+  import HelpPopup from '../help-popup/help-popup.svelte';
   let selectGroup;
   let form;
   let formIsValid = false;
@@ -22,21 +23,28 @@
     form.addEventListener('change', () => {
       formIsValid = !Object.values(customServiceLinkForm).some((x) => x !== null && x !== '');
     });
-    selectGroup.options = departments.sort((a, b) =>
-      a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0
-    );
+    selectGroup.options = departments.sort((a, b) => (a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0));
   });
 
   function onFeatureChange(event) {
-    customServiceLinkForm.update((state) => ({ ...state, isFeatured: event.target.value }));
+    customServiceLinkForm.update((state) => ({
+      ...state,
+      isFeatured: event.target.value
+    }));
   }
 
   function onPartnerAccessChange(event) {
-    customServiceLinkForm.update((state) => ({ ...state, allowPartnerAccess: event.target.value }));
+    customServiceLinkForm.update((state) => ({
+      ...state,
+      allowPartnerAccess: event.target.value
+    }));
   }
 
   function onDepartmentChange(event) {
-    customServiceLinkForm.update((state) => ({ ...state, department: event.target.value }));
+    customServiceLinkForm.update((state) => ({
+      ...state,
+      department: event.target.value
+    }));
   }
 
   function onIconSelected(event) {
@@ -70,7 +78,24 @@
       <textarea type="text" id="service-title" bind:value={$customServiceLinkForm.serviceDescription} required />
     </forge-text-field>
     <forge-radio-group>
-      <forge-label legend>Featured</forge-label>
+      <div class="flex-center--row flex-gap-0">
+        <forge-label legend>Featured</forge-label>
+        <div class="custom-icon">
+          <forge-icon-button dense>
+            <forge-icon name="help_outline" external></forge-icon>
+          </forge-icon-button>
+        </div>
+        <forge-popover trigger-type="hover" arrow placement="right">
+          <div style="width: 800px;">
+            <HelpPopup imageUrl="featured-services.png" title="Featured services">
+              <p>Featured services show up at the top of your services directory. We recommend to use this if you want showcase seasonal content or services that you want to be the most visible</p>
+
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            </HelpPopup>
+          </div>
+        </forge-popover>
+      </div>
+
       <div>
         <forge-radio name="featured" value="true" on:change={onFeatureChange} required>Yes</forge-radio>
         <forge-radio name="featured" value="false" on:change={onFeatureChange} required>No</forge-radio>
@@ -100,8 +125,10 @@
       <forge-switch id="forge-switch-01" required aria-label="Active" on:forge-switch-change={(e) => onStatusChange(e)}>
         <span>Published</span>
       </forge-switch>
-      <div class="info" id="tooltip-host">
-        <forge-icon name="help_outline" external></forge-icon>
+      <div class="custom-icon" id="tooltip-host">
+        <forge-icon-button dense>
+          <forge-icon name="help_outline" external></forge-icon>
+        </forge-icon-button>
         <forge-tooltip target="#tooltip-host" delay="200">Publishing a service will make it viewable to the public</forge-tooltip>
       </div>
     </div>
@@ -109,7 +136,7 @@
   <!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
 </form>
 
-<style>
+<style lang="scss">
   .form {
     width: 100%;
     padding: 16px;
@@ -122,12 +149,18 @@
     gap: 8px;
   }
 
-  .info {
-    margin-inline-start: 16px;
+  .custom-icon {
+    margin-inline-start: 4px;
     color: var(--forge-theme-text-medium);
+    display: grid;
+    place-content: center;
+
+    forge-icon {
+      font-size: 20px;
+    }
   }
 
-  .info:hover {
+  .custom-icon:hover {
     color: var(--forge-theme-text);
   }
 </style>

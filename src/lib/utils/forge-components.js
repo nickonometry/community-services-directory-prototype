@@ -31,4 +31,5 @@ export async function loadForgeComponents() {
   import('@tylertech/forge/esm/switch');
   import('@tylertech/forge/esm/avatar');
   import('@tylertech/forge/esm/floating-action-button');
+  import('@tylertech/forge/esm/popover');
 }
