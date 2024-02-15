@@ -81,60 +81,41 @@
     },
     {
       property: 'serviceTitle',
-      header: 'Service Name',
-      sortable: true,
-      initialSort: true,
-      filter: true,
-      width: '50ch'
+      header: 'Service Name'
     },
     {
       property: 'serviceDescription',
-      header: 'Service Description',
-      sortable: true,
-      initialSort: true,
-      filter: true
+      header: 'Service Description'
     },
     {
       property: 'lastAccessDate',
       header: 'Last Accessed',
-      sortable: true,
-      filter: true,
       width: '150px'
     },
     {
       property: 'department.label',
-      header: 'Department',
-      sortable: true,
-      filter: true
+      header: 'Department'
     },
     {
       property: 'status',
       header: 'Status',
-      sortable: true,
-      filter: true,
       template: (i, div, data) => createStatusBadge(i, div, data)
     },
     {
       property: 'isFeatured',
       header: 'Featured',
-      sortable: true,
-      filter: true,
       template: (i, div, data) => createFeaturedIcon(i, div, data),
       align: 'center'
     },
     {
       property: 'allowPartnerAccess',
       header: 'Allow partner access',
-      sortable: true,
-      filter: true,
       template: (i, div, data) => createPartnerAccessIcon(i, div, data),
       align: 'center'
     },
     {
       property: 'actions',
       header: '',
-      sortable: true,
-      filter: true,
       template: (i, div, data) => createActionIconButton(i, div, data)
     }
   ];

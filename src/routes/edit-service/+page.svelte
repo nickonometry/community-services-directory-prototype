@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../globalStore';
+  import { customServiceLinkForm } from '../../lib/custom-form-store';
   let serviceId;
   let editData;
 
@@ -14,6 +15,11 @@
     serviceId = searchParams.get('name');
     editData = getServiceById(serviceId);
   });
+
+  const onSave = () => {
+    console.log('saved');
+    // servicesCache.update((state) => [...state, $customServiceLinkForm]);
+  };
 </script>
 
 <div class="container">
@@ -33,6 +39,14 @@
       </forge-button>
     </forge-toolbar>
     <CustomServiceLinkForm isEdit="true"></CustomServiceLinkForm>
+    <forge-toolbar inverted>
+      <forge-stack slot="end" inline>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <forge-button href="/">Cancel</forge-button>
+        <forge-button variant="raised" on:click={onSave}>Save</forge-button>
+      </forge-stack>
+    </forge-toolbar>
   </forge-card>
 </div>
 
