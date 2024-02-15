@@ -105,7 +105,7 @@
             <div style="width: 800px;">
               <HelpPopup imageUrl="/featured-services.png" title="Featured services">
                 <p>
-                  Featured services show up at the top of your services directory. We recommend to use this if you want showcase seasonal content or
+                  Featured services show up at the top of your services directory. We recommend using this if you want showcase seasonal content or
                   services that you want to be the most visible
                 </p>
               </HelpPopup>
