@@ -79,6 +79,18 @@ h6 {
   gap: 8px;
 }
 
+.custom-icon {
+  margin-inline-start: 4px;
+  color: var(--forge-theme-text-medium);
+  display: grid;
+  place-content: center;
+
+  forge-icon {
+    font-size: 18px;
+    cursor: help;
+  }
+}
+
 .truncate {
   width: 320px;
   white-space: nowrap;

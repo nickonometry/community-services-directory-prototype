@@ -32,4 +32,6 @@ export async function loadForgeComponents() {
   import('@tylertech/forge/esm/avatar');
   import('@tylertech/forge/esm/floating-action-button');
   import('@tylertech/forge/esm/popover');
+  import('@tylertech/forge/esm/chip-field');
+  import('@tylertech/forge/esm/chips');
 }

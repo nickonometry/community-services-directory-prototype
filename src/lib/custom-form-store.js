@@ -14,7 +14,7 @@ const defaults = {
   status: '',
   iconName: '',
   group: '',
-  planning: '',
+  keywords: [],
   url: ''
 };
 

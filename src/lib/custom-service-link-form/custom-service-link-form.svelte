@@ -5,6 +5,7 @@
   import { customServiceLinkForm, clearForm } from '../custom-form-store';
   import { servicesCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
+  import KeywordsInput from '../keywords-input/keywords-input.svelte';
   export let isEdit = false;
   let departmentSelect;
   let form;
@@ -133,10 +134,9 @@
         onIconSelected(v);
       }} />
     <forge-select label="Department" bind:this={departmentSelect} on:change={onDepartmentChange} required> </forge-select>
-    <forge-text-field required>
-      <label for="planning">Planning</label>
-      <input type="text" id="planning" bind:value={$customServiceLinkForm.planning} required />
-    </forge-text-field>
+
+    <KeywordsInput />
+
     <forge-text-field required>
       <label for="url">Url</label>
       <input type="text" id="url" bind:value={$customServiceLinkForm.url} required />
@@ -168,17 +168,5 @@
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-
-  .custom-icon {
-    margin-inline-start: 4px;
-    color: var(--forge-theme-text-medium);
-    display: grid;
-    place-content: center;
-
-    forge-icon {
-      font-size: 18px;
-      cursor: help;
-    }
   }
 </style>

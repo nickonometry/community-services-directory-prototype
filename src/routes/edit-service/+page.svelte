@@ -27,7 +27,7 @@
       </div>
       <!-- svelte-ignore a11y-no-static-element-interactions -->
       <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <forge-button slot="end" theme="error">
+      <forge-button slot="end" theme="error" style="margin-inline-end: 16px;">
         <forge-icon name="delete" external></forge-icon>
         <span>Delete service</span>
       </forge-button>

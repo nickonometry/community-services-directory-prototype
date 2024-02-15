@@ -7,7 +7,6 @@
 
   export let data;
   let services = data.data;
-  console.log(services);
   servicesCache.set(services);
   let isLoaded = false;
 
