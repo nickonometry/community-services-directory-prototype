@@ -17,7 +17,7 @@
 <forge-scaffold style="width: 400px">
   <div slot="body">
     <img src="https://cdn.forge.tylertech.com/v1/images/spot/thumbs-up-spot.svg" alt="" height="150" width="150" />
-    <p>Your new service has been successfully created</p>
+    <p>Your new service was successfully created</p>
     <forge-button href="/" variant="filled" on:click={closeDialog}>Close dialog</forge-button>
   </div>
 </forge-scaffold>

@@ -5,6 +5,10 @@ const defaults = {
   serviceType: '',
   serviceTitle: '',
   serviceDescription: '',
+  department: {
+    label: '',
+    value: ''
+  },
   isFeatured: false,
   allowPartnerAccess: false,
   status: '',

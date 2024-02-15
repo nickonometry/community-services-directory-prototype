@@ -4,6 +4,7 @@
   import { servicesCache } from '../globalStore';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import { randomBrightColorPicker } from '../lib/utils/color-picker';
+  import { customServiceLinkForm } from '../lib/custom-form-store';
 
   let table;
   let services = $servicesCache.sort((a, b) =>
@@ -44,12 +45,16 @@
     return icon;
   };
 
-  const createActionIconButton = () => {
+  const createActionIconButton = (index, div, data) => {
     let iconButton = document.createElement('forge-icon-button');
+    iconButton.href = `/edit-service?name=${data.id}`;
     iconButton.ariaLabel = 'Edit this service';
     let icon = createIcon('chevron_right');
     icon.style.color = 'var(--forge-theme-text-medium)';
     iconButton.appendChild(icon);
+    iconButton.addEventListener('click', () => {
+      customServiceLinkForm.set(data);
+    });
     return iconButton;
   };
 
@@ -97,7 +102,7 @@
       width: '150px'
     },
     {
-      property: 'department',
+      property: 'department.label',
       header: 'Department',
       sortable: true,
       filter: true

@@ -1,6 +1,8 @@
 <script>
   import iconJson from '@tylertech/tyler-icons/tyler-icons-metadata-svg.json';
   import { createEventDispatcher, onMount } from 'svelte';
+  import { customServiceLinkForm } from '../custom-form-store';
+  export let value;
   let standardIcons = iconJson[1].icons;
   let icons = standardIcons;
   let autocomplete;
@@ -24,6 +26,11 @@
     };
     autocomplete.filter = filter;
     autocomplete.optionBuilder = optionBuilder;
+
+    if ($customServiceLinkForm.iconName) {
+      onIconSelected($customServiceLinkForm.iconName);
+      autocomplete.value = $customServiceLinkForm.iconName;
+    }
   });
 
   const dispatchSelectedValue = (iconName) => {

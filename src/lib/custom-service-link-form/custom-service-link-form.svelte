@@ -1,20 +1,24 @@
 <script>
   import { onMount } from 'svelte';
+  import { beforeNavigate } from '$app/navigation';
   import IconPicker from '../icon-picker/icon-picker.svelte';
-  import { customServiceLinkForm } from '../custom-form-store';
+  import { customServiceLinkForm, clearForm } from '../custom-form-store';
   import { servicesCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
-  let selectGroup;
+  export let isEdit = false;
+  let departmentSelect;
   let form;
   let formIsValid = false;
+
+  beforeNavigate(() => {
+    clearForm();
+  });
 
   let services = $servicesCache;
   let departments = [];
 
   services.forEach((s) => {
-    let departmentObject = {};
-    departmentObject.label = s.department;
-    departmentObject.value = s.department;
+    let departmentObject = s.department;
     departments.push(departmentObject);
   });
 
@@ -23,9 +27,12 @@
     form.addEventListener('change', () => {
       formIsValid = !Object.values(customServiceLinkForm).some((x) => x !== null && x !== '');
     });
-    selectGroup.options = departments.sort((a, b) =>
+    departmentSelect.options = departments.sort((a, b) =>
       a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0
     );
+    if (isEdit) {
+      departmentSelect.value = $customServiceLinkForm.department.value;
+    }
   });
 
   function onFeatureChange(event) {
@@ -45,7 +52,10 @@
   function onDepartmentChange(event) {
     customServiceLinkForm.update((state) => ({
       ...state,
-      department: event.target.value
+      department: {
+        label: services.find((s) => s.department.value === event.detail).department.label,
+        value: event.detail
+      }
     }));
   }
 
@@ -65,9 +75,11 @@
   }
 </script>
 
-<forge-toolbar no-border>
-  <h3 slot="center" class="forge-typography--heading2">Next let's fill out the custom service details</h3>
-</forge-toolbar>
+{#if !isEdit}
+  <forge-toolbar no-border>
+    <h3 slot="center" class="forge-typography--heading2">Next let's fill out the custom service details</h3>
+  </forge-toolbar>
+{/if}
 
 <form class="form" id="form">
   <forge-stack>
@@ -90,7 +102,7 @@
           </div>
           <forge-popover trigger-type="hover" arrow placement="right">
             <div style="width: 800px;">
-              <HelpPopup imageUrl="featured-services.png" title="Featured services">
+              <HelpPopup imageUrl="/featured-services.png" title="Featured services">
                 <p>
                   Featured services show up at the top of your services directory. We recommend to use this if you want showcase seasonal content or
                   services that you want to be the most visible
@@ -101,15 +113,18 @@
         </div>
 
         <div>
-          <forge-radio name="featured" value="true" on:change={onFeatureChange} required>Yes</forge-radio>
-          <forge-radio name="featured" value="false" on:change={onFeatureChange} required>No</forge-radio>
+          <forge-radio name="featured" value="true" on:change={onFeatureChange} checked={$customServiceLinkForm.isFeatured} required>Yes</forge-radio>
+          <forge-radio name="featured" value="false" on:change={onFeatureChange} checked={!$customServiceLinkForm.isFeatured} required
+            >No</forge-radio>
         </div>
       </forge-radio-group>
       <forge-radio-group>
         <forge-label legend>Allow partners to access this service?</forge-label>
         <div>
-          <forge-radio name="partners" value="true" on:change={onPartnerAccessChange}>Yes</forge-radio>
-          <forge-radio name="partners" value="false" on:change={onPartnerAccessChange}>No</forge-radio>
+          <forge-radio name="partners" value="true" on:change={onPartnerAccessChange} checked={$customServiceLinkForm.allowPartnerAccess}
+            >Yes</forge-radio>
+          <forge-radio name="partners" value="false" on:change={onPartnerAccessChange} checked={!$customServiceLinkForm.allowPartnerAccess}
+            >No</forge-radio>
         </div>
       </forge-radio-group>
     </forge-stack>
@@ -117,7 +132,7 @@
       on:icon-selected={(v) => {
         onIconSelected(v);
       }} />
-    <forge-select label="Department" bind:this={selectGroup} on:change={onDepartmentChange} required> </forge-select>
+    <forge-select label="Department" bind:this={departmentSelect} on:change={onDepartmentChange} required> </forge-select>
     <forge-text-field required>
       <label for="planning">Planning</label>
       <input type="text" id="planning" bind:value={$customServiceLinkForm.planning} required />
@@ -138,8 +153,9 @@
       </div>
     </div>
   </forge-stack>
-  <!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
 </form>
+
+<!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
 
 <style lang="scss">
   .form {

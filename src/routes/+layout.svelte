@@ -7,6 +7,7 @@
 
   export let data;
   let services = data.data;
+  console.log(services);
   servicesCache.set(services);
   let isLoaded = false;
 
@@ -18,7 +19,7 @@
 
 {#if isLoaded}
   <forge-scaffold>
-    <forge-app-bar title-text="Community Service Directory" href="/" slot="header">
+    <forge-app-bar title-text="Community Services Admin" href="/" slot="header">
       <forge-tooltip position="left">Toggle theme</forge-tooltip>
     </forge-app-bar>
 
