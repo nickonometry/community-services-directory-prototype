@@ -1,7 +1,7 @@
 // store.js
 import { writable } from 'svelte/store';
 
-export const customServiceLinkForm = writable({
+const defaults = {
   serviceType: '',
   serviceTitle: '',
   serviceDescription: '',
@@ -12,4 +12,9 @@ export const customServiceLinkForm = writable({
   group: '',
   planning: '',
   url: ''
-});
+};
+
+export const customServiceLinkForm = writable(defaults);
+export const clearForm = () => {
+  customServiceLinkForm.set(defaults);
+};

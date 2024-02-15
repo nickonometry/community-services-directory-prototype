@@ -5,11 +5,8 @@
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import { randomBrightColorPicker } from '../lib/utils/color-picker';
 
-  export let data;
-  servicesCache.update((state) => ({ ...state, data }));
-
   let table;
-  let services = data.data.sort((a, b) =>
+  let services = $servicesCache.data.data.sort((a, b) =>
     a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
   );
 
@@ -163,11 +160,14 @@
       <forge-stack slot="end" inline>
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <forge-button on:click={openFullPreview}>
-          <forge-icon name="preview" external></forge-icon>
-          <span>Resident preview</span>
-        </forge-button>
-        <forge-button href="/create-service-link">
+        <div>
+          <forge-button on:click={openFullPreview}>
+            <forge-icon name="preview" external></forge-icon>
+            <span>Resident preview</span>
+          </forge-button>
+          <forge-tooltip>Preview what the public service directory looks like on your city website</forge-tooltip>
+        </div>
+        <forge-button href="/create-service-link" variant="outlined">
           <forge-icon name="add" external></forge-icon>
           <span>Add a service</span>
         </forge-button>

@@ -3,6 +3,10 @@
   import { loadForgeComponents } from '$lib/utils/forge-components.js';
   import '../app.scss';
   import Nav from '../lib/nav/nav.svelte';
+  import { servicesCache } from '../globalStore';
+
+  export let data;
+  servicesCache.update((state) => ({ ...state, data }));
 
   let isLoaded = false;
   onMount(async () => {

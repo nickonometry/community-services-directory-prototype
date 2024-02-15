@@ -17,14 +17,16 @@
 </script>
 
 <forge-toolbar no-border>
-  <h3 slot="start" class="forge-typography--heading3">Select a service type</h3>
+  <h3 slot="center" class="forge-typography--heading2 stepper-info">Let's start by selecting a service type</h3>
 </forge-toolbar>
 
 <div class="service-type__container">
   {#if showValidation}
     <forge-inline-message class="span-full" theme="warning">
-      <forge-icon slot="icon" name="warning" external></forge-icon>
-      <div>A service type is required</div>
+      <div class="flex-center--row">
+        <forge-icon slot="icon" name="warning" external></forge-icon>
+        <div>A service type is required</div>
+      </div>
     </forge-inline-message>
   {/if}
   <ServiceTypeCard

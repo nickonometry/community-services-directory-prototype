@@ -2,29 +2,29 @@
   import { onMount } from 'svelte';
   import IconPicker from '../icon-picker/icon-picker.svelte';
   import { customServiceLinkForm } from '../store';
+  import { servicesCache } from '../../globalStore';
   let selectGroup;
   let form;
   let formIsValid = false;
+
+  let services = $servicesCache.data.data;
+  let departments = [];
+
+  services.forEach((s) => {
+    let departmentObject = {};
+    departmentObject.label = s.department;
+    departmentObject.value = s.department.replace(/\s+/g, '-').toLowerCase();
+    departments.push(departmentObject);
+  });
 
   onMount(() => {
     form = document.querySelector('#form');
     form.addEventListener('change', () => {
       formIsValid = !Object.values(customServiceLinkForm).some((x) => x !== null && x !== '');
     });
-    selectGroup.options = [
-      {
-        label: 'Group one',
-        value: 'group-one'
-      },
-      {
-        label: 'Group three',
-        value: 'group-three'
-      },
-      {
-        label: 'Group four',
-        value: 'group-four'
-      }
-    ];
+    selectGroup.options = departments.sort((a, b) =>
+      a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0
+    );
   });
 
   function onFeatureChange(event) {
@@ -56,8 +56,9 @@
 </script>
 
 <forge-toolbar no-border>
-  <h3 slot="start" class="forge-typography--heading3">Service details</h3>
+  <h3 slot="center" class="forge-typography--heading2">Next let's fill out the service details</h3>
 </forge-toolbar>
+
 <form class="form" id="form">
   <forge-stack>
     <forge-text-field required>
@@ -86,7 +87,7 @@
       on:icon-selected={(v) => {
         onIconSelected(v);
       }} />
-    <forge-select label="Add a group" bind:this={selectGroup} on:change={onDepartmentChange} required> </forge-select>
+    <forge-select label="Department" bind:this={selectGroup} on:change={onDepartmentChange} required> </forge-select>
     <forge-text-field required>
       <label for="planning">Planning</label>
       <input type="text" id="planning" bind:value={$customServiceLinkForm.planning} required />

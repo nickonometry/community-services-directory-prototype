@@ -1,13 +1,18 @@
 <script>
   import { onMount } from 'svelte';
+  import { beforeNavigate } from '$app/navigation';
   import SelectServiceType from '../../lib/select-service-type/select-service-type.svelte';
   import PreviewStep from '../../lib/preview-step/preview-step.svelte';
-  import { customServiceLinkForm } from '../../lib/store';
+  import { customServiceLinkForm, clearForm } from '../../lib/store';
   import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
   let stepper;
   let steps = [];
   let stepSelected = 0;
   let showValidation = false;
+
+  beforeNavigate(() => {
+    clearForm();
+  });
 
   onMount(() => {
     stepper = document.querySelector('#stepper');
@@ -49,7 +54,7 @@
 </script>
 
 <forge-scaffold>
-  <forge-drawer slot="body-left">
+  <!-- <forge-drawer slot="body-left">
     <forge-toolbar slot="header" class="stepper-toolbar" no-border>
       <div slot="start">
         <forge-icon-button href="/" aria-label="Go back">
@@ -58,10 +63,17 @@
         <h2 class="forge-typography--heading3">Service library</h2>
       </div>
     </forge-toolbar>
-    <forge-stepper vertical="true" id="stepper"> </forge-stepper>
-  </forge-drawer>
+  </forge-drawer> -->
   <div slot="body" class="step-container">
     <forge-card class="step-container__card">
+      <forge-toolbar>
+        <div slot="start">
+          <h2 class="forge-typography--heading3">Create a new service</h2>
+        </div>
+      </forge-toolbar>
+      <div class="padding-16">
+        <forge-stepper id="stepper" linear></forge-stepper>
+      </div>
       <forge-view-switcher index={stepSelected}>
         <forge-view>
           <SelectServiceType {showValidation} />
@@ -113,7 +125,9 @@
 
   .step-container {
     padding: 24px;
-    max-width: 768px;
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
 
     &__card {
       --forge-card-padding: 0;

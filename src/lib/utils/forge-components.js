@@ -29,4 +29,5 @@ export async function loadForgeComponents() {
   import('@tylertech/forge/esm/view-switcher');
   import('@tylertech/forge/esm/tooltip');
   import('@tylertech/forge/esm/avatar');
+  import('@tylertech/forge/esm/floating-action-button');
 }

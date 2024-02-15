@@ -2,19 +2,37 @@
   import ServiceCard from '../service-card/service-card.svelte';
   import Banner from './banner/banner.svelte';
   import { servicesCache } from '../../globalStore';
+  import { onMount } from 'svelte';
   export let dialogRef = null;
 
-  const onDialogClose = () => {
+  onMount(() => {
+    dialogRef.addEventListener('forge-dialog-close', () => {
+      closeDialog();
+    });
+  });
+
+  const closeDialog = () => {
     dialogRef.open = false;
     dialogRef.remove();
   };
 </script>
 
-<forge-toolbar>
+<!-- <forge-toolbar>
   <div slot="start">
     <h1 class="forge-typography--heading4">Preview</h1>
   </div>
-</forge-toolbar>
+</forge-toolbar> -->
+<forge-banner theme="danger" can-dismiss="false">
+  <forge-icon id="leading-icon" slot="icon" name="add_alert" external></forge-icon>
+  <div id="text">
+    This is a visual, non-interactive preview of your service directory as your residents will see it. Press escape or click outside of the dialog to
+    close it.
+  </div>
+  <forge-button slot="dismiss-button" on:click={closeDialog}>
+    <forge-icon name="close" external></forge-icon>
+    Close preview dialog
+  </forge-button>
+</forge-banner>
 <div class="dialog__container">
   <forge-scaffold>
     <forge-app-bar slot="header">
@@ -105,8 +123,8 @@
 
 <style lang="scss">
   .dialog__container {
-    height: 95dvh;
-    width: 95dvw;
+    height: 90dvh;
+    width: 90dvw;
     background-color: var(--forge-theme-surface-dim);
   }
 
