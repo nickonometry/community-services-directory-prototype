@@ -23,10 +23,10 @@
           <forge-icon name={icon} external external-type={iconLibrary}></forge-icon>
           <span id="button-area-heading" class="forge-typography--heading2">{serviceType} service</span>
           <div>
-            <forge-icon name="info_outline" external class="info"></forge-icon>
+            <forge-icon name="help_outline" external class="info"></forge-icon>
             <forge-tooltip position="top-start" delay="250">
               <div class="tooltip__inner">
-                <forge-icon slot="icon" name="info_outline" external></forge-icon>
+                <forge-icon slot="icon" name={icon} external external-type={iconLibrary}></forge-icon>
                 <forge-stack gap="4px">
                   <div class="forge-typography--heading2">{serviceType}</div>
                   <div class="forge-typography--body1">{serviceDescription}</div>
@@ -62,6 +62,7 @@
     forge-icon {
       font-size: 44px;
       color: var(--forge-theme-text-medium);
+      cursor: help;
     }
 
     .info {

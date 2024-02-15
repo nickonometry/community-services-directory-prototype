@@ -8,7 +8,7 @@ const defaults = {
   isFeatured: false,
   allowPartnerAccess: false,
   status: '',
-  icon: '',
+  iconName: '',
   group: '',
   planning: '',
   url: ''

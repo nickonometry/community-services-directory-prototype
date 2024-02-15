@@ -1,6 +1,6 @@
 <script>
   import ServiceCard from '../service-card/service-card.svelte';
-  import { customServiceLinkForm } from '../store';
+  import { customServiceLinkForm } from '../custom-form-store';
 </script>
 
 <forge-toolbar no-border>
@@ -9,7 +9,7 @@
 
 <div class="preview-container">
   <ServiceCard
-    icon={$customServiceLinkForm.icon}
+    icon={$customServiceLinkForm.iconName}
     title={$customServiceLinkForm.serviceTitle}
     description={$customServiceLinkForm.serviceDescription}
     url={$customServiceLinkForm.url} />

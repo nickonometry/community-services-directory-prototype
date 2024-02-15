@@ -49,7 +49,7 @@
     "department": "Department of Health and Human Services",
     "status": "Active",
     "serviceDescription": "Apply for Medicaid health coverage for low-income families.",
-    "isFeatured": true,
+    "isFeatured": false,
     "allowPartnerAccess": true,
     "iconName": "local_hospital",
     "url": "https://example.gov/medicaid/apply"

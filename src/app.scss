@@ -85,3 +85,10 @@ h6 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+forge-radio-group {
+  padding: 8px;
+  // background-color: rgb(251, 251, 251);
+  border-radius: 4px;
+  border: 1px solid var(--forge-theme-text-lowest);
+}

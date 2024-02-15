@@ -24,7 +24,10 @@
 </forge-toolbar> -->
 <forge-banner theme="danger" can-dismiss="false">
   <forge-icon id="leading-icon" slot="icon" name="add_alert" external></forge-icon>
-  <div id="text">This is a visual, non-interactive preview of your service directory as your residents will see it. Press escape or click outside of the dialog to close it.</div>
+  <div id="text">
+    This is a visual, non-interactive preview of your service directory as your residents will see it. Press escape or click outside of the dialog to
+    close it.
+  </div>
   <forge-button slot="dismiss-button" on:click={closeDialog} variant="outlined">
     <forge-icon name="close" external></forge-icon>
     Close preview dialog
@@ -69,7 +72,7 @@
           <forge-stack gap="32">
             <div class="services-grid">
               <h3 class="forge-typography--heading3 span-full">Featured Services</h3>
-              {#each $servicesCache.data.data as service}
+              {#each $servicesCache as service}
                 {#if service.isFeatured}
                   <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
                 {/if}
@@ -84,7 +87,7 @@
 
             <div class="services-grid">
               <h3 class="forge-typography--heading3 span-full">Popular Services</h3>
-              {#each $servicesCache.data.data as service, index}
+              {#each $servicesCache as service, index}
                 {#if index < 5}
                   <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
                 {/if}
@@ -99,7 +102,7 @@
 
             <div class="services-grid">
               <h3 class="forge-typography--heading3 span-full">Government Partners</h3>
-              {#each $servicesCache.data.data as service}
+              {#each $servicesCache as service}
                 {#if service.allowPartnerAccess}
                   <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
                 {/if}

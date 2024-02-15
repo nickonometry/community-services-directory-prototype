@@ -6,9 +6,10 @@
   import { servicesCache } from '../globalStore';
 
   export let data;
-  servicesCache.update((state) => ({ ...state, data }));
-
+  let services = data.data;
+  servicesCache.set(services);
   let isLoaded = false;
+
   onMount(async () => {
     loadForgeComponents();
     Promise.allSettled([window.customElements.whenDefined('forge-split-view')]).then(() => (isLoaded = true));

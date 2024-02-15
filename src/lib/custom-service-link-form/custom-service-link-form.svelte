@@ -1,20 +1,20 @@
 <script>
   import { onMount } from 'svelte';
   import IconPicker from '../icon-picker/icon-picker.svelte';
-  import { customServiceLinkForm } from '../store';
+  import { customServiceLinkForm } from '../custom-form-store';
   import { servicesCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
   let selectGroup;
   let form;
   let formIsValid = false;
 
-  let services = $servicesCache.data.data;
+  let services = $servicesCache;
   let departments = [];
 
   services.forEach((s) => {
     let departmentObject = {};
     departmentObject.label = s.department;
-    departmentObject.value = s.department.replace(/\s+/g, '-').toLowerCase();
+    departmentObject.value = s.department;
     departments.push(departmentObject);
   });
 
@@ -23,7 +23,9 @@
     form.addEventListener('change', () => {
       formIsValid = !Object.values(customServiceLinkForm).some((x) => x !== null && x !== '');
     });
-    selectGroup.options = departments.sort((a, b) => (a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0));
+    selectGroup.options = departments.sort((a, b) =>
+      a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0
+    );
   });
 
   function onFeatureChange(event) {
@@ -48,7 +50,7 @@
   }
 
   function onIconSelected(event) {
-    customServiceLinkForm.update((state) => ({ ...state, icon: event.detail }));
+    customServiceLinkForm.update((state) => ({ ...state, iconName: event.detail }));
   }
 
   function onStatusChange(event) {
@@ -64,7 +66,7 @@
 </script>
 
 <forge-toolbar no-border>
-  <h3 slot="center" class="forge-typography--heading2">Next let's fill out the service details</h3>
+  <h3 slot="center" class="forge-typography--heading2">Next let's fill out the custom service details</h3>
 </forge-toolbar>
 
 <form class="form" id="form">
@@ -77,35 +79,40 @@
       <label for="service-title">Service description</label>
       <textarea type="text" id="service-title" bind:value={$customServiceLinkForm.serviceDescription} required />
     </forge-text-field>
-    <forge-radio-group>
-      <div class="flex-center--row flex-gap-0">
-        <forge-label legend>Featured</forge-label>
-        <div class="custom-icon">
-          <forge-icon-button dense>
-            <forge-icon name="help_outline" external></forge-icon>
-          </forge-icon-button>
-        </div>
-        <forge-popover trigger-type="hover" arrow placement="right">
-          <div style="width: 800px;">
-            <HelpPopup imageUrl="featured-services.png" title="Featured services">
-              <p>Featured services show up at the top of your services directory. We recommend to use this if you want showcase seasonal content or services that you want to be the most visible</p>
-            </HelpPopup>
+    <forge-stack inline stretch>
+      <forge-radio-group>
+        <div class="flex-center--row flex-gap-0">
+          <forge-label legend>Featured</forge-label>
+          <div class="custom-icon">
+            <forge-icon-button dense>
+              <forge-icon name="help_outline" external></forge-icon>
+            </forge-icon-button>
           </div>
-        </forge-popover>
-      </div>
+          <forge-popover trigger-type="hover" arrow placement="right">
+            <div style="width: 800px;">
+              <HelpPopup imageUrl="featured-services.png" title="Featured services">
+                <p>
+                  Featured services show up at the top of your services directory. We recommend to use this if you want showcase seasonal content or
+                  services that you want to be the most visible
+                </p>
+              </HelpPopup>
+            </div>
+          </forge-popover>
+        </div>
 
-      <div>
-        <forge-radio name="featured" value="true" on:change={onFeatureChange} required>Yes</forge-radio>
-        <forge-radio name="featured" value="false" on:change={onFeatureChange} required>No</forge-radio>
-      </div>
-    </forge-radio-group>
-    <forge-radio-group>
-      <forge-label legend>Allow partners to access this service?</forge-label>
-      <div>
-        <forge-radio name="partners" value="true" on:change={onPartnerAccessChange}>Yes</forge-radio>
-        <forge-radio name="partners" value="false" on:change={onPartnerAccessChange}>No</forge-radio>
-      </div>
-    </forge-radio-group>
+        <div>
+          <forge-radio name="featured" value="true" on:change={onFeatureChange} required>Yes</forge-radio>
+          <forge-radio name="featured" value="false" on:change={onFeatureChange} required>No</forge-radio>
+        </div>
+      </forge-radio-group>
+      <forge-radio-group>
+        <forge-label legend>Allow partners to access this service?</forge-label>
+        <div>
+          <forge-radio name="partners" value="true" on:change={onPartnerAccessChange}>Yes</forge-radio>
+          <forge-radio name="partners" value="false" on:change={onPartnerAccessChange}>No</forge-radio>
+        </div>
+      </forge-radio-group>
+    </forge-stack>
     <IconPicker
       on:icon-selected={(v) => {
         onIconSelected(v);
@@ -131,7 +138,7 @@
       </div>
     </div>
   </forge-stack>
-  <!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
+  <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p>
 </form>
 
 <style lang="scss">
@@ -154,11 +161,8 @@
     place-content: center;
 
     forge-icon {
-      font-size: 20px;
+      font-size: 18px;
+      cursor: help;
     }
-  }
-
-  .custom-icon:hover {
-    color: var(--forge-theme-text);
   }
 </style>

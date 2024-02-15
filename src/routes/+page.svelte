@@ -6,7 +6,7 @@
   import { randomBrightColorPicker } from '../lib/utils/color-picker';
 
   let table;
-  let services = $servicesCache.data.data.sort((a, b) =>
+  let services = $servicesCache.sort((a, b) =>
     a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
   );
 

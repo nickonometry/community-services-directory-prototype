@@ -1,7 +1,7 @@
 <script>
   import ServiceTypeCard from '../service-type-card/service-type-card.svelte';
   import { fade } from 'svelte/transition';
-  import { customServiceLinkForm } from '../store';
+  import { customServiceLinkForm } from '../custom-form-store';
   export let showValidation = false;
   let currentSelected = '';
   const onServiceSelected = (serviceName) => {
@@ -35,40 +35,38 @@
     serviceType="Custom"
     serviceDescription="Create a custom service that links to anywhere on the web"
     icon="build"
-    iconLibrary="standard">
-  </ServiceTypeCard>
+    iconLibrary="standard"></ServiceTypeCard>
   <ServiceTypeCard
     isSelected={currentSelected === 'integration'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Integration"
     serviceDescription="This is the description for the integration service"
     icon="connection"
-    iconLibrary="extended">
-  </ServiceTypeCard>
+    iconLibrary="extended"></ServiceTypeCard>
   <ServiceTypeCard
     isSelected={currentSelected === 'partner'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Partner"
-    serviceDescription="Find a nearby Partner service and add it to your services list"
+    serviceDescription="Find a nearby Partner service and add it to your service directory"
     icon="groups"
-    iconLibrary="standard">
-  </ServiceTypeCard>
+    iconLibrary="standard"></ServiceTypeCard>
   <ServiceTypeCard
     isSelected={currentSelected === 'tcp'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="TCP"
     serviceDescription="Link to a Tyler Cloud Platform specific service"
     icon="tyler_talking_t_logo"
-    iconLibrary="custom">
-  </ServiceTypeCard>
+    iconLibrary="custom"></ServiceTypeCard>
 </div>
 
 <style lang="scss">
   .service-type__container {
-    padding: 16px;
+    padding-inline: 16px;
+    padding-block: 16px 24px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    max-width: 768px;
+    margin: 0 auto;
   }
 
   forge-inline-message::part(root) {

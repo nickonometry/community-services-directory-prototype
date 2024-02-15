@@ -4,7 +4,7 @@
   "prettier.endOfLine": "lf",
   "prettier.configPath": ".prettierrc",
   "prettier.bracketSameLine": true,
-  "prettier.printWidth": 250,
+  "prettier.printWidth": 150,
   "prettier.proseWrap": "never",
   "prettier.singleAttributePerLine": true,
   "prettier.tabWidth": 1,

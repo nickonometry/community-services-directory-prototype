@@ -3,8 +3,9 @@
   import { beforeNavigate } from '$app/navigation';
   import SelectServiceType from '../../lib/select-service-type/select-service-type.svelte';
   import PreviewStep from '../../lib/preview-step/preview-step.svelte';
-  import { customServiceLinkForm, clearForm } from '../../lib/store';
+  import { customServiceLinkForm, clearForm } from '../../lib/custom-form-store';
   import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
+  import { servicesCache } from '../../globalStore';
   let stepper;
   let steps = [];
   let stepSelected = 0;
@@ -49,7 +50,13 @@
   };
 
   const onSave = () => {
-    console.log('form saved');
+    console.log('saving form');
+    console.log($servicesCache);
+
+    servicesCache.update((state) => [...state, $customServiceLinkForm]);
+
+    console.log('form saved, store updated');
+    console.log($servicesCache);
   };
 </script>
 
