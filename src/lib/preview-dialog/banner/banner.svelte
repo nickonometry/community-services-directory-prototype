@@ -3,7 +3,7 @@
 <style lang="scss">
   .banner {
     z-index: 1;
-    background: url('portland-banner.avif');
+    background: url('./portland-banner.avif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

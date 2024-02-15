@@ -89,8 +89,6 @@
           <div style="width: 800px;">
             <HelpPopup imageUrl="featured-services.png" title="Featured services">
               <p>Featured services show up at the top of your services directory. We recommend to use this if you want showcase seasonal content or services that you want to be the most visible</p>
-
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
             </HelpPopup>
           </div>
         </forge-popover>
