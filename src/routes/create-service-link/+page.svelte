@@ -54,6 +54,9 @@
 
   const onSave = () => {
     servicesCache.update((state) => [...state, $customServiceLinkForm]);
+    servicesCache.sort((a, b) =>
+      a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
+    );
     openConfirmationDialog();
   };
 
