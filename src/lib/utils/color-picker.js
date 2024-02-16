@@ -5,7 +5,7 @@ function pickRandomProperty(obj) {
   return result;
 }
 
-export function randomBrightColorPicker() {
+export const randomBrightColorPicker = () => {
   var colorsBright = {
     red: {
       700: '#d32f2f',
@@ -83,4 +83,4 @@ export function randomBrightColorPicker() {
   var newColorKey = pickRandomProperty(colorList);
   var newColor = colorList[newColorKey];
   return newColor;
-}
+};

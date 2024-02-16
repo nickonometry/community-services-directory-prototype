@@ -8,5 +8,8 @@
   "prettier.proseWrap": "never",
   "prettier.singleAttributePerLine": true,
   "prettier.tabWidth": 1,
-  "prettier.htmlWhitespaceSensitivity": "ignore"
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }
 }
