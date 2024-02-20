@@ -29,9 +29,9 @@
   const uniqueDepartments = Object.values(departments.reduce((acc, obj) => ({ ...acc, [obj.value]: obj }), {}));
 
   let availableServices = [
-    { label: 'Resident Access - Parking Ticket', value: 'parking-ticket' },
-    { label: 'Resident Access - Motor Vehicle Tax', value: 'motor-vehicle-tax' },
-    { label: 'Resident Access - Personal Property Tax', value: 'personal-property-tax' }
+    { label: 'Parking Ticket', value: 'parking-ticket' },
+    { label: 'Motor Vehicle Tax', value: 'motor-vehicle-tax' },
+    { label: 'Personal Property Tax', value: 'personal-property-tax' }
   ];
 
   onMount(() => {
