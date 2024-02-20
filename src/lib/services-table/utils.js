@@ -50,15 +50,13 @@ export const createActionIconButton = (index, div, data) => {
 
 export const createStatusBadge = (index, div, data) => {
   let badge = document.createElement('forge-badge');
-  // badge.innerText = data.status;
+  badge.innerText = data.status;
   // badge.style.setProperty('--forge-badge-shape', '4px');
-  if (data.status.toLowerCase() === 'active') {
+  if (data.status.toLowerCase() === 'published') {
     badge.theme = 'success';
     badge.setAttribute('strong', 'false');
-    badge.innerText = 'Published';
   } else {
     badge.theme = 'info-secondary';
-    badge.innerText = 'Unpublished';
   }
   return badge;
 };

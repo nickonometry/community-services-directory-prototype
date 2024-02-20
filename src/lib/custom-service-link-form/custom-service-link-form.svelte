@@ -85,7 +85,8 @@
   </forge-toolbar>
 {/if}
 
-<form class="form" id="form">
+<!-- This would normally be a form element, for prototype purposes I used a regular div -->
+<div class="form" id="form">
   <forge-stack>
     <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="service-title">Service title</label>
@@ -153,7 +154,7 @@
     </forge-text-field>
     <PublishSwitch on:publish-toggled={(e) => onStatusChange(e.detail)} />
   </forge-stack>
-</form>
+</div>
 
 <!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
 

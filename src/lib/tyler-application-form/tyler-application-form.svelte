@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { beforeNavigate } from '$app/navigation';
-  import { tylerApplicationServiceForm, clearForm } from '../custom-form-store';
+  import { customServiceLinkForm, clearForm } from '../custom-form-store';
   import { servicesCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
   import KeywordsInput from '../keywords-input/keywords-input.svelte';
@@ -37,7 +37,7 @@
   onMount(() => {
     form = document.querySelector('#form');
     form.addEventListener('change', () => {
-      formIsValid = !Object.values(tylerApplicationServiceForm).some((x) => x !== null && x !== '');
+      formIsValid = !Object.values(customServiceLinkForm).some((x) => x !== null && x !== '');
     });
     availableServicesDropdown.options = availableServices.sort((a, b) =>
       a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0
@@ -46,7 +46,7 @@
       a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0
     );
     if (isEdit) {
-      availableServicesDropdown.value = $tylerApplicationServiceForm.department.value;
+      availableServicesDropdown.value = $customServiceLinkForm.department.value;
     }
   });
 
@@ -54,31 +54,32 @@
     if (event.detail === 'parking-ticket') {
       currentIndex++;
     }
-    tylerApplicationServiceForm.update((state) => ({
+    customServiceLinkForm.update((state) => ({
       ...state,
       tylerService: event.detail
     }));
-    tylerApplicationServiceForm.update((state) => ({ ...state, serviceTitle: 'Parking Ticket' }));
-    tylerApplicationServiceForm.update((state) => ({ ...state, serviceDescription: 'Pay outstanding parking ticket' }));
-    tylerApplicationServiceForm.update((state) => ({ ...state, iconName: 'perm_device_information' }));
+    customServiceLinkForm.update((state) => ({ ...state, serviceTitle: 'Parking Ticket' }));
+    customServiceLinkForm.update((state) => ({ ...state, serviceDescription: 'Pay outstanding parking ticket' }));
+    customServiceLinkForm.update((state) => ({ ...state, iconName: 'perm_device_information' }));
+    customServiceLinkForm.update((state) => ({ ...state, url: 'https://portland.tcpci.com/resident-access/pay-parking-ticket' }));
   }
 
   function onFeatureChange(event) {
-    tylerApplicationServiceForm.update((state) => ({
+    customServiceLinkForm.update((state) => ({
       ...state,
       isFeatured: event.target.value
     }));
   }
 
   function onPartnerAccessChange(event) {
-    tylerApplicationServiceForm.update((state) => ({
+    customServiceLinkForm.update((state) => ({
       ...state,
       allowPartnerAccess: event.target.value
     }));
   }
 
   function onDepartmentChange(event) {
-    tylerApplicationServiceForm.update((state) => ({
+    customServiceLinkForm.update((state) => ({
       ...state,
       department: {
         label: services.find((s) => s.department.value === event.detail).department.label,
@@ -95,7 +96,7 @@
     } else {
       value = 'Unpublished';
     }
-    tylerApplicationServiceForm.update((state) => ({ ...state, status: value }));
+    customServiceLinkForm.update((state) => ({ ...state, status: value }));
   }
 </script>
 
@@ -105,7 +106,8 @@
   </forge-toolbar>
 {/if}
 
-<form class="form" id="form">
+<!-- This would normally be a form element, for prototype purposes I used a regular div -->
+<div class="form" id="form">
   <forge-stack>
     <forge-select label="Available services" bind:this={availableServicesDropdown} on:change={onAvailableServicesChange} required> </forge-select>
     <forge-view-switcher animation-type="fade" index={currentIndex}>
@@ -113,16 +115,24 @@
       <forge-view>
         <forge-stack>
           <div class="icon-title__container">
-            <forge-icon name={$tylerApplicationServiceForm.iconName} external class="preview-icon"></forge-icon>
+            <forge-icon name={$customServiceLinkForm.iconName} external class="preview-icon"></forge-icon>
             <forge-stack>
               <forge-label-value>
                 <span slot="label">Service title</span>
-                <span slot="value">{$tylerApplicationServiceForm.serviceTitle}</span>
+                <span slot="value">{$customServiceLinkForm.serviceTitle}</span>
               </forge-label-value>
               <forge-label-value>
                 <span slot="label">Service description</span>
-                <span slot="value">{$tylerApplicationServiceForm.serviceDescription}</span>
+                <span slot="value">{$customServiceLinkForm.serviceDescription}</span>
               </forge-label-value>
+              <forge-label-value>
+                <span slot="label">Url</span>
+                <span slot="value">{$customServiceLinkForm.url}</span>
+              </forge-label-value>
+              <!-- <forge-text-field required>
+               <label for="url">Url</label>
+               <input type="text" id="url" bind:value={$customServiceLinkForm.url} required />
+             </forge-text-field> -->
             </forge-stack>
           </div>
 
@@ -162,18 +172,14 @@
           </forge-stack>
           <forge-select label="Department" bind:this={departmentSelect} on:change={onDepartmentChange} required> </forge-select>
           <KeywordsInput />
-          <forge-text-field required>
-            <label for="url">Url</label>
-            <input type="text" id="url" bind:value={$tylerApplicationServiceForm.url} required />
-          </forge-text-field>
           <PublishSwitch on:publish-toggled={(e) => onStatusChange(e.detail)} />
         </forge-stack>
       </forge-view>
     </forge-view-switcher>
   </forge-stack>
-</form>
+</div>
 
-<!-- <p>{JSON.stringify($tylerApplicationServiceForm, null, 2)}</p> -->
+<!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
 
 <style lang="scss">
   .form {
