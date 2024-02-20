@@ -53,13 +53,13 @@
 <style lang="scss">
   .container {
     padding: 24px;
-    max-width: 1024px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
 
     &__card {
       --forge-card-padding: 0;
-      max-width: 1024px;
+      max-width: 900px;
       margin: 24px auto;
     }
   }

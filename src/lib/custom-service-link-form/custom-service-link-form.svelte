@@ -6,6 +6,7 @@
   import { servicesCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
   import KeywordsInput from '../keywords-input/keywords-input.svelte';
+  import PublishSwitch from '../publish-switch/publish-switch.svelte';
   export let isEdit = false;
   let departmentSelect;
   let form;
@@ -23,12 +24,14 @@
     departments.push(departmentObject);
   });
 
+  const uniqueDepartments = Object.values(departments.reduce((acc, obj) => ({ ...acc, [obj.value]: obj }), {}));
+
   onMount(() => {
     form = document.querySelector('#form');
     form.addEventListener('change', () => {
       formIsValid = !Object.values(customServiceLinkForm).some((x) => x !== null && x !== '');
     });
-    departmentSelect.options = departments.sort((a, b) =>
+    departmentSelect.options = uniqueDepartments.sort((a, b) =>
       a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0
     );
     if (isEdit) {
@@ -84,11 +87,11 @@
 
 <form class="form" id="form">
   <forge-stack>
-    <forge-text-field required>
+    <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="service-title">Service title</label>
       <input type="text" id="service-title" bind:value={$customServiceLinkForm.serviceTitle} required />
     </forge-text-field>
-    <forge-text-field required>
+    <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="service-title">Service description</label>
       <textarea type="text" id="service-title" bind:value={$customServiceLinkForm.serviceDescription} required />
     </forge-text-field>
@@ -101,7 +104,7 @@
               <forge-icon name="help_outline" external></forge-icon>
             </forge-icon-button>
           </div>
-          <forge-popover trigger-type="hover" arrow placement="right">
+          <forge-popover trigger-type="click" arrow placement="right">
             <div style="width: 800px;">
               <HelpPopup imageUrl="/featured-services.png" title="Featured services">
                 <p>
@@ -130,28 +133,25 @@
       </forge-radio-group>
     </forge-stack>
     <IconPicker
+      {isEdit}
       on:icon-selected={(v) => {
         onIconSelected(v);
       }} />
-    <forge-select label="Department" bind:this={departmentSelect} on:change={onDepartmentChange} required> </forge-select>
+    <forge-select
+      label="Department"
+      bind:this={departmentSelect}
+      on:change={onDepartmentChange}
+      required
+      float-label-type={isEdit ? 'always' : 'auto'}>
+    </forge-select>
 
     <KeywordsInput />
 
-    <forge-text-field required>
+    <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="url">Url</label>
       <input type="text" id="url" bind:value={$customServiceLinkForm.url} required />
     </forge-text-field>
-    <div class="switch-container">
-      <forge-switch id="forge-switch-01" required aria-label="Active" on:forge-switch-change={(e) => onStatusChange(e)}>
-        <span>Published</span>
-      </forge-switch>
-      <div class="custom-icon" id="tooltip-host">
-        <forge-icon-button dense>
-          <forge-icon name="help_outline" external></forge-icon>
-        </forge-icon-button>
-        <forge-tooltip target="#tooltip-host" delay="200">Publishing a service will make it viewable to the public</forge-tooltip>
-      </div>
-    </div>
+    <PublishSwitch on:publish-toggled={(e) => onStatusChange(e.detail)} />
   </forge-stack>
 </form>
 
@@ -161,12 +161,5 @@
   .form {
     width: 100%;
     padding: 16px;
-  }
-
-  .switch-container {
-    width: max-content;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
 </style>

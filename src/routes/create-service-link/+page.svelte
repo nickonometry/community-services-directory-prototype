@@ -8,6 +8,7 @@
   import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../globalStore';
   import confirmationDialog from '../../lib/confirmation-dialog/confirmation-dialog.svelte';
+  import TylerApplicationForm from '../../lib/tyler-application-form/tyler-application-form.svelte';
 
   let stepper;
   let steps = [];
@@ -90,8 +91,8 @@
       {#if $customServiceLinkForm.serviceType === 'integration'}
         Integration form
       {/if}
-      {#if $customServiceLinkForm.serviceType === 'tcp'}
-        TCP form
+      {#if $customServiceLinkForm.serviceType === 'tyler application'}
+        <TylerApplicationForm />
       {/if}
       {#if $customServiceLinkForm.serviceType === 'partner'}
         Partner form
@@ -127,13 +128,13 @@
 
   .step-container {
     padding: 24px;
-    max-width: 1024px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
 
     &__card {
       --forge-card-padding: 0;
-      max-width: 1024px;
+      max-width: 900px;
       margin: 24px auto;
     }
   }

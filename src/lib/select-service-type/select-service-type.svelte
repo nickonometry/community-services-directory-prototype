@@ -51,7 +51,7 @@
     icon="groups"
     iconLibrary="standard"></ServiceTypeCard>
   <ServiceTypeCard
-    isSelected={currentSelected === 'tcp'}
+    isSelected={currentSelected === 'tyler application'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Tyler application"
     serviceDescription="Link to a Tyler Cloud Platform specific service"

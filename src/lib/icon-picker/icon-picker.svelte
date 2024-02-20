@@ -3,6 +3,7 @@
   import { createEventDispatcher, onMount } from 'svelte';
   import { customServiceLinkForm } from '../custom-form-store';
   export let value;
+  export let isEdit = false;
   let standardIcons = iconJson[1].icons;
   let icons = standardIcons;
   let autocomplete;
@@ -107,6 +108,7 @@
     bind:this={autocomplete}
     option-limit="100"
     observe-scroll="true"
+    float-label-type={isEdit ? 'always' : 'auto'}
     on:forge-autocomplete-scrolled-bottom={onScrollToBottom}
     on:forge-autocomplete-change={(e) => onIconSelected(e.detail)}>
     <forge-text-field>
@@ -133,20 +135,5 @@
     background-color: rgb(250, 250, 250);
     border-radius: 4px;
     border: 1px solid var(--forge-theme-text-lowest);
-  }
-
-  .preview-icon {
-    font-size: 72px;
-    color: var(--forge-theme-text-medium);
-  }
-
-  .preview-icon-empty {
-    border: 2px dashed var(--forge-theme-text-lowest);
-    padding: 16px;
-    height: 72px;
-    width: 72px;
-    box-sizing: border-box;
-    display: grid;
-    place-content: center;
   }
 </style>

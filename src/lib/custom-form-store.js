@@ -1,7 +1,8 @@
 // store.js
 import { writable } from 'svelte/store';
 
-const defaults = {
+// Custom service link form
+const customServiceLinkDefaults = {
   serviceType: '',
   serviceTitle: '',
   serviceDescription: '',
@@ -18,7 +19,24 @@ const defaults = {
   url: ''
 };
 
-export const customServiceLinkForm = writable(defaults);
+export const customServiceLinkForm = writable(customServiceLinkDefaults);
 export const clearForm = () => {
-  customServiceLinkForm.set(defaults);
+  customServiceLinkForm.set(customServiceLinkDefaults);
 };
+
+// tylerApplicationService form
+const tylerApplicationServiceDefaults = {
+  tylerService: '',
+  serviceType: 'tyler-application-service',
+  serviceTitle: '',
+  serviceDescription: '',
+  isFeatured: false,
+  allowPartnerAccess: false,
+  status: '',
+  iconName: '',
+  group: '',
+  keywords: [],
+  url: ''
+};
+
+export const tylerApplicationServiceForm = writable(tylerApplicationServiceDefaults);

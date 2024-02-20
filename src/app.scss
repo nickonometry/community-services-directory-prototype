@@ -104,3 +104,18 @@ forge-radio-group {
   border-radius: 4px;
   border: 1px solid var(--forge-theme-text-lowest);
 }
+
+.preview-icon {
+  font-size: 72px;
+  color: var(--forge-theme-text-medium);
+}
+
+.preview-icon-empty {
+  border: 2px dashed var(--forge-theme-text-lowest);
+  padding: 16px;
+  height: 72px;
+  width: 72px;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+}
