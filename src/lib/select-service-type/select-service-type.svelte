@@ -40,7 +40,7 @@
     isSelected={currentSelected === 'integration'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Integration"
-    serviceDescription="These community services require setup in other Tyler solution, such as Payment Types in Enterprise Payments or Forms in Engagement Builder. After setup, you can include the service with some additional configuration."
+    serviceDescription="These community services require setup in other Tyler solutions, such as Payment Types in Enterprise Payments or Forms in Engagement Builder. After setup, you can include the service with some additional configuration."
     icon="connection"
     iconLibrary="extended"></ServiceTypeCard>
   <ServiceTypeCard
