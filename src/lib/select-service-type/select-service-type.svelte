@@ -33,28 +33,28 @@
     isSelected={currentSelected === 'custom'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Custom"
-    serviceDescription="Create a custom service that links to anywhere on the web"
+    serviceDescription="These are custom defined services that require complete setup and configuration."
     icon="build"
     iconLibrary="standard"></ServiceTypeCard>
   <ServiceTypeCard
     isSelected={currentSelected === 'integration'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Integration"
-    serviceDescription="This is the description for the integration service"
+    serviceDescription="These community services require setup in other Tyler solution, such as Payment Types in Enterprise Payments or Forms in Engagement Builder. After setup, you can include the service with some additional configuration."
     icon="connection"
     iconLibrary="extended"></ServiceTypeCard>
   <ServiceTypeCard
     isSelected={currentSelected === 'partner'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Partner"
-    serviceDescription="Find a nearby Partner service and add it to your service directory"
+    serviceDescription="These are services available through nearby local governments, schools, state agencies and other organizations participating in the Community Access program. These will require configuration and, in some cases, specific permissions from the partner"
     icon="groups"
     iconLibrary="standard"></ServiceTypeCard>
   <ServiceTypeCard
     isSelected={currentSelected === 'tyler application'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Tyler application"
-    serviceDescription="Link to a Tyler Cloud Platform specific service"
+    serviceDescription="These community services are available as part of your licensed Tyler applications and require minimal configuration. For example, Resident Access Parking Ticket payment."
     icon="tyler_talking_t_logo"
     iconLibrary="custom"></ServiceTypeCard>
 </div>

@@ -145,7 +145,7 @@
                     <forge-icon name="help_outline" external></forge-icon>
                   </forge-icon-button>
                 </div>
-                <forge-popover trigger-type="click" arrow placement="right">
+                <forge-popover trigger-type="hover" arrow placement="right">
                   <div style="width: 800px;">
                     <HelpPopup imageUrl="/featured-services.png" title="Featured services">
                       <p>
