@@ -5,7 +5,6 @@
   import ServicesTable from '../lib/services-table/services-table.svelte';
   let searchString;
   let filteredServices = $sortedServices;
-  console.log($sortedServices);
 
   const openFullPreview = () => {
     if (browser) {
