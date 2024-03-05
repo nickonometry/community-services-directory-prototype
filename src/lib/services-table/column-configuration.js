@@ -8,7 +8,8 @@ export const columnConfigurations = [
   },
   {
     property: 'serviceTitle',
-    header: 'Service Name'
+    header: 'Service Name',
+    sortable: true
   },
   {
     property: 'serviceDescription',
@@ -16,7 +17,7 @@ export const columnConfigurations = [
   },
   {
     property: 'lastAccessDate',
-    header: 'Last Accessed',
+    header: 'Last edited',
     width: '150px'
   },
   {
@@ -26,7 +27,8 @@ export const columnConfigurations = [
   {
     property: 'status',
     header: 'Status',
-    template: (i, div, data) => createStatusBadge(i, div, data)
+    template: (i, div, data) => createStatusBadge(i, div, data),
+    sortable: true
   },
   {
     property: 'isFeatured',
@@ -34,12 +36,12 @@ export const columnConfigurations = [
     template: (i, div, data) => createFeaturedIcon(i, div, data),
     align: 'center'
   },
-  {
-    property: 'allowPartnerAccess',
-    header: 'Allow partner access',
-    template: (i, div, data) => createPartnerAccessIcon(i, div, data),
-    align: 'center'
-  },
+  // {
+  //   property: 'allowPartnerAccess',
+  //   header: 'Allow partner access',
+  //   template: (i, div, data) => createPartnerAccessIcon(i, div, data),
+  //   align: 'center'
+  // },
   {
     property: 'actions',
     header: '',

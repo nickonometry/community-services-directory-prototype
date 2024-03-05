@@ -3,6 +3,9 @@
   import { sortedServices } from '../globalStore';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import ServicesTable from '../lib/services-table/services-table.svelte';
+  let searchString;
+  let filteredServices = $sortedServices;
+  console.log($sortedServices);
 
   const openFullPreview = () => {
     if (browser) {
@@ -15,12 +18,36 @@
       });
     }
   };
+
+  const onSearch = (e) => {
+    let searchTerm = e.target.value.toLowerCase();
+    if (!searchTerm) {
+      filteredServices = $sortedServices;
+      return;
+    }
+    filteredServices = filteredServices.filter((fs) => {
+      if (
+        fs.serviceTitle.toLowerCase().includes(searchTerm) ||
+        fs.serviceDescription.toLowerCase().includes(searchTerm) ||
+        fs.department.label.toLowerCase().includes(searchTerm) ||
+        fs.status.toLowerCase().includes(searchTerm)
+      ) {
+        return fs;
+      }
+    });
+  };
 </script>
 
 <div class="page-container">
   <forge-card class="table-card">
     <forge-toolbar>
-      <h2 slot="start" class="forge-typography--heading3">Services</h2>
+      <div slot="start" class="search-container">
+        <h2 class="forge-typography--heading3">Service library</h2>
+        <forge-text-field>
+          <forge-icon slot="leading" name="filter_list" external></forge-icon>
+          <input type="text" id="service-search" bind:value={searchString} placeholder="Search for a service" on:input={(e) => onSearch(e)} />
+        </forge-text-field>
+      </div>
       <forge-stack slot="end" inline>
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -37,13 +64,25 @@
         </forge-button>
       </forge-stack>
     </forge-toolbar>
-    <ServicesTable services={$sortedServices} />
+    <ServicesTable services={filteredServices} />
   </forge-card>
 </div>
 
-<style>
+<style lang="scss">
   .page-container {
     padding: 16px;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+
+    forge-text-field {
+      --forge-text-field-height: 40px;
+      width: 320px;
+    }
   }
 
   .table-card {
