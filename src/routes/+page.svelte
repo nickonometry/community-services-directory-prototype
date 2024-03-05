@@ -63,7 +63,9 @@
         </forge-button>
       </forge-stack>
     </forge-toolbar>
-    <ServicesTable services={filteredServices} />
+    <div class="table-container">
+      <ServicesTable services={filteredServices} />
+    </div>
   </forge-card>
 </div>
 
@@ -86,5 +88,9 @@
 
   .table-card {
     --forge-card-padding: 0;
+  }
+
+  .table-container {
+    padding-block: 16px;
   }
 </style>

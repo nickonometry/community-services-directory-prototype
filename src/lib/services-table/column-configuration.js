@@ -34,7 +34,8 @@ export const columnConfigurations = [
     property: 'isFeatured',
     header: 'Featured',
     template: (i, div, data) => createFeaturedIcon(i, div, data),
-    align: 'center'
+    align: 'center',
+    sortable: true
   },
   // {
   //   property: 'allowPartnerAccess',
