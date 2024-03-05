@@ -1,4 +1,12 @@
-import { createActionIconButton, createFeaturedIcon, createPartnerAccessIcon, createServiceAvatarIcon, createStatusBadge } from './utils';
+import {
+  createActionIconButton,
+  createFeaturedIcon,
+  createPartnerAccessIcon,
+  createServiceAvatarIcon,
+  createStatusBadge,
+  createStatusToggle,
+  createFeaturedToggle
+} from './utils';
 
 export const columnConfigurations = [
   {
@@ -26,15 +34,14 @@ export const columnConfigurations = [
   },
   {
     property: 'status',
-    header: 'Status',
-    template: (i, div, data) => createStatusBadge(i, div, data),
+    header: 'Published',
+    template: (i, div, data) => createStatusToggle(i, div, data),
     sortable: true
   },
   {
     property: 'isFeatured',
     header: 'Featured',
-    template: (i, div, data) => createFeaturedIcon(i, div, data),
-    align: 'center',
+    template: (i, div, data) => createFeaturedToggle(i, div, data),
     sortable: true
   },
   // {

@@ -1,5 +1,7 @@
 import { randomBrightColorPicker } from '../utils/color-picker';
 import { customServiceLinkForm } from '../custom-form-store';
+import publishToggle from '../publish-toggle/publish-toggle.svelte';
+import featuredToggle from '../featured-toggle/featured-toggle.svelte';
 
 export const createIcon = (iconName) => {
   let icon = document.createElement('forge-icon');
@@ -59,4 +61,27 @@ export const createStatusBadge = (index, div, data) => {
     badge.theme = 'info-secondary';
   }
   return badge;
+};
+
+export const createStatusToggle = (index, div, data) => {
+  div.id = `status-toggle-${index}`;
+  let st = new publishToggle({
+    props: {
+      index: index,
+      status: data.status
+    },
+    target: div
+  });
+};
+
+export const createFeaturedToggle = (index, div, data) => {
+  console.log(data);
+  div.id = `featured-toggle-${index}`;
+  let ft = new featuredToggle({
+    props: {
+      index: index,
+      status: data.isFeatured
+    },
+    target: div
+  });
 };
