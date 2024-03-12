@@ -35,4 +35,5 @@ export async function loadForgeComponents() {
   import('@tylertech/forge/esm/chip-field');
   import('@tylertech/forge/esm/chips');
   import('@tylertech/forge/esm/label-value');
+  import('@tylertech/forge/esm/menu');
 }

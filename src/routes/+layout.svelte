@@ -29,9 +29,9 @@
       <forge-tooltip position="left">Toggle theme</forge-tooltip>
     </forge-app-bar>
 
-    <forge-mini-drawer slot="body-left">
+    <!-- <forge-mini-drawer slot="body-left">
       <Nav />
-    </forge-mini-drawer>
+    </forge-mini-drawer> -->
 
     <main slot="body">
       <slot />

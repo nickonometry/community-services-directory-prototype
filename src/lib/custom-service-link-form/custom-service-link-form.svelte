@@ -123,7 +123,7 @@
             >No</forge-radio>
         </div>
       </forge-radio-group>
-      <forge-radio-group>
+      <!-- <forge-radio-group>
         <forge-label legend>Allow partners to access this service?</forge-label>
         <div>
           <forge-radio name="partners" value="true" on:change={onPartnerAccessChange} checked={$customServiceLinkForm.allowPartnerAccess}
@@ -131,7 +131,7 @@
           <forge-radio name="partners" value="false" on:change={onPartnerAccessChange} checked={!$customServiceLinkForm.allowPartnerAccess}
             >No</forge-radio>
         </div>
-      </forge-radio-group>
+      </forge-radio-group> -->
     </forge-stack>
     <IconPicker
       {isEdit}

@@ -1,9 +1,13 @@
 <script>
+  import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
   import { sortedServices } from '../globalStore';
+  import MobileTable from '../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
+  import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
   import ServicesTable from '../lib/services-table/services-table.svelte';
-  let searchString;
+  let innerWidth;
+  let breakpoint = 1320;
   let filteredServices = $sortedServices;
 
   const openFullPreview = () => {
@@ -19,7 +23,7 @@
   };
 
   const onSearch = (e) => {
-    let searchTerm = e.target.value.toLowerCase();
+    let searchTerm = e.detail.toLowerCase();
     if (!searchTerm) {
       filteredServices = $sortedServices;
       return;
@@ -37,53 +41,30 @@
   };
 </script>
 
-<div class="page-container">
-  <forge-card class="table-card">
-    <forge-toolbar>
-      <div slot="start" class="search-container">
-        <h2 class="forge-typography--heading3">Service library</h2>
-        <forge-text-field>
-          <forge-icon slot="leading" name="filter_list" external></forge-icon>
-          <input type="text" id="service-search" bind:value={searchString} placeholder="Search for a service" on:input={(e) => onSearch(e)} />
-        </forge-text-field>
+<svelte:window bind:innerWidth />
+
+{#if innerWidth}
+  <div class="page-container">
+    <forge-card class="table-card">
+      <ServiceLibraryToolbar on:on-search={(e) => onSearch(e)} on:on-open-preview={openFullPreview} />
+      <div class="table-container">
+        {#if innerWidth <= breakpoint}
+          <MobileTable {columnConfigurations} data={filteredServices} />
+        {/if}
+        {#if innerWidth > breakpoint}
+          <ServicesTable services={filteredServices} />
+        {/if}
       </div>
-      <forge-stack slot="end" inline>
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <div>
-          <forge-button on:click={openFullPreview}>
-            <forge-icon name="preview" external></forge-icon>
-            <span>Resident preview</span>
-          </forge-button>
-          <forge-tooltip>Preview what the public service directory looks like on your city website</forge-tooltip>
-        </div>
-        <forge-button href="/create-service-link" variant="outlined">
-          <forge-icon name="add" external></forge-icon>
-          <span>Add a service</span>
-        </forge-button>
-      </forge-stack>
-    </forge-toolbar>
-    <div class="table-container">
-      <ServicesTable services={filteredServices} />
-    </div>
-  </forge-card>
-</div>
+    </forge-card>
+  </div>
+{/if}
 
 <style lang="scss">
+  .container {
+    container-type: inline-size;
+  }
   .page-container {
     padding: 16px;
-  }
-
-  .search-container {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    width: 100%;
-
-    forge-text-field {
-      --forge-text-field-height: 40px;
-      width: 320px;
-    }
   }
 
   .table-card {

@@ -10,6 +10,8 @@ import {
 
 export const columnConfigurations = [
   {
+    // header: 'icon',
+    // headerTemplate: () => 'Test',
     property: 'iconName',
     template: (i, div, data) => createServiceAvatarIcon(i, div, data),
     width: '96px'

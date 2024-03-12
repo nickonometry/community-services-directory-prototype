@@ -75,7 +75,6 @@ export const createStatusToggle = (index, div, data) => {
 };
 
 export const createFeaturedToggle = (index, div, data) => {
-  console.log(data);
   div.id = `featured-toggle-${index}`;
   let ft = new featuredToggle({
     props: {

@@ -1,0 +1,118 @@
+<script>
+  import { createEventDispatcher, onMount } from 'svelte';
+  const dispatch = createEventDispatcher();
+  let searchString;
+
+  const dispatchSearchValue = (e) => {
+    dispatch('on-search', e.target.value);
+  };
+
+  const dispatchOpenPreview = (e) => {
+    dispatch('on-open-preview', e);
+  };
+
+  const menuOptions = [
+    { value: 'edit', label: 'Resident preview' },
+    { value: 'delete', label: 'Add a service' }
+  ];
+</script>
+
+<div class="container">
+  <forge-toolbar auto-height>
+    <div slot="start" class="search-container">
+      <h2 class="forge-typography--heading3">Service library</h2>
+      <!-- <forge-text-field>
+        <forge-icon slot="leading" name="filter_list" external></forge-icon>
+        <input
+          type="text"
+          id="service-search"
+          bind:value={searchString}
+          placeholder="Search for a service"
+          on:input={(e) => dispatchSearchValue(e)} />
+      </forge-text-field> -->
+    </div>
+    <div slot="end">
+      <div class="desktop-actions">
+        <forge-stack inline>
+          <!-- svelte-ignore a11y-no-static-element-interactions -->
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <div>
+            <forge-button on:click={dispatchOpenPreview}>
+              <forge-icon name="preview" external></forge-icon>
+              <span>Resident preview</span>
+            </forge-button>
+            <forge-tooltip>Preview what the public service directory looks like on your city website</forge-tooltip>
+          </div>
+          <forge-button href="/create-service-link" variant="outlined">
+            <forge-icon name="add" external></forge-icon>
+            <span>Add a service</span>
+          </forge-button>
+        </forge-stack>
+      </div>
+      <div class="mobile-actions">
+        <forge-stack inline gap="8px">
+          <!-- <forge-icon-button>
+            <forge-icon name="preview" external></forge-icon>
+            <forge-tooltip>Resident preview</forge-tooltip>
+          </forge-icon-button>
+          <forge-icon-button>
+            <forge-icon name="add" external></forge-icon>
+            <forge-tooltip>Add a service</forge-tooltip>
+          </forge-icon-button> -->
+
+          <forge-menu options={menuOptions}>
+            <forge-icon-button>
+              <forge-icon name="more_vert" external></forge-icon>
+            </forge-icon-button>
+          </forge-menu>
+        </forge-stack>
+      </div>
+    </div>
+  </forge-toolbar>
+</div>
+
+<style lang="scss">
+  .container {
+    container-type: inline-size;
+  }
+
+  .popover-inner {
+    padding: 16px;
+    width: 75vw;
+  }
+
+  .search-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+
+    forge-text-field {
+      --forge-text-field-height: 36px;
+      width: 100%;
+      min-width: 768px;
+    }
+  }
+
+  .mobile-actions {
+    display: none;
+  }
+
+  @container (max-width: 1320px) {
+    .search-container {
+      forge-text-field {
+        display: none;
+      }
+    }
+
+    .desktop-actions {
+      display: none;
+    }
+
+    .mobile-actions {
+      display: block;
+      color: var(--forge-theme-primary);
+    }
+  }
+</style>
