@@ -152,7 +152,7 @@
       <label for="url">Url</label>
       <input type="text" id="url" bind:value={$customServiceLinkForm.url} required />
     </forge-text-field>
-    <PublishSwitch on:publish-toggled={(e) => onStatusChange(e.detail)} />
+    <PublishSwitch on:publish-toggled={(e) => onStatusChange(e.detail)} status={$customServiceLinkForm.status} />
   </forge-stack>
 </div>
 

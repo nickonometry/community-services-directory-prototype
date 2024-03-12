@@ -4,7 +4,6 @@
 
   export let index;
   export let service;
-  console.log(service);
   let avatar;
 
   onMount(() => {
