@@ -119,15 +119,15 @@
             <forge-stack>
               <forge-label-value>
                 <span slot="label">Service title</span>
-                <span slot="value">{$customServiceLinkForm.serviceTitle}</span>
+                <span slot="value" class="break-all">{$customServiceLinkForm.serviceTitle}</span>
               </forge-label-value>
               <forge-label-value>
                 <span slot="label">Service description</span>
-                <span slot="value">{$customServiceLinkForm.serviceDescription}</span>
+                <span slot="value" class="break-all">{$customServiceLinkForm.serviceDescription}</span>
               </forge-label-value>
               <forge-label-value>
                 <span slot="label">Url</span>
-                <span slot="value">{$customServiceLinkForm.url}</span>
+                <span slot="value" class="break-all">{$customServiceLinkForm.url}</span>
               </forge-label-value>
               <!-- <forge-text-field required>
                <label for="url">Url</label>
@@ -162,13 +162,13 @@
                 <forge-radio name="featured" value="false" on:change={onFeatureChange} required>No</forge-radio>
               </div>
             </forge-radio-group>
-            <forge-radio-group>
+            <!-- <forge-radio-group>
               <forge-label legend>Allow partners to access this service?</forge-label>
               <div>
                 <forge-radio name="partners" value="true" on:change={onPartnerAccessChange}>Yes</forge-radio>
                 <forge-radio name="partners" value="false" on:change={onPartnerAccessChange}>No</forge-radio>
               </div>
-            </forge-radio-group>
+            </forge-radio-group> -->
           </forge-stack>
           <forge-select label="Department" bind:this={departmentSelect} on:change={onDepartmentChange} required> </forge-select>
           <KeywordsInput />

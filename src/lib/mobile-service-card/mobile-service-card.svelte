@@ -4,6 +4,7 @@
 
   export let index;
   export let service;
+  console.log(service);
   let avatar;
 
   onMount(() => {
@@ -14,9 +15,19 @@
 <forge-card>
   <div class="card-inner">
     <forge-stack>
-      <forge-avatar bind:this={avatar}>
-        <forge-icon name={service.iconName} external style="color: white;"></forge-icon>
-      </forge-avatar>
+      <div class="card-header">
+        <forge-avatar bind:this={avatar}>
+          <forge-icon name={service.iconName} external style="color: white;"></forge-icon>
+        </forge-avatar>
+        <div class="flex-center--row">
+          <forge-badge theme={service.status.toLowerCase() === 'published' ? 'success' : 'info-secondary'}>
+            {service.status}
+          </forge-badge>
+          {#if service.isFeatured}
+            <forge-icon name="star" external></forge-icon>
+          {/if}
+        </div>
+      </div>
       <forge-label-value>
         <span slot="label">Service name</span>
         <span slot="value">{service.serviceTitle}</span>
@@ -24,6 +35,10 @@
       <forge-label-value>
         <span slot="label">Service description</span>
         <span slot="value">{service.serviceDescription}</span>
+      </forge-label-value>
+      <forge-label-value>
+        <span slot="label">Department</span>
+        <span slot="value">{service.department.label}</span>
       </forge-label-value>
     </forge-stack>
 
@@ -42,6 +57,12 @@
     display: grid;
     grid-template-rows: 1fr auto;
     height: 100%;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
   }
 
   forge-stack {

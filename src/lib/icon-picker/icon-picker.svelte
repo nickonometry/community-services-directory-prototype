@@ -136,4 +136,11 @@
     border-radius: 4px;
     border: 1px solid var(--forge-theme-text-lowest);
   }
+
+  @media screen and (max-width: 768px) {
+    .icon-picker-container {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
 </style>

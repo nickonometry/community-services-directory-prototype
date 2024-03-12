@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
+  import { goto } from '$app/navigation';
   const dispatch = createEventDispatcher();
   let searchString;
 
@@ -11,10 +12,10 @@
     dispatch('on-open-preview', e);
   };
 
-  const menuOptions = [
-    { value: 'edit', label: 'Resident preview' },
-    { value: 'delete', label: 'Add a service' }
-  ];
+  const routeToPage = () => {
+    console.log('did i run');
+    goto('/create-service-link');
+  };
 </script>
 
 <div class="container">
@@ -51,20 +52,14 @@
       </div>
       <div class="mobile-actions">
         <forge-stack inline gap="8px">
-          <!-- <forge-icon-button>
+          <forge-icon-button>
             <forge-icon name="preview" external></forge-icon>
             <forge-tooltip>Resident preview</forge-tooltip>
           </forge-icon-button>
-          <forge-icon-button>
+          <forge-icon-button href="/create-service-link">
             <forge-icon name="add" external></forge-icon>
             <forge-tooltip>Add a service</forge-tooltip>
-          </forge-icon-button> -->
-
-          <forge-menu options={menuOptions}>
-            <forge-icon-button>
-              <forge-icon name="more_vert" external></forge-icon>
-            </forge-icon-button>
-          </forge-menu>
+          </forge-icon-button>
         </forge-stack>
       </div>
     </div>

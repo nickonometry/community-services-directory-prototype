@@ -10,6 +10,7 @@
   import confirmationDialog from '../../lib/confirmation-dialog/confirmation-dialog.svelte';
   import TylerApplicationForm from '../../lib/tyler-application-form/tyler-application-form.svelte';
 
+  let innerWidth;
   let stepper;
   let steps = [];
   let stepSelected = 0;
@@ -20,7 +21,6 @@
   });
 
   onMount(() => {
-    stepper = document.querySelector('#stepper');
     stepper.selectedIndex = 0;
 
     stepper.addEventListener('forge-step-select', ({ detail }) => {
@@ -71,6 +71,8 @@
   };
 </script>
 
+<svelte:window bind:innerWidth />
+
 <forge-card class="step-container__card">
   <forge-toolbar>
     <div slot="start">
@@ -78,7 +80,7 @@
     </div>
   </forge-toolbar>
   <div class="padding-16">
-    <forge-stepper id="stepper" linear></forge-stepper>
+    <forge-stepper id="stepper" linear vertical={innerWidth < 1024 ? 'true' : null} bind:this={stepper}></forge-stepper>
   </div>
   <forge-view-switcher index={stepSelected}>
     <forge-view>
@@ -141,5 +143,12 @@
 
   forge-step::part(button) {
     width: 100%;
+  }
+
+  /* When the browser is at least 1024px and below */
+  @media screen and (max-width: 1024px) {
+    .step-container__card {
+      margin: 16px;
+    }
   }
 </style>
