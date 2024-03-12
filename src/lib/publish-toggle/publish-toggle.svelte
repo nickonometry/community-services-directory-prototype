@@ -1,6 +1,9 @@
 <script>
   import { onMount } from 'svelte';
+  import { servicesCache } from '../../globalStore';
   export let status;
+  export let id;
+  export let service;
   export let index;
   let switchControl;
 
@@ -10,8 +13,20 @@
     }
   });
 
-  const onStatusChange = () => {
-    console.log('changed');
+  const onStatusChange = (e) => {
+    const status = e.detail;
+    // servicesCache.update((state) => [...state, $customServiceLinkForm]);
+    if (status) {
+      servicesCache.update((services) => {
+        services.find((s) => s.id === service.id).status = 'Published';
+        return services;
+      });
+    } else {
+      servicesCache.update((services) => {
+        services.find((s) => s.id === service.id).status = 'Unpublished';
+        return services;
+      });
+    }
   };
 </script>
 

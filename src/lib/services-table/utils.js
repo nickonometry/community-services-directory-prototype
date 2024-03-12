@@ -68,6 +68,8 @@ export const createStatusToggle = (index, div, data) => {
   let st = new publishToggle({
     props: {
       index: index,
+      id: data.id,
+      service: data,
       status: data.status
     },
     target: div

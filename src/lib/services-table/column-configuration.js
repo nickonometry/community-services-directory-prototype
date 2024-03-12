@@ -46,12 +46,6 @@ export const columnConfigurations = [
     template: (i, div, data) => createFeaturedToggle(i, div, data),
     sortable: true
   },
-  // {
-  //   property: 'allowPartnerAccess',
-  //   header: 'Allow partner access',
-  //   template: (i, div, data) => createPartnerAccessIcon(i, div, data),
-  //   align: 'center'
-  // },
   {
     property: 'actions',
     header: '',

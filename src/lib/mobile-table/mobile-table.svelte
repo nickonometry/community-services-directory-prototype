@@ -7,10 +7,10 @@
 </script>
 
 <div class="grid">
-  <!-- <forge-text-field class="span-full">
+  <forge-text-field class="span-full">
     <forge-icon slot="leading" name="filter_list" external></forge-icon>
     <input type="text" id="service-search" placeholder="Search for a service" />
-  </forge-text-field> -->
+  </forge-text-field>
   {#each data as d, index}
     <MobileServiceCard {index} service={d} />
   {/each}
