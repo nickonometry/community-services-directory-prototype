@@ -21,7 +21,7 @@
   <forge-toolbar auto-height>
     <div slot="start" class="search-container">
       <h2 class="forge-typography--heading3">Service library</h2>
-      <!-- <forge-text-field>
+      <forge-text-field>
         <forge-icon slot="leading" name="filter_list" external></forge-icon>
         <input
           type="text"
@@ -29,7 +29,7 @@
           bind:value={searchString}
           placeholder="Search for a service"
           on:input={(e) => dispatchSearchValue(e)} />
-      </forge-text-field> -->
+      </forge-text-field>
     </div>
     <div slot="end">
       <div class="desktop-actions">
