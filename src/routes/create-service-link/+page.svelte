@@ -1,13 +1,12 @@
 <script>
+  import { openConfirmationDialog } from './../../lib/utils/utils.js';
   import { onMount } from 'svelte';
   import { beforeNavigate } from '$app/navigation';
   import SelectServiceType from '../../lib/select-service-type/select-service-type.svelte';
   import PreviewStep from '../../lib/preview-step/preview-step.svelte';
-  import { browser } from '$app/environment';
   import { customServiceLinkForm, clearForm } from '../../lib/custom-form-store';
   import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../globalStore';
-  import confirmationDialog from '../../lib/confirmation-dialog/confirmation-dialog.svelte';
   import TylerApplicationForm from '../../lib/tyler-application-form/tyler-application-form.svelte';
 
   let innerWidth;
@@ -55,19 +54,7 @@
 
   const onSave = () => {
     servicesCache.update((state) => [...state, $customServiceLinkForm]);
-    openConfirmationDialog();
-  };
-
-  const openConfirmationDialog = () => {
-    if (browser) {
-      const dialog = document.createElement('forge-dialog');
-      document.body.append(dialog);
-      dialog.open = true;
-      let pd = new confirmationDialog({
-        target: dialog,
-        props: { dialogRef: dialog }
-      });
-    }
+    openConfirmationDialog('Your new service has been created');
   };
 </script>
 

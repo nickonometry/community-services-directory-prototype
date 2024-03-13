@@ -1,9 +1,11 @@
 <script>
+  import { openConfirmationDialog } from './../../lib/utils/utils.js';
   import { onMount } from 'svelte';
   import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../globalStore';
+  import { customServiceLinkForm } from '../../lib/custom-form-store';
   let serviceId;
-  let editData;
+  let service;
 
   const getServiceById = (serviceId) => {
     return $servicesCache.find((s) => s.id === serviceId);
@@ -11,13 +13,13 @@
 
   onMount(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    serviceId = searchParams.get('name');
-    editData = getServiceById(serviceId);
+    serviceId = searchParams.get('id');
   });
 
   const onSave = () => {
-    console.log('saved');
-    // servicesCache.update((state) => [...state, $customServiceLinkForm]);
+    let serviceIndex = $servicesCache.findIndex((service) => service.id === serviceId);
+    $servicesCache[serviceIndex] = $customServiceLinkForm;
+    openConfirmationDialog('Your service has been updated and saved');
   };
 </script>
 

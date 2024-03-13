@@ -12,7 +12,6 @@ const customServiceLinkDefaults = {
     value: ''
   },
   isFeatured: false,
-  allowPartnerAccess: false,
   status: '',
   iconName: '',
   group: '',

@@ -9,8 +9,6 @@
   let innerWidth;
   let breakpoint = 1320;
 
-  console.log($sortedServices);
-
   const openFullPreview = () => {
     if (browser) {
       const dialog = document.createElement('forge-dialog');

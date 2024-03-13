@@ -3,15 +3,15 @@
   import { beforeNavigate } from '$app/navigation';
   import IconPicker from '../icon-picker/icon-picker.svelte';
   import { customServiceLinkForm, clearForm } from '../custom-form-store';
-  import { servicesCache } from '../../globalStore';
+  import { servicesCache, departmentsCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
   import KeywordsInput from '../keywords-input/keywords-input.svelte';
   import PublishSwitch from '../publish-switch/publish-switch.svelte';
   export let isEdit = false;
   let departmentSelect;
   let form;
-  let formIsValid = false;
   let serviceId;
+  let services = $servicesCache;
 
   beforeNavigate(() => {
     clearForm();
@@ -25,24 +25,8 @@
     serviceId = params.id;
   }
 
-  let services = $servicesCache;
-  let departments = [];
-
-  services.forEach((s) => {
-    let departmentObject = s.department;
-    departments.push(departmentObject);
-  });
-
-  const uniqueDepartments = Object.values(departments.reduce((acc, obj) => ({ ...acc, [obj.value]: obj }), {}));
-
   onMount(() => {
-    form = document.querySelector('#form');
-    form.addEventListener('change', () => {
-      formIsValid = !Object.values(customServiceLinkForm).some((x) => x !== null && x !== '');
-    });
-    departmentSelect.options = uniqueDepartments.sort((a, b) =>
-      a.value.toLowerCase() > b.value.toLowerCase() ? 1 : b.value.toLowerCase() > a.value.toLowerCase() ? -1 : 0
-    );
+    departmentSelect.options = $departmentsCache;
     if (isEdit) {
       departmentSelect.value = $customServiceLinkForm.department.value;
     }
@@ -88,7 +72,7 @@
 {/if}
 
 <!-- This would normally be a form element, for prototype purposes I used a regular div -->
-<div class="form" id="form">
+<div class="form" id="form" bind:this={form}>
   <forge-stack>
     <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="service-title">Service title</label>
@@ -149,7 +133,7 @@
   </forge-stack>
 </div>
 
-<!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
+<p>{JSON.stringify($customServiceLinkForm, null, 2)}</p>
 
 <style lang="scss">
   @import '../../mixins.scss';
