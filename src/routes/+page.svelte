@@ -1,13 +1,15 @@
 <script>
   import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
-  import { filteredServices, filterText, sortedServices } from '../globalStore';
+  import { filterText, sortedServices } from '../globalStore';
   import MobileTable from '../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
   import ServicesTable from '../lib/services-table/services-table.svelte';
   let innerWidth;
   let breakpoint = 1320;
+
+  console.log($sortedServices);
 
   const openFullPreview = () => {
     if (browser) {

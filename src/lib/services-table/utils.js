@@ -80,6 +80,7 @@ export const createFeaturedToggle = (index, div, data) => {
   let ft = new featuredToggle({
     props: {
       index: index,
+      service: data,
       status: data.isFeatured
     },
     target: div

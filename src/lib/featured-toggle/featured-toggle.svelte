@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte';
+  import { servicesCache } from '../../globalStore';
   export let status;
+  export let service;
   export let index;
   let switchControl;
 
@@ -10,13 +12,16 @@
     }
   });
 
-  const onStatusChange = () => {
-    console.log('changed');
+  const onFeaturedChanged = (e) => {
+    servicesCache.update((services) => {
+      services.find((s) => s.id === service.id).isFeatured = e.detail;
+      return services;
+    });
   };
 </script>
 
 <div class="switch-container">
-  <forge-switch id={`featured-switch-${index}`} aria-label="Active" on:forge-switch-change={(e) => onStatusChange(e)} bind:this={switchControl}>
+  <forge-switch id={`featured-switch-${index}`} aria-label="Active" on:forge-switch-change={(e) => onFeaturedChanged(e)} bind:this={switchControl}>
     <span class="sr-only">Published</span>
   </forge-switch>
 </div>
