@@ -28,9 +28,9 @@
 
 <style>
   forge-switch {
-    --forge-switch-track-on-color: var(--forge-theme-success-container-low);
-    --forge-switch-handle-on-color: var(--forge-theme-success-container-high);
-    --forge-switch-icon-on-color: var(--forge-theme-on-success-container-high);
+    --forge-switch-track-on-color: var(--forge-theme-success-container);
+    --forge-switch-handle-on-color: var(--forge-theme-success);
+    --forge-switch-icon-on-color: var(--forge-theme-on-success);
   }
   .switch-container {
     width: max-content;
