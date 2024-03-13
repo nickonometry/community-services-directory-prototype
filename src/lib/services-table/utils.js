@@ -39,7 +39,7 @@ export const createPartnerAccessIcon = (index, div, data) => {
 
 export const createActionIconButton = (index, div, data) => {
   let iconButton = document.createElement('forge-icon-button');
-  iconButton.href = `/edit-service?name=${data.id}`;
+  iconButton.href = `/edit-service?id=${data.id}`;
   iconButton.ariaLabel = 'Edit this service';
   let icon = createIcon('chevron_right');
   icon.style.color = 'var(--forge-theme-text-medium)';

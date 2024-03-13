@@ -52,7 +52,7 @@
           <MobileTable {columnConfigurations} data={filteredServices} />
         {/if}
         {#if innerWidth > breakpoint}
-          <ServicesTable services={$sortedServices} />
+          <ServicesTable services={filteredServices} />
         {/if}
       </div>
     </forge-card>

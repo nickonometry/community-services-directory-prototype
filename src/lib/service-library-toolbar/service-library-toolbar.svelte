@@ -19,7 +19,7 @@
 </script>
 
 <div class="container">
-  <forge-toolbar auto-height>
+  <forge-toolbar>
     <div slot="start" class="search-container">
       <h2 class="forge-typography--heading3">Service library</h2>
       <forge-text-field>
@@ -84,7 +84,7 @@
     width: 100%;
 
     forge-text-field {
-      --forge-text-field-height: 36px;
+      --forge-field-height: 36px;
       width: 100%;
       min-width: 768px;
     }

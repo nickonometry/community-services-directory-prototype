@@ -11,10 +11,19 @@
   let departmentSelect;
   let form;
   let formIsValid = false;
+  let serviceId;
 
   beforeNavigate(() => {
     clearForm();
   });
+
+  // Get the Service Id that we're editing
+  if (isEdit) {
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop)
+    });
+    serviceId = params.id;
+  }
 
   let services = $servicesCache;
   let departments = [];
