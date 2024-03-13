@@ -5,8 +5,6 @@
   export let icon;
   export let title;
   export let description;
-  export let url;
-  export let allowPartnerAccess;
   let avatarColor;
 
   onMount(() => {

@@ -1,7 +1,6 @@
 <script>
   export let imageUrl;
   export let title;
-  export let text;
 </script>
 
 <div class="image-container">

@@ -2,7 +2,6 @@
   import iconJson from '@tylertech/tyler-icons/tyler-icons-metadata-svg.json';
   import { createEventDispatcher, onMount } from 'svelte';
   import { customServiceLinkForm } from '../custom-form-store';
-  export let value;
   export let isEdit = false;
   let standardIcons = iconJson[1].icons;
   let icons = standardIcons;

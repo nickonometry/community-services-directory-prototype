@@ -1,7 +1,6 @@
 <script>
   import { onMount } from 'svelte';
   import HelpPopup from '../help-popup/help-popup.svelte';
-  export let disabled;
   let keywordInput;
   onMount(() => {
     keywordInput.addEventListener('forge-chip-field-member-added', onMemberAdded);
@@ -55,7 +54,7 @@
     </forge-popover>
   </div>
   <label slot="label" for="tag-input">Tags</label>
-  <input type="text" id="tag-input" {disabled} />
+  <input type="text" id="tag-input" />
   <div slot="helper-text">Press enter to add a tag</div>
 </forge-chip-field>
 

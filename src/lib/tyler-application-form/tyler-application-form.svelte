@@ -28,11 +28,7 @@
 
   const uniqueDepartments = Object.values(departments.reduce((acc, obj) => ({ ...acc, [obj.value]: obj }), {}));
 
-  let availableServices = [
-    { label: 'Parking Ticket', value: 'parking-ticket' },
-    { label: 'Motor Vehicle Tax', value: 'motor-vehicle-tax' },
-    { label: 'Personal Property Tax', value: 'personal-property-tax' }
-  ];
+  let availableServices = [{ label: 'Parking Ticket', value: 'parking-ticket' }];
 
   onMount(() => {
     form = document.querySelector('#form');
@@ -51,9 +47,6 @@
   });
 
   function onAvailableServicesChange(event) {
-    if (event.detail === 'parking-ticket') {
-      currentIndex++;
-    }
     customServiceLinkForm.update((state) => ({
       ...state,
       tylerService: event.detail
@@ -62,6 +55,8 @@
     customServiceLinkForm.update((state) => ({ ...state, serviceDescription: 'Pay outstanding parking ticket' }));
     customServiceLinkForm.update((state) => ({ ...state, iconName: 'perm_device_information' }));
     customServiceLinkForm.update((state) => ({ ...state, url: 'https://portland.tcpci.com/resident-access/pay-parking-ticket' }));
+
+    currentIndex++;
   }
 
   function onFeatureChange(event) {

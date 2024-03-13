@@ -11,8 +11,7 @@
   <ServiceCard
     icon={$customServiceLinkForm.iconName}
     title={$customServiceLinkForm.serviceTitle}
-    description={$customServiceLinkForm.serviceDescription}
-    url={$customServiceLinkForm.url} />
+    description={$customServiceLinkForm.serviceDescription} />
 </div>
 
 <style lang="scss">

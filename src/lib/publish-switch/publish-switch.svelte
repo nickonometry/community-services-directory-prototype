@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
-  export let status;
+  export let status = '';
   const dispatch = createEventDispatcher();
 
   function onStatusChange(event) {
