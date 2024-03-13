@@ -55,13 +55,6 @@
     }));
   }
 
-  function onPartnerAccessChange(event) {
-    customServiceLinkForm.update((state) => ({
-      ...state,
-      allowPartnerAccess: event.target.value
-    }));
-  }
-
   function onDepartmentChange(event) {
     customServiceLinkForm.update((state) => ({
       ...state,
@@ -114,8 +107,8 @@
               <forge-icon name="help_outline" external></forge-icon>
             </forge-icon-button>
           </div>
-          <forge-popover trigger-type="hover" arrow placement="right">
-            <div style="width: 800px;">
+          <forge-popover trigger-type="hover" arrow placement="auto" hover-delay="250">
+            <div class="popup-container">
               <HelpPopup imageUrl="/featured-services.png" title="Featured services">
                 <p>
                   Featured services show up at the top of your services directory. We recommend using this if you want showcase seasonal content or
@@ -159,8 +152,13 @@
 <!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
 
 <style lang="scss">
+  @import '../../mixins.scss';
   .form {
     width: 100%;
     padding: 16px;
+  }
+
+  .popup-container {
+    @include responsive-help-popover-container;
   }
 </style>

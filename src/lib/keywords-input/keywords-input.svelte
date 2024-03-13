@@ -37,8 +37,8 @@
         <forge-icon name="help_outline" external></forge-icon>
       </forge-icon-button>
     </div>
-    <forge-popover trigger-type="hover" arrow placement="right">
-      <div style="width: 800px;">
+    <forge-popover trigger-type="hover" arrow hover-delay="250">
+      <div class="popup-container">
         <HelpPopup
           title="Tags"
           imageUrl="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2344&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
@@ -58,3 +58,10 @@
   <input type="text" id="tag-input" {disabled} />
   <div slot="helper-text">Press enter to add a tag</div>
 </forge-chip-field>
+
+<style lang="scss">
+  @import '../../mixins.scss';
+  .popup-container {
+    @include responsive-help-popover-container;
+  }
+</style>

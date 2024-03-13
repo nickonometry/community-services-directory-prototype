@@ -1,14 +1,13 @@
 <script>
   import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
-  import { sortedServices } from '../globalStore';
+  import { filteredServices, filterText, sortedServices } from '../globalStore';
   import MobileTable from '../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
   import ServicesTable from '../lib/services-table/services-table.svelte';
   let innerWidth;
   let breakpoint = 1320;
-  let filteredServices = $sortedServices;
 
   const openFullPreview = () => {
     if (browser) {
@@ -24,20 +23,7 @@
 
   const onSearch = (e) => {
     let searchTerm = e.detail.toLowerCase();
-    if (!searchTerm) {
-      filteredServices = $sortedServices;
-      return;
-    }
-    filteredServices = filteredServices.filter((fs) => {
-      if (
-        fs.serviceTitle.toLowerCase().includes(searchTerm) ||
-        fs.serviceDescription.toLowerCase().includes(searchTerm) ||
-        fs.department.label.toLowerCase().includes(searchTerm) ||
-        fs.status.toLowerCase().includes(searchTerm)
-      ) {
-        return fs;
-      }
-    });
+    filterText.update(() => searchTerm);
   };
 </script>
 
@@ -49,10 +35,10 @@
       <ServiceLibraryToolbar on:on-search={(e) => onSearch(e)} on:on-open-preview={openFullPreview} />
       <div class="table-container">
         {#if innerWidth <= breakpoint}
-          <MobileTable {columnConfigurations} data={filteredServices} />
+          <MobileTable {columnConfigurations} data={$sortedServices} />
         {/if}
         {#if innerWidth > breakpoint}
-          <ServicesTable services={filteredServices} />
+          <ServicesTable services={$sortedServices} />
         {/if}
       </div>
     </forge-card>

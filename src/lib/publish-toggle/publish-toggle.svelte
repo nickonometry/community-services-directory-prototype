@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
   import { servicesCache } from '../../globalStore';
   export let status;
-  export let id;
   export let service;
   export let index;
   let switchControl;
