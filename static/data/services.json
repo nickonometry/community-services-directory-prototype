@@ -58,7 +58,7 @@
     "serviceDescription": "Apply for or renew a U.S. passport online.",
     "isFeatured": false,
     "allowPartnerAccess": false,
-    "iconName": "flight",
+    "iconName": "flight_land",
     "keywords": [],
     "url": "https://example.gov/passport/apply",
     "id": "apply-for-passport"
@@ -138,7 +138,7 @@
     "serviceDescription": "File for unemployment benefits online.",
     "isFeatured": true,
     "allowPartnerAccess": false,
-    "iconName": "work",
+    "iconName": "work_outline",
     "keywords": [],
     "url": "https://example.gov/unemployment/apply",
     "id": "apply-for-unemployment-benefits"
@@ -218,7 +218,7 @@
     "serviceDescription": "Renew your driver's license online with ease.",
     "isFeatured": false,
     "allowPartnerAccess": true,
-    "iconName": "directions_car",
+    "iconName": "drive_eta",
     "keywords": [],
     "url": "https://example.gov/dmv/renew-license",
     "id": "renew-drivers-license"

@@ -2,6 +2,7 @@ import { randomBrightColorPicker } from '../utils/color-picker';
 import { customServiceLinkForm } from '../custom-form-store';
 import publishToggle from '../publish-toggle/publish-toggle.svelte';
 import featuredToggle from '../featured-toggle/featured-toggle.svelte';
+import { avatarCache } from '../../globalStore';
 
 export const createIcon = (iconName) => {
   let icon = document.createElement('forge-icon');
@@ -10,12 +11,38 @@ export const createIcon = (iconName) => {
   return icon;
 };
 
+const checkIfAvatarExists = (propertyName) => {
+  let avatar$;
+  avatarCache.subscribe((val) => {
+    avatar$ = val;
+  });
+
+  for (let i = 0; i < avatar$.length; i++) {
+    const obj = avatar$[i];
+    if (propertyName in obj) {
+      return obj;
+    }
+  }
+  return null;
+};
+
 export const createServiceAvatarIcon = (index, div, data) => {
+  let avatarAlreadyCreated = checkIfAvatarExists(data.iconName);
+  if (avatarAlreadyCreated) {
+    return avatarAlreadyCreated[data.iconName];
+  }
+
   let avatar = document.createElement('forge-avatar');
   avatar.style.setProperty('--forge-avatar-background', randomBrightColorPicker());
   let icon = createIcon(data.iconName);
   icon.style.color = 'white';
   avatar.appendChild(icon);
+  avatarCache.update((a) => {
+    a.push({
+      [data.iconName]: avatar
+    });
+    return a;
+  });
   return avatar;
 };
 

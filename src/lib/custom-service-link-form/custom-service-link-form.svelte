@@ -72,7 +72,7 @@
 {/if}
 
 <!-- This would normally be a form element, for prototype purposes I used a regular div -->
-<div class="form" id="form" bind:this={form}>
+<form class="form" id="form" bind:this={form}>
   <forge-stack>
     <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="service-title">Service title</label>
@@ -131,9 +131,9 @@
     </forge-text-field>
     <PublishSwitch on:publish-toggled={(e) => onStatusChange(e.detail)} status={$customServiceLinkForm.status} />
   </forge-stack>
-</div>
+</form>
 
-<p>{JSON.stringify($customServiceLinkForm, null, 2)}</p>
+<!-- <p>{JSON.stringify($customServiceLinkForm, null, 2)}</p> -->
 
 <style lang="scss">
   @import '../../mixins.scss';

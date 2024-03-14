@@ -2,6 +2,7 @@ import { writable, derived } from 'svelte/store';
 export const filterText = writable('');
 
 export const servicesCache = writable([]);
+export const avatarCache = writable([]);
 
 // Watches for changes in filterText and filters the servicesCache
 export let filteredServices = derived([filterText, servicesCache], ([$filterText, $servicesCache]) => {
