@@ -21,13 +21,6 @@ export let filteredServices = derived([filterText, servicesCache], ([$filterText
     );
 });
 
-// Watches for changes in the filteredServices array and sorts it automatically
-export let sortedServices = derived(filteredServices, ($filteredServices) => {
-  return $filteredServices.sort((a, b) =>
-    a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
-  );
-});
-
 export const departmentsCache = writable([
   {
     label: 'Department of Agriculture',

@@ -1,7 +1,7 @@
 <script>
   import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
-  import { filterText, sortedServices } from '../globalStore';
+  import { filterText, filteredServices } from '../globalStore';
   import MobileTable from '../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
@@ -35,10 +35,10 @@
       <ServiceLibraryToolbar on:on-search={(e) => onSearch(e)} on:on-open-preview={openFullPreview} />
       <div class="table-container">
         {#if innerWidth <= breakpoint}
-          <MobileTable {columnConfigurations} data={$sortedServices} />
+          <MobileTable {columnConfigurations} data={$filteredServices} />
         {/if}
         {#if innerWidth > breakpoint}
-          <ServicesTable services={$sortedServices} />
+          <ServicesTable services={$filteredServices} />
         {/if}
       </div>
     </forge-card>

@@ -1,8 +1,8 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import { filterText } from '../../globalStore';
   const dispatch = createEventDispatcher();
-  let searchString;
 
   const dispatchSearchValue = (e) => {
     dispatch('on-search', e.target.value);
@@ -24,12 +24,7 @@
       <h2 class="forge-typography--heading3">Service library</h2>
       <forge-text-field>
         <forge-icon slot="leading" name="filter_list" external></forge-icon>
-        <input
-          type="text"
-          id="service-search"
-          bind:value={searchString}
-          placeholder="Search for a service"
-          on:input={(e) => dispatchSearchValue(e)} />
+        <input type="text" id="service-search" placeholder="Search for a service" bind:value={$filterText} on:input={(e) => dispatchSearchValue(e)} />
       </forge-text-field>
     </div>
     <div slot="end">
