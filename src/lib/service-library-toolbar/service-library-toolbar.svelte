@@ -1,6 +1,5 @@
 <script>
-  import { createEventDispatcher, onMount } from 'svelte';
-  import { goto } from '$app/navigation';
+  import { createEventDispatcher } from 'svelte';
   import { filterText } from '../../globalStore';
   const dispatch = createEventDispatcher();
 
@@ -10,11 +9,6 @@
 
   const dispatchOpenPreview = (e) => {
     dispatch('on-open-preview', e);
-  };
-
-  const routeToPage = () => {
-    console.log('did i run');
-    goto('/create-service-link');
   };
 </script>
 

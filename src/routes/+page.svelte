@@ -51,6 +51,8 @@
   }
   .page-container {
     padding: 16px;
+    max-width: 1600px;
+    margin: 0 auto;
   }
 
   .table-card {
@@ -58,6 +60,6 @@
   }
 
   .table-container {
-    padding-block: 16px;
+    padding-block-start: 16px;
   }
 </style>

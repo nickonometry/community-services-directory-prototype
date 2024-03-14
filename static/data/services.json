@@ -1,21 +1,5 @@
 [
   {
-    "serviceTitle": "Renew Vehicle Registration",
-    "lastAccessDate": "2024-02-07",
-    "department": {
-      "label": "Department of Motor Vehicles",
-      "value": "department-of-motor-vehicles"
-    },
-    "status": "Published",
-    "serviceDescription": "Renew your vehicle registration online.",
-    "isFeatured": true,
-    "allowPartnerAccess": true,
-    "iconName": "directions_car",
-    "keywords": [],
-    "url": "https://example.gov/dmv/renew-registration",
-    "id": "renew-vehicle-registration"
-  },
-  {
     "serviceTitle": "Apply for Housing Assistance",
     "lastAccessDate": "2024-01-31",
     "department": {
@@ -238,5 +222,21 @@
     "keywords": [],
     "url": "https://example.gov/passport/renew",
     "id": "renew-passport"
+  },
+  {
+    "serviceTitle": "Renew Vehicle Registration",
+    "lastAccessDate": "2024-02-07",
+    "department": {
+      "label": "Department of Motor Vehicles",
+      "value": "department-of-motor-vehicles"
+    },
+    "status": "Published",
+    "serviceDescription": "Renew your vehicle registration online.",
+    "isFeatured": true,
+    "allowPartnerAccess": true,
+    "iconName": "directions_car",
+    "keywords": [],
+    "url": "https://example.gov/dmv/renew-registration",
+    "id": "renew-vehicle-registration"
   }
 ]

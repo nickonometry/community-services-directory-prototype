@@ -71,7 +71,8 @@ export const createActionIconButton = (index, div, data) => {
   let icon = createIcon('chevron_right');
   icon.style.color = 'var(--forge-theme-text-medium)';
   iconButton.appendChild(icon);
-  iconButton.addEventListener('click', () => {
+  iconButton.addEventListener('click', (e) => {
+    e.preventDefault();
     customServiceLinkForm.set(data);
   });
   return iconButton;

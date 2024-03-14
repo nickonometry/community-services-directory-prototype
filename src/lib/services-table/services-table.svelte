@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
   import { columnConfigurations } from './column-configuration.js';
+  import { customServiceLinkForm } from '../custom-form-store.js';
   export let services;
   let table;
   let sortPropertyName = 'serviceTitle';
@@ -16,6 +18,12 @@
     sortPropertyName = columnConfigurations[e.detail.columnIndex].property;
     sortDirection = e.detail.direction;
     table.data = sortData();
+  };
+
+  const onRowClicked = (e) => {
+    let rowData = e.detail.data;
+    customServiceLinkForm.set(rowData);
+    goto(`/edit-service?id=${rowData.id}`);
   };
 
   const sortData = () => {
@@ -35,4 +43,12 @@
   };
 </script>
 
-<forge-table data={services} {columnConfigurations} roomy filter="true" on:forge-table-sort={(e) => onSort(e)}></forge-table>
+<forge-table
+  data={services}
+  {columnConfigurations}
+  roomy
+  filter="true"
+  on:forge-table-sort={(e) => onSort(e)}
+  allow-row-click="true"
+  on:forge-table-row-click={(e) => onRowClicked(e)}>
+</forge-table>

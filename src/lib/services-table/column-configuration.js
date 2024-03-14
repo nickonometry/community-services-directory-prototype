@@ -25,11 +25,11 @@ export const columnConfigurations = [
     property: 'serviceDescription',
     header: 'Service Description'
   },
-  {
-    property: 'lastAccessDate',
-    header: 'Last edited',
-    width: '150px'
-  },
+  // {
+  //   property: 'lastAccessDate',
+  //   header: 'Last edited',
+  //   width: '150px'
+  // },
   {
     property: 'department.label',
     header: 'Department'
