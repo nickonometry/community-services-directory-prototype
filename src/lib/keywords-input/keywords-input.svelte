@@ -36,7 +36,7 @@
         <forge-icon name="help_outline" external></forge-icon>
       </forge-icon-button>
     </div>
-    <forge-popover trigger-type="hover" arrow hover-delay="250">
+    <forge-popover trigger-type="hover" arrow hover-delay="500">
       <div class="popup-container">
         <HelpPopup
           title="Tags"

@@ -101,6 +101,8 @@ export const createStatusToggle = (index, div, data) => {
     },
     target: div
   });
+  div.setAttribute('data-cell-template-stop-propagation', '');
+  div.setAttribute('data-cell-template', '');
 };
 
 export const createFeaturedToggle = (index, div, data) => {
@@ -113,4 +115,6 @@ export const createFeaturedToggle = (index, div, data) => {
     },
     target: div
   });
+  div.setAttribute('data-cell-template-stop-propagation', '');
+  div.setAttribute('data-cell-template', '');
 };

@@ -1,12 +1,13 @@
 <script>
   import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
-  import { filterText, filteredServices } from '../globalStore';
+  import { filterText, filteredServices, servicesCache, serviceFilters } from '../globalStore';
   import MobileTable from '../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
   import ServicesTable from '../lib/services-table/services-table.svelte';
   let innerWidth;
+  let chipSet;
   let breakpoint = 1320;
 
   const openFullPreview = () => {
@@ -25,6 +26,14 @@
     let searchTerm = e.detail.toLowerCase();
     filterText.update(() => searchTerm);
   };
+
+  const onChipSelected = (e) => {
+    if (e.detail.selected) {
+      serviceFilters.update((state) => [...state, e.detail.value]);
+    } else {
+      serviceFilters.update((state) => [...state.filter((s) => s !== e.detail.value)]);
+    }
+  };
 </script>
 
 <svelte:window bind:innerWidth />
@@ -38,6 +47,13 @@
           <MobileTable {columnConfigurations} data={$filteredServices} />
         {/if}
         {#if innerWidth > breakpoint}
+          <div class="filter-container">
+            <forge-chip-set type="filter" on:forge-chip-select={(e) => onChipSelected(e)} bind:this={chipSet}>
+              <forge-chip value="featured">Featured</forge-chip>
+              <forge-chip value="published">Published</forge-chip>
+              <forge-chip value="unpublished">Unpublished</forge-chip>
+            </forge-chip-set>
+          </div>
           <ServicesTable services={$filteredServices} />
         {/if}
       </div>
@@ -50,9 +66,14 @@
     container-type: inline-size;
   }
   .page-container {
-    padding: 16px;
+    padding: 24px;
     max-width: 1600px;
     margin: 0 auto;
+  }
+
+  .filter-container {
+    padding-inline: 16px;
+    padding-block-end: 16px;
   }
 
   .table-card {
@@ -61,5 +82,9 @@
 
   .table-container {
     padding-block-start: 16px;
+  }
+
+  forge-chip {
+    // --forge-chip-shape: 8px;
   }
 </style>

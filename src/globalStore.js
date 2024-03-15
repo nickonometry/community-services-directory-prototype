@@ -1,24 +1,39 @@
 import { writable, derived } from 'svelte/store';
 export const filterText = writable('');
 
+// Values can be 'featured', 'published || unpublished'
+export const serviceFilters = writable([]);
+
 export const servicesCache = writable([]);
 export const avatarCache = writable([]);
 
-// Watches for changes in filterText and filters the servicesCache
-export let filteredServices = derived([filterText, servicesCache], ([$filterText, $servicesCache]) => {
-  if ($filterText == '') return $servicesCache;
-  return $servicesCache
-    .filter(
-      (service) =>
+// Watches for changes in filterText & chip filters then filters the servicesCache
+export let filteredServices = derived([filterText, servicesCache, serviceFilters], ([$filterText, $servicesCache, $serviceFilters]) => {
+  const hasChipFilters = !!$serviceFilters.length;
+  const hasTextFilter = !!$filterText.trim().length;
+  const isFeatured = $serviceFilters.some((f) => f === 'featured');
+
+  if (hasChipFilters) {
+    $servicesCache = $servicesCache.filter((service) => {
+      return service.isFeatured === isFeatured;
+    });
+  }
+
+  if (hasTextFilter) {
+    $servicesCache = $servicesCache.filter((service) => {
+      return (
         service.serviceTitle.toLowerCase().includes($filterText) ||
         service.serviceDescription.toLowerCase().includes($filterText) ||
         service.serviceDescription.toLowerCase().includes($filterText) ||
         service.department.label.toLowerCase().includes($filterText) ||
         service.status.toLowerCase().includes($filterText)
-    )
-    .sort((a, b) =>
-      a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
-    );
+      );
+    });
+  }
+
+  return $servicesCache.sort((a, b) =>
+    a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
+  );
 });
 
 export const departmentsCache = writable([

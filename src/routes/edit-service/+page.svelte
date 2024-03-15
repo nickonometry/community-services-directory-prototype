@@ -5,7 +5,6 @@
   import { servicesCache } from '../../globalStore';
   import { customServiceLinkForm } from '../../lib/custom-form-store';
   let serviceId;
-  let service;
 
   const getServiceById = (serviceId) => {
     return $servicesCache.find((s) => s.id === serviceId);

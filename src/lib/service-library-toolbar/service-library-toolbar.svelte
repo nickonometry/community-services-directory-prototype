@@ -15,7 +15,7 @@
 <div class="container">
   <forge-toolbar>
     <div slot="start" class="search-container">
-      <h2 class="forge-typography--heading3">Service library</h2>
+      <h2 class="forge-typography--heading3" slot="start">Service library</h2>
       <forge-text-field>
         <forge-icon slot="leading" name="filter_list" external></forge-icon>
         <input type="text" id="service-search" placeholder="Search for a service" bind:value={$filterText} on:input={(e) => dispatchSearchValue(e)} />
