@@ -49,8 +49,7 @@ export let filteredServices = derived([filterText, servicesCache, serviceFilters
         service.serviceTitle.toLowerCase().includes($filterText) ||
         service.serviceDescription.toLowerCase().includes($filterText) ||
         service.serviceDescription.toLowerCase().includes($filterText) ||
-        service.department.label.toLowerCase().includes($filterText) ||
-        service.status.toLowerCase().includes($filterText)
+        service.department.label.toLowerCase().includes($filterText)
       );
     });
   }
