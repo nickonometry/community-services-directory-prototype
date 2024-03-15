@@ -100,7 +100,7 @@
   {/if}
   {#if !iconSelected.length}
     <div class="preview-icon-empty">
-      <span class="forge-typography--label">Preview</span>
+      <span class="forge-typography--label1">Preview</span>
     </div>
   {/if}
   <forge-autocomplete

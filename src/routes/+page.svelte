@@ -1,7 +1,7 @@
 <script>
   import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
-  import { filterText, filteredServices, serviceFilters } from '../globalStore';
+  import { filterText, filteredServices, serviceFilters, servicesCache } from '../globalStore';
   import MobileTable from '../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
@@ -10,6 +10,7 @@
   let publishedChip;
   let unpublishedChip;
   let breakpoint = 1320;
+  let filteredServicesWatcher;
 
   const openFullPreview = () => {
     if (browser) {
@@ -64,7 +65,14 @@
               <forge-chip value="unpublished" bind:this={unpublishedChip}>Unpublished</forge-chip>
             </forge-chip-set>
           </div>
-          <ServicesTable services={$filteredServices} />
+          {#if $filteredServices.length > 0}
+            <ServicesTable services={$filteredServices} />
+          {/if}
+          {#if $filteredServices.length === 0}
+            <div class="padding-16">
+              <p class="forge-typography--body1">No services that match your filter criteria. Please adjust and try again</p>
+            </div>
+          {/if}
         {/if}
       </div>
     </forge-card>
