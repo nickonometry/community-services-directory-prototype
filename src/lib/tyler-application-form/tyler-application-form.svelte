@@ -171,13 +171,6 @@
     padding: 16px;
   }
 
-  .switch-container {
-    width: max-content;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
   .icon-title__container {
     display: grid;
     grid-template-columns: auto 1fr;

@@ -66,11 +66,6 @@
     container-type: inline-size;
   }
 
-  .popover-inner {
-    padding: 16px;
-    width: 75vw;
-  }
-
   .search-container {
     display: grid;
     grid-template-columns: auto auto;

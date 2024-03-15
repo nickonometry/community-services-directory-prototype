@@ -1,9 +1,7 @@
 <script lang="ts">
-  import type { IColumnConfiguration } from '@tylertech/forge';
   import MobileServiceCard from '../mobile-service-card/mobile-service-card.svelte';
   import { filterText } from '../../globalStore';
 
-  export let columnConfigurations: IColumnConfiguration[] = [];
   export let data: any[] = [];
 
   const onSearch = (e) => {
@@ -23,14 +21,6 @@
 </div>
 
 <style lang="scss">
-  forge-card {
-    --forge-card-padding: 0;
-  }
-
-  forge-stack {
-    padding: 16px;
-  }
-
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

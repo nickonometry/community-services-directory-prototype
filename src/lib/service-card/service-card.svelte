@@ -38,11 +38,6 @@
     --forge-card-padding: 0;
   }
 
-  forge-toolbar {
-    --forge-toolbar-height: 40px;
-    --forge-toolbar-min-height: 40px;
-  }
-
   forge-button-area {
     height: 100%;
     display: grid;

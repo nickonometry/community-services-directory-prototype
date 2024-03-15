@@ -72,9 +72,6 @@
 {/if}
 
 <style lang="scss">
-  .container {
-    container-type: inline-size;
-  }
   .page-container {
     padding: 24px;
     max-width: 1600px;

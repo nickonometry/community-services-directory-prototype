@@ -12,18 +12,20 @@
   });
 
   const onStatusChange = (e) => {
-    const status = e.detail;
-    if (status) {
-      servicesCache.update((services) => {
-        services.find((s) => s.id === service.id).isPublished = true;
-        return services;
-      });
-    } else {
-      servicesCache.update((services) => {
-        services.find((s) => s.id === service.id).isPublished = false;
-        return services;
-      });
-    }
+    setTimeout(() => {
+      const status = e.detail;
+      if (status) {
+        servicesCache.update((services) => {
+          services.find((s) => s.id === service.id).isPublished = true;
+          return services;
+        });
+      } else {
+        servicesCache.update((services) => {
+          services.find((s) => s.id === service.id).isPublished = false;
+          return services;
+        });
+      }
+    }, 250);
   };
 </script>
 

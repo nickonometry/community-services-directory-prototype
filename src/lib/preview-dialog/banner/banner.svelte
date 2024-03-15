@@ -14,11 +14,4 @@
     justify-content: center;
     transition: all 300ms ease-out;
   }
-
-  .banner__search {
-    display: grid;
-    gap: 24px;
-    max-width: 600px;
-    width: 100%;
-  }
 </style>

@@ -106,28 +106,6 @@
 </forge-card>
 
 <style lang="scss">
-  .stepper-toolbar {
-    --forge-toolbar-padding: 0;
-  }
-
-  .stepper-toolbar div {
-    display: flex;
-    align-items: center;
-  }
-
-  .step-container {
-    padding: 24px;
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
-
-    &__card {
-      --forge-card-padding: 0;
-      max-width: 900px;
-      margin: 24px auto;
-    }
-  }
-
   forge-step::part(button) {
     width: 100%;
   }

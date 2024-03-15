@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
   import { randomBrightColorPicker } from '../utils/color-picker';
 
-  export let index;
   export let service;
   let avatar;
 
