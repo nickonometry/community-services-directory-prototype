@@ -70,7 +70,7 @@
           {/if}
           {#if $filteredServices.length === 0}
             <div class="padding-16">
-              <p class="forge-typography--body1">No services that match your filter criteria. Please adjust and try again</p>
+              <p class="forge-typography--body1">No services match your filter criteria. Please adjust and try again</p>
             </div>
           {/if}
         {/if}
