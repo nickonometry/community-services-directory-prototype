@@ -102,7 +102,7 @@
       "label": "U.S. Department of Education",
       "value": "u.s.-department-of-education"
     },
-    "isPublished": false,
+    "isPublished": true,
     "serviceDescription": "Apply for federal student aid online.",
     "isFeatured": true,
     "allowPartnerAccess": false,
@@ -118,7 +118,7 @@
       "label": "Department of Labor",
       "value": "department-of-labor"
     },
-    "isPublished": false,
+    "isPublished": true,
     "serviceDescription": "File for unemployment benefits online.",
     "isFeatured": true,
     "allowPartnerAccess": false,
