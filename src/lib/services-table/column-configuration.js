@@ -23,7 +23,8 @@ export const columnConfigurations = [
   },
   {
     property: 'serviceDescription',
-    header: 'Service Description'
+    header: 'Service Description',
+    width: '400px'
   },
   // {
   //   property: 'lastAccessDate',
@@ -38,17 +39,20 @@ export const columnConfigurations = [
     property: 'isPublished',
     header: 'Published',
     template: (i, div, data) => createStatusToggle(i, div, data),
-    sortable: true
+    sortable: true,
+    width: '120px'
   },
   {
     property: 'isFeatured',
     header: 'Featured',
     template: (i, div, data) => createFeaturedToggle(i, div, data),
-    sortable: true
+    sortable: true,
+    width: '120px'
   },
   {
     property: 'actions',
     header: '',
-    template: (i, div, data) => createActionIconButton(i, div, data)
+    template: (i, div, data) => createActionIconButton(i, div, data),
+    width: '64px'
   }
 ];

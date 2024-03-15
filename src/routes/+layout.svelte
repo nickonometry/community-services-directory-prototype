@@ -44,4 +44,7 @@
       fill: white;
     }
   }
+  [slot='body'] {
+    scrollbar-gutter: stable both-edges;
+  }
 </style>

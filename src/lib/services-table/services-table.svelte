@@ -47,6 +47,7 @@
   data={services}
   {columnConfigurations}
   roomy
+  layout-type="fixed"
   filter="true"
   on:forge-table-sort={(e) => onSort(e)}
   allow-row-click="true"
