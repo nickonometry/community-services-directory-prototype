@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
+  import { preloadCode } from '$app/navigation';
   import { filterText } from '../../globalStore';
   const dispatch = createEventDispatcher();
 
@@ -33,7 +34,12 @@
             </forge-button>
             <forge-tooltip>Preview what the public service directory looks like on your city website</forge-tooltip>
           </div>
-          <forge-button href="/create-service-link" variant="outlined">
+          <forge-button
+            href="/create-service-link"
+            variant="outlined"
+            on:focus={async () => {
+              await preloadCode(`/create-service-link`);
+            }}>
             <forge-icon name="add" external></forge-icon>
             <span>Add a service</span>
           </forge-button>
