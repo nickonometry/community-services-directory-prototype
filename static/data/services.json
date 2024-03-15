@@ -6,7 +6,7 @@
       "label": "Department of Housing and Urban Development",
       "value": "department-of-housing-and-urban-development"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Apply for housing assistance programs online.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -22,7 +22,7 @@
       "label": "Department of Health and Human Services",
       "value": "department-of-health-and-human-services"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Apply for Medicaid health coverage for low-income families.",
     "isFeatured": false,
     "allowPartnerAccess": true,
@@ -38,7 +38,7 @@
       "label": "U.S. Department of State",
       "value": "u.s.-department-of-state"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Apply for or renew a U.S. passport online.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -54,7 +54,7 @@
       "label": "Small Business Administration",
       "value": "small-business-administration"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Apply for a small business loan online.",
     "isFeatured": true,
     "allowPartnerAccess": false,
@@ -70,7 +70,7 @@
       "label": "Department of Agriculture",
       "value": "department-of-agriculture"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Apply for Supplemental Nutrition Assistance Program (SNAP) benefits online.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -86,7 +86,7 @@
       "label": "Social Security Administration",
       "value": "social-security-administration"
     },
-    "status": "Unpublished",
+    "isPublished": false,
     "serviceDescription": "Apply for retirement, disability, and Medicare benefits online.",
     "isFeatured": false,
     "allowPartnerAccess": true,
@@ -102,7 +102,7 @@
       "label": "U.S. Department of Education",
       "value": "u.s.-department-of-education"
     },
-    "status": "Unpublished",
+    "isPublished": false,
     "serviceDescription": "Apply for federal student aid online.",
     "isFeatured": true,
     "allowPartnerAccess": false,
@@ -118,7 +118,7 @@
       "label": "Department of Labor",
       "value": "department-of-labor"
     },
-    "status": "Unpublished",
+    "isPublished": false,
     "serviceDescription": "File for unemployment benefits online.",
     "isFeatured": true,
     "allowPartnerAccess": false,
@@ -134,7 +134,7 @@
       "label": "Federal Aviation Administration",
       "value": "federal-aviation-administration"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Check the status of flights within the U.S.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -150,7 +150,7 @@
       "label": "Internal Revenue Service",
       "value": "internal-revenue-service"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "File federal income taxes online securely.",
     "isFeatured": false,
     "allowPartnerAccess": true,
@@ -166,7 +166,7 @@
       "label": "Department of Labor",
       "value": "department-of-labor"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Search and apply for job openings.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -182,7 +182,7 @@
       "label": "National Park Service",
       "value": "national-park-service"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Find a national park near you.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -198,7 +198,7 @@
       "label": "Department of Motor Vehicles",
       "value": "department-of-motor-vehicles"
     },
-    "status": "Unpublished",
+    "isPublished": false,
     "serviceDescription": "Renew your driver's license online with ease.",
     "isFeatured": false,
     "allowPartnerAccess": true,
@@ -214,7 +214,7 @@
       "label": "U.S. Department of State",
       "value": "u.s.-department-of-state"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Renew your U.S. passport online.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -230,7 +230,7 @@
       "label": "Department of Motor Vehicles",
       "value": "department-of-motor-vehicles"
     },
-    "status": "Published",
+    "isPublished": true,
     "serviceDescription": "Renew your vehicle registration online.",
     "isFeatured": true,
     "allowPartnerAccess": true,

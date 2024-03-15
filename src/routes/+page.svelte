@@ -1,13 +1,14 @@
 <script>
   import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
-  import { filterText, filteredServices, servicesCache, serviceFilters } from '../globalStore';
+  import { filterText, filteredServices, serviceFilters } from '../globalStore';
   import MobileTable from '../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
   import ServicesTable from '../lib/services-table/services-table.svelte';
   let innerWidth;
-  let chipSet;
+  let publishedChip;
+  let unpublishedChip;
   let breakpoint = 1320;
 
   const openFullPreview = () => {
@@ -29,6 +30,15 @@
 
   const onChipSelected = (e) => {
     if (e.detail.selected) {
+      if (e.detail.value === 'published') {
+        serviceFilters.update((state) => [...state.filter((s) => s !== 'unpublished')]);
+        unpublishedChip.selected = false;
+      }
+
+      if (e.detail.value === 'unpublished') {
+        serviceFilters.update((state) => [...state.filter((s) => s !== 'published')]);
+        publishedChip.selected = false;
+      }
       serviceFilters.update((state) => [...state, e.detail.value]);
     } else {
       serviceFilters.update((state) => [...state.filter((s) => s !== e.detail.value)]);
@@ -48,10 +58,10 @@
         {/if}
         {#if innerWidth > breakpoint}
           <div class="filter-container">
-            <forge-chip-set type="filter" on:forge-chip-select={(e) => onChipSelected(e)} bind:this={chipSet}>
+            <forge-chip-set type="filter" on:forge-chip-select={(e) => onChipSelected(e)}>
               <forge-chip value="featured">Featured</forge-chip>
-              <forge-chip value="published">Published</forge-chip>
-              <forge-chip value="unpublished">Unpublished</forge-chip>
+              <forge-chip value="published" bind:this={publishedChip}>Published</forge-chip>
+              <forge-chip value="unpublished" bind:this={unpublishedChip}>Unpublished</forge-chip>
             </forge-chip-set>
           </div>
           <ServicesTable services={$filteredServices} />

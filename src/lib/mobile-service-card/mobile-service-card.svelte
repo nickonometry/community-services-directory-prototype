@@ -20,8 +20,8 @@
             <forge-icon name={service.iconName} external style="color: white;"></forge-icon>
           </forge-avatar>
           <forge-stack inline alignment="center">
-            <forge-badge theme={service.status.toLowerCase() === 'published' ? 'success' : 'info-secondary'}>
-              {service.status}
+            <forge-badge theme={service.isPublished ? 'success' : 'info-secondary'}>
+              {service.isPublished ? 'Published' : 'Unpublished'}
             </forge-badge>
             {#if service.isFeatured}
               <forge-icon name="star" external></forge-icon>

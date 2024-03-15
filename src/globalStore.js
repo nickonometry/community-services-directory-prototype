@@ -12,11 +12,35 @@ export let filteredServices = derived([filterText, servicesCache, serviceFilters
   const hasChipFilters = !!$serviceFilters.length;
   const hasTextFilter = !!$filterText.trim().length;
   const isFeatured = $serviceFilters.some((f) => f === 'featured');
+  let isPublished = $serviceFilters.some((f) => f === 'published');
+  let isUnpublished = $serviceFilters.some((f) => f === 'unpublished');
 
   if (hasChipFilters) {
-    $servicesCache = $servicesCache.filter((service) => {
-      return service.isFeatured === isFeatured;
-    });
+    if (isFeatured) {
+      $servicesCache = $servicesCache.filter((service) => {
+        return service.isFeatured === isFeatured;
+      });
+    }
+    if (isPublished) {
+      $servicesCache = $servicesCache.filter((service) => {
+        return service.isPublished === isPublished;
+      });
+    }
+    if (isUnpublished) {
+      $servicesCache = $servicesCache.filter((service) => {
+        return service.isPublished === false;
+      });
+    }
+    if (isPublished && isFeatured) {
+      $servicesCache = $servicesCache.filter((service) => {
+        return service.isFeatured === isFeatured && service.isPublished === isPublished;
+      });
+    }
+    if (isUnpublished && isFeatured) {
+      $servicesCache = $servicesCache.filter((service) => {
+        return service.isFeatured === isFeatured && service.isPublished === false;
+      });
+    }
   }
 
   if (hasTextFilter) {

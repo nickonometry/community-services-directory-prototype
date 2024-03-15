@@ -12,7 +12,7 @@ const customServiceLinkDefaults = {
     value: ''
   },
   isFeatured: false,
-  status: '',
+  isPublished: false,
   iconName: '',
   group: '',
   keywords: [],

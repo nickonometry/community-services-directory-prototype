@@ -1,28 +1,26 @@
 <script>
   import { onMount } from 'svelte';
   import { servicesCache } from '../../globalStore';
-  export let status;
   export let service;
   export let index;
   let switchControl;
 
   onMount(() => {
-    if (status === 'Published') {
+    if (service.isPublished) {
       switchControl.selected = true;
     }
   });
 
   const onStatusChange = (e) => {
     const status = e.detail;
-    // servicesCache.update((state) => [...state, $customServiceLinkForm]);
     if (status) {
       servicesCache.update((services) => {
-        services.find((s) => s.id === service.id).status = 'Published';
+        services.find((s) => s.id === service.id).isPublished = true;
         return services;
       });
     } else {
       servicesCache.update((services) => {
-        services.find((s) => s.id === service.id).status = 'Unpublished';
+        services.find((s) => s.id === service.id).isPublished = false;
         return services;
       });
     }

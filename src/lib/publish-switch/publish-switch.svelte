@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
-  export let status = '';
+  export let isPublished;
   const dispatch = createEventDispatcher();
 
   function onStatusChange(event) {
@@ -14,7 +14,7 @@
     required
     aria-label="Active"
     on:forge-switch-change={(e) => onStatusChange(e)}
-    selected={status.toLowerCase() === 'published' ? 'true' : null}>
+    selected={isPublished ? 'true' : null}>
     <span>Published</span>
   </forge-switch>
   <div class="custom-icon" id="tooltip-host">

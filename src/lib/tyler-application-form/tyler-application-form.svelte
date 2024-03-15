@@ -84,14 +84,7 @@
   }
 
   function onStatusChange(event) {
-    let isPublished = event.detail;
-    let value = '';
-    if (isPublished) {
-      value = 'Published';
-    } else {
-      value = 'Unpublished';
-    }
-    customServiceLinkForm.update((state) => ({ ...state, status: value }));
+    customServiceLinkForm.update((state) => ({ ...state, isPublished: event.detail }));
   }
 </script>
 
@@ -124,10 +117,6 @@
                 <span slot="label">Url</span>
                 <span slot="value" class="break-all">{$customServiceLinkForm.url}</span>
               </forge-label-value>
-              <!-- <forge-text-field required>
-               <label for="url">Url</label>
-               <input type="text" id="url" bind:value={$customServiceLinkForm.url} required />
-             </forge-text-field> -->
             </forge-stack>
           </div>
 

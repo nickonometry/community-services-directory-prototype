@@ -35,7 +35,7 @@ export const columnConfigurations = [
     header: 'Department'
   },
   {
-    property: 'status',
+    property: 'isPublished',
     header: 'Published',
     template: (i, div, data) => createStatusToggle(i, div, data),
     sortable: true
