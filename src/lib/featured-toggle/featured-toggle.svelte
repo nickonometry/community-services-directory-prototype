@@ -13,10 +13,12 @@
   });
 
   const onFeaturedChanged = (e) => {
-    servicesCache.update((services) => {
-      services.find((s) => s.id === service.id).isFeatured = e.detail;
-      return services;
-    });
+    setTimeout(() => {
+      servicesCache.update((services) => {
+        services.find((s) => s.id === service.id).isFeatured = e.detail;
+        return services;
+      });
+    }, 250);
   };
 </script>
 
