@@ -1,4 +1,5 @@
 <script>
+  import MobileStepper from './../../lib/mobile-stepper/mobile-stepper.svelte';
   import { openConfirmationDialog } from './../../lib/utils/utils.js';
   import { onMount } from 'svelte';
   import { beforeNavigate } from '$app/navigation';
@@ -11,13 +12,27 @@
 
   let innerWidth;
   let stepper;
-  let steps = [];
+  let steps = [
+    { label: 'Service type', completed: false },
+    { label: 'Service details', optionalLabel: 'Not started', completed: false },
+    { label: 'Preview', completed: false }
+  ];
   let stepSelected = 0;
   let showValidation = false;
 
   beforeNavigate(() => {
     clearForm();
   });
+
+  let serviceTypeCustom = {
+    title: 'Custom service',
+    message: "Let's fill out your custom service details"
+  };
+
+  let serviceTypeTyler = {
+    title: 'Tyler application service',
+    message: "Now let's select an existing service"
+  };
 
   onMount(() => {
     stepper.selectedIndex = 0;
@@ -26,13 +41,6 @@
       stepper.selectedIndex = detail;
       stepSelected = detail;
     });
-
-    steps = [
-      { label: 'Service type', completed: false },
-      { label: 'Service details', optionalLabel: 'Not started', completed: false },
-      { label: 'Preview', completed: false }
-    ];
-    stepper.steps = steps;
   });
 
   const onNextClicked = () => {
@@ -61,51 +69,52 @@
 <svelte:window bind:innerWidth />
 
 <forge-card class="step-container__card">
-  <forge-toolbar>
-    <forge-stack inline alignment="center" slot="before-start" gap="0">
-      <forge-icon-button href="/">
-        <forge-icon name="arrow_back" external></forge-icon>
-      </forge-icon-button>
-      <h2 class="forge-typography--heading3">Create a new service</h2>
-    </forge-stack>
-  </forge-toolbar>
-  <div class="padding-16">
-    <forge-stepper id="stepper" linear vertical={innerWidth < 1024 ? 'true' : null} bind:this={stepper}></forge-stepper>
-  </div>
-  <forge-view-switcher index={stepSelected}>
-    <forge-view>
-      <SelectServiceType {showValidation} />
-    </forge-view>
-    <forge-view>
-      {#if $customServiceLinkForm.serviceType === 'custom'}
-        <CustomServiceLinkForm />
-      {/if}
-      {#if $customServiceLinkForm.serviceType === 'integration'}
-        Integration form
-      {/if}
-      {#if $customServiceLinkForm.serviceType === 'tyler application'}
-        <TylerApplicationForm />
-      {/if}
-      {#if $customServiceLinkForm.serviceType === 'partner'}
-        Partner form
-      {/if}
-    </forge-view>
-    <forge-view>
-      <PreviewStep />
-    </forge-view>
-  </forge-view-switcher>
-  <forge-toolbar inverted>
-    <forge-button variant="outlined" on:click={onPreviousClicked} slot="start" disabled={stepSelected === 0}>Previous</forge-button>
-    <forge-stack slot="end" inline>
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
-      {#if stepSelected === 2}
-        <forge-button variant="raised" on:click={onSave}>Save</forge-button>
-      {:else}
-        <forge-button variant="raised" on:click={onNextClicked}>Next</forge-button>
-      {/if}
-    </forge-stack>
-  </forge-toolbar>
+  <forge-scaffold>
+    <forge-toolbar slot="header" id="stepper-header">
+      <forge-stack inline alignment="center" slot="before-start" gap="0">
+        <forge-icon-button href="/">
+          <forge-icon name="arrow_back" external></forge-icon>
+        </forge-icon-button>
+        <h2 class="forge-typography--heading3">Create a new service</h2>
+      </forge-stack>
+    </forge-toolbar>
+    <div slot="body">
+      <div class="padding-16" id="stepper-container">
+        <forge-stepper linear bind:this={stepper}></forge-stepper>
+      </div>
+      <div class="mobile-stepper">
+        <MobileStepper {stepSelected} {steps} />
+      </div>
+      <forge-view-switcher index={stepSelected}>
+        <forge-view>
+          <SelectServiceType {showValidation} />
+        </forge-view>
+        <forge-view>
+          {#if $customServiceLinkForm.serviceType === 'custom'}
+            <CustomServiceLinkForm />
+          {/if}
+          {#if $customServiceLinkForm.serviceType === 'tyler application'}
+            <TylerApplicationForm />
+          {/if}
+        </forge-view>
+        <forge-view>
+          <PreviewStep />
+        </forge-view>
+      </forge-view-switcher>
+    </div>
+    <forge-toolbar inverted slot="footer">
+      <forge-button variant="outlined" on:click={onPreviousClicked} slot="start" disabled={stepSelected === 0}>Previous</forge-button>
+      <forge-stack slot="end" inline>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        {#if stepSelected === 2}
+          <forge-button variant="raised" on:click={onSave}>Save</forge-button>
+        {:else}
+          <forge-button variant="raised" on:click={onNextClicked}>Next</forge-button>
+        {/if}
+      </forge-stack>
+    </forge-toolbar>
+  </forge-scaffold>
 </forge-card>
 
 <style lang="scss">
@@ -121,7 +130,16 @@
   /* When the browser is at least 1024px and below */
   @media screen and (max-width: 1024px) {
     .step-container__card {
-      margin: 16px;
+      margin: 0;
+      height: 100%;
+    }
+
+    #stepper-header {
+      display: none;
+    }
+
+    #stepper-container {
+      display: none;
     }
   }
 </style>

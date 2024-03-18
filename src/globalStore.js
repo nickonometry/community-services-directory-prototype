@@ -77,14 +77,6 @@ export const departmentsCache = writable([
     value: 'department-of-labor'
   },
   {
-    label: 'Department of Labor',
-    value: 'department-of-labor'
-  },
-  {
-    label: 'Department of Motor Vehicles',
-    value: 'department-of-motor-vehicles'
-  },
-  {
     label: 'Department of Motor Vehicles',
     value: 'department-of-motor-vehicles'
   },
@@ -111,10 +103,6 @@ export const departmentsCache = writable([
   {
     label: 'U.S. Department of Education',
     value: 'u.s.-department-of-education'
-  },
-  {
-    label: 'U.S. Department of State',
-    value: 'u.s.-department-of-state'
   },
   {
     label: 'U.S. Department of State',
