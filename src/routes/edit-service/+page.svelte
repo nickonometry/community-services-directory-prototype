@@ -64,11 +64,7 @@
   @media screen and (max-width: 768px) {
     forge-card {
       height: 100%;
-      margin-block-start: 0;
-    }
-
-    :global(main) {
-      overflow: hidden;
+      margin: 0;
     }
   }
 </style>
