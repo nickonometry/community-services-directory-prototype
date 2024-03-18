@@ -24,16 +24,6 @@
     clearForm();
   });
 
-  let serviceTypeCustom = {
-    title: 'Custom service',
-    message: "Let's fill out your custom service details"
-  };
-
-  let serviceTypeTyler = {
-    title: 'Tyler application service',
-    message: "Now let's select an existing service"
-  };
-
   onMount(() => {
     stepper.selectedIndex = 0;
 
@@ -80,7 +70,7 @@
     </forge-toolbar>
     <div slot="body">
       <div class="padding-16" id="stepper-container">
-        <forge-stepper linear bind:this={stepper}></forge-stepper>
+        <forge-stepper linear bind:this={stepper} {steps}></forge-stepper>
       </div>
       <div class="mobile-stepper">
         <MobileStepper {stepSelected} {steps} />
@@ -118,6 +108,9 @@
 </forge-card>
 
 <style lang="scss">
+  .mobile-stepper {
+    display: none;
+  }
   .step-container__card {
     max-width: 768px;
     margin: 24px auto;
@@ -132,6 +125,10 @@
     .step-container__card {
       margin: 0;
       height: 100%;
+    }
+
+    .mobile-stepper {
+      display: block;
     }
 
     #stepper-header {
