@@ -62,9 +62,12 @@
 
 <forge-card class="step-container__card">
   <forge-toolbar>
-    <div slot="start">
+    <forge-stack inline alignment="center" slot="before-start" gap="0">
+      <forge-icon-button href="/">
+        <forge-icon name="arrow_back" external></forge-icon>
+      </forge-icon-button>
       <h2 class="forge-typography--heading3">Create a new service</h2>
-    </div>
+    </forge-stack>
   </forge-toolbar>
   <div class="padding-16">
     <forge-stepper id="stepper" linear vertical={innerWidth < 1024 ? 'true' : null} bind:this={stepper}></forge-stepper>
@@ -106,6 +109,11 @@
 </forge-card>
 
 <style lang="scss">
+  .step-container__card {
+    max-width: 768px;
+    margin: 24px auto;
+    --forge-card-padding: 0;
+  }
   forge-step::part(button) {
     width: 100%;
   }

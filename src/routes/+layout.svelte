@@ -49,4 +49,10 @@
   [slot='body'] {
     scrollbar-gutter: stable both-edges;
   }
+
+  @media screen and (max-width: 768px) {
+    [slot='body'] {
+      scrollbar-gutter: auto;
+    }
+  }
 </style>

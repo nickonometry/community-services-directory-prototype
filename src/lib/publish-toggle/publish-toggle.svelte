@@ -1,4 +1,5 @@
 <script>
+  import { openToast } from './../utils/utils.js';
   import { onMount } from 'svelte';
   import { servicesCache } from '../../globalStore';
   export let service;
@@ -25,6 +26,7 @@
           return services;
         });
       }
+      openToast('Service updated!');
     }, 250);
   };
 </script>

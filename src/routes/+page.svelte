@@ -1,16 +1,17 @@
 <script>
+  import { onMount } from 'svelte';
   import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
-  import { filterText, filteredServices, serviceFilters, servicesCache } from '../globalStore';
+  import { filterText, filteredServices, serviceFilters } from '../globalStore';
   import MobileTable from '../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../lib/preview-dialog/preview-dialog.svelte';
   import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
   import ServicesTable from '../lib/services-table/services-table.svelte';
   let innerWidth;
+  let featuredChip;
   let publishedChip;
   let unpublishedChip;
   let breakpoint = 1320;
-  let filteredServicesWatcher;
 
   const openFullPreview = () => {
     if (browser) {
@@ -33,12 +34,10 @@
     if (e.detail.selected) {
       if (e.detail.value === 'published') {
         serviceFilters.update((state) => [...state.filter((s) => s !== 'unpublished')]);
-        unpublishedChip.selected = false;
       }
 
       if (e.detail.value === 'unpublished') {
         serviceFilters.update((state) => [...state.filter((s) => s !== 'published')]);
-        publishedChip.selected = false;
       }
       serviceFilters.update((state) => [...state, e.detail.value]);
     } else {
@@ -60,9 +59,9 @@
         {#if innerWidth > breakpoint}
           <div class="filter-container">
             <forge-chip-set type="filter" on:forge-chip-select={(e) => onChipSelected(e)}>
-              <forge-chip value="featured">Featured</forge-chip>
-              <forge-chip value="published" bind:this={publishedChip}>Published</forge-chip>
-              <forge-chip value="unpublished" bind:this={unpublishedChip}>Unpublished</forge-chip>
+              <forge-chip value="featured" selected={$serviceFilters.some((s) => s === 'featured')}>Featured</forge-chip>
+              <forge-chip value="published" selected={$serviceFilters.some((s) => s === 'published')}>Published</forge-chip>
+              <forge-chip value="unpublished" selected={$serviceFilters.some((s) => s === 'unpublished')}>Unpublished</forge-chip>
             </forge-chip-set>
           </div>
           {#if $filteredServices.length > 0}
@@ -86,6 +85,12 @@
     margin: 0 auto;
   }
 
+  @media screen and (max-width: 768px) {
+    .page-container {
+      padding: 0;
+    }
+  }
+
   .filter-container {
     padding-inline: 16px;
     padding-block-end: 16px;
@@ -97,9 +102,5 @@
 
   .table-container {
     padding-block-start: 16px;
-  }
-
-  forge-chip {
-    // --forge-chip-shape: 8px;
   }
 </style>

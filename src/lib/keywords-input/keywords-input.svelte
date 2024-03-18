@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import HelpPopup from '../help-popup/help-popup.svelte';
+  import { popoverA11y } from '../utils/utils';
   let keywordInput;
   onMount(() => {
     keywordInput.addEventListener('forge-chip-field-member-added', onMemberAdded);
@@ -32,11 +33,20 @@
 <forge-chip-field bind:this={keywordInput} add-on-blur>
   <div slot="trailing">
     <div class="custom-icon">
-      <forge-icon-button dense>
+      <!-- svelte-ignore missing-declaration -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
+      <forge-icon-button
+        dense
+        id="keywords-popover"
+        aria-expanded="false"
+        on:blur={(e) => popoverA11y(e, false)}
+        on:mouseleave={(e) => popoverA11y(e, false)}
+        on:focus={(e) => popoverA11y(e, true)}
+        on:mouseenter={(e) => popoverA11y(e, true)}>
         <forge-icon name="help_outline" external></forge-icon>
       </forge-icon-button>
     </div>
-    <forge-popover trigger-type="hover" arrow hover-delay="500">
+    <forge-popover trigger-type="hover" arrow hover-delay="500" aria-labelledby="keywords-popover" role="region">
       <div class="popup-container">
         <HelpPopup
           title="Tags"

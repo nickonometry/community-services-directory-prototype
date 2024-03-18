@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { servicesCache } from '../../globalStore';
+  import { openToast } from '../utils/utils';
   export let status;
   export let service;
   export let index;
@@ -19,6 +20,7 @@
         return services;
       });
     }, 250);
+    openToast('Service updated!');
   };
 </script>
 

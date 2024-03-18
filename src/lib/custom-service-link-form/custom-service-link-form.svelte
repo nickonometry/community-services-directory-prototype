@@ -1,4 +1,5 @@
 <script>
+  import { popoverA11y } from './../utils/utils.js';
   import { onMount } from 'svelte';
   import { beforeNavigate } from '$app/navigation';
   import IconPicker from '../icon-picker/icon-picker.svelte';
@@ -77,14 +78,23 @@
     </forge-text-field>
     <forge-stack inline stretch>
       <forge-radio-group>
-        <div class="flex-center--row flex-gap-0">
+        <forge-stack inline gap="0" alignment="center">
           <forge-label legend>Featured</forge-label>
           <div class="custom-icon">
-            <forge-icon-button dense>
+            <!-- svelte-ignore a11y-unknown-aria-attribute -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
+            <forge-icon-button
+              id="featured-popover"
+              dense
+              aria-expanded="false"
+              on:blur={(e) => popoverA11y(e, false)}
+              on:mouseleave={(e) => popoverA11y(e, false)}
+              on:focus={(e) => popoverA11y(e, true)}
+              on:mouseenter={(e) => popoverA11y(e, true)}>
               <forge-icon name="help_outline" external></forge-icon>
             </forge-icon-button>
           </div>
-          <forge-popover trigger-type="hover" arrow placement="auto" hover-delay="500">
+          <forge-popover trigger-type="hover" arrow placement="auto" hover-delay="500" aria-labelledby="featured-popover" role="region">
             <div class="popup-container">
               <HelpPopup imageUrl="/featured-services.png" title="Featured services">
                 <p>
@@ -94,7 +104,7 @@
               </HelpPopup>
             </div>
           </forge-popover>
-        </div>
+        </forge-stack>
 
         <div>
           <forge-radio name="featured" value="true" on:change={onFeatureChange} checked={$customServiceLinkForm.isFeatured} required>Yes</forge-radio>
