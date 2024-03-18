@@ -108,13 +108,12 @@
 </forge-card>
 
 <style lang="scss">
+  @import '../../mixins.scss';
   .mobile-stepper {
     display: none;
   }
   .step-container__card {
-    max-width: 768px;
-    margin: 24px auto;
-    --forge-card-padding: 0;
+    @include add-edit-service-page-layout();
   }
   forge-step::part(button) {
     width: 100%;

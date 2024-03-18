@@ -13,6 +13,8 @@
   onMount(() => {
     const searchParams = new URLSearchParams(window.location.search);
     serviceId = searchParams.get('id');
+    let service = getServiceById(serviceId);
+    customServiceLinkForm.set(service);
   });
 
   const onSave = () => {
@@ -22,9 +24,9 @@
   };
 </script>
 
-<div class="container">
-  <forge-card class="container__card">
-    <forge-toolbar style="--forge-toolbar-padding: 0;">
+<forge-card>
+  <forge-scaffold>
+    <forge-toolbar style="--forge-toolbar-padding: 0;" slot="header">
       <div slot="start" class="flex-center--row flex-gap-0">
         <forge-icon-button href="/">
           <forge-icon name="arrow_back" external></forge-icon>
@@ -38,8 +40,11 @@
         <span>Delete service</span>
       </forge-button>
     </forge-toolbar>
-    <CustomServiceLinkForm isEdit="true"></CustomServiceLinkForm>
-    <forge-toolbar inverted>
+
+    <div slot="body">
+      <CustomServiceLinkForm isEdit="true"></CustomServiceLinkForm>
+    </div>
+    <forge-toolbar inverted slot="footer">
       <forge-stack slot="end" inline>
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -47,20 +52,23 @@
         <forge-button variant="raised" on:click={onSave}>Save</forge-button>
       </forge-stack>
     </forge-toolbar>
-  </forge-card>
-</div>
+  </forge-scaffold>
+</forge-card>
 
 <style lang="scss">
-  .container {
-    padding: 24px;
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
+  @import '../../mixins.scss';
 
-    &__card {
-      --forge-card-padding: 0;
-      max-width: 900px;
-      margin: 24px auto;
+  forge-card {
+    @include add-edit-service-page-layout();
+  }
+  @media screen and (max-width: 768px) {
+    forge-card {
+      height: 100%;
+      margin-block-start: 0;
+    }
+
+    :global(main) {
+      overflow: hidden;
     }
   }
 </style>

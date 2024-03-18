@@ -5,3 +5,9 @@
     max-width: 70vw;
   }
 }
+
+@mixin add-edit-service-page-layout {
+  max-width: 768px;
+  margin: 24px auto;
+  --forge-card-padding: 0;
+}

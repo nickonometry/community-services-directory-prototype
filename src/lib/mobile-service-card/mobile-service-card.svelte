@@ -44,7 +44,7 @@
 
     <!-- TODO - make this configurable and not customer specific -->
     <forge-toolbar inverted>
-      <forge-button href="" slot="end">
+      <forge-button href={`/edit-service?id=${service.id}`} slot="end">
         <span>Edit service</span>
         <forge-icon name="arrow_right" slot="end" external />
       </forge-button>
