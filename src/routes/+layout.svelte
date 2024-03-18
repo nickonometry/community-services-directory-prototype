@@ -48,6 +48,6 @@
   }
 
   forge-scaffold {
-    --forge-scaffold-height: 100dvh;
+    --forge-scaffold-height: 100%;
   }
 </style>
