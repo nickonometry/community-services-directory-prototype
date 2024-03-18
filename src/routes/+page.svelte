@@ -1,4 +1,5 @@
 <script>
+  import ServicesEmptyState from './../lib/services-empty-state/services-empty-state.svelte';
   import { onMount } from 'svelte';
   import { columnConfigurations } from './../lib/services-table/column-configuration.js';
   import { browser } from '$app/environment';
@@ -65,9 +66,7 @@
             <ServicesTable services={$filteredServices} />
           {/if}
           {#if $filteredServices.length === 0}
-            <div class="padding-16">
-              <p class="forge-typography--body1">No services match your filter criteria. Please adjust and try again</p>
-            </div>
+            <ServicesEmptyState />
           {/if}
         {/if}
       </div>

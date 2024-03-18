@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ServicesEmptyState from './../services-empty-state/services-empty-state.svelte';
   import MobileServiceCard from '../mobile-service-card/mobile-service-card.svelte';
   import { filterText } from '../../globalStore';
 
@@ -13,11 +14,16 @@
 <div class="grid">
   <forge-text-field class="span-full">
     <forge-icon slot="leading" name="filter_list" external></forge-icon>
-    <input type="text" id="service-search" placeholder="Search for a service" on:input={(e) => onSearch(e)} />
+    <input type="text" id="service-search" placeholder="Search for a service" bind:value={$filterText} on:input={(e) => onSearch(e)} />
   </forge-text-field>
-  {#each data as d, index}
-    <MobileServiceCard {index} service={d} />
-  {/each}
+  {#if data.length}
+    {#each data as d}
+      <MobileServiceCard service={d} />
+    {/each}
+  {/if}
+  {#if !data.length}
+    <ServicesEmptyState />
+  {/if}
 </div>
 
 <style lang="scss">
