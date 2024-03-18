@@ -58,4 +58,10 @@
   forge-inline-message::part(root) {
     width: 100%;
   }
+
+  @media screen and (max-width: 1024px) {
+    h3 {
+      padding-block-start: 16px;
+    }
+  }
 </style>
