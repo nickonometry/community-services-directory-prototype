@@ -103,4 +103,8 @@
   .table-container {
     padding-block-start: 16px;
   }
+
+  :global(main) {
+    overflow: auto;
+  }
 </style>
