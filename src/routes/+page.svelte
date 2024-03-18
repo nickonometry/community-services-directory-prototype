@@ -8,9 +8,6 @@
   import ServiceLibraryToolbar from '../lib/service-library-toolbar/service-library-toolbar.svelte';
   import ServicesTable from '../lib/services-table/services-table.svelte';
   let innerWidth;
-  let featuredChip;
-  let publishedChip;
-  let unpublishedChip;
   let breakpoint = 1320;
 
   const openFullPreview = () => {

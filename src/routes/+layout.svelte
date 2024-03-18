@@ -46,4 +46,8 @@
       fill: white;
     }
   }
+
+  forge-scaffold {
+    --forge-scaffold-height: 100dvh;
+  }
 </style>

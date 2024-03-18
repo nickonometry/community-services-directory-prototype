@@ -11,34 +11,23 @@ export const avatarCache = writable([]);
 export let filteredServices = derived([filterText, servicesCache, serviceFilters], ([$filterText, $servicesCache, $serviceFilters]) => {
   const hasChipFilters = !!$serviceFilters.length;
   const hasTextFilter = !!$filterText.trim().length;
-  const isFeatured = $serviceFilters.some((f) => f === 'featured');
-  let isPublished = $serviceFilters.some((f) => f === 'published');
-  let isUnpublished = $serviceFilters.some((f) => f === 'unpublished');
+  const hasFeaturedFilter = $serviceFilters.some((f) => f === 'featured');
+  const hasPublishedFilter = $serviceFilters.some((f) => f === 'published');
+  const hasUnpublishedFilter = $serviceFilters.some((f) => f === 'unpublished');
 
   if (hasChipFilters) {
-    if (isFeatured) {
+    if (hasFeaturedFilter) {
       $servicesCache = $servicesCache.filter((service) => {
-        return service.isFeatured === isFeatured;
+        return service.isFeatured === true;
       });
     }
-    if (isPublished) {
+    if (hasPublishedFilter) {
       $servicesCache = $servicesCache.filter((service) => {
-        return service.isPublished === isPublished;
+        return service.isPublished === true;
       });
-    }
-    if (isUnpublished) {
+    } else if (hasUnpublishedFilter) {
       $servicesCache = $servicesCache.filter((service) => {
         return service.isPublished === false;
-      });
-    }
-    if (isPublished && isFeatured) {
-      $servicesCache = $servicesCache.filter((service) => {
-        return service.isFeatured === isFeatured && service.isPublished === isPublished;
-      });
-    }
-    if (isUnpublished && isFeatured) {
-      $servicesCache = $servicesCache.filter((service) => {
-        return service.isFeatured === isFeatured && service.isPublished === false;
       });
     }
   }
