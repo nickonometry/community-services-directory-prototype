@@ -28,11 +28,15 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <div>
-            <forge-button on:click={dispatchOpenPreview}>
+            <forge-button href="/service-directory" target="_blank">
               <forge-icon name="preview" external></forge-icon>
-              <span>Resident preview</span>
+              <span>View service directory</span>
             </forge-button>
-            <forge-tooltip>Preview what the public service directory looks like on your city website</forge-tooltip>
+            <!-- <forge-button on:click={dispatchOpenPreview}>
+              <forge-icon name="preview" external></forge-icon>
+              <span>View service directory</span>
+            </forge-button> -->
+            <forge-tooltip>Navigate to the service directory website</forge-tooltip>
           </div>
           <forge-button
             href="/create-service-link"

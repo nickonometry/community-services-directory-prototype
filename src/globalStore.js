@@ -1,9 +1,6 @@
 import { writable, derived } from 'svelte/store';
 export const filterText = writable('');
-
-// Values can be 'featured', 'published || unpublished'
 export const serviceFilters = writable([]);
-
 export const servicesCache = writable([]);
 export const avatarCache = writable([]);
 
@@ -50,15 +47,15 @@ export let filteredServices = derived([filterText, servicesCache, serviceFilters
 
 export const departmentsCache = writable([
   {
-    label: 'Department of Agriculture',
+    label: 'Agriculture',
     value: 'department-of-agriculture'
   },
   {
-    label: 'Department of Health and Human Services',
+    label: 'Health and Human Services',
     value: 'department-of-health-and-human-services'
   },
   {
-    label: 'Department of Housing and Urban Development',
+    label: 'Housing and Urban Development',
     value: 'department-of-housing-and-urban-development'
   },
   {
@@ -66,7 +63,7 @@ export const departmentsCache = writable([
     value: 'department-of-labor'
   },
   {
-    label: 'Department of Motor Vehicles',
+    label: 'Motor Vehicles',
     value: 'department-of-motor-vehicles'
   },
   {
@@ -90,11 +87,11 @@ export const departmentsCache = writable([
     value: 'social-security-administration'
   },
   {
-    label: 'U.S. Department of Education',
+    label: 'Department of Education',
     value: 'u.s.-department-of-education'
   },
   {
-    label: 'U.S. Department of State',
+    label: 'Department of State',
     value: 'u.s.-department-of-state'
   }
 ]);

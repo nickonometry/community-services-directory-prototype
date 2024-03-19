@@ -1,0 +1,64 @@
+<script>
+  import { onMount } from 'svelte';
+  import { loadForgeComponents } from '$lib/utils/forge-components.js';
+  import { fade } from 'svelte/transition';
+  import '../../app.scss';
+  import { servicesCache } from '../../globalStore';
+  export let data;
+  let services = data.data.data;
+  if (!$servicesCache.length) {
+    servicesCache.set(services);
+  }
+  let isLoaded = false;
+
+  onMount(async () => {
+    loadForgeComponents();
+    Promise.allSettled([window.customElements.whenDefined('forge-split-view')]).then(() => (isLoaded = true));
+  });
+</script>
+
+{#if isLoaded}
+  <forge-scaffold>
+    <forge-app-bar title-text="Community Services Library" href="/" slot="header" theme="white">
+      <div slot="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          ><title>Tyler Technologies, Inc. Logo</title><path d="M0 0h24v24H0V0z" fill="none"></path><path
+            d="M4.5 7.9c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5S3 10.2 3 9.4s.7-1.5 1.5-1.5M7 10.4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5m2.5 2.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5S8 15.2 8 14.4s.7-1.5 1.5-1.5m0 5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5S8 20.2 8 19.4s.7-1.5 1.5-1.5m2.5-2.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5m2.5-2.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5m-5-5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5S8 10.2 8 9.4s.7-1.5 1.5-1.5M12 5.4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5m2.5 2.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5m2.5 2.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5m2.5 2.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5m-5-10c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5S13 5.2 13 4.4s.7-1.5 1.5-1.5m3 13c0 .3-.3.6-.6.6s-.6-.3-.6-.6.3-.6.6-.6.6.3.6.6zm-.1 0c0-.3-.2-.5-.5-.5s-.5.2-.5.5.2.5.5.5.5-.2.5-.5zm-.6.4l-.1-.7h.3c.2 0 .2.1.2.2s-.1.2-.2.2l.2.3h-.1l-.2-.3h-.1v.3zm.1-.4c.1 0 .2 0 .2-.1s-.1-.1-.2-.1h-.2v.2h.2z"
+          ></path
+          ></svg>
+      </div>
+      <forge-tooltip position="left">Toggle theme</forge-tooltip>
+    </forge-app-bar>
+    <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
+      <slot />
+    </main>
+  </forge-scaffold>
+{/if}
+
+<style lang="scss">
+  [slot='logo'] {
+    svg {
+      fill: black;
+    }
+  }
+
+  forge-scaffold {
+    --forge-scaffold-height: 100%;
+  }
+
+  [slot='body']::before {
+    content: '';
+    background: url('https://www.itl.cat/pngfile/big/212-2125505_3840-x-material-design-light-gray.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+</style>

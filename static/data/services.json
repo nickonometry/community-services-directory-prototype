@@ -214,7 +214,7 @@
       "label": "U.S. Department of State",
       "value": "u.s.-department-of-state"
     },
-    "isPublished": true,
+    "isPublished": false,
     "serviceDescription": "Renew your U.S. passport online.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -230,7 +230,7 @@
       "label": "Department of Motor Vehicles",
       "value": "department-of-motor-vehicles"
     },
-    "isPublished": true,
+    "isPublished": false,
     "serviceDescription": "Renew your vehicle registration online.",
     "isFeatured": true,
     "allowPartnerAccess": true,

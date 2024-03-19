@@ -24,11 +24,6 @@ export const columnConfigurations = [
     header: 'Service Description',
     width: '400px'
   },
-  // {
-  //   property: 'lastAccessDate',
-  //   header: 'Last edited',
-  //   width: '150px'
-  // },
   {
     property: 'department.label',
     header: 'Department'

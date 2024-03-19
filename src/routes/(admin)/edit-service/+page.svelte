@@ -1,9 +1,9 @@
 <script>
-  import { openConfirmationDialog } from './../../lib/utils/utils.js';
+  import { openConfirmationDialog } from '../../../lib/utils/utils.js';
   import { onMount } from 'svelte';
-  import CustomServiceLinkForm from '../../lib/custom-service-link-form/custom-service-link-form.svelte';
-  import { servicesCache } from '../../globalStore';
-  import { customServiceLinkForm } from '../../lib/custom-form-store';
+  import CustomServiceLinkForm from '../../../lib/custom-service-link-form/custom-service-link-form.svelte';
+  import { servicesCache } from '../../../globalStore';
+  import { customServiceLinkForm } from '../../../lib/custom-form-store';
   let serviceId;
 
   const getServiceById = (serviceId) => {
@@ -56,7 +56,7 @@
 </forge-card>
 
 <style lang="scss">
-  @import '../../mixins.scss';
+  @import '../../../mixins.scss';
 
   forge-card {
     @include add-edit-service-page-layout();

@@ -1,0 +1,69 @@
+<script>
+  export let service;
+</script>
+
+<a href="http://www.google.com" target="_blank" forge-ignore>
+  <li>
+    <forge-card>
+      <div class="card-inner">
+        <div class="icon-container">
+          <forge-icon name={service.iconName} external></forge-icon>
+        </div>
+        <div class="service-details">
+          <forge-stack>
+            <p class="forge-typography--heading2">{service.serviceTitle}</p>
+            <p class="forge-typography--body1">{service.serviceDescription}</p>
+          </forge-stack>
+        </div>
+      </div>
+    </forge-card>
+  </li>
+</a>
+
+<style lang="scss">
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    forge-card {
+      --forge-card-padding: 0;
+    }
+  }
+
+  .card-inner {
+    display: grid;
+    grid-template-columns: 100px auto;
+    transition: border-right 100ms ease-out;
+    max-height: 100px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--forge-theme-surface-dim);
+      border-right: 4px solid var(--forge-theme-secondary);
+    }
+  }
+
+  .icon-container {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-content: center;
+    overflow: hidden;
+
+    forge-icon {
+      font-size: 64px;
+    }
+  }
+
+  .service-details {
+    padding: 16px;
+  }
+</style>

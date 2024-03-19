@@ -2,8 +2,8 @@
   import { onMount } from 'svelte';
   import { loadForgeComponents } from '$lib/utils/forge-components.js';
   import { fade } from 'svelte/transition';
-  import '../app.scss';
-  import { servicesCache } from '../globalStore';
+  import '../../app.scss';
+  import { servicesCache } from '../../globalStore';
   export let data;
   let services = data.data.data;
   servicesCache.set(services);
