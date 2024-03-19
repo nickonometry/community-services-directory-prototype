@@ -1,6 +1,8 @@
 <script>
+  import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
   import { randomBrightColorPicker } from '../utils/color-picker';
+  import { customServiceLinkForm } from '../custom-form-store';
 
   export let service;
   let avatar;
@@ -8,6 +10,11 @@
   onMount(() => {
     avatar.style.setProperty('--forge-avatar-background', randomBrightColorPicker());
   });
+
+  const onEditServiceClick = () => {
+    customServiceLinkForm.set(service);
+    goto(`/edit-service?id=${service.id}`);
+  };
 </script>
 
 <forge-card>
@@ -44,7 +51,9 @@
 
     <!-- TODO - make this configurable and not customer specific -->
     <forge-toolbar inverted>
-      <forge-button href={`/edit-service?id=${service.id}`} slot="end">
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
+      <forge-button slot="end" on:click={() => onEditServiceClick()}>
         <span>Edit service</span>
         <forge-icon name="arrow_right" slot="end" external />
       </forge-button>
