@@ -24,6 +24,16 @@
   a {
     text-decoration: none;
     color: inherit;
+
+    &:hover,
+    &:focus-visible {
+      cursor: pointer;
+      outline-offset: 4px;
+      .card-inner {
+        background-color: var(--forge-theme-surface-dim);
+        border-right: 4px solid var(--forge-theme-secondary);
+      }
+    }
   }
 
   li {
@@ -42,10 +52,9 @@
     transition: border-right 100ms ease-out;
     max-height: 100px;
 
-    &:hover {
-      cursor: pointer;
-      background-color: var(--forge-theme-surface-dim);
-      border-right: 4px solid var(--forge-theme-secondary);
+    &:hover,
+    &:focus-visible,
+    &:focus {
     }
   }
 

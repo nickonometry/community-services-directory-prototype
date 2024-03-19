@@ -3,6 +3,9 @@
   import { departmentsCache, filterText, filteredServices, serviceFilters, servicesCache } from './../../globalStore.js';
   import Banner from './components/banner.svelte';
   import DirectoryServiceCard from './components/directory-service-card.svelte';
+  import FilterSidesheet from './components/filter-sidesheet.svelte';
+  import DepartmentFilter from './components/department-filter.svelte';
+  let filterDrawer;
 
   onMount(() => {
     // Make sure we reset the store since the codotype shares one store
@@ -14,6 +17,11 @@
     let searchTerm = e.target.value.toLowerCase();
     filterText.update(() => searchTerm);
   };
+
+  const openFilterSidesheet = () => {
+    console.log('sidesheet opened');
+    filterDrawer.open = true;
+  };
 </script>
 
 <div class="page-grid">
@@ -22,6 +30,19 @@
   </div>
   <div class="card-container">
     <forge-card>
+      <div class="mobile-filters">
+        <forge-text-field id="text-field" variant="filled">
+          <forge-icon slot="leading" name="search" external></forge-icon>
+          <input type="text" id="service-filter" placeholder="Search by keyword..." bind:value={$filterText} on:input={(e) => onSearch(e)} />
+          <forge-icon-button on:click={() => openFilterSidesheet()} slot="accessory">
+            <forge-icon name="filter_list" external></forge-icon>
+          </forge-icon-button>
+        </forge-text-field>
+
+        <forge-modal-drawer bind:this={filterDrawer} direction="right" class="filter-drawer">
+          <FilterSidesheet dialogRef={filterDrawer} />
+        </forge-modal-drawer>
+      </div>
       <div class="directory-card-inner">
         <div class="filters">
           <forge-stack>
@@ -29,16 +50,7 @@
               <forge-icon slot="leading" name="search" external></forge-icon>
               <input type="text" id="service-filter" placeholder="Search by keyword..." bind:value={$filterText} on:input={(e) => onSearch(e)} />
             </forge-text-field>
-            <forge-list dense>
-              <forge-stack gap="8">
-                {#each $departmentsCache as dept}
-                  <forge-list-item>
-                    <span slot="title">{dept.label}</span>
-                    <forge-checkbox slot="leading"> </forge-checkbox>
-                  </forge-list-item>
-                {/each}
-              </forge-stack>
-            </forge-list>
+            <DepartmentFilter />
           </forge-stack>
         </div>
         <div class="services-list">
@@ -58,6 +70,9 @@
 </div>
 
 <style lang="scss">
+  .mobile-filters {
+    display: none;
+  }
   .page-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -83,20 +98,35 @@
 
   .directory-card-inner {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 344px 1fr;
     padding: 16px;
     gap: 56px;
-  }
-
-  forge-list-item {
-    --forge-list-item-dense-gap: 8px;
-    --forge-list-item-padding: 0;
   }
 
   .services-list {
     ul {
       margin: 0;
       padding: 0;
+    }
+  }
+
+  .filter-drawer {
+    --forge-drawer-width: 80vw;
+  }
+
+  @media screen and (max-width: 900px) {
+    .filters {
+      display: none;
+    }
+
+    .directory-card-inner {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+
+    .mobile-filters {
+      display: block;
+      padding-block-end: 16px;
     }
   }
 </style>

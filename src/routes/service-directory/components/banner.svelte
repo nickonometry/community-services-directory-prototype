@@ -30,6 +30,7 @@
     color: white;
     max-width: 1024px;
     margin-block-end: 64px;
+    padding: 24px;
   }
 
   h2,
