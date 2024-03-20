@@ -51,7 +51,7 @@
       </div>
       <div class="mobile-actions">
         <forge-stack inline gap="8px">
-          <forge-icon-button>
+          <forge-icon-button href="/resident-preview" target="_blank">
             <forge-icon name="preview" external></forge-icon>
             <forge-tooltip>Resident preview</forge-tooltip>
           </forge-icon-button>
