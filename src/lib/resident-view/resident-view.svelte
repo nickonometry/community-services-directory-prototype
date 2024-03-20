@@ -95,10 +95,6 @@
     --forge-button-color: white;
   }
 
-  .main-card::part(root) {
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-
   .services-card-container {
     z-index: 2;
     max-width: 1264px;
@@ -136,6 +132,9 @@
   }
 
   @media screen and (max-width: 860px) {
+    .services-card-container {
+      padding: 16px;
+    }
     .desktop-nav {
       display: none;
     }
