@@ -1,11 +1,17 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   import { departmentsCache } from './../../../globalStore.js';
+
+  const dispatch = createEventDispatcher();
+  const dispatchDepartmentsSelected = (e) => {
+    dispatch('department-selected', e.detail);
+  };
 </script>
 
 <forge-list>
   <forge-stack gap="8">
     {#each $departmentsCache as dept}
-      <forge-list-item>
+      <forge-list-item on:forge-list-item-select={(e) => dispatchDepartmentsSelected(e)} value={dept.value}>
         <span slot="title">{dept.label}</span>
         <forge-checkbox slot="leading"> </forge-checkbox>
       </forge-list-item>

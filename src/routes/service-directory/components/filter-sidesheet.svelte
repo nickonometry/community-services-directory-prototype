@@ -1,6 +1,8 @@
 <script>
   import DepartmentFilter from './department-filter.svelte';
 
+  const departmentFiltersApplied = [];
+
   export let dialogRef;
   const onClose = () => {
     dialogRef.open = false;
@@ -8,6 +10,10 @@
 
   const onSave = () => {
     dialogRef.open = false;
+  };
+
+  const onDepartmentSelected = (v) => {
+    console.log(v);
   };
 </script>
 
@@ -22,7 +28,7 @@
   <div slot="body">
     <div class="filter-container">
       <span class="forge-typography--label1">Department</span>
-      <DepartmentFilter />
+      <DepartmentFilter on:department-selected={(e) => onDepartmentSelected(e)} />
     </div>
   </div>
 

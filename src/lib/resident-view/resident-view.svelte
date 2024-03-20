@@ -3,10 +3,39 @@
   import ServiceCard from '../service-card/service-card.svelte';
   import Banner from './banner/banner.svelte';
   import { servicesCache } from '../../globalStore';
-  import { onMount } from 'svelte';
+  let mobileNavDrawer;
   export let dialogRef = null;
 
-  onMount(() => {});
+  const openMobileMenu = () => {
+    mobileNavDrawer.open = true;
+  };
+
+  const navItems = [
+    {
+      label: 'Services',
+      value: 'services'
+    },
+    {
+      label: 'Resident',
+      value: 'resident'
+    },
+    {
+      label: 'Business',
+      value: 'business'
+    },
+    {
+      label: 'Government',
+      value: 'government'
+    },
+    {
+      label: 'Departments',
+      value: 'departments'
+    },
+    {
+      label: 'Connect',
+      value: 'connect'
+    }
+  ];
 </script>
 
 <div class="container">
@@ -15,14 +44,24 @@
       <forge-stack inline alignment="center" slot="start">
         <PortlandLogo />
       </forge-stack>
-      <forge-stack slot="end" inline>
-        <forge-button class="white-button">Resident</forge-button>
-        <forge-button class="white-button">Business</forge-button>
-        <forge-button class="white-button">Government</forge-button>
-        <forge-button class="white-button">Departments</forge-button>
-        <forge-button class="white-button">Connect</forge-button>
+      <forge-stack slot="end" inline alignment="center">
+        <div class="desktop-nav">
+          {#each navItems as navItem}
+            <forge-button class="white-button">{navItem.label}</forge-button>
+          {/each}
+        </div>
+        <forge-icon-button on:click={openMobileMenu} class="mobile-nav">
+          <forge-icon name="menu" external aria-label="Open menu" style="color: white;"></forge-icon>
+        </forge-icon-button>
       </forge-stack>
     </forge-toolbar>
+    <forge-modal-drawer bind:this={mobileNavDrawer} direction="right" class="filter-drawer" slot="right" style="z-index: 25">
+      <forge-list>
+        {#each navItems as navItem}
+          <forge-list-item selected={navItem.value === 'services'}>{navItem.label}</forge-list-item>
+        {/each}
+      </forge-list>
+    </forge-modal-drawer>
     <div slot="body">
       <Banner />
       <div class="services-card-container">
@@ -74,6 +113,10 @@
   .container {
     background-color: var(--forge-theme-surface-dim);
     height: 100%;
+  }
+
+  .mobile-nav {
+    display: none;
   }
 
   .portland-header {
@@ -136,5 +179,15 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+  }
+
+  @media screen and (max-width: 860px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-nav {
+      display: block;
+    }
   }
 </style>
