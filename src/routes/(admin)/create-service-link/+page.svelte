@@ -80,7 +80,7 @@
           <SelectServiceType {showValidation} />
         </forge-view>
         <forge-view>
-          {#if $customServiceLinkForm.serviceType === 'custom'}
+          {#if $customServiceLinkForm.serviceType === 'user-defined'}
             <CustomServiceLinkForm />
           {/if}
           {#if $customServiceLinkForm.serviceType === 'tyler application'}
