@@ -89,7 +89,7 @@
 
   .card-container {
     z-index: 2;
-    max-width: 1024px;
+    max-width: 1264px;
     width: 100%;
     margin: 0 auto;
     grid-column: 1;
@@ -111,10 +111,10 @@
   }
 
   .filter-drawer {
-    --forge-drawer-width: 80vw;
+    --forge-drawer-width: 70vw;
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1024px) {
     .filters {
       display: none;
     }

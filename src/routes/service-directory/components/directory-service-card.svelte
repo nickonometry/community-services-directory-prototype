@@ -1,5 +1,6 @@
 <script>
   export let service;
+  console.log(service);
 </script>
 
 <a href="http://www.google.com" target="_blank" forge-ignore>
@@ -10,9 +11,10 @@
           <forge-icon name={service.iconName} external></forge-icon>
         </div>
         <div class="service-details">
-          <forge-stack>
+          <forge-stack gap="16">
             <p class="forge-typography--heading2">{service.serviceTitle}</p>
             <p class="forge-typography--body1">{service.serviceDescription}</p>
+            <forge-badge theme="info" class="department-badge">{service.department.label}</forge-badge>
           </forge-stack>
         </div>
       </div>
@@ -50,11 +52,16 @@
     display: grid;
     grid-template-columns: 100px auto;
     transition: border-right 100ms ease-out;
-    max-height: 100px;
+    height: 100%;
+  }
 
-    &:hover,
-    &:focus-visible,
-    &:focus {
+  .department-badge {
+    --forge-badge-shape: 2px;
+
+    &::part(root) {
+      text-wrap: wrap;
+      height: auto;
+      display: block;
     }
   }
 

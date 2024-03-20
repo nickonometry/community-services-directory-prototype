@@ -1,7 +1,7 @@
 <div class="banner">
   <div class="banner__heading">
     <forge-stack gap="8px">
-      <h2 class="forge-typography--display7" id="title">City of Portland Services</h2>
+      <h2 class="forge-typography--display7 heading" id="title">City of Portland Services</h2>
       <p id="welcome-message">Portland, Maine: Life's Good Here.</p>
     </forge-stack>
   </div>
@@ -37,5 +37,19 @@
   p {
     margin: 0;
     padding: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .heading {
+      font-size: 48px;
+      line-height: normal;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .heading {
+      font-size: 40px;
+      line-height: normal;
+    }
   }
 </style>
