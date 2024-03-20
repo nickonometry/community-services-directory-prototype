@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     transition: all 300ms ease-out;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('./portland-banner.avif');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('/portland-banner.avif');
   }
 
   .banner__heading {
