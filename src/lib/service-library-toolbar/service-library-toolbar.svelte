@@ -28,7 +28,7 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <div>
-            <forge-button href="/service-directory" target="_blank">
+            <forge-button href="/resident-preview" target="_blank">
               <forge-icon name="preview" external></forge-icon>
               <span>View service directory</span>
             </forge-button>
