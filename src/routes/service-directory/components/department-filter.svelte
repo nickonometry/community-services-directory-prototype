@@ -21,7 +21,7 @@
 
 <style>
   forge-list-item {
-    --forge-list-item-dense-gap: 8px;
+    --forge-list-item-dense-gap: 0;
     --forge-list-item-padding: 0;
   }
   @media screen and (max-width: 900px) {
