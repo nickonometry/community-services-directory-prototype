@@ -61,7 +61,7 @@
 
 {#if !isEdit}
   <forge-toolbar no-border>
-    <h3 slot="center" class="forge-typography--heading2">Next let's fill out the custom service details</h3>
+    <h3 slot="center" class="forge-typography--heading2">Next let's fill out the user-defined service details</h3>
   </forge-toolbar>
 {/if}
 

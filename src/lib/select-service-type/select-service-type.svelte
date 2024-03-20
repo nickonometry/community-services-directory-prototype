@@ -37,9 +37,9 @@
     icon="tyler_talking_t_logo"
     iconLibrary="custom"></ServiceTypeCard>
   <ServiceTypeCard
-    isSelected={currentSelected === 'custom'}
+    isSelected={currentSelected === 'user-defined'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
-    serviceType="Custom"
+    serviceType="User-Defined"
     serviceDescription="These are custom defined services that require complete setup and configuration."
     icon="build"
     iconLibrary="standard"></ServiceTypeCard>
