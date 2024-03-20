@@ -38,7 +38,6 @@
             <forge-icon name="filter_list" external></forge-icon>
           </forge-icon-button>
         </forge-text-field>
-
         <forge-modal-drawer bind:this={filterDrawer} direction="right" class="filter-drawer">
           <FilterSidesheet dialogRef={filterDrawer} />
         </forge-modal-drawer>
@@ -70,15 +69,13 @@
 </div>
 
 <style lang="scss">
+  @import '../../mixins.scss';
   .mobile-filters {
     display: none;
   }
+
   .page-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(12, 1fr);
-    height: 100%;
-    width: 100%;
+    @include card-overlay-page-grid();
   }
 
   .banner-container {
@@ -101,6 +98,10 @@
     grid-template-columns: 344px 1fr;
     padding: 16px;
     gap: 56px;
+  }
+
+  forge-modal-drawer:not([open]) {
+    visibility: hidden;
   }
 
   .services-list {

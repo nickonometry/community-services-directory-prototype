@@ -3,113 +3,70 @@
   import ServiceCard from '../service-card/service-card.svelte';
   import Banner from './banner/banner.svelte';
   import { servicesCache } from '../../globalStore';
+  import BrandedHeader from '../branded-header/branded-header.svelte';
   let mobileNavDrawer;
   export let dialogRef = null;
-
-  const openMobileMenu = () => {
-    mobileNavDrawer.open = true;
-  };
-
-  const navItems = [
-    {
-      label: 'Services',
-      value: 'services'
-    },
-    {
-      label: 'Resident',
-      value: 'resident'
-    },
-    {
-      label: 'Business',
-      value: 'business'
-    },
-    {
-      label: 'Government',
-      value: 'government'
-    },
-    {
-      label: 'Departments',
-      value: 'departments'
-    },
-    {
-      label: 'Connect',
-      value: 'connect'
-    }
-  ];
 </script>
 
 <div class="container">
   <forge-scaffold>
-    <forge-toolbar slot="header" auto-height class="portland-header" no-border>
-      <forge-stack inline alignment="center" slot="start">
-        <PortlandLogo />
-      </forge-stack>
-      <forge-stack slot="end" inline alignment="center">
-        <div class="desktop-nav">
-          {#each navItems as navItem}
-            <forge-button class="white-button">{navItem.label}</forge-button>
-          {/each}
-        </div>
-        <forge-icon-button on:click={openMobileMenu} class="mobile-nav">
-          <forge-icon name="menu" external aria-label="Open menu" style="color: white;"></forge-icon>
-        </forge-icon-button>
-      </forge-stack>
-    </forge-toolbar>
-    <forge-modal-drawer bind:this={mobileNavDrawer} direction="right" class="filter-drawer" slot="right" style="z-index: 25">
-      <forge-list>
-        {#each navItems as navItem}
-          <forge-list-item selected={navItem.value === 'services'}>{navItem.label}</forge-list-item>
-        {/each}
-      </forge-list>
-    </forge-modal-drawer>
+    <div slot="header">
+      <BrandedHeader />
+    </div>
     <div slot="body">
-      <Banner />
-      <div class="services-card-container">
+      <div class="page-grid">
+        <div class="banner-container">
+          <Banner />
+        </div>
         <div class="search-container">
           <forge-text-field id="text-field" variant="filled">
             <forge-icon slot="trailing" name="search" external></forge-icon>
             <input type="text" id="text-field-input" placeholder="How can we help you?" />
           </forge-text-field>
         </div>
-        <forge-card class="main-card">
-          <forge-stack gap="32">
-            <div class="services-grid">
-              <h3 class="forge-typography--heading3 span-full">Featured Services</h3>
-              {#each $servicesCache as service}
-                {#if service.isFeatured}
-                  <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
-                {/if}
-              {/each}
-              <div class="view-all-container span-full">
-                <forge-button href="/service-directory">
-                  <span>View all</span>
-                  <forge-icon name="chevron_right" external></forge-icon>
-                </forge-button>
+        <div class="services-card-container">
+          <forge-card class="main-card">
+            <forge-stack gap="32">
+              <div class="services-grid">
+                <h3 class="forge-typography--heading3 span-full">Featured Services</h3>
+                {#each $servicesCache as service}
+                  {#if service.isFeatured}
+                    <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
+                  {/if}
+                {/each}
+                <div class="view-all-container span-full">
+                  <forge-button href="/service-directory">
+                    <span>View all</span>
+                    <forge-icon name="chevron_right" external></forge-icon>
+                  </forge-button>
+                </div>
               </div>
-            </div>
 
-            <div class="services-grid">
-              <h3 class="forge-typography--heading3 span-full">Popular Services</h3>
-              {#each $servicesCache as service, index}
-                {#if index < 5}
-                  <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
-                {/if}
-              {/each}
-              <div class="view-all-container span-full">
-                <forge-button href="/service-directory">
-                  <span>View all</span>
-                  <forge-icon name="chevron_right" external></forge-icon>
-                </forge-button>
+              <div class="services-grid">
+                <h3 class="forge-typography--heading3 span-full">Popular Services</h3>
+                {#each $servicesCache as service, index}
+                  {#if index < 5}
+                    <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
+                  {/if}
+                {/each}
+                <div class="view-all-container span-full">
+                  <forge-button href="/service-directory">
+                    <span>View all</span>
+                    <forge-icon name="chevron_right" external></forge-icon>
+                  </forge-button>
+                </div>
               </div>
-            </div>
-          </forge-stack>
-        </forge-card>
+            </forge-stack>
+          </forge-card>
+        </div>
       </div>
     </div>
   </forge-scaffold>
 </div>
 
 <style lang="scss">
+  @import '../../mixins.scss';
+
   .container {
     background-color: var(--forge-theme-surface-dim);
     height: 100%;
@@ -119,16 +76,14 @@
     display: none;
   }
 
-  .portland-header {
-    position: relative;
-    --forge-toolbar-background: #003b4d;
-    --forge-toolbar-start-start-shape: 0;
-    --forge-toolbar-start-end-shape: 0;
-    box-shadow:
-      0 3px 6px rgba(0, 0, 0, 0.16),
-      0 3px 6px rgba(0, 0, 0, 0.23);
-    z-index: 20;
-    --forge-toolbar-padding-block: 8px;
+  .page-grid {
+    @include card-overlay-page-grid();
+  }
+
+  .banner-container {
+    grid-column: 1;
+    grid-row: 1/5;
+    z-index: 1;
   }
 
   .logo {
@@ -145,22 +100,22 @@
   }
 
   .services-card-container {
+    z-index: 2;
     max-width: 1264px;
     width: 100%;
-    margin: calc(-34dvh + 88px) auto;
-    z-index: 1;
-    position: relative;
-    padding: 24px;
-
-    forge-card {
-      margin-block-start: -150px;
-    }
+    margin: 0 auto;
+    grid-column: 1;
+    grid-row: 4/12;
   }
 
   .search-container {
-    height: 25dvh;
+    z-index: 2;
+    grid-column: 1;
+    grid-row: 2;
     margin: 0 auto;
     max-width: 600px;
+    width: 100%;
+    padding-inline: 16px;
 
     forge-text-field {
       padding-block-start: 24px;
@@ -169,8 +124,7 @@
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    // grid-template-rows: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1rem;
     height: fit-content;
   }

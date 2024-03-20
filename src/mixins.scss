@@ -11,3 +11,11 @@
   margin: 24px auto;
   --forge-card-padding: 0;
 }
+
+@mixin card-overlay-page-grid() {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(12, 1fr);
+  height: 100%;
+  width: 100%;
+}
