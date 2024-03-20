@@ -11,7 +11,7 @@
 <forge-list>
   <forge-stack gap="8">
     {#each $departmentsCache as dept}
-      <forge-list-item on:forge-list-item-select={(e) => dispatchDepartmentsSelected(e)} value={dept.value}>
+      <forge-list-item on:forge-list-item-select={(e) => dispatchDepartmentsSelected(e)} value={dept.value} dense>
         <span slot="title">{dept.label}</span>
         <forge-checkbox slot="leading"> </forge-checkbox>
       </forge-list-item>
