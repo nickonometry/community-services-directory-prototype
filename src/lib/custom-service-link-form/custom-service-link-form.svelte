@@ -33,7 +33,7 @@
 
     if (isEdit) {
       departmentSelect.value = $customServiceLinkForm.department.value;
-      functionsSelect.value = $customServiceLinkForm.functions.value;
+      functionsSelect.value = $customServiceLinkForm.functions;
     }
   });
 

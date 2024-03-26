@@ -14,7 +14,7 @@
     "keywords": [],
     "url": "https://example.gov/hud/apply-housing-assistance",
     "id": "apply-for-housing-assistance",
-    "functions": []
+    "functions": ["fee", "fine", "form"]
   },
   {
     "serviceTitle": "Apply for Medicaid",
