@@ -45,6 +45,49 @@ export let filteredServices = derived([filterText, servicesCache, serviceFilters
   );
 });
 
+export const functionsCache = writable([
+  {
+    label: 'Appointment',
+    value: 'appointment'
+  },
+  {
+    label: 'Bill/Invoice',
+    value: 'bill-invoice'
+  },
+  {
+    label: 'Fee',
+    value: 'fee'
+  },
+  {
+    label: 'Fine',
+    value: 'fine'
+  },
+  {
+    label: 'Form',
+    value: 'form'
+  },
+  {
+    label: 'License',
+    value: 'license'
+  },
+  {
+    label: 'Permit',
+    value: 'permit'
+  },
+  {
+    label: 'Rental',
+    value: 'rental'
+  },
+  {
+    label: 'Subscription',
+    value: 'subscription'
+  },
+  {
+    label: 'Tax',
+    value: 'tax'
+  }
+]);
+
 export const departmentsCache = writable([
   {
     label: 'Agriculture',

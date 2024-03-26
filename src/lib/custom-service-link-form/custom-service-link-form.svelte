@@ -4,12 +4,13 @@
   import { beforeNavigate } from '$app/navigation';
   import IconPicker from '../icon-picker/icon-picker.svelte';
   import { customServiceLinkForm, clearForm } from '../custom-form-store';
-  import { servicesCache, departmentsCache } from '../../globalStore';
+  import { servicesCache, departmentsCache, functionsCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
   import KeywordsInput from '../keywords-input/keywords-input.svelte';
   import PublishSwitch from '../publish-switch/publish-switch.svelte';
   export let isEdit = false;
   let departmentSelect;
+  let functionsSelect;
   let form;
   let serviceId;
   let services = $servicesCache;
@@ -28,8 +29,11 @@
 
   onMount(() => {
     departmentSelect.options = $departmentsCache;
+    functionsSelect.options = $functionsCache;
+
     if (isEdit) {
       departmentSelect.value = $customServiceLinkForm.department.value;
+      functionsSelect.value = $customServiceLinkForm.functions.value;
     }
   });
 
@@ -47,6 +51,13 @@
         label: services.find((s) => s.department.value === event.detail).department.label,
         value: event.detail
       }
+    }));
+  }
+
+  function onFunctionsSelectChange(event) {
+    customServiceLinkForm.update((state) => ({
+      ...state,
+      functions: event.detail
     }));
   }
 
@@ -122,6 +133,15 @@
       label="Department"
       bind:this={departmentSelect}
       on:change={onDepartmentChange}
+      required
+      float-label-type={isEdit ? 'always' : 'auto'}>
+    </forge-select>
+
+    <forge-select
+      multiple
+      label="Functions"
+      bind:this={functionsSelect}
+      on:change={onFunctionsSelectChange}
       required
       float-label-type={isEdit ? 'always' : 'auto'}>
     </forge-select>

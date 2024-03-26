@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
-  import { departmentsCache } from './../../../globalStore.js';
+  import { departmentsCache, functionsCache } from '../../../globalStore.js';
 
   const dispatch = createEventDispatcher();
   const dispatchDepartmentsSelected = (e) => {
@@ -9,10 +9,10 @@
 </script>
 
 <forge-list>
-  <forge-stack gap="8">
-    {#each $departmentsCache as dept}
-      <forge-list-item on:forge-list-item-select={(e) => dispatchDepartmentsSelected(e)} value={dept.value} dense>
-        <span slot="title">{dept.label}</span>
+  <forge-stack gap="0">
+    {#each $functionsCache as func}
+      <forge-list-item on:forge-list-item-select={(e) => dispatchDepartmentsSelected(e)} value={func.value}>
+        <span slot="title">{func.label}</span>
         <forge-checkbox slot="leading"> </forge-checkbox>
       </forge-list-item>
     {/each}
@@ -21,7 +21,7 @@
 
 <style>
   forge-list-item {
-    --forge-list-item-dense-gap: 0;
+    --forge-list-item-gap: 16px;
     --forge-list-item-padding: 0;
   }
   @media screen and (max-width: 900px) {

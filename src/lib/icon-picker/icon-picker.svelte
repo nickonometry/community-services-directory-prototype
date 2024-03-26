@@ -27,8 +27,6 @@
     autocomplete.filter = filter;
     autocomplete.optionBuilder = optionBuilder;
 
-    console.log($customServiceLinkForm);
-
     if ($customServiceLinkForm.iconName) {
       onIconSelected($customServiceLinkForm.iconName);
       autocomplete.value = $customServiceLinkForm.iconName;

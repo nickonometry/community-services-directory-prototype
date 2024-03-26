@@ -11,6 +11,7 @@ const customServiceLinkDefaults = {
     label: '',
     value: ''
   },
+  function: '',
   isFeatured: false,
   isPublished: false,
   iconName: '',

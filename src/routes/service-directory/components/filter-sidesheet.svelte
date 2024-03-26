@@ -1,5 +1,5 @@
 <script>
-  import DepartmentFilter from './department-filter.svelte';
+  import FunctionsFilter from './functions-filter.svelte';
 
   const departmentFiltersApplied = [];
 
@@ -28,7 +28,7 @@
   <div slot="body">
     <div class="filter-container">
       <span class="forge-typography--label1">Department</span>
-      <DepartmentFilter on:department-selected={(e) => onDepartmentSelected(e)} />
+      <FunctionsFilter on:department-selected={(e) => onDepartmentSelected(e)} />
     </div>
   </div>
 

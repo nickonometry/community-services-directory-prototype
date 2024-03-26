@@ -1,10 +1,10 @@
 <script>
   import { onMount } from 'svelte';
-  import { departmentsCache, filterText, filteredServices, serviceFilters, servicesCache } from './../../globalStore.js';
+  import { filterText, filteredServices, serviceFilters } from './../../globalStore.js';
   import Banner from './components/banner.svelte';
   import DirectoryServiceCard from './components/directory-service-card.svelte';
   import FilterSidesheet from './components/filter-sidesheet.svelte';
-  import DepartmentFilter from './components/department-filter.svelte';
+  import FunctionsFilter from './components/functions-filter.svelte';
   let filterDrawer;
 
   onMount(() => {
@@ -49,7 +49,7 @@
               <forge-icon slot="leading" name="search" external></forge-icon>
               <input type="text" id="service-filter" placeholder="Search by keyword..." bind:value={$filterText} on:input={(e) => onSearch(e)} />
             </forge-text-field>
-            <DepartmentFilter />
+            <FunctionsFilter />
           </forge-stack>
         </div>
         <div class="services-list">
