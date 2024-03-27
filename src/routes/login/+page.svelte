@@ -24,6 +24,7 @@
               <forge-button> Reset password </forge-button>
             </div>
           </div>
+          <forge-button variant="filled">Sign in</forge-button>
         </forge-stack>
         <div class="or-container">
           <forge-divider></forge-divider>
