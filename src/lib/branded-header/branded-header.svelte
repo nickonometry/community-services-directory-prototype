@@ -37,29 +37,8 @@
   <forge-stack inline alignment="center" slot="start">
     <PortlandLogo />
   </forge-stack>
-  <!-- TO DO - use this on the mocked up municpality website later on -->
-  <!-- <forge-stack slot="end" inline alignment="center">
-    <div class="desktop-nav">
-      {#each navItems as navItem}
-        <forge-button class="white-button">{navItem.label}</forge-button>
-      {/each}
-    </div>
-    <forge-icon-button on:click={openMobileMenu} class="mobile-nav">
-      <forge-icon name="menu" external aria-label="Open menu" style="color: white; font-size: 48px"></forge-icon>
-    </forge-icon-button>
-  </forge-stack> -->
-
-  <forge-button slot="end" class="sign-in-button"> Sign in </forge-button>
+  <forge-button slot="end" class="sign-in-button" href="/login"> Sign in </forge-button>
 </forge-app-bar>
-
-<!-- TO DO - use this on the mocked up municpality website later on -->
-<!-- <forge-modal-drawer bind:this={mobileNavDrawer} direction="right" class="filter-drawer" slot="right" style="z-index: 25">
-  <forge-list>
-    {#each navItems as navItem}
-      <forge-list-item selected={navItem.value === 'services'}>{navItem.label}</forge-list-item>
-    {/each}
-  </forge-list>
-</forge-modal-drawer> -->
 
 <style>
   .portland-header {
