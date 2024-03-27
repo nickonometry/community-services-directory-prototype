@@ -2,27 +2,34 @@
   export let service;
 </script>
 
-<li>
-  <forge-card>
-    <forge-button-area id="button-area">
-      <button slot="button" aria-labelledby="button-area-heading"></button>
-      <div class="card-inner">
-        <div class="icon-container">
-          <forge-icon name={service.iconName} external></forge-icon>
+<a href={service.url} target="_blank">
+  <li>
+    <forge-card>
+      <forge-button-area id="button-area">
+        <button slot="button" aria-labelledby="button-area-heading"></button>
+        <div class="card-inner">
+          <div class="icon-container">
+            <forge-icon name={service.iconName} external></forge-icon>
+          </div>
+          <div class="service-details">
+            <forge-stack gap="16">
+              <p class="forge-typography--heading2" id="button-area-heading">{service.serviceTitle}</p>
+              <p class="forge-typography--body1">{service.serviceDescription}</p>
+              <forge-badge theme="info" class="department-badge">{service.department.label}</forge-badge>
+            </forge-stack>
+          </div>
         </div>
-        <div class="service-details">
-          <forge-stack gap="16">
-            <p class="forge-typography--heading2" id="button-area-heading">{service.serviceTitle}</p>
-            <p class="forge-typography--body1">{service.serviceDescription}</p>
-            <forge-badge theme="info" class="department-badge">{service.department.label}</forge-badge>
-          </forge-stack>
-        </div>
-      </div>
-    </forge-button-area>
-  </forge-card>
-</li>
+      </forge-button-area>
+    </forge-card>
+  </li>
+</a>
 
 <style lang="scss">
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   li {
     --primary: #003b4d;
     --primary-light: #01455a;

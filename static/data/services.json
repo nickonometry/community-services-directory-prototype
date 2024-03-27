@@ -12,7 +12,7 @@
     "allowPartnerAccess": false,
     "iconName": "home",
     "keywords": [],
-    "url": "https://example.gov/hud/apply-housing-assistance",
+    "url": "https://www.google.com",
     "id": "apply-for-housing-assistance",
     "functions": ["fee", "fine", "form"]
   },
@@ -29,7 +29,7 @@
     "allowPartnerAccess": true,
     "iconName": "local_hospital",
     "keywords": [],
-    "url": "https://example.gov/medicaid/apply",
+    "url": "https://www.google.com",
     "id": "apply-for-medicaid",
     "functions": []
   },
@@ -46,7 +46,7 @@
     "allowPartnerAccess": false,
     "iconName": "flight_land",
     "keywords": [],
-    "url": "https://example.gov/passport/apply",
+    "url": "https://www.google.com",
     "id": "apply-for-passport",
     "functions": []
   },
@@ -63,7 +63,7 @@
     "allowPartnerAccess": false,
     "iconName": "business_center",
     "keywords": [],
-    "url": "https://example.gov/sba/apply-loan",
+    "url": "https://www.google.com",
     "id": "apply-for-small-business-loan",
     "functions": []
   },
@@ -80,7 +80,7 @@
     "allowPartnerAccess": false,
     "iconName": "local_grocery_store",
     "keywords": [],
-    "url": "https://example.gov/usda/apply-snap",
+    "url": "https://www.google.com",
     "id": "apply-for-snap-benefits",
     "functions": []
   },
@@ -97,7 +97,7 @@
     "allowPartnerAccess": true,
     "iconName": "account_balance",
     "keywords": [],
-    "url": "https://example.gov/social-security/apply-benefits",
+    "url": "https://www.google.com",
     "id": "apply-for-social-security-benefits",
     "functions": []
   },
@@ -114,7 +114,7 @@
     "allowPartnerAccess": false,
     "iconName": "school",
     "keywords": [],
-    "url": "https://example.gov/fafsa/apply",
+    "url": "https://www.google.com",
     "id": "apply-for-student-aid-(fafsa)",
     "functions": []
   },
@@ -131,7 +131,7 @@
     "allowPartnerAccess": false,
     "iconName": "work_outline",
     "keywords": [],
-    "url": "https://example.gov/unemployment/apply",
+    "url": "https://www.google.com",
     "id": "apply-for-unemployment-benefits",
     "functions": []
   },
@@ -148,7 +148,7 @@
     "allowPartnerAccess": false,
     "iconName": "flight",
     "keywords": [],
-    "url": "https://example.gov/faa/check-flight-status",
+    "url": "https://www.google.com",
     "id": "check-flight-status",
     "functions": []
   },
@@ -165,7 +165,7 @@
     "allowPartnerAccess": true,
     "iconName": "attach_money",
     "keywords": [],
-    "url": "https://example.gov/irs/file-taxes",
+    "url": "https://www.google.com",
     "id": "file-taxes",
     "functions": []
   },
@@ -182,7 +182,7 @@
     "allowPartnerAccess": false,
     "iconName": "work",
     "keywords": [],
-    "url": "https://example.gov/dol/find-job",
+    "url": "https://www.google.com",
     "id": "find-a-job",
     "functions": []
   },
@@ -199,7 +199,7 @@
     "allowPartnerAccess": false,
     "iconName": "nature_people",
     "keywords": [],
-    "url": "https://example.gov/nps/find-park",
+    "url": "https://www.google.com",
     "id": "find-a-national-park",
     "functions": []
   },
@@ -216,7 +216,7 @@
     "allowPartnerAccess": true,
     "iconName": "drive_eta",
     "keywords": [],
-    "url": "https://example.gov/dmv/renew-license",
+    "url": "https://www.google.com",
     "id": "renew-drivers-license",
     "functions": []
   },
@@ -233,7 +233,7 @@
     "allowPartnerAccess": false,
     "iconName": "flight_takeoff",
     "keywords": [],
-    "url": "https://example.gov/passport/renew",
+    "url": "https://www.google.com",
     "id": "renew-passport",
     "functions": []
   },
@@ -250,7 +250,7 @@
     "allowPartnerAccess": true,
     "iconName": "directions_car",
     "keywords": [],
-    "url": "https://example.gov/dmv/renew-registration",
+    "url": "https://www.google.com",
     "id": "renew-vehicle-registration",
     "functions": []
   }
