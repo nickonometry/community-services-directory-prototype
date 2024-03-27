@@ -3,9 +3,19 @@
   import HelpPopup from '../help-popup/help-popup.svelte';
   import { popoverA11y } from '../utils/utils';
   let keywordInput;
+  export let keywords = [];
+
   onMount(() => {
     keywordInput.addEventListener('forge-chip-field-member-added', onMemberAdded);
     keywordInput.addEventListener('forge-chip-field-member-removed', onMemberRemoved);
+
+    if (keywords.length) {
+      keywords.forEach((v) => {
+        let obj = {};
+        obj.detail = v;
+        onMemberAdded(obj);
+      });
+    }
   });
 
   const onMemberAdded = (event) => {

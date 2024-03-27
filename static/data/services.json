@@ -1,257 +1,291 @@
 [
   {
-    "serviceTitle": "Apply for Housing Assistance",
-    "lastAccessDate": "2024-01-31",
+    "serviceTitle": "Farmers Market Permit",
+    "lastAccessDate": "2024-03-27",
     "department": {
-      "label": "Department of Housing and Urban Development",
-      "value": "department-of-housing-and-urban-development"
-    },
-    "isPublished": true,
-    "serviceDescription": "Apply for housing assistance programs online.",
-    "isFeatured": false,
-    "allowPartnerAccess": false,
-    "iconName": "home",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "apply-for-housing-assistance",
-    "functions": ["fee", "fine", "form"]
-  },
-  {
-    "serviceTitle": "Apply for Medicaid",
-    "lastAccessDate": "2024-02-05",
-    "department": {
-      "label": "Department of Health and Human Services",
-      "value": "department-of-health-and-human-services"
-    },
-    "isPublished": true,
-    "serviceDescription": "Apply for Medicaid health coverage for low-income families.",
-    "isFeatured": false,
-    "allowPartnerAccess": true,
-    "iconName": "local_hospital",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "apply-for-medicaid",
-    "functions": []
-  },
-  {
-    "serviceTitle": "Apply for Passport",
-    "lastAccessDate": "2024-02-06",
-    "department": {
-      "label": "U.S. Department of State",
-      "value": "u.s.-department-of-state"
-    },
-    "isPublished": true,
-    "serviceDescription": "Apply for or renew a U.S. passport online.",
-    "isFeatured": false,
-    "allowPartnerAccess": false,
-    "iconName": "flight_land",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "apply-for-passport",
-    "functions": []
-  },
-  {
-    "serviceTitle": "Apply for Small Business Loan",
-    "lastAccessDate": "2024-02-02",
-    "department": {
-      "label": "Small Business Administration",
-      "value": "small-business-administration"
-    },
-    "isPublished": true,
-    "serviceDescription": "Apply for a small business loan online.",
-    "isFeatured": true,
-    "allowPartnerAccess": false,
-    "iconName": "business_center",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "apply-for-small-business-loan",
-    "functions": []
-  },
-  {
-    "serviceTitle": "Apply for SNAP Benefits",
-    "lastAccessDate": "2024-01-28",
-    "department": {
-      "label": "Department of Agriculture",
+      "label": "Agriculture",
       "value": "department-of-agriculture"
     },
     "isPublished": true,
-    "serviceDescription": "Apply for Supplemental Nutrition Assistance Program (SNAP) benefits online.",
-    "isFeatured": false,
-    "allowPartnerAccess": false,
-    "iconName": "local_grocery_store",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "apply-for-snap-benefits",
-    "functions": []
-  },
-  {
-    "serviceTitle": "Apply for Social Security Benefits",
-    "lastAccessDate": "2024-02-08",
-    "department": {
-      "label": "Social Security Administration",
-      "value": "social-security-administration"
-    },
-    "isPublished": false,
-    "serviceDescription": "Apply for retirement, disability, and Medicare benefits online.",
-    "isFeatured": false,
-    "allowPartnerAccess": true,
-    "iconName": "account_balance",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "apply-for-social-security-benefits",
-    "functions": []
-  },
-  {
-    "serviceTitle": "Apply for Student Aid (FAFSA)",
-    "lastAccessDate": "2024-02-03",
-    "department": {
-      "label": "U.S. Department of Education",
-      "value": "u.s.-department-of-education"
-    },
-    "isPublished": true,
-    "serviceDescription": "Apply for federal student aid online.",
+    "serviceDescription": "Apply for a permit to sell goods at the local farmers market.",
     "isFeatured": true,
     "allowPartnerAccess": false,
-    "iconName": "school",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "apply-for-student-aid-(fafsa)",
-    "functions": []
+    "iconName": "shopping_basket",
+    "keywords": ["farmers market", "permit", "agriculture"],
+    "url": "https://example.com/farmers-market-permit",
+    "id": "FMP001",
+    "functions": ["permit", "form"]
   },
   {
-    "serviceTitle": "Apply for Unemployment Benefits",
-    "lastAccessDate": "2024-02-04",
+    "serviceTitle": "Food Safety Inspection",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Health and Human Services",
+      "value": "department-of-health-and-human-services"
+    },
+    "isPublished": true,
+    "serviceDescription": "Schedule a food safety inspection for your restaurant or food establishment.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "restaurant",
+    "keywords": ["food safety", "inspection", "health"],
+    "url": "https://example.com/food-safety-inspection",
+    "id": "FSI001",
+    "functions": ["appointment"]
+  },
+  {
+    "serviceTitle": "Affordable Housing Program",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Housing and Urban Development",
+      "value": "department-of-housing-and-urban-development"
+    },
+    "isPublished": true,
+    "serviceDescription": "Learn about and apply for affordable housing programs.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "home",
+    "keywords": ["affordable housing", "housing program", "urban development"],
+    "url": "https://example.com/affordable-housing-program",
+    "id": "AHP001",
+    "functions": ["application", "subscription"]
+  },
+  {
+    "serviceTitle": "Unemployment Benefits Application",
+    "lastAccessDate": "2024-03-27",
     "department": {
       "label": "Department of Labor",
       "value": "department-of-labor"
     },
     "isPublished": true,
-    "serviceDescription": "File for unemployment benefits online.",
-    "isFeatured": true,
+    "serviceDescription": "Apply for unemployment benefits.",
+    "isFeatured": false,
     "allowPartnerAccess": false,
-    "iconName": "work_outline",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "apply-for-unemployment-benefits",
-    "functions": []
+    "iconName": "money",
+    "keywords": ["unemployment benefits", "application", "labor"],
+    "url": "https://example.com/unemployment-benefits-application",
+    "id": "UBA001",
+    "functions": ["application"]
   },
   {
-    "serviceTitle": "Check Flight Status",
-    "lastAccessDate": "2024-02-01",
+    "serviceTitle": "Vehicle Registration Renewal",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Motor Vehicles",
+      "value": "department-of-motor-vehicles"
+    },
+    "isPublished": true,
+    "serviceDescription": "Renew your vehicle registration online.",
+    "isFeatured": true,
+    "allowPartnerAccess": true,
+    "iconName": "directions_car",
+    "keywords": ["vehicle registration", "renewal", "DMV"],
+    "url": "https://example.com/vehicle-registration-renewal",
+    "id": "VRR001",
+    "functions": ["bill-invoice", "fee"]
+  },
+  {
+    "serviceTitle": "Aircraft Registration",
+    "lastAccessDate": "2024-03-27",
     "department": {
       "label": "Federal Aviation Administration",
       "value": "federal-aviation-administration"
     },
     "isPublished": true,
-    "serviceDescription": "Check the status of flights within the U.S.",
+    "serviceDescription": "Register your aircraft with the Federal Aviation Administration.",
     "isFeatured": false,
     "allowPartnerAccess": false,
-    "iconName": "flight",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "check-flight-status",
-    "functions": []
+    "iconName": "airplanemode_active",
+    "keywords": ["aircraft", "registration", "FAA"],
+    "url": "https://example.com/aircraft-registration",
+    "id": "AR001",
+    "functions": ["form"]
   },
   {
-    "serviceTitle": "File Taxes",
-    "lastAccessDate": "2024-02-09",
+    "serviceTitle": "Taxpayer Assistance",
+    "lastAccessDate": "2024-03-27",
     "department": {
       "label": "Internal Revenue Service",
       "value": "internal-revenue-service"
     },
     "isPublished": true,
-    "serviceDescription": "File federal income taxes online securely.",
-    "isFeatured": false,
-    "allowPartnerAccess": true,
-    "iconName": "attach_money",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "file-taxes",
-    "functions": []
+    "serviceDescription": "Get assistance with tax-related issues from the IRS.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "account_balance_wallet",
+    "keywords": ["taxpayer assistance", "IRS", "taxes"],
+    "url": "https://example.com/taxpayer-assistance",
+    "id": "TA001",
+    "functions": ["form"]
   },
   {
-    "serviceTitle": "Find a Job",
-    "lastAccessDate": "2024-01-27",
+    "serviceTitle": "Small Business Loan Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Small Business Administration",
+      "value": "small-business-administration"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a small business loan.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "business",
+    "keywords": ["small business", "loan", "application"],
+    "url": "https://example.com/small-business-loan-application",
+    "id": "SBLA001",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Social Security Benefits Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Social Security Administration",
+      "value": "social-security-administration"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for Social Security benefits.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "person",
+    "keywords": ["social security", "benefits", "application"],
+    "url": "https://example.com/social-security-benefits-application",
+    "id": "SSBA001",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Student Aid Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Education",
+      "value": "u.s.-department-of-education"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for federal student aid.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "school",
+    "keywords": ["student aid", "application", "education"],
+    "url": "https://example.com/student-aid-application",
+    "id": "SAA001",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Passport Renewal",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of State",
+      "value": "u.s.-department-of-state"
+    },
+    "isPublished": true,
+    "serviceDescription": "Renew your passport.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "flight",
+    "keywords": ["passport", "renewal", "travel"],
+    "url": "https://example.com/passport-renewal",
+    "id": "PR001",
+    "functions": ["form"]
+  },
+  {
+    "serviceTitle": "Agricultural Permit",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Agriculture",
+      "value": "department-of-agriculture"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a permit for agricultural activities.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "eco",
+    "keywords": ["agriculture", "permit", "farming"],
+    "url": "https://example.com/agricultural-permit",
+    "id": "AP001",
+    "functions": ["permit"]
+  },
+  {
+    "serviceTitle": "Health Clinic Appointment",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Health and Human Services",
+      "value": "department-of-health-and-human-services"
+    },
+    "isPublished": true,
+    "serviceDescription": "Schedule an appointment at a health clinic.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "local_hospital",
+    "keywords": ["health clinic", "appointment", "healthcare"],
+    "url": "https://example.com/health-clinic-appointment",
+    "id": "HCA001",
+    "functions": ["appointment"]
+  },
+  {
+    "serviceTitle": "Public Housing Maintenance Request",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Housing and Urban Development",
+      "value": "department-of-housing-and-urban-development"
+    },
+    "isPublished": true,
+    "serviceDescription": "Report maintenance issues in public housing.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "apartment",
+    "keywords": ["public housing", "maintenance", "report"],
+    "url": "https://example.com/public-housing-maintenance-request",
+    "id": "PHMR001",
+    "functions": ["form"]
+  },
+  {
+    "serviceTitle": "Job Training Program Enrollment",
+    "lastAccessDate": "2024-03-27",
     "department": {
       "label": "Department of Labor",
       "value": "department-of-labor"
     },
     "isPublished": true,
-    "serviceDescription": "Search and apply for job openings.",
+    "serviceDescription": "Enroll in job training programs.",
     "isFeatured": false,
     "allowPartnerAccess": false,
     "iconName": "work",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "find-a-job",
-    "functions": []
+    "keywords": ["job training", "enrollment", "employment"],
+    "url": "https://example.com/job-training-program-enrollment",
+    "id": "JTP001",
+    "functions": ["application"]
   },
   {
-    "serviceTitle": "Find a National Park",
-    "lastAccessDate": "2024-01-29",
+    "serviceTitle": "Vehicle Inspection Appointment",
+    "lastAccessDate": "2024-03-27",
     "department": {
-      "label": "National Park Service",
-      "value": "national-park-service"
+      "label": "Motor Vehicles",
+      "value": "department-of-motor-vehicles"
     },
     "isPublished": true,
-    "serviceDescription": "Find a national park near you.",
+    "serviceDescription": "Schedule an appointment for vehicle inspection.",
     "isFeatured": false,
     "allowPartnerAccess": false,
-    "iconName": "nature_people",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "find-a-national-park",
-    "functions": []
+    "iconName": "car_repair",
+    "keywords": ["vehicle inspection", "appointment", "DMV"],
+    "url": "https://example.com/vehicle-inspection-appointment",
+    "id": "VIA001",
+    "functions": ["appointment"]
   },
   {
-    "serviceTitle": "Renew Drivers License",
-    "lastAccessDate": "2024-02-10",
+    "serviceTitle": "Tax Payment",
+    "lastAccessDate": "2024-03-27",
     "department": {
-      "label": "Department of Motor Vehicles",
-      "value": "department-of-motor-vehicles"
+      "label": "Internal Revenue Service",
+      "value": "internal-revenue-service"
     },
-    "isPublished": false,
-    "serviceDescription": "Renew your driver's license online with ease.",
+    "isPublished": true,
+    "serviceDescription": "Pay taxes online.",
     "isFeatured": false,
     "allowPartnerAccess": true,
-    "iconName": "drive_eta",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "renew-drivers-license",
-    "functions": []
-  },
-  {
-    "serviceTitle": "Renew Passport",
-    "lastAccessDate": "2024-01-30",
-    "department": {
-      "label": "U.S. Department of State",
-      "value": "u.s.-department-of-state"
-    },
-    "isPublished": false,
-    "serviceDescription": "Renew your U.S. passport online.",
-    "isFeatured": false,
-    "allowPartnerAccess": false,
-    "iconName": "flight_takeoff",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "renew-passport",
-    "functions": []
-  },
-  {
-    "serviceTitle": "Renew Vehicle Registration",
-    "lastAccessDate": "2024-02-07",
-    "department": {
-      "label": "Department of Motor Vehicles",
-      "value": "department-of-motor-vehicles"
-    },
-    "isPublished": false,
-    "serviceDescription": "Renew your vehicle registration online.",
-    "isFeatured": true,
-    "allowPartnerAccess": true,
-    "iconName": "directions_car",
-    "keywords": [],
-    "url": "https://www.google.com",
-    "id": "renew-vehicle-registration",
-    "functions": []
+    "iconName": "attach_money",
+    "keywords": ["tax payment", "IRS", "taxes"],
+    "url": "https://example.com/tax-payment",
+    "id": "TP001",
+    "functions": ["bill-invoice", "fee", "tax"]
   }
 ]

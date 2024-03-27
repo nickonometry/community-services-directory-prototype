@@ -146,7 +146,7 @@
       float-label-type={isEdit ? 'always' : 'auto'}>
     </forge-select>
 
-    <KeywordsInput />
+    <KeywordsInput keywords={$customServiceLinkForm.keywords} />
 
     <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="url">Url</label>
