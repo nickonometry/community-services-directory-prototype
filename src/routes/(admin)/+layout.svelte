@@ -50,4 +50,8 @@
   forge-scaffold {
     --forge-scaffold-height: 100%;
   }
+
+  main {
+    scrollbar-gutter: stable both-edges;
+  }
 </style>

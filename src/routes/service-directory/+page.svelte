@@ -1,4 +1,6 @@
 <script>
+  import ServicesEmptyState from './../../lib/services-empty-state/services-empty-state.svelte';
+  import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
   import { filterText, filteredServices, serviceFilters } from './../../globalStore.js';
   import Banner from './components/banner.svelte';
@@ -50,7 +52,7 @@
       <!-- MOBILE -->
 
       <!-- DESKTOP -->
-      <div class="directory-card-inner">
+      <div class="directory-card-inner" transition:fade={{ delay: 0, duration: 200 }}>
         <div class="filters">
           <forge-stack>
             <forge-text-field id="text-field" variant="filled">
@@ -60,7 +62,13 @@
             <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
           </forge-stack>
         </div>
+
         <div class="services-list">
+          {#if !$filteredServices.length}
+            <div>
+              <ServicesEmptyState />
+            </div>
+          {/if}
           <ul>
             <forge-stack>
               {#each $filteredServices as service}

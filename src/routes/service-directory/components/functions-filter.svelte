@@ -5,25 +5,25 @@
   const dispatch = createEventDispatcher();
   const dispatchDepartmentsSelected = (e) => {
     const wasFilterUnchecked = e.target.checked;
-    console.log(wasFilterUnchecked);
-    if (wasFilterUnchecked) {
+    const filterApplied = e.target.value;
+    if (!wasFilterUnchecked) {
       // remove from array here
-
+      $functionFilters = $functionFilters.filter((f) => {
+        return f !== filterApplied;
+      });
       return;
     }
-    // functionFilters.update((state) => [...state, e.detail.value]);
-
+    functionFilters.update((state) => [...state, filterApplied]);
     dispatch('filter-selected', e);
   };
 </script>
 
-{$functionFilters}
 <forge-list on:change={(e) => dispatchDepartmentsSelected(e)}>
   <forge-stack gap="0">
     {#each $functionsCache as func}
-      <forge-list-item value={func.value}>
+      <forge-list-item>
         <span slot="title">{func.label}</span>
-        <forge-checkbox slot="leading"></forge-checkbox>
+        <forge-checkbox slot="leading" value={func.value}></forge-checkbox>
       </forge-list-item>
     {/each}
   </forge-stack>
