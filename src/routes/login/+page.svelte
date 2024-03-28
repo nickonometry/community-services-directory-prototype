@@ -10,18 +10,18 @@
           <div class="logo-container">
             <TylerLogo />
           </div>
-          <forge-text-field>
+          <forge-text-field label-position="block-start">
             <input type="text" id="input-text-01" />
             <label for="input-text-01" slot="label">Email address</label>
           </forge-text-field>
           <div>
-            <forge-text-field>
+            <forge-text-field label-position="block-start">
               <input type="text" id="input-text-01" />
               <label for="input-text-01" slot="label">Password</label>
             </forge-text-field>
             <div class="reset-container">
               <forge-checkbox>Keep me signed in</forge-checkbox>
-              <forge-button> Reset password </forge-button>
+              <forge-button variant="link"> Reset password </forge-button>
             </div>
           </div>
           <forge-button variant="filled">Sign in</forge-button>

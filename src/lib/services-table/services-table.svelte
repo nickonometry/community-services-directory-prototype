@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { columnConfigurations } from './column-configuration.js';
-  import { customServiceLinkForm } from '../custom-form-store.js';
+  import { customServiceLinkForm } from '../custom-service-link-form/custom-service-link-form-store.js';
   export let services;
   let table;
   let sortPropertyName = 'serviceTitle';

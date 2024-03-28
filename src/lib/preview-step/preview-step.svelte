@@ -1,6 +1,6 @@
 <script>
   import ServiceCard from '../service-card/service-card.svelte';
-  import { customServiceLinkForm } from '../custom-form-store';
+  import { customServiceLinkForm } from '../custom-service-link-form/custom-service-link-form-store';
 </script>
 
 <forge-toolbar no-border>

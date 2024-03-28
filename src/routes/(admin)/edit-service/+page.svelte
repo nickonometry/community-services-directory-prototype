@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   import CustomServiceLinkForm from '../../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../../globalStore';
-  import { customServiceLinkForm } from '../../../lib/custom-form-store';
+  import { customServiceLinkForm } from '../../../lib/custom-service-link-form/custom-service-link-form-store.js';
   let serviceId;
 
   const getServiceById = (serviceId) => {

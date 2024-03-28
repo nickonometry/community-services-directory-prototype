@@ -1,7 +1,6 @@
 <script>
   import ServiceTypeCard from '../service-type-card/service-type-card.svelte';
-  import { fade } from 'svelte/transition';
-  import { customServiceLinkForm } from '../custom-form-store';
+  import { customServiceLinkForm } from '../custom-service-link-form/custom-service-link-form-store';
   export let showValidation = false;
   let currentSelected = '';
   const onServiceSelected = (serviceName) => {

@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { beforeNavigate } from '$app/navigation';
-  import { customServiceLinkForm, clearForm } from '../custom-form-store';
+  import { customServiceLinkForm, clearForm } from '../custom-service-link-form/custom-service-link-form-store';
   import { servicesCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
   import KeywordsInput from '../keywords-input/keywords-input.svelte';

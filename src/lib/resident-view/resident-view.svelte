@@ -25,36 +25,30 @@
           </forge-text-field>
         </div>
         <div class="services-card-container">
-          <forge-card class="main-card">
+          <forge-card class="card" raised>
+            <forge-toolbar no-border>
+              <h3 class="forge-typography--heading3 span-full" slot="start">Featured Services</h3>
+              <forge-button href="/service-directory" slot="end">
+                <span>View all services</span>
+                <!-- <forge-icon name="chevron_right" external></forge-icon> -->
+              </forge-button>
+            </forge-toolbar>
             <forge-stack gap="32">
               <div class="services-grid">
-                <h3 class="forge-typography--heading3 span-full">Featured Services</h3>
                 {#each $servicesCache as service}
-                  {#if service.isFeatured}
+                  {#if service.isFeatured && service.isPublished}
                     <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
                   {/if}
                 {/each}
-                <div class="view-all-container span-full">
-                  <forge-button href="/service-directory">
-                    <span>View all</span>
-                    <forge-icon name="chevron_right" external></forge-icon>
-                  </forge-button>
-                </div>
               </div>
 
               <div class="services-grid">
                 <h3 class="forge-typography--heading3 span-full">Popular Services</h3>
-                {#each $servicesCache as service, index}
-                  {#if index < 5}
+                {#each $servicesCache as service}
+                  {#if service.isPublished && !service.isFeatured}
                     <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
                   {/if}
                 {/each}
-                <div class="view-all-container span-full">
-                  <forge-button href="/service-directory">
-                    <span>View all</span>
-                    <forge-icon name="chevron_right" external></forge-icon>
-                  </forge-button>
-                </div>
               </div>
             </forge-stack>
           </forge-card>
@@ -70,6 +64,10 @@
   .container {
     background-color: var(--forge-theme-surface-dim);
     height: 100%;
+  }
+
+  .card {
+    --forge-card-padding: 0;
   }
 
   .mobile-nav {
@@ -123,6 +121,7 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     height: fit-content;
+    padding: 16px;
   }
 
   .view-all-container {

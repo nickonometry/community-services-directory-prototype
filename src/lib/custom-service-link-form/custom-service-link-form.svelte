@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   import { beforeNavigate } from '$app/navigation';
   import IconPicker from '../icon-picker/icon-picker.svelte';
-  import { customServiceLinkForm, clearForm } from '../custom-form-store';
+  import { customServiceLinkForm, clearForm } from './custom-service-link-form-store.js';
   import { servicesCache, departmentsCache, functionsCache } from '../../globalStore';
   import HelpPopup from '../help-popup/help-popup.svelte';
   import KeywordsInput from '../keywords-input/keywords-input.svelte';
@@ -76,7 +76,6 @@
   </forge-toolbar>
 {/if}
 
-<!-- This would normally be a form element, for prototype purposes I used a regular div -->
 <form class="form" id="form" bind:this={form}>
   <forge-stack>
     <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>

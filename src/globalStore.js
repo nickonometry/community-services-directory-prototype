@@ -1,49 +1,62 @@
 import { writable, derived } from 'svelte/store';
 export const filterText = writable('');
 export const serviceFilters = writable([]);
+export const functionFilters = writable([]);
 export const servicesCache = writable([]);
 export const avatarCache = writable([]);
 
 // Watches for changes in filterText & chip filters then filters the servicesCache
-export let filteredServices = derived([filterText, servicesCache, serviceFilters], ([$filterText, $servicesCache, $serviceFilters]) => {
-  const hasChipFilters = !!$serviceFilters.length;
-  const hasTextFilter = !!$filterText.trim().length;
-  const hasFeaturedFilter = $serviceFilters.some((f) => f === 'featured');
-  const hasPublishedFilter = $serviceFilters.some((f) => f === 'published');
-  const hasUnpublishedFilter = $serviceFilters.some((f) => f === 'unpublished');
+export let filteredServices = derived(
+  [filterText, servicesCache, serviceFilters, functionFilters],
+  ([$filterText, $servicesCache, $serviceFilters, $functionFilters]) => {
+    const hasChipFilters = !!$serviceFilters.length;
+    const hasTextFilter = !!$filterText.trim().length;
+    const hasFeaturedFilter = $serviceFilters.some((f) => f === 'featured');
+    const hasPublishedFilter = $serviceFilters.some((f) => f === 'published');
+    const hasUnpublishedFilter = $serviceFilters.some((f) => f === 'unpublished');
+    const hasFunctionFilter = !!$functionFilters.length;
 
-  if (hasChipFilters) {
-    if (hasFeaturedFilter) {
-      $servicesCache = $servicesCache.filter((service) => {
-        return service.isFeatured === true;
+    if (hasFunctionFilter) {
+      $functionFilters.forEach((f) => {
+        $servicesCache = $servicesCache.filter((service) => {
+          return service.functions.some((func) => func === f);
+        });
       });
     }
-    if (hasPublishedFilter) {
+
+    if (hasChipFilters) {
+      if (hasFeaturedFilter) {
+        $servicesCache = $servicesCache.filter((service) => {
+          return service.isFeatured === true;
+        });
+      }
+      if (hasPublishedFilter) {
+        $servicesCache = $servicesCache.filter((service) => {
+          return service.isPublished === true;
+        });
+      } else if (hasUnpublishedFilter) {
+        $servicesCache = $servicesCache.filter((service) => {
+          return service.isPublished === false;
+        });
+      }
+    }
+
+    if (hasTextFilter) {
       $servicesCache = $servicesCache.filter((service) => {
-        return service.isPublished === true;
-      });
-    } else if (hasUnpublishedFilter) {
-      $servicesCache = $servicesCache.filter((service) => {
-        return service.isPublished === false;
+        return (
+          service.serviceTitle.toLowerCase().includes($filterText) ||
+          service.serviceDescription.toLowerCase().includes($filterText) ||
+          service.serviceDescription.toLowerCase().includes($filterText) ||
+          service.department.label.toLowerCase().includes($filterText)
+        );
       });
     }
-  }
 
-  if (hasTextFilter) {
-    $servicesCache = $servicesCache.filter((service) => {
-      return (
-        service.serviceTitle.toLowerCase().includes($filterText) ||
-        service.serviceDescription.toLowerCase().includes($filterText) ||
-        service.serviceDescription.toLowerCase().includes($filterText) ||
-        service.department.label.toLowerCase().includes($filterText)
-      );
-    });
+    return $servicesCache.sort((a, b) =>
+      a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
+    );
   }
-
-  return $servicesCache.sort((a, b) =>
-    a.serviceTitle.toLowerCase() > b.serviceTitle.toLowerCase() ? 1 : b.serviceTitle.toLowerCase() > a.serviceTitle.toLowerCase() ? -1 : 0
-  );
-});
+);
 
 export const functionsCache = writable([
   {

@@ -1,5 +1,5 @@
 import { randomBrightColorPicker } from '../utils/color-picker';
-import { customServiceLinkForm } from '../custom-form-store';
+import { customServiceLinkForm } from '../custom-service-link-form/custom-service-link-form-store';
 import publishToggle from '../publish-toggle/publish-toggle.svelte';
 import featuredToggle from '../featured-toggle/featured-toggle.svelte';
 import { avatarCache } from '../../globalStore';

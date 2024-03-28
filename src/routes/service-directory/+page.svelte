@@ -22,6 +22,10 @@
     console.log('sidesheet opened');
     filterDrawer.open = true;
   };
+
+  const onFilterSelected = (e) => {
+    let filterApplied = e.detail.value;
+  };
 </script>
 
 <div class="page-grid">
@@ -33,7 +37,7 @@
       <div class="mobile-filters">
         <forge-text-field id="text-field" variant="filled">
           <forge-icon slot="leading" name="search" external></forge-icon>
-          <input type="text" id="service-filter" placeholder="Search by keyword..." bind:value={$filterText} on:input={(e) => onSearch(e)} />
+          <input type="text" id="service-filter" placeholder="Search for a service..." bind:value={$filterText} on:input={(e) => onSearch(e)} />
           <forge-icon-button on:click={() => openFilterSidesheet()} slot="accessory">
             <forge-icon name="filter_list" external></forge-icon>
           </forge-icon-button>
@@ -47,9 +51,9 @@
           <forge-stack>
             <forge-text-field id="text-field" variant="filled">
               <forge-icon slot="leading" name="search" external></forge-icon>
-              <input type="text" id="service-filter" placeholder="Search by keyword..." bind:value={$filterText} on:input={(e) => onSearch(e)} />
+              <input type="text" id="service-filter" placeholder="Search for a service.." bind:value={$filterText} on:input={(e) => onSearch(e)} />
             </forge-text-field>
-            <FunctionsFilter />
+            <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
           </forge-stack>
         </div>
         <div class="services-list">

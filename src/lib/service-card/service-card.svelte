@@ -12,7 +12,7 @@
   });
 </script>
 
-<forge-card raised>
+<forge-card>
   <forge-button-area id="button-area">
     <button slot="button" aria-labelledby="button-area-heading"></button>
     <div class="card__inner">

@@ -2,7 +2,7 @@
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
   import { randomBrightColorPicker } from '../utils/color-picker';
-  import { customServiceLinkForm } from '../custom-form-store';
+  import { customServiceLinkForm } from '../custom-service-link-form/custom-service-link-form-store';
 
   export let service;
   let avatar;

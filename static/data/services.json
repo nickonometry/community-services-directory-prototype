@@ -23,7 +23,7 @@
       "label": "Health and Human Services",
       "value": "department-of-health-and-human-services"
     },
-    "isPublished": true,
+    "isPublished": false,
     "serviceDescription": "Schedule a food safety inspection for your restaurant or food establishment.",
     "isFeatured": true,
     "allowPartnerAccess": false,
@@ -48,7 +48,7 @@
     "keywords": ["affordable housing", "housing program", "urban development"],
     "url": "https://example.com/affordable-housing-program",
     "id": "AHP001",
-    "functions": ["application", "subscription"]
+    "functions": ["appointment", "subscription"]
   },
   {
     "serviceTitle": "Unemployment Benefits Application",
@@ -62,10 +62,10 @@
     "isFeatured": false,
     "allowPartnerAccess": false,
     "iconName": "money",
-    "keywords": ["unemployment benefits", "application", "labor"],
+    "keywords": ["unemployment benefits", "appointment", "labor"],
     "url": "https://example.com/unemployment-benefits-application",
     "id": "UBA001",
-    "functions": ["application"]
+    "functions": ["appointment"]
   },
   {
     "serviceTitle": "Vehicle Registration Renewal",
@@ -74,7 +74,7 @@
       "label": "Motor Vehicles",
       "value": "department-of-motor-vehicles"
     },
-    "isPublished": true,
+    "isPublished": false,
     "serviceDescription": "Renew your vehicle registration online.",
     "isFeatured": true,
     "allowPartnerAccess": true,
@@ -91,7 +91,7 @@
       "label": "Federal Aviation Administration",
       "value": "federal-aviation-administration"
     },
-    "isPublished": true,
+    "isPublished": false,
     "serviceDescription": "Register your aircraft with the Federal Aviation Administration.",
     "isFeatured": false,
     "allowPartnerAccess": false,
@@ -108,7 +108,7 @@
       "label": "Internal Revenue Service",
       "value": "internal-revenue-service"
     },
-    "isPublished": true,
+    "isPublished": false,
     "serviceDescription": "Get assistance with tax-related issues from the IRS.",
     "isFeatured": true,
     "allowPartnerAccess": false,
@@ -130,10 +130,10 @@
     "isFeatured": true,
     "allowPartnerAccess": false,
     "iconName": "business",
-    "keywords": ["small business", "loan", "application"],
+    "keywords": ["small business", "loan", "appointment"],
     "url": "https://example.com/small-business-loan-application",
     "id": "SBLA001",
-    "functions": ["application"]
+    "functions": ["appointment"]
   },
   {
     "serviceTitle": "Social Security Benefits Application",
@@ -142,15 +142,15 @@
       "label": "Social Security Administration",
       "value": "social-security-administration"
     },
-    "isPublished": true,
+    "isPublished": false,
     "serviceDescription": "Apply for Social Security benefits.",
     "isFeatured": false,
     "allowPartnerAccess": false,
     "iconName": "person",
-    "keywords": ["social security", "benefits", "application"],
+    "keywords": ["social security", "benefits", "appointment"],
     "url": "https://example.com/social-security-benefits-application",
     "id": "SSBA001",
-    "functions": ["application"]
+    "functions": ["appointment"]
   },
   {
     "serviceTitle": "Student Aid Application",
@@ -164,10 +164,10 @@
     "isFeatured": true,
     "allowPartnerAccess": false,
     "iconName": "school",
-    "keywords": ["student aid", "application", "education"],
+    "keywords": ["student aid", "appointment", "education"],
     "url": "https://example.com/student-aid-application",
     "id": "SAA001",
-    "functions": ["application"]
+    "functions": ["appointment"]
   },
   {
     "serviceTitle": "Passport Renewal",
@@ -252,7 +252,7 @@
     "keywords": ["job training", "enrollment", "employment"],
     "url": "https://example.com/job-training-program-enrollment",
     "id": "JTP001",
-    "functions": ["application"]
+    "functions": ["appointment"]
   },
   {
     "serviceTitle": "Vehicle Inspection Appointment",
