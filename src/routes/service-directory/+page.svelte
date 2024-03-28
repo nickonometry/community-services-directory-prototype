@@ -34,6 +34,7 @@
   </div>
   <div class="card-container">
     <forge-card>
+      <!-- MOBILE -->
       <div class="mobile-filters">
         <forge-text-field id="text-field" variant="filled">
           <forge-icon slot="leading" name="search" external></forge-icon>
@@ -46,6 +47,9 @@
           <FilterSidesheet dialogRef={filterDrawer} />
         </forge-modal-drawer>
       </div>
+      <!-- MOBILE -->
+
+      <!-- DESKTOP -->
       <div class="directory-card-inner">
         <div class="filters">
           <forge-stack>
@@ -68,6 +72,7 @@
           </ul>
         </div>
       </div>
+      <!-- DESKTOP -->
     </forge-card>
   </div>
 </div>

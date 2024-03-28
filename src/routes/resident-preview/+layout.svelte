@@ -6,12 +6,17 @@
   import { servicesCache } from '../../globalStore';
   export let data;
   let services = data.data.data;
-  servicesCache.set(services);
+
+  // Only load servies JSON if it hasn't been loaded yet. This is just for the prototype
+  if (!$servicesCache.length) {
+    servicesCache.set(services);
+  }
+
   let isLoaded = false;
 
   onMount(async () => {
     loadForgeComponents();
-    Promise.allSettled([window.customElements.whenDefined('forge-split-view')]).then(() => (isLoaded = true));
+    Promise.allSettled([window.customElements.whenDefined('forge-scaffold')]).then(() => (isLoaded = true));
   });
 </script>
 

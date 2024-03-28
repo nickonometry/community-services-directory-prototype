@@ -28,14 +28,10 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <div>
-            <forge-button href="/resident-preview" target="_blank">
+            <forge-button href="/resident-preview">
               <forge-icon name="preview" external></forge-icon>
               <span>View service directory</span>
             </forge-button>
-            <!-- <forge-button on:click={dispatchOpenPreview}>
-              <forge-icon name="preview" external></forge-icon>
-              <span>View service directory</span>
-            </forge-button> -->
             <forge-tooltip>Navigate to the service directory website</forge-tooltip>
           </div>
           <forge-button
@@ -51,7 +47,7 @@
       </div>
       <div class="mobile-actions">
         <forge-stack inline gap="8px">
-          <forge-icon-button href="/resident-preview" target="_blank">
+          <forge-icon-button href="/resident-preview">
             <forge-icon name="preview" external></forge-icon>
             <forge-tooltip>Resident preview</forge-tooltip>
           </forge-icon-button>

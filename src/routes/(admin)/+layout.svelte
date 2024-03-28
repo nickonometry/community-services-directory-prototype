@@ -11,7 +11,7 @@
 
   onMount(async () => {
     loadForgeComponents();
-    Promise.allSettled([window.customElements.whenDefined('forge-split-view')]).then(() => (isLoaded = true));
+    Promise.allSettled([window.customElements.whenDefined('forge-scaffold')]).then(() => (isLoaded = true));
   });
 </script>
 

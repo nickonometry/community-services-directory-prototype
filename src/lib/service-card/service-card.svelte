@@ -46,6 +46,7 @@
   .card__inner {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 64px 1fr;
     gap: 16px;
     height: 100%;
     align-items: center;
@@ -62,6 +63,8 @@
   }
 
   .card__content {
+    align-self: start;
+
     p {
       padding: 0;
       margin: 0;
