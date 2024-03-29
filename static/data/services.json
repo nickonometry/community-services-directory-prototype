@@ -12,7 +12,7 @@
     "allowPartnerAccess": false,
     "iconName": "shopping_basket",
     "keywords": ["farmers market", "permit", "agriculture"],
-    "url": "https://example.com/farmers-market-permit",
+    "url": "https://www.google.com",
     "id": "FMP001",
     "functions": ["permit", "form"]
   },
@@ -29,7 +29,7 @@
     "allowPartnerAccess": false,
     "iconName": "restaurant",
     "keywords": ["food safety", "inspection", "health"],
-    "url": "https://example.com/food-safety-inspection",
+    "url": "https://www.google.com",
     "id": "FSI001",
     "functions": ["appointment"]
   },
@@ -46,7 +46,7 @@
     "allowPartnerAccess": false,
     "iconName": "home",
     "keywords": ["affordable housing", "housing program", "urban development"],
-    "url": "https://example.com/affordable-housing-program",
+    "url": "https://www.google.com",
     "id": "AHP001",
     "functions": ["appointment", "subscription"]
   },
@@ -63,7 +63,7 @@
     "allowPartnerAccess": false,
     "iconName": "money",
     "keywords": ["unemployment benefits", "appointment", "labor"],
-    "url": "https://example.com/unemployment-benefits-application",
+    "url": "https://www.google.com",
     "id": "UBA001",
     "functions": ["appointment"]
   },
@@ -80,7 +80,7 @@
     "allowPartnerAccess": true,
     "iconName": "directions_car",
     "keywords": ["vehicle registration", "renewal", "DMV"],
-    "url": "https://example.com/vehicle-registration-renewal",
+    "url": "https://www.google.com",
     "id": "VRR001",
     "functions": ["bill-invoice", "fee"]
   },
@@ -97,7 +97,7 @@
     "allowPartnerAccess": false,
     "iconName": "local_airport",
     "keywords": ["aircraft", "registration", "FAA"],
-    "url": "https://example.com/aircraft-registration",
+    "url": "https://www.google.com",
     "id": "AR001",
     "functions": ["form"]
   },
@@ -114,7 +114,7 @@
     "allowPartnerAccess": false,
     "iconName": "account_balance_wallet",
     "keywords": ["taxpayer assistance", "IRS", "taxes"],
-    "url": "https://example.com/taxpayer-assistance",
+    "url": "https://www.google.com",
     "id": "TA001",
     "functions": ["form"]
   },
@@ -131,7 +131,7 @@
     "allowPartnerAccess": false,
     "iconName": "business",
     "keywords": ["small business", "loan", "appointment"],
-    "url": "https://example.com/small-business-loan-application",
+    "url": "https://www.google.com",
     "id": "SBLA001",
     "functions": ["appointment"]
   },
@@ -148,7 +148,7 @@
     "allowPartnerAccess": false,
     "iconName": "person",
     "keywords": ["social security", "benefits", "appointment"],
-    "url": "https://example.com/social-security-benefits-application",
+    "url": "https://www.google.com",
     "id": "SSBA001",
     "functions": ["appointment"]
   },
@@ -165,7 +165,7 @@
     "allowPartnerAccess": false,
     "iconName": "school",
     "keywords": ["student aid", "appointment", "education"],
-    "url": "https://example.com/student-aid-application",
+    "url": "https://www.google.com",
     "id": "SAA001",
     "functions": ["appointment"]
   },
@@ -182,7 +182,7 @@
     "allowPartnerAccess": false,
     "iconName": "flight",
     "keywords": ["passport", "renewal", "travel"],
-    "url": "https://example.com/passport-renewal",
+    "url": "https://www.google.com",
     "id": "PR001",
     "functions": ["form"]
   },
@@ -199,7 +199,7 @@
     "allowPartnerAccess": false,
     "iconName": "eco",
     "keywords": ["agriculture", "permit", "farming"],
-    "url": "https://example.com/agricultural-permit",
+    "url": "https://www.google.com",
     "id": "AP001",
     "functions": ["permit"]
   },
@@ -216,7 +216,7 @@
     "allowPartnerAccess": false,
     "iconName": "mediation",
     "keywords": ["health clinic", "appointment", "healthcare"],
-    "url": "https://example.com/health-clinic-appointment",
+    "url": "https://www.google.com",
     "id": "HCA001",
     "functions": ["appointment"]
   },
@@ -233,7 +233,7 @@
     "allowPartnerAccess": false,
     "iconName": "apartment",
     "keywords": ["public housing", "maintenance", "report"],
-    "url": "https://example.com/public-housing-maintenance-request",
+    "url": "https://www.google.com",
     "id": "PHMR001",
     "functions": ["form"]
   },
@@ -250,7 +250,7 @@
     "allowPartnerAccess": false,
     "iconName": "work",
     "keywords": ["job training", "enrollment", "employment"],
-    "url": "https://example.com/job-training-program-enrollment",
+    "url": "https://www.google.com",
     "id": "JTP001",
     "functions": ["appointment"]
   },
@@ -267,7 +267,7 @@
     "allowPartnerAccess": false,
     "iconName": "car_repair",
     "keywords": ["vehicle inspection", "appointment", "DMV"],
-    "url": "https://example.com/vehicle-inspection-appointment",
+    "url": "https://www.google.com",
     "id": "VIA001",
     "functions": ["appointment"]
   },
@@ -284,7 +284,7 @@
     "allowPartnerAccess": true,
     "iconName": "attach_money",
     "keywords": ["tax payment", "IRS", "taxes"],
-    "url": "https://example.com/tax-payment",
+    "url": "https://www.google.com",
     "id": "TP001",
     "functions": ["bill-invoice", "fee", "tax"]
   },
@@ -301,7 +301,7 @@
     "allowPartnerAccess": false,
     "iconName": "library_books",
     "keywords": ["library", "membership", "education"],
-    "url": "https://example.com/public-library-membership",
+    "url": "https://www.google.com",
     "id": "PLM001",
     "functions": ["application"]
   },
@@ -318,7 +318,7 @@
     "allowPartnerAccess": false,
     "iconName": "airplanemode_active",
     "keywords": ["passport", "application", "travel"],
-    "url": "https://example.com/passport-application",
+    "url": "https://www.google.com",
     "id": "PA002",
     "functions": ["application"]
   },
@@ -335,7 +335,7 @@
     "allowPartnerAccess": false,
     "iconName": "business_center",
     "keywords": ["business", "tax", "registration"],
-    "url": "https://example.com/business-tax-registration",
+    "url": "https://www.google.com",
     "id": "BTR002",
     "functions": ["form", "tax"]
   },
@@ -352,7 +352,7 @@
     "allowPartnerAccess": false,
     "iconName": "local_hospital",
     "keywords": ["public health", "clinic", "immunization"],
-    "url": "https://example.com/public-health-clinic-immunization",
+    "url": "https://www.google.com",
     "id": "PHCI002",
     "functions": ["appointment"]
   },
@@ -369,7 +369,7 @@
     "allowPartnerAccess": false,
     "iconName": "nature",
     "keywords": ["environmental impact", "assessment", "development"],
-    "url": "https://example.com/environmental-impact-assessment",
+    "url": "https://www.google.com",
     "id": "EIA002",
     "functions": ["permit", "form"]
   },
@@ -386,7 +386,7 @@
     "allowPartnerAccess": true,
     "iconName": "child_friendly",
     "keywords": ["child support", "payment", "family"],
-    "url": "https://example.com/child-support-payment",
+    "url": "https://www.google.com",
     "id": "CSP002",
     "functions": ["bill-invoice"]
   },
@@ -403,7 +403,7 @@
     "allowPartnerAccess": false,
     "iconName": "drive_eta",
     "keywords": ["driver's license", "renewal", "DMV"],
-    "url": "https://example.com/renew-drivers-license",
+    "url": "https://www.google.com",
     "id": "RDL002",
     "functions": ["license", "form"]
   },
@@ -420,7 +420,7 @@
     "allowPartnerAccess": false,
     "iconName": "nature_people",
     "keywords": ["public park", "reservation", "recreation"],
-    "url": "https://example.com/public-park-reservation",
+    "url": "https://www.google.com",
     "id": "PPR002",
     "functions": ["reservation"]
   },
@@ -437,7 +437,7 @@
     "allowPartnerAccess": false,
     "iconName": "history_edu",
     "keywords": ["student loan", "application", "education"],
-    "url": "https://example.com/federal-student-loan-application",
+    "url": "https://www.google.com",
     "id": "FSLA002",
     "functions": ["application"]
   },
@@ -454,7 +454,7 @@
     "allowPartnerAccess": false,
     "iconName": "build",
     "keywords": ["building permit", "application", "construction"],
-    "url": "https://example.com/building-permit-application",
+    "url": "https://www.google.com",
     "id": "BPA002",
     "functions": ["permit", "form"]
   },
@@ -471,7 +471,7 @@
     "allowPartnerAccess": false,
     "iconName": "favorite",
     "keywords": ["marriage license", "application", "city clerk"],
-    "url": "https://example.com/marriage-license-application",
+    "url": "https://www.google.com",
     "id": "MLA002",
     "functions": ["application"]
   },
@@ -488,7 +488,7 @@
     "allowPartnerAccess": false,
     "iconName": "directions_bus",
     "keywords": ["public transportation", "pass", "purchase"],
-    "url": "https://example.com/public-transportation-pass-purchase",
+    "url": "https://www.google.com",
     "id": "PTPP002",
     "functions": ["purchase", "subscription"]
   },
@@ -505,7 +505,7 @@
     "allowPartnerAccess": false,
     "iconName": "settings",
     "keywords": ["zoning", "variance", "urban planning"],
-    "url": "https://example.com/zoning-variance-request",
+    "url": "https://www.google.com",
     "id": "ZVR002",
     "functions": ["request", "form"]
   },
@@ -522,7 +522,7 @@
     "allowPartnerAccess": false,
     "iconName": "how_to_vote",
     "keywords": ["voter registration", "elections", "politics"],
-    "url": "https://example.com/voter-registration",
+    "url": "https://www.google.com",
     "id": "VR002",
     "functions": ["form"]
   },
@@ -539,7 +539,7 @@
     "allowPartnerAccess": false,
     "iconName": "event",
     "keywords": ["city park", "event", "permit"],
-    "url": "https://example.com/city-park-event-permit",
+    "url": "https://www.google.com",
     "id": "CPEP002",
     "functions": ["permit", "form"]
   },
@@ -556,7 +556,7 @@
     "allowPartnerAccess": false,
     "iconName": "elderly",
     "keywords": ["elderly care", "assistance", "health"],
-    "url": "https://example.com/elderly-care-assistance-program",
+    "url": "https://www.google.com",
     "id": "ECAP002",
     "functions": ["application"]
   },
@@ -573,7 +573,7 @@
     "allowPartnerAccess": false,
     "iconName": "construction",
     "keywords": ["construction", "permit", "building"],
-    "url": "https://example.com/construction-permit",
+    "url": "https://www.google.com",
     "id": "CP002",
     "functions": ["permit", "form"]
   },
@@ -590,7 +590,7 @@
     "allowPartnerAccess": false,
     "iconName": "money_off",
     "keywords": ["tax exemption", "application", "nonprofit"],
-    "url": "https://example.com/tax-exemption-application",
+    "url": "https://www.google.com",
     "id": "TEA002",
     "functions": ["application"]
   },
@@ -607,7 +607,7 @@
     "allowPartnerAccess": false,
     "iconName": "security",
     "keywords": ["firearm permit", "application", "justice"],
-    "url": "https://example.com/firearm-permit-application",
+    "url": "https://www.google.com",
     "id": "FPA002",
     "functions": ["application"]
   },
@@ -624,7 +624,7 @@
     "allowPartnerAccess": false,
     "iconName": "local_parking",
     "keywords": ["parking permit", "renewal", "transportation"],
-    "url": "https://example.com/parking-permit-renewal",
+    "url": "https://www.google.com",
     "id": "PPR002",
     "functions": ["bill-invoice"]
   },
