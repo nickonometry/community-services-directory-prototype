@@ -1,11 +1,16 @@
 <script>
-  import PortlandLogo from './../portland-logo/portland-logo.svelte';
   import ServiceCard from '../service-card/service-card.svelte';
   import Banner from './banner/banner.svelte';
   import { servicesCache } from '../../globalStore';
   import BrandedHeader from '../branded-header/branded-header.svelte';
-  let mobileNavDrawer;
-  export let dialogRef = null;
+  let popularServices = [];
+
+  // This is just simulating a list of popular services. This would ideally be based on usage analytics
+  $servicesCache.forEach((s) => {
+    if (s.isPublished && !s.isFeatured) {
+      popularServices.push(s);
+    }
+  });
 </script>
 
 <div class="container">
@@ -44,7 +49,7 @@
 
               <div class="services-grid">
                 <h3 class="forge-typography--heading3 span-full">Popular Services</h3>
-                {#each $servicesCache as service}
+                {#each popularServices.slice(0, 5) as service}
                   {#if service.isPublished && !service.isFeatured}
                     <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
                   {/if}
