@@ -33,7 +33,7 @@
 
   a,
   span {
-    color: white;
+    color: white !important;
   }
 
   @media screen and (max-width: 960) {
