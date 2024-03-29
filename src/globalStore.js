@@ -143,6 +143,10 @@ export const departmentsCache = writable([
     value: 'social-security-administration'
   },
   {
+    label: 'Utilities',
+    value: 'utilities'
+  },
+  {
     label: 'Department of Education',
     value: 'u.s.-department-of-education'
   },

@@ -110,7 +110,7 @@
     },
     "isPublished": true,
     "serviceDescription": "Get assistance with tax-related issues from the IRS.",
-    "isFeatured": true,
+    "isFeatured": false,
     "allowPartnerAccess": false,
     "iconName": "account_balance_wallet",
     "keywords": ["taxpayer assistance", "IRS", "taxes"],
@@ -388,7 +388,7 @@
     "keywords": ["child support", "payment", "family"],
     "url": "https://example.com/child-support-payment",
     "id": "CSP002",
-    "functions": ["bill/invoice"]
+    "functions": ["bill-invoice"]
   },
   {
     "serviceTitle": "Renew Driver's License",
@@ -626,6 +626,23 @@
     "keywords": ["parking permit", "renewal", "transportation"],
     "url": "https://example.com/parking-permit-renewal",
     "id": "PPR002",
-    "functions": ["bill/invoice"]
+    "functions": ["bill-invoice"]
+  },
+  {
+    "serviceTitle": "My Bills",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Utilities",
+      "value": "utilities"
+    },
+    "isPublished": true,
+    "serviceDescription": "See utility and other bills in one place.",
+    "isFeatured": true,
+    "allowPartnerAccess": false,
+    "iconName": "payments",
+    "keywords": ["fees", "pay", "bills"],
+    "url": "https://rentonwa.tcpci.com/payments/dashboard/user/home",
+    "id": "PPR00266666",
+    "functions": ["bill-invoice"]
   }
 ]
