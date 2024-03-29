@@ -44,7 +44,7 @@
   .portland-header {
     position: relative;
     --forge-app-bar-height: auto;
-    --forge-app-bar-background: #003b4d;
+    --forge-app-bar-background: var(--branding-primary-color);
     --forge-app-bar-row-padding: 8px;
 
     &::part(root) {

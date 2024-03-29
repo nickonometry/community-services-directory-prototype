@@ -31,9 +31,6 @@
   }
 
   li {
-    --primary: #003b4d;
-    --primary-light: #01455a;
-
     list-style: none;
     padding: 0;
     margin: 0;
@@ -62,9 +59,13 @@
 
   .icon-container {
     // background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-    background: var(--primary); /* fallback for old browsers */
-    background: -webkit-linear-gradient(var(--primary), var(--primary-light)); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(var(--primary), var(--primary-light)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // background: var(--branding-primary-color); /* fallback for old browsers */
+    // background: -webkit-linear-gradient(var(--branding-primary-color), var(--branding-secondary-color)); /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(
+    //   var(--branding-primary-color),
+    //   var(--branding-secondary-color)
+    // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: var(--branding-primary-color);
 
     display: grid;
     height: 100%;

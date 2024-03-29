@@ -7,6 +7,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  // simulating primary color from branding
+  --branding-primary-color: #003b4d;
+  --branding-secondary-color: #68cbdf;
+}
+
 body {
   height: 100dvh;
   -webkit-font-smoothing: antialiased;

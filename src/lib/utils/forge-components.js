@@ -39,4 +39,5 @@ export async function loadForgeComponents() {
   import('@tylertech/forge/esm/button-toggle');
   import('@tylertech/forge/esm/toast');
   import('@tylertech/forge/esm/checkbox');
+  import('@tylertech/forge/esm/paginator');
 }

@@ -23,7 +23,7 @@
       "label": "Health and Human Services",
       "value": "department-of-health-and-human-services"
     },
-    "isPublished": false,
+    "isPublished": true,
     "serviceDescription": "Schedule a food safety inspection for your restaurant or food establishment.",
     "isFeatured": true,
     "allowPartnerAccess": false,
@@ -42,7 +42,7 @@
     },
     "isPublished": true,
     "serviceDescription": "Learn about and apply for affordable housing programs.",
-    "isFeatured": true,
+    "isFeatured": false,
     "allowPartnerAccess": false,
     "iconName": "home",
     "keywords": ["affordable housing", "housing program", "urban development"],
@@ -76,7 +76,7 @@
     },
     "isPublished": false,
     "serviceDescription": "Renew your vehicle registration online.",
-    "isFeatured": true,
+    "isFeatured": false,
     "allowPartnerAccess": true,
     "iconName": "directions_car",
     "keywords": ["vehicle registration", "renewal", "DMV"],
@@ -95,7 +95,7 @@
     "serviceDescription": "Register your aircraft with the Federal Aviation Administration.",
     "isFeatured": false,
     "allowPartnerAccess": false,
-    "iconName": "airplanemode_active",
+    "iconName": "local_airport",
     "keywords": ["aircraft", "registration", "FAA"],
     "url": "https://example.com/aircraft-registration",
     "id": "AR001",
@@ -108,7 +108,7 @@
       "label": "Internal Revenue Service",
       "value": "internal-revenue-service"
     },
-    "isPublished": false,
+    "isPublished": true,
     "serviceDescription": "Get assistance with tax-related issues from the IRS.",
     "isFeatured": true,
     "allowPartnerAccess": false,
@@ -159,9 +159,9 @@
       "label": "Department of Education",
       "value": "u.s.-department-of-education"
     },
-    "isPublished": true,
+    "isPublished": false,
     "serviceDescription": "Apply for federal student aid.",
-    "isFeatured": true,
+    "isFeatured": false,
     "allowPartnerAccess": false,
     "iconName": "school",
     "keywords": ["student aid", "appointment", "education"],
@@ -214,7 +214,7 @@
     "serviceDescription": "Schedule an appointment at a health clinic.",
     "isFeatured": false,
     "allowPartnerAccess": false,
-    "iconName": "local_hospital",
+    "iconName": "mediation",
     "keywords": ["health clinic", "appointment", "healthcare"],
     "url": "https://example.com/health-clinic-appointment",
     "id": "HCA001",
@@ -287,5 +287,345 @@
     "url": "https://example.com/tax-payment",
     "id": "TP001",
     "functions": ["bill-invoice", "fee", "tax"]
+  },
+  {
+    "serviceTitle": "Public Library Membership",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Education",
+      "value": "u.s.-department-of-education"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a membership at the public library.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "library_books",
+    "keywords": ["library", "membership", "education"],
+    "url": "https://example.com/public-library-membership",
+    "id": "PLM001",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Passport Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of State",
+      "value": "u.s.-department-of-state"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a new passport.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "airplanemode_active",
+    "keywords": ["passport", "application", "travel"],
+    "url": "https://example.com/passport-application",
+    "id": "PA002",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Business Tax Registration",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Internal Revenue Service",
+      "value": "internal-revenue-service"
+    },
+    "isPublished": true,
+    "serviceDescription": "Register your business for tax purposes.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "business_center",
+    "keywords": ["business", "tax", "registration"],
+    "url": "https://example.com/business-tax-registration",
+    "id": "BTR002",
+    "functions": ["form", "tax"]
+  },
+  {
+    "serviceTitle": "Public Health Clinic Immunization",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Health and Human Services",
+      "value": "department-of-health-and-human-services"
+    },
+    "isPublished": true,
+    "serviceDescription": "Get immunization shots at a public health clinic.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "local_hospital",
+    "keywords": ["public health", "clinic", "immunization"],
+    "url": "https://example.com/public-health-clinic-immunization",
+    "id": "PHCI002",
+    "functions": ["appointment"]
+  },
+  {
+    "serviceTitle": "Environmental Impact Assessment",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Environmental Protection",
+      "value": "department-of-environmental-protection"
+    },
+    "isPublished": true,
+    "serviceDescription": "Request an environmental impact assessment for development projects.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "nature",
+    "keywords": ["environmental impact", "assessment", "development"],
+    "url": "https://example.com/environmental-impact-assessment",
+    "id": "EIA002",
+    "functions": ["permit", "form"]
+  },
+  {
+    "serviceTitle": "Child Support Payment",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Social Services",
+      "value": "department-of-social-services"
+    },
+    "isPublished": true,
+    "serviceDescription": "Make child support payments online.",
+    "isFeatured": false,
+    "allowPartnerAccess": true,
+    "iconName": "child_friendly",
+    "keywords": ["child support", "payment", "family"],
+    "url": "https://example.com/child-support-payment",
+    "id": "CSP002",
+    "functions": ["bill/invoice"]
+  },
+  {
+    "serviceTitle": "Renew Driver's License",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Motor Vehicles",
+      "value": "department-of-motor-vehicles"
+    },
+    "isPublished": true,
+    "serviceDescription": "Renew your driver's license online.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "drive_eta",
+    "keywords": ["driver's license", "renewal", "DMV"],
+    "url": "https://example.com/renew-drivers-license",
+    "id": "RDL002",
+    "functions": ["license", "form"]
+  },
+  {
+    "serviceTitle": "Public Park Reservation",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Parks and Recreation",
+      "value": "parks-and-recreation"
+    },
+    "isPublished": true,
+    "serviceDescription": "Reserve a space in a public park for events.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "nature_people",
+    "keywords": ["public park", "reservation", "recreation"],
+    "url": "https://example.com/public-park-reservation",
+    "id": "PPR002",
+    "functions": ["reservation"]
+  },
+  {
+    "serviceTitle": "Federal Student Loan Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Education",
+      "value": "u.s.-department-of-education"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for federal student loans.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "history_edu",
+    "keywords": ["student loan", "application", "education"],
+    "url": "https://example.com/federal-student-loan-application",
+    "id": "FSLA002",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Building Permit Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Housing and Urban Development",
+      "value": "department-of-housing-and-urban-development"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a building permit for construction projects.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "build",
+    "keywords": ["building permit", "application", "construction"],
+    "url": "https://example.com/building-permit-application",
+    "id": "BPA002",
+    "functions": ["permit", "form"]
+  },
+  {
+    "serviceTitle": "Marriage License Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "City Clerk's Office",
+      "value": "city-clerks-office"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a marriage license.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "favorite",
+    "keywords": ["marriage license", "application", "city clerk"],
+    "url": "https://example.com/marriage-license-application",
+    "id": "MLA002",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Public Transportation Pass Purchase",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Transportation",
+      "value": "department-of-transportation"
+    },
+    "isPublished": true,
+    "serviceDescription": "Purchase monthly passes for public transportation.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "directions_bus",
+    "keywords": ["public transportation", "pass", "purchase"],
+    "url": "https://example.com/public-transportation-pass-purchase",
+    "id": "PTPP002",
+    "functions": ["purchase", "subscription"]
+  },
+  {
+    "serviceTitle": "Zoning Variance Request",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Urban Planning",
+      "value": "department-of-urban-planning"
+    },
+    "isPublished": true,
+    "serviceDescription": "Request a variance for zoning regulations.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "settings",
+    "keywords": ["zoning", "variance", "urban planning"],
+    "url": "https://example.com/zoning-variance-request",
+    "id": "ZVR002",
+    "functions": ["request", "form"]
+  },
+  {
+    "serviceTitle": "Voter Registration",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of State",
+      "value": "u.s.-department-of-state"
+    },
+    "isPublished": true,
+    "serviceDescription": "Register to vote in upcoming elections.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "how_to_vote",
+    "keywords": ["voter registration", "elections", "politics"],
+    "url": "https://example.com/voter-registration",
+    "id": "VR002",
+    "functions": ["form"]
+  },
+  {
+    "serviceTitle": "City Park Event Permit",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Parks and Recreation",
+      "value": "parks-and-recreation"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a permit to host an event in a city park.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "event",
+    "keywords": ["city park", "event", "permit"],
+    "url": "https://example.com/city-park-event-permit",
+    "id": "CPEP002",
+    "functions": ["permit", "form"]
+  },
+  {
+    "serviceTitle": "Elderly Care Assistance Program",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Health and Human Services",
+      "value": "department-of-health-and-human-services"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for assistance programs for elderly care.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "elderly",
+    "keywords": ["elderly care", "assistance", "health"],
+    "url": "https://example.com/elderly-care-assistance-program",
+    "id": "ECAP002",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Construction Permit",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Building and Safety",
+      "value": "department-of-building-and-safety"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a permit for construction projects.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "construction",
+    "keywords": ["construction", "permit", "building"],
+    "url": "https://example.com/construction-permit",
+    "id": "CP002",
+    "functions": ["permit", "form"]
+  },
+  {
+    "serviceTitle": "Tax Exemption Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Internal Revenue Service",
+      "value": "internal-revenue-service"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for tax exemption status for nonprofit organizations.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "money_off",
+    "keywords": ["tax exemption", "application", "nonprofit"],
+    "url": "https://example.com/tax-exemption-application",
+    "id": "TEA002",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Firearm Permit Application",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Justice",
+      "value": "department-of-justice"
+    },
+    "isPublished": true,
+    "serviceDescription": "Apply for a permit to carry a firearm.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "security",
+    "keywords": ["firearm permit", "application", "justice"],
+    "url": "https://example.com/firearm-permit-application",
+    "id": "FPA002",
+    "functions": ["application"]
+  },
+  {
+    "serviceTitle": "Parking Permit Renewal",
+    "lastAccessDate": "2024-03-27",
+    "department": {
+      "label": "Department of Transportation",
+      "value": "department-of-transportation"
+    },
+    "isPublished": true,
+    "serviceDescription": "Renew your parking permit online.",
+    "isFeatured": false,
+    "allowPartnerAccess": false,
+    "iconName": "local_parking",
+    "keywords": ["parking permit", "renewal", "transportation"],
+    "url": "https://example.com/parking-permit-renewal",
+    "id": "PPR002",
+    "functions": ["bill/invoice"]
   }
 ]

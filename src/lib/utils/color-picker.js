@@ -82,5 +82,6 @@ export const randomBrightColorPicker = () => {
   var colorList = colorsBright[pickRandomProperty(colorsBright)];
   var newColorKey = pickRandomProperty(colorList);
   var newColor = colorList[newColorKey];
+  newColor = 'var(--branding-primary-color)';
   return newColor;
 };
