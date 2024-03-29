@@ -42,7 +42,7 @@
               <div class="services-grid">
                 {#each $servicesCache as service}
                   {#if service.isFeatured && service.isPublished}
-                    <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
+                    <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} url={service.url} />
                   {/if}
                 {/each}
               </div>

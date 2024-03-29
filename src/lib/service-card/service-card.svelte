@@ -5,15 +5,23 @@
   export let icon;
   export let title;
   export let description;
+  export let url;
   let avatarColor;
 
   onMount(() => {
     avatarColor = randomBrightColorPicker();
   });
+
+  const onServiceCardClick = (e) => {
+    window.open(url, '_blank');
+  };
 </script>
 
 <forge-card>
-  <forge-button-area id="button-area">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <forge-button-area id="button-area" on:click={() => onServiceCardClick()} aria-label="Navigate to this service homepage">
+    <!-- simulating an anchor link, the button-area component should support this eventually -->
     <button slot="button" aria-labelledby="button-area-heading"></button>
     <div class="card__inner">
       <forge-avatar style={`--forge-avatar-background: ${avatarColor}`}>
