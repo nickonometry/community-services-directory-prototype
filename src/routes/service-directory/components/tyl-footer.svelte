@@ -9,7 +9,7 @@
       <span> | </span>
       <a href="#">Privacy Policy</a>
       <span> | </span>
-      <a href="#">© 2024</a>
+      <span>© City of Portland 2024</span>
     </forge-stack>
     <div class="logo">
       <img src="https://cdn.forge.tylertech.com/v1/images/branding/tyler/tyler-empowered-logo-white.svg" alt="Empowered by Tyler Technologies" />
