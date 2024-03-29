@@ -1,4 +1,5 @@
 <script>
+  import TylFooter from './components/tyl-footer.svelte';
   import { onMount } from 'svelte';
   import { loadForgeComponents } from '$lib/utils/forge-components.js';
   import { fade } from 'svelte/transition';
@@ -26,6 +27,9 @@
     <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
       <slot />
     </main>
+    <div slot="footer">
+      <TylFooter />
+    </div>
   </forge-scaffold>
 {/if}
 
