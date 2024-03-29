@@ -28,13 +28,13 @@
       </div>
     </forge-inline-message>
   {/if}
-  <ServiceTypeCard
+  <!-- <ServiceTypeCard
     isSelected={currentSelected === 'tyler application'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Tyler application"
     serviceDescription="These community services are available as part of your licensed Tyler applications and require minimal configuration. For example, Resident Access Parking Ticket payment."
     icon="tyler_talking_t_logo"
-    iconLibrary="custom"></ServiceTypeCard>
+    iconLibrary="custom"></ServiceTypeCard> -->
   <ServiceTypeCard
     isSelected={currentSelected === 'user-defined'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
