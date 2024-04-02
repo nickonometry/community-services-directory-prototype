@@ -13,7 +13,9 @@
   });
 
   const onServiceCardClick = (e) => {
-    window.open(url, '_blank');
+    if (url) {
+      window.open(url, '_blank');
+    }
   };
 </script>
 
@@ -44,6 +46,7 @@
 <style lang="scss">
   forge-card {
     --forge-card-padding: 0;
+    height: 100%;
   }
 
   forge-button-area {

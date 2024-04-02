@@ -1,5 +1,6 @@
 <script>
   import AdminAppBar from './../../lib/admin-app-bar/admin-app-bar.svelte';
+  import TylFooter from './../service-directory/components/tyl-footer.svelte';
   import { onMount } from 'svelte';
   import { loadForgeComponents } from '$lib/utils/forge-components.js';
   import { fade } from 'svelte/transition';
@@ -7,7 +8,12 @@
   import { servicesCache } from '../../globalStore';
   export let data;
   let services = data.data.data;
-  servicesCache.set(services);
+
+  // Only load servies JSON if it hasn't been loaded yet. This is just for the prototype
+  if (!$servicesCache.length) {
+    servicesCache.set(services);
+  }
+
   let isLoaded = false;
 
   onMount(async () => {
@@ -18,19 +24,12 @@
 
 {#if isLoaded}
   <forge-scaffold>
-    <div slot="header">
+    <div slot="header" style="pointer-events: none;">
       <AdminAppBar />
     </div>
-
-    <!-- <forge-mini-drawer slot="body-left">
-      <Nav />
-    </forge-mini-drawer> -->
-
-    {#key data.data.pathname}
-      <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
-        <slot />
-      </main>
-    {/key}
+    <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
+      <slot />
+    </main>
   </forge-scaffold>
 {/if}
 
@@ -43,15 +42,5 @@
 
   forge-scaffold {
     --forge-scaffold-height: 100%;
-  }
-
-  main {
-    scrollbar-gutter: stable both-edges;
-  }
-
-  @media screen and (max-width: 1024px) {
-    main {
-      scrollbar-gutter: auto;
-    }
   }
 </style>

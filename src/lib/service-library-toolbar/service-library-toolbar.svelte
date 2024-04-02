@@ -28,6 +28,10 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <div>
+            <!-- <forge-button href="/resident-preview-edit">
+              <forge-icon name="reorder" external></forge-icon>
+              <span>Order your services</span>
+            </forge-button> -->
             <forge-button href="/resident-preview">
               <forge-icon name="preview" external></forge-icon>
               <span>View service directory</span>
@@ -76,7 +80,7 @@
     forge-text-field {
       --forge-field-height: 36px;
       width: 100%;
-      min-width: 768px;
+      min-width: 500px;
     }
   }
 

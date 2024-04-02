@@ -84,6 +84,10 @@ export const functionsCache = writable([
     value: 'license'
   },
   {
+    label: 'Other',
+    value: 'other'
+  },
+  {
     label: 'Permit',
     value: 'permit'
   },
