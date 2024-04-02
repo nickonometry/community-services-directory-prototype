@@ -37,7 +37,7 @@
   <forge-stack inline alignment="center" slot="start">
     <PortlandLogo />
   </forge-stack>
-  <forge-button slot="end" class="sign-in-button" href="/login"> Sign in </forge-button>
+  <forge-button slot="end" href="/login"> Sign in </forge-button>
 </forge-app-bar>
 
 <style>
@@ -45,14 +45,10 @@
     position: relative;
     --forge-app-bar-height: auto;
     --forge-app-bar-background: var(--branding-primary-color);
-    --forge-app-bar-row-padding: 8px;
+    --forge-app-bar-row-padding: 16px;
 
     &::part(root) {
       padding-block: 8px;
     }
-  }
-
-  .sign-in-button {
-    margin-inline-end: 16px;
   }
 </style>

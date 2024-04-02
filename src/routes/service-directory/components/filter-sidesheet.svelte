@@ -13,7 +13,7 @@
   };
 
   const onFilterSelected = (v) => {
-    console.log(v);
+    // console.log(v);
   };
 </script>
 
@@ -37,7 +37,10 @@
   <forge-toolbar slot="footer" inverted>
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <forge-button variant="raised" slot="end" on:click={onSave}>Apply</forge-button>
+    <forge-button slot="end" on:click={onSave}>
+      Close filters
+      <forge-icon name="chevron_right" external></forge-icon>
+    </forge-button>
   </forge-toolbar>
 </forge-scaffold>
 
