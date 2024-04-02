@@ -8,6 +8,9 @@
   import FilterSidesheet from './components/filter-sidesheet.svelte';
   import FunctionsFilter from './components/functions-filter.svelte';
   let filterDrawer;
+  let serviceFilterInput;
+  let windowWidth;
+  let pageBreakpoint = 1024;
 
   onMount(() => {
     // Make sure we reset the store since the codotype shares one store
@@ -30,64 +33,67 @@
   };
 </script>
 
+<svelte:window bind:innerWidth={windowWidth} />
+
 <div class="page-grid">
   <div class="banner-container">
     <Banner />
   </div>
   <div class="card-container">
     <forge-card>
-      <!-- MOBILE -->
-      <div class="mobile-filters">
-        <forge-text-field id="text-field" variant="filled">
-          <forge-icon slot="leading" name="search" external></forge-icon>
-          <input type="text" id="service-filter" placeholder="Search for a service..." bind:value={$filterText} on:input={(e) => onSearch(e)} />
-          <forge-icon-button on:click={() => openFilterSidesheet()} slot="accessory">
-            <forge-icon name="filter_list" external></forge-icon>
-          </forge-icon-button>
-        </forge-text-field>
-        <forge-modal-drawer bind:this={filterDrawer} direction="right" class="filter-drawer">
-          <FilterSidesheet dialogRef={filterDrawer} />
-        </forge-modal-drawer>
-      </div>
-      <!-- MOBILE -->
-
-      <!-- DESKTOP -->
       <div class="directory-card-inner" transition:fade={{ delay: 0, duration: 200 }}>
         <div class="filters">
-          <forge-stack>
-            <forge-text-field id="text-field" variant="filled">
-              <forge-icon slot="leading" name="search" external></forge-icon>
-              <input type="text" id="service-filter" placeholder="Search for a service.." bind:value={$filterText} on:input={(e) => onSearch(e)} />
-            </forge-text-field>
-            <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
-          </forge-stack>
+          <forge-card>
+            <forge-stack>
+              <forge-stack inline alignment="center">
+                <forge-icon name="filter_list" external></forge-icon>
+                <h3 class="forge-typography--heading2">Filter by function</h3>
+              </forge-stack>
+              <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
+            </forge-stack>
+          </forge-card>
         </div>
 
         <div class="services-list">
-          {#if !$filteredServices.length}
-            <div>
-              <ServicesEmptyState />
-            </div>
-          {/if}
-          <ul>
-            <forge-stack>
-              {#each $filteredServices as service}
-                {#if service.isPublished}
-                  <DirectoryServiceCard {service} />
-                {/if}
-              {/each}
-            </forge-stack>
-          </ul>
+          <forge-stack>
+            <forge-text-field id="text-field" variant="filled" class="span-full" bind:this={serviceFilterInput}>
+              <forge-icon slot="leading" name="search" external></forge-icon>
+              <input type="text" id="service-filter" placeholder="Search for a service.." bind:value={$filterText} on:input={(e) => onSearch(e)} />
+              {#if windowWidth <= pageBreakpoint}
+                <div class="mobile-filter-button" slot="accessory">
+                  <forge-icon-button on:click={() => openFilterSidesheet()}>
+                    <forge-icon name="filter_list" external></forge-icon>
+                  </forge-icon-button>
+                </div>
+              {/if}
+            </forge-text-field>
+            <forge-modal-drawer bind:this={filterDrawer} direction="right" class="filter-drawer">
+              <FilterSidesheet dialogRef={filterDrawer} />
+            </forge-modal-drawer>
+            {#if !$filteredServices.length}
+              <div>
+                <ServicesEmptyState />
+              </div>
+            {/if}
+            <ul>
+              <forge-stack>
+                {#each $filteredServices as service}
+                  {#if service.isPublished}
+                    <DirectoryServiceCard {service} />
+                  {/if}
+                {/each}
+              </forge-stack>
+            </ul>
+          </forge-stack>
         </div>
       </div>
-      <!-- DESKTOP -->
     </forge-card>
   </div>
 </div>
 
 <style lang="scss">
   @import '../../mixins.scss';
-  .mobile-filters {
+  .mobile-filter-button {
     display: none;
   }
 
@@ -113,8 +119,8 @@
   .directory-card-inner {
     display: grid;
     grid-template-columns: 344px 1fr;
-    padding: 16px;
-    gap: 56px;
+    row-gap: 24px;
+    column-gap: 56px;
   }
 
   forge-modal-drawer:not([open]) {
@@ -142,9 +148,8 @@
       padding: 0;
     }
 
-    .mobile-filters {
+    .mobile-filter-button {
       display: block;
-      padding-block-end: 16px;
     }
   }
 </style>
