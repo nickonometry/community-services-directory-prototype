@@ -1,4 +1,5 @@
 <script>
+  import Nav from './../../lib/nav/nav.svelte';
   import AdminAppBar from './../../lib/admin-app-bar/admin-app-bar.svelte';
   import { onMount } from 'svelte';
   import { loadForgeComponents } from '$lib/utils/forge-components.js';
@@ -7,7 +8,10 @@
   import { servicesCache } from '../../globalStore';
   export let data;
   let services = data.data.data;
-  servicesCache.set(services);
+  if (!$servicesCache.length) {
+    servicesCache.set(services);
+  }
+
   let isLoaded = false;
 
   onMount(async () => {
@@ -16,23 +20,21 @@
   });
 </script>
 
-{#if isLoaded}
-  <forge-scaffold>
-    <div slot="header">
-      <AdminAppBar />
-    </div>
+<forge-scaffold>
+  <div slot="header">
+    <AdminAppBar />
+  </div>
 
-    <!-- <forge-mini-drawer slot="body-left">
-      <Nav />
-    </forge-mini-drawer> -->
+  <forge-mini-drawer slot="body-left">
+    <Nav />
+  </forge-mini-drawer>
 
-    {#key data.data.pathname}
-      <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
-        <slot />
-      </main>
-    {/key}
-  </forge-scaffold>
-{/if}
+  {#key data.data.pathname}
+    <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
+      <slot />
+    </main>
+  {/key}
+</forge-scaffold>
 
 <style lang="scss">
   [slot='logo'] {
@@ -46,7 +48,7 @@
   }
 
   main {
-    scrollbar-gutter: stable both-edges;
+    // scrollbar-gutter: stable both-edges;
   }
 
   @media screen and (max-width: 1024px) {

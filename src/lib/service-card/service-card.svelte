@@ -20,8 +20,6 @@
 </script>
 
 <forge-card>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <forge-button-area id="button-area" on:click={() => onServiceCardClick()} aria-label="Navigate to this service homepage">
     <!-- simulating an anchor link, the button-area component should support this eventually -->
     <button slot="button" aria-labelledby="button-area-heading"></button>

@@ -33,8 +33,6 @@
         </forge-icon-button>
         <h2 class="forge-typography--heading3">Edit service</h2>
       </div>
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <forge-button slot="end" theme="error" style="margin-inline-end: 16px;">
         <forge-icon name="delete" external></forge-icon>
         <span>Delete service</span>
@@ -46,8 +44,6 @@
     </div>
     <forge-toolbar inverted slot="footer">
       <forge-stack slot="end" inline>
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <forge-button href="/">Cancel</forge-button>
         <forge-button variant="raised" on:click={onSave}>Save</forge-button>
       </forge-stack>

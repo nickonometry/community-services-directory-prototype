@@ -95,8 +95,6 @@
     <forge-toolbar inverted slot="footer">
       <forge-button variant="outlined" on:click={onPreviousClicked} slot="start" disabled={stepSelected === 0}>Previous</forge-button>
       <forge-stack slot="end" inline>
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
         {#if stepSelected === 2}
           <forge-button variant="raised" on:click={onSave}>Save</forge-button>
         {:else}

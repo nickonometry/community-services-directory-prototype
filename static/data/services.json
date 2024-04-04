@@ -24,14 +24,14 @@
       "value": "department-of-health-and-human-services"
     },
     "isPublished": true,
-    "serviceDescription": "Schedule a food safety inspection for your restaurant or food establishment.",
+    "serviceDescription": "Pay for your food establishments safety inspection.",
     "isFeatured": true,
     "allowPartnerAccess": false,
     "iconName": "restaurant",
     "keywords": ["food safety", "inspection", "health"],
-    "url": "https://www.google.com",
+    "url": "https://rentonwa.tcpci.com/payments/billsearch/search-form/3b7129d4-d975-4c6a-80a0-f6adb04d65a1",
     "id": "FSI001",
-    "functions": ["appointment"]
+    "functions": ["bill-invoice", "fee"]
   },
   {
     "serviceTitle": "Affordable Housing Program",

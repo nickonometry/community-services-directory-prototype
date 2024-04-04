@@ -20,8 +20,6 @@
 <forge-scaffold>
   <forge-toolbar slot="header">
     <h1 slot="start" class="forge-typography--heading2">Filters</h1>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <forge-icon-button slot="end" on:click={onClose}>
       <forge-icon name="close" external></forge-icon>
     </forge-icon-button>
@@ -35,8 +33,6 @@
   </div>
 
   <forge-toolbar slot="footer" inverted>
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <forge-button slot="end" on:click={onSave}>
       Close filters
       <forge-icon name="chevron_right" external></forge-icon>

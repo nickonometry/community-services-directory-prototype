@@ -91,8 +91,6 @@
         <forge-stack inline gap="0" alignment="center">
           <forge-label legend>Featured</forge-label>
           <div class="custom-icon">
-            <!-- svelte-ignore a11y-unknown-aria-attribute -->
-            <!-- svelte-ignore a11y-no-static-element-interactions -->
             <forge-icon-button
               id="featured-popover"
               dense

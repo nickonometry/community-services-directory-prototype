@@ -159,3 +159,9 @@ export const departmentsCache = writable([
     value: 'u.s.-department-of-state'
   }
 ]);
+
+export let sortedDepartments = derived([departmentsCache], ([$departmentsCache]) => {
+  return $departmentsCache.sort((a, b) =>
+    a.label.toLowerCase() > b.label.toLowerCase() ? 1 : b.label.toLowerCase() > a.label.toLowerCase() ? -1 : 0
+  );
+});

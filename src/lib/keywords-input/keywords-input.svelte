@@ -43,8 +43,6 @@
 <forge-chip-field bind:this={keywordInput} add-on-blur>
   <div slot="trailing">
     <div class="custom-icon">
-      <!-- svelte-ignore missing-declaration -->
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <forge-icon-button
         dense
         id="keywords-popover"

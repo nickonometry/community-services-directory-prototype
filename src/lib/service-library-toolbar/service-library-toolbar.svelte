@@ -25,8 +25,6 @@
     <div slot="end">
       <div class="desktop-actions">
         <forge-stack inline>
-          <!-- svelte-ignore a11y-no-static-element-interactions -->
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
           <div>
             <!-- <forge-button href="/resident-preview-edit">
               <forge-icon name="reorder" external></forge-icon>

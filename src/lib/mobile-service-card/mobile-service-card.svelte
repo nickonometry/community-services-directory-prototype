@@ -51,8 +51,6 @@
 
     <!-- TODO - make this configurable and not customer specific -->
     <forge-toolbar inverted>
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
       <forge-button slot="end" on:click={() => onEditServiceClick()}>
         <span>Edit service</span>
         <forge-icon name="arrow_right" slot="end" external />

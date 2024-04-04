@@ -14,8 +14,6 @@
 
 <div class="service-container">
   <forge-card outlined style="--forge-card-padding: 0" class:selected={isSelected}>
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <forge-button-area id="button-area" on:click={dispatchSelected}>
       <button slot="button" aria-labelledby="button-area-heading"></button>
       <div class="service-card__container">
