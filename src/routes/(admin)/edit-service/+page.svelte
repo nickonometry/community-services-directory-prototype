@@ -1,5 +1,5 @@
 <script>
-  import { openConfirmationDialog } from '../../../lib/utils/utils.js';
+  import { openConfirmationDialog, updateServices } from '../../../lib/utils/utils.js';
   import { onMount } from 'svelte';
   import CustomServiceLinkForm from '../../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../../globalStore';
@@ -20,6 +20,7 @@
   const onSave = () => {
     let serviceIndex = $servicesCache.findIndex((service) => service.id === serviceId);
     $servicesCache[serviceIndex] = $customServiceLinkForm;
+    updateServices($servicesCache);
     openConfirmationDialog('Your service has been updated and saved');
   };
 </script>

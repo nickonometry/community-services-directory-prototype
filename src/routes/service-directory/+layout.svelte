@@ -8,9 +8,8 @@
   import BrandedHeader from '../../lib/branded-header/branded-header.svelte';
   export let data;
   let services = data.data.data;
-  if (!$servicesCache.length) {
-    servicesCache.set(services);
-  }
+  servicesCache.set(services);
+
   let isLoaded = false;
 
   onMount(async () => {

@@ -7,13 +7,10 @@
   import '../../app.scss';
   import { servicesCache } from '../../globalStore';
   export let data;
-  let isMobile;
   let modalDrawerIsOpen = false;
   let innerWidth;
   let services = data.data.data;
-  if (!$servicesCache.length) {
-    servicesCache.set(services);
-  }
+  servicesCache.set(services);
 
   let isLoaded = false;
 

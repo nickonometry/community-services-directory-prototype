@@ -7,11 +7,7 @@
   import { servicesCache } from '../../globalStore';
   export let data;
   let services = data.data.data;
-
-  // Only load servies JSON if it hasn't been loaded yet. This is just for the prototype
-  if (!$servicesCache.length) {
-    servicesCache.set(services);
-  }
+  servicesCache.set(services);
 
   let isLoaded = false;
 

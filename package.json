@@ -25,7 +25,9 @@
   "type": "module",
   "dependencies": {
     "@okta/okta-signin-widget": "^7.14.1",
+    "@supabase/supabase-js": "^2.42.0",
     "@tylertech/tyler-icons": "^1.17.1",
+    "base64-arraybuffer": "^1.0.2",
     "svelte-dnd-action": "^0.9.42"
   }
 }

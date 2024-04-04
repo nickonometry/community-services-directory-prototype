@@ -1,7 +1,9 @@
 <script>
-  import { departmentsCache, sortedDepartments } from './../../../globalStore.js';
+  import { sortedDepartments } from './../../../globalStore.js';
   import AddEditDepartmentPopup from './components/add-edit-department-popup/add-edit-department-popup.svelte';
   import DepartmentListItem from './components/department-list-item/department-list-item.svelte';
+  import { onMount } from 'svelte';
+
   let addDepartmentPopover;
 
   export const popoverA11y = (e, showExpanded) => {
@@ -65,7 +67,7 @@
           <forge-card>
             <div class="department-list">
               <forge-list>
-                {#each $departmentsCache as dept, index}
+                {#each $sortedDepartments as dept, index}
                   <DepartmentListItem department={dept} {index} />
                 {/each}
               </forge-list>
