@@ -48,6 +48,8 @@
             <forge-icon name="add" external></forge-icon>
             Add department
           </forge-button>
+
+          <!-- TODO - use a dialog on mobile -->
           <forge-popover
             arrow
             aria-labelledby="add-department-popover"
@@ -99,7 +101,7 @@
     overflow-y: auto;
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
     .page-container {
       margin: 0 auto;
     }

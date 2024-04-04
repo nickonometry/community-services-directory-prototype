@@ -40,6 +40,7 @@
     </forge-icon-button>
   </forge-stack>
 </forge-list-item>
+<!-- TODO - use a dialog on mobile -->
 <forge-popover
   shift
   placement="bottom-end"
