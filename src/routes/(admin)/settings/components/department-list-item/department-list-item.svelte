@@ -30,7 +30,7 @@
 </script>
 
 <forge-list-item propagate-click="false">
-  {department.label} - {index}
+  {department.label}
   <forge-stack inline slot="trailing" gap="0">
     <forge-icon-button on:click={setFocusToDepartmentInput} id={`edit-department-${index}`}>
       <forge-icon name="edit" external></forge-icon>
