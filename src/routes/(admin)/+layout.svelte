@@ -7,6 +7,9 @@
   import '../../app.scss';
   import { servicesCache } from '../../globalStore';
   export let data;
+  let isMobile;
+  let modalDrawerIsOpen = false;
+  let innerWidth;
   let services = data.data.data;
   if (!$servicesCache.length) {
     servicesCache.set(services);
@@ -18,16 +21,30 @@
     loadForgeComponents();
     Promise.allSettled([window.customElements.whenDefined('forge-scaffold')]).then(() => (isLoaded = true));
   });
+
+  const toggleDrawer = () => {
+    modalDrawerIsOpen = !modalDrawerIsOpen;
+  };
 </script>
+
+<svelte:window bind:innerWidth />
 
 <forge-scaffold>
   <div slot="header">
-    <AdminAppBar />
+    <AdminAppBar showMenu={innerWidth < 1024} on:menu-click={toggleDrawer} />
   </div>
 
-  <forge-mini-drawer slot="body-left">
-    <Nav />
-  </forge-mini-drawer>
+  {#if innerWidth < 1024}
+    <forge-modal-drawer slot="body-left" open={modalDrawerIsOpen} on:forge-modal-drawer-close={toggleDrawer}>
+      <Nav on:nav-item-clicked={toggleDrawer} />
+    </forge-modal-drawer>
+  {/if}
+
+  {#if innerWidth >= 1024}
+    <forge-mini-drawer slot="body-left">
+      <Nav />
+    </forge-mini-drawer>
+  {/if}
 
   {#key data.data.pathname}
     <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>

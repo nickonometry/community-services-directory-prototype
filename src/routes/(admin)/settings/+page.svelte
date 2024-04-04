@@ -22,7 +22,7 @@
   };
 </script>
 
-<forge-card class="page-container">
+<forge-card class="page-container" id="main">
   <forge-scaffold>
     <forge-toolbar style="--forge-toolbar-padding: 0;" slot="header">
       <div slot="start" class="flex-center--row flex-gap-0">
@@ -50,10 +50,10 @@
           </forge-button>
           <forge-popover
             arrow
-            placement="block-end"
             aria-labelledby="add-department-popover"
             role="region"
             persistent
+            placement="bottom-end"
             anchor-element="#add-department-popover"
             bind:this={addDepartmentPopover}>
             <AddEditDepartmentPopup on:close-popover={onPopoverClose} />
@@ -72,12 +72,6 @@
         </div>
       </forge-stack>
     </div>
-    <!-- <forge-toolbar inverted slot="footer">
-      <forge-stack slot="end" inline>
-        <forge-button href="/">Cancel</forge-button>
-        <forge-button variant="raised">Save</forge-button>
-      </forge-stack>
-    </forge-toolbar> -->
   </forge-scaffold>
 </forge-card>
 
@@ -103,5 +97,11 @@
   .department-list {
     max-height: 300px;
     overflow-y: auto;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .page-container {
+      margin: 0 auto;
+    }
   }
 </style>

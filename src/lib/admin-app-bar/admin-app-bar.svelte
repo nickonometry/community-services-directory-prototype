@@ -1,3 +1,14 @@
+<script>
+  import { createEventDispatcher } from 'svelte';
+
+  export let showMenu;
+  const dispatch = createEventDispatcher();
+
+  const dispatchMenuClicked = () => {
+    dispatch('menu-click');
+  };
+</script>
+
 <forge-app-bar title-text="Community Services Admin" href="/">
   <div slot="logo">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -6,6 +17,11 @@
       ></path
       ></svg>
   </div>
+  {#if showMenu}
+    <forge-icon-button slot="start" on:click={dispatchMenuClicked}>
+      <forge-icon name="menu" external></forge-icon>
+    </forge-icon-button>
+  {/if}
   <forge-tooltip position="left">Toggle theme</forge-tooltip>
 </forge-app-bar>
 

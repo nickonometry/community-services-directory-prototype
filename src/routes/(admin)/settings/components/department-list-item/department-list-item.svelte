@@ -40,6 +40,14 @@
     </forge-icon-button>
   </forge-stack>
 </forge-list-item>
-<forge-popover arrow aria-labelledby="edit-department" role="region" persistent bind:this={editDepartmentPopover} anchor={`edit-department-${index}`}>
+<forge-popover
+  shift
+  placement="bottom-end"
+  arrow
+  aria-labelledby="edit-department"
+  role="region"
+  persistent
+  bind:this={editDepartmentPopover}
+  anchor={`edit-department-${index}`}>
   <AddEditDepartmentPopup on:close-popover={onPopoverClose} isEdit="true" departmentIndex={index} inputId="department-name-edit" />
 </forge-popover>

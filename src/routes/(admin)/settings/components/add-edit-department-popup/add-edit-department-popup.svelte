@@ -73,6 +73,7 @@
 <style lang="scss">
   .container {
     padding: 16px;
-    min-width: 360px;
+    max-width: 360px;
+    width: 100%;
   }
 </style>
