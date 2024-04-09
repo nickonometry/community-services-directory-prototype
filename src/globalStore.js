@@ -19,7 +19,9 @@ export let filteredServices = derived(
     if (hasFunctionFilter) {
       $functionFilters.forEach((f) => {
         $servicesCache = $servicesCache.filter((service) => {
-          return service.functions.some((func) => func === f);
+          if (service.functions !== null) {
+            return service.functions.some((func) => func === f);
+          }
         });
       });
     }

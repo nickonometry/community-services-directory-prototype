@@ -123,6 +123,7 @@
     .step-container__card {
       margin: 0;
       height: 100%;
+      max-width: none;
     }
 
     .mobile-stepper {

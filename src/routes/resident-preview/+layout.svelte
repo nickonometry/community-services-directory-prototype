@@ -4,9 +4,7 @@
   import { loadForgeComponents } from '$lib/utils/forge-components.js';
   import { fade } from 'svelte/transition';
   import '../../app.scss';
-  import { servicesCache } from '../../globalStore';
   import { fetchDepartments, fetchFunctions, fetchServices } from '../../lib/utils/utils';
-  export let data;
 
   let isLoaded = false;
 
