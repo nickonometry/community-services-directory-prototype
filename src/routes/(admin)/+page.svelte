@@ -31,29 +31,27 @@
 
 <svelte:window bind:innerWidth />
 
-{#if innerWidth}
-  <div class="page-container">
-    <forge-card class="table-card">
-      <ServiceLibraryToolbar on:on-search={(e) => onSearch(e)} on:on-open-preview={openFullPreview} />
-      <div class="table-container">
-        {#if innerWidth <= breakpoint}
-          <MobileTable {columnConfigurations} data={$filteredServices} />
+<div class="page-container">
+  <forge-card class="table-card">
+    <ServiceLibraryToolbar on:on-search={(e) => onSearch(e)} on:on-open-preview={openFullPreview} />
+    <div class="table-container">
+      {#if innerWidth <= breakpoint}
+        <MobileTable {columnConfigurations} data={$filteredServices} />
+      {/if}
+      {#if innerWidth > breakpoint}
+        <div style="padding-inline: 16px; padding-block-end: 16px;">
+          <FilterChips />
+        </div>
+        {#if $filteredServices.length > 0}
+          <ServicesTable services={$filteredServices} />
         {/if}
-        {#if innerWidth > breakpoint}
-          <div style="padding-inline: 16px; padding-block-end: 16px;">
-            <FilterChips />
-          </div>
-          {#if $filteredServices.length > 0}
-            <ServicesTable services={$filteredServices} />
-          {/if}
-          {#if $filteredServices.length === 0}
-            <ServicesEmptyState />
-          {/if}
+        {#if $filteredServices.length === 0}
+          <ServicesEmptyState />
         {/if}
-      </div>
-    </forge-card>
-  </div>
-{/if}
+      {/if}
+    </div>
+  </forge-card>
+</div>
 
 <style lang="scss">
   .page-container {
