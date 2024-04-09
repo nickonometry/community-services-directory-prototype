@@ -2,7 +2,7 @@
   import ServicesEmptyState from './../../lib/services-empty-state/services-empty-state.svelte';
   import { columnConfigurations } from '../../lib/services-table/column-configuration';
   import { browser } from '$app/environment';
-  import { filterText, filteredServices, serviceFilters } from '../../globalStore';
+  import { filterText, filteredServices, servicesCache } from '../../globalStore';
   import MobileTable from '../../lib/mobile-table/mobile-table.svelte';
   import previewDialog from '../../lib/resident-view/resident-view.svelte';
   import ServiceLibraryToolbar from '../../lib/service-library-toolbar/service-library-toolbar.svelte';

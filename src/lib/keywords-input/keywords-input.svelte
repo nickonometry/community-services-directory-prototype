@@ -9,7 +9,7 @@
     keywordInput.addEventListener('forge-chip-field-member-added', onMemberAdded);
     keywordInput.addEventListener('forge-chip-field-member-removed', onMemberRemoved);
 
-    if (keywords.length) {
+    if (keywords && keywords.length) {
       keywords.forEach((v) => {
         let obj = {};
         obj.detail = v;

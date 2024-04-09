@@ -13,8 +13,8 @@
           </div>
           <div class="service-details">
             <forge-stack gap="16">
-              <p class="forge-typography--heading2" id="button-area-heading">{service.serviceTitle}</p>
-              <p class="forge-typography--body1">{service.serviceDescription}</p>
+              <p class="forge-typography--heading2" id="button-area-heading">{service.title}</p>
+              <p class="forge-typography--body1">{service.description}</p>
               <forge-badge theme="info" class="department-badge">{service.department.label}</forge-badge>
             </forge-stack>
           </div>

@@ -1,6 +1,7 @@
 export async function load({ fetch, url }) {
   const { pathname } = url;
-  const response = await fetch(`https://qvzkrcareiwjjtdahkcs.supabase.co/storage/v1/object/public/services/services_update.json`);
+  const time = Date.now();
+  const response = await fetch(`https://qvzkrcareiwjjtdahkcs.supabase.co/storage/v1/object/public/services/services_update.json?version=${time}`);
   const data = await response.json();
 
   if (data) {

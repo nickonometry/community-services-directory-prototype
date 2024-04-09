@@ -24,7 +24,6 @@
   };
 
   const openFilterSidesheet = () => {
-    console.log('sidesheet opened');
     filterDrawer.open = true;
   };
 

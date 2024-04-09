@@ -51,8 +51,8 @@
       ...state,
       tylerService: event.detail
     }));
-    customServiceLinkForm.update((state) => ({ ...state, serviceTitle: 'Parking Ticket' }));
-    customServiceLinkForm.update((state) => ({ ...state, serviceDescription: 'Pay outstanding parking ticket' }));
+    customServiceLinkForm.update((state) => ({ ...state, title: 'Parking Ticket' }));
+    customServiceLinkForm.update((state) => ({ ...state, description: 'Pay outstanding parking ticket' }));
     customServiceLinkForm.update((state) => ({ ...state, iconName: 'perm_device_information' }));
     customServiceLinkForm.update((state) => ({ ...state, url: 'https://portland.tcpci.com/resident-access/pay-parking-ticket' }));
 
@@ -107,11 +107,11 @@
             <forge-stack>
               <forge-label-value>
                 <span slot="label">Service title</span>
-                <span slot="value" class="break-all">{$customServiceLinkForm.serviceTitle}</span>
+                <span slot="value" class="break-all">{$customServiceLinkForm.title}</span>
               </forge-label-value>
               <forge-label-value>
                 <span slot="label">Service description</span>
-                <span slot="value" class="break-all">{$customServiceLinkForm.serviceDescription}</span>
+                <span slot="value" class="break-all">{$customServiceLinkForm.description}</span>
               </forge-label-value>
               <forge-label-value>
                 <span slot="label">Url</span>

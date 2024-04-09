@@ -1,5 +1,5 @@
 <script>
-  import { openToast } from './../utils/utils.js';
+  import { fetchServices, openToast, supabase } from './../utils/utils.js';
   import { onMount } from 'svelte';
   import { servicesCache } from '../../globalStore';
   export let service;
@@ -12,22 +12,15 @@
     }
   });
 
-  const onStatusChange = (e) => {
-    setTimeout(() => {
-      const status = e.detail;
-      if (status) {
-        servicesCache.update((services) => {
-          services.find((s) => s.id === service.id).isPublished = true;
-          return services;
-        });
-      } else {
-        servicesCache.update((services) => {
-          services.find((s) => s.id === service.id).isPublished = false;
-          return services;
-        });
-      }
-      openToast('Service updated!');
-    }, 250);
+  const onStatusChange = async (e) => {
+    const { data, error } = await supabase.from('services').update({ isPublished: e.detail }).eq('id', service.id).select();
+    if (error) {
+      openToast('There was an error with the update');
+    }
+
+    if (data) {
+      fetchServices();
+    }
   };
 </script>
 

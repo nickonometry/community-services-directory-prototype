@@ -3,7 +3,7 @@
   export let icon;
   export let iconLibrary;
   export let serviceType;
-  export let serviceDescription;
+  export let description;
   export let isSelected = false;
 
   const dispatch = createEventDispatcher();
@@ -27,7 +27,7 @@
                 <forge-icon slot="icon" name={icon} external external-type={iconLibrary}></forge-icon>
                 <forge-stack gap="4px">
                   <div class="forge-typography--heading2">{serviceType}</div>
-                  <div class="forge-typography--body1">{serviceDescription}</div>
+                  <div class="forge-typography--body1">{description}</div>
                 </forge-stack>
               </div>
             </forge-tooltip>

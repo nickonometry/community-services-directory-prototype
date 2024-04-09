@@ -1,27 +1,32 @@
 <script>
+  import { fetchDepartments, openToast, supabase } from '../../../../../lib/utils/utils';
   import AddEditDepartmentPopup from '../add-edit-department-popup/add-edit-department-popup.svelte';
   import { departmentsCache } from './../../../../../globalStore.js';
   export let department;
   export let index;
   let editDepartmentPopover;
 
-  const onDelete = () => {
-    let departments = $departmentsCache;
-    let findIndexToDelete = departments.findIndex((d) => d.value === department.value);
-    departments.splice(findIndexToDelete, 1);
-    departmentsCache.set([...departments]);
+  const onDelete = async () => {
+    const { data, error } = await supabase.from('departments').delete().eq('id', department.id).select();
+    if (error) {
+      openToast('There was an error when trying to delete this department');
+    }
+    if (data) {
+      openToast('Department successfully deleted');
+    }
+    fetchDepartments();
   };
 
   const setFocusToDepartmentInput = (e) => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        let el = editDepartmentPopover.querySelector('#department-name-edit');
-        if (el) {
-          el.focus();
-          el.select();
-        }
-      });
-    });
+    // requestAnimationFrame(() => {
+    //   requestAnimationFrame(() => {
+    //     let el = editDepartmentPopover.querySelector('#department-name-edit');
+    //     if (el) {
+    //       el.focus();
+    //       el.select();
+    //     }
+    //   });
+    // });
   };
 
   const onPopoverClose = () => {
@@ -30,7 +35,7 @@
 </script>
 
 <forge-list-item propagate-click="false">
-  {department.label}
+  {department.name}
   <forge-stack inline slot="trailing" gap="0">
     <forge-icon-button on:click={setFocusToDepartmentInput} id={`edit-department-${index}`}>
       <forge-icon name="edit" external></forge-icon>
@@ -41,7 +46,8 @@
   </forge-stack>
 </forge-list-item>
 <!-- TODO - use a dialog on mobile -->
-<forge-popover
+<!-- TODO - get edit departments to work -->
+<!-- <forge-popover
   shift
   placement="bottom-end"
   arrow
@@ -50,5 +56,5 @@
   persistent
   bind:this={editDepartmentPopover}
   anchor={`edit-department-${index}`}>
-  <AddEditDepartmentPopup on:close-popover={onPopoverClose} isEdit="true" departmentIndex={index} inputId="department-name-edit" />
-</forge-popover>
+  <AddEditDepartmentPopup on:close-popover={onPopoverClose} isEdit="true" departmentIndex={index} inputId="department-name-edit" {department} />
+</forge-popover> -->

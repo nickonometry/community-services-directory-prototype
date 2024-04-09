@@ -1,27 +1,40 @@
 <script>
-  import { openConfirmationDialog, updateServices } from '../../../lib/utils/utils.js';
+  import { fetchServiceById, fetchServices, openConfirmationDialog, supabase } from '../../../lib/utils/utils.js';
   import { onMount } from 'svelte';
   import CustomServiceLinkForm from '../../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../../globalStore';
   import { customServiceLinkForm } from '../../../lib/custom-service-link-form/custom-service-link-form-store.js';
   let serviceId;
+  let service;
 
-  const getServiceById = (serviceId) => {
-    return $servicesCache.find((s) => s.id === serviceId);
-  };
-
-  onMount(() => {
+  onMount(async () => {
     const searchParams = new URLSearchParams(window.location.search);
     serviceId = searchParams.get('id');
-    let service = getServiceById(serviceId);
+    service = await fetchServiceById(serviceId);
     customServiceLinkForm.set(service);
   });
 
-  const onSave = () => {
-    let serviceIndex = $servicesCache.findIndex((service) => service.id === serviceId);
-    $servicesCache[serviceIndex] = $customServiceLinkForm;
-    updateServices($servicesCache);
-    openConfirmationDialog('Your service has been updated and saved');
+  const onDelete = async () => {
+    const { data, error } = await supabase.from('services').delete().eq('id', service.id).select();
+    if (error) {
+      openToast('There was an error when trying to delete this service');
+    }
+    if (data) {
+      openConfirmationDialog('Your service has been deleted');
+    }
+    fetchServices();
+  };
+
+  const onSave = async () => {
+    const { data, error } = await supabase.from('services').update($customServiceLinkForm).eq('id', $customServiceLinkForm.id).select();
+    if (error) {
+      console.log(error);
+    }
+    if (data) {
+      openConfirmationDialog('Your service has been updated and saved');
+      // Fetch a fresh copy of the data, could optimistically save the record as well
+      fetchServices();
+    }
   };
 </script>
 
@@ -34,14 +47,18 @@
         </forge-icon-button>
         <h2 class="forge-typography--heading3">Edit service</h2>
       </div>
-      <forge-button slot="end" theme="error" style="margin-inline-end: 16px;">
+      <forge-button slot="end" theme="error" style="margin-inline-end: 16px;" on:click={onDelete}>
         <forge-icon name="delete" external></forge-icon>
         <span>Delete service</span>
       </forge-button>
     </forge-toolbar>
 
     <div slot="body">
-      <CustomServiceLinkForm isEdit="true"></CustomServiceLinkForm>
+      {#if service}
+        <CustomServiceLinkForm isEdit="true"></CustomServiceLinkForm>
+      {:else}
+        <p>LOADING!!!!!</p>
+      {/if}
     </div>
     <forge-toolbar inverted slot="footer">
       <forge-stack slot="end" inline>

@@ -1,7 +1,8 @@
 <script>
-  import { openToast } from './../../../../../lib/utils/utils.js';
+  import { fetchDepartments, openToast, supabase } from './../../../../../lib/utils/utils.js';
   import { createEventDispatcher, onMount } from 'svelte';
   import { departmentsCache } from '../../../../../globalStore';
+  export let department;
   export let isEdit = false;
   export let inputId = 'department-name';
   export let departmentIndex;
@@ -9,7 +10,7 @@
 
   onMount(() => {
     if (isEdit) {
-      departmentInputValue = $departmentsCache[departmentIndex].label;
+      departmentInputValue = $departmentsCache[departmentIndex].name;
     }
   });
 
@@ -23,25 +24,33 @@
     dispatch('close-popover');
   };
 
-  const onSave = () => {
+  const onSave = async () => {
     if (departmentInputValue.length) {
-      if (isEdit) {
-        $departmentsCache[departmentIndex].label = departmentInputValue;
-        openToast('Department successfully updated');
-        closePopover();
+      if (!isEdit) {
+        const { data, error } = await supabase
+          .from('departments')
+          .insert([{ name: departmentInputValue }])
+          .select();
+        if (error) {
+          openToast('There was an error with adding this department');
+          closePopover();
+          departmentInputValue = '';
+          return;
+        } else {
+          openToast('Department successfully added');
+          closePopover();
+          departmentInputValue = '';
+        }
       } else {
-        departmentsCache.update((state) => [
-          ...state,
-          {
-            label: departmentInputValue,
-            value: departmentInputValue.replace(/\\s+/g, '').toLowerCase()
-          }
-        ]);
-        openToast('Department successfully added');
+        const { data, error } = await supabase.from('departments').update({ name: departmentInputValue }).eq('id', department.id).select();
+        if (error) {
+          openToast('There was an error with adding this department');
+        }
         closePopover();
         departmentInputValue = '';
       }
     }
+    fetchDepartments();
   };
 </script>
 

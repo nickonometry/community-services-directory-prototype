@@ -4,10 +4,10 @@
   export let showValidation = false;
   let currentSelected = '';
   const onServiceSelected = (serviceName) => {
-    showValidation = false;
+    // showValidation = false;
     let service = serviceName.toLowerCase();
     currentSelected = service;
-    updateServiceTypeInStore(serviceName);
+    // updateServiceTypeInStore(serviceName);
   };
 
   function updateServiceTypeInStore(type) {
@@ -32,14 +32,14 @@
     isSelected={currentSelected === 'tyler application'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="Tyler application"
-    serviceDescription="These community services are available as part of your licensed Tyler applications and require minimal configuration. For example, Resident Access Parking Ticket payment."
+    description="These community services are available as part of your licensed Tyler applications and require minimal configuration. For example, Resident Access Parking Ticket payment."
     icon="tyler_talking_t_logo"
     iconLibrary="custom"></ServiceTypeCard> -->
   <ServiceTypeCard
     isSelected={currentSelected === 'user-defined'}
     on:service-selected={(e) => onServiceSelected(e.detail)}
     serviceType="User-Defined"
-    serviceDescription="These are custom defined services that require complete setup and configuration."
+    description="These are custom defined services that require complete setup and configuration."
     icon="build"
     iconLibrary="standard"></ServiceTypeCard>
 </div>

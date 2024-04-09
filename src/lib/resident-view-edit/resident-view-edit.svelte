@@ -69,8 +69,8 @@
                 on:consider={handleDndConsiderFavorites}
                 on:finalize={handleDndFinalizeFavorites}>
                 {#each items as service (service.id)}
-                  <div animate:flip={{ duration: flipDurationMs }} class="drag-div" aria-label={service.serviceTitle}>
-                    <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} url={service.url} />
+                  <div animate:flip={{ duration: flipDurationMs }} class="drag-div" aria-label={service.title}>
+                    <ServiceCard icon={service.iconName} title={service.title} description={service.description} url={service.url} />
                   </div>
                 {/each}
               </section>

@@ -1,4 +1,5 @@
 <script>
+  import { browser } from '$app/environment';
   import { popoverA11y } from './../utils/utils.js';
   import { onMount } from 'svelte';
   import { beforeNavigate } from '$app/navigation';
@@ -9,30 +10,33 @@
   import KeywordsInput from '../keywords-input/keywords-input.svelte';
   import PublishSwitch from '../publish-switch/publish-switch.svelte';
   export let isEdit = false;
+  let departmentOptions = [];
   let departmentSelect;
   let functionsSelect;
   let form;
   let serviceId;
-  let services = $servicesCache;
 
   beforeNavigate(() => {
     clearForm();
   });
 
   // Get the Service Id that we're editing
-  if (isEdit) {
+  if (isEdit && browser) {
     const params = new Proxy(new URLSearchParams(window.location.search), {
       get: (searchParams, prop) => searchParams.get(prop)
     });
     serviceId = params.id;
   }
 
-  onMount(() => {
-    departmentSelect.options = $departmentsCache;
+  onMount(async () => {
+    departmentOptions = $departmentsCache.map((dept) => {
+      return { label: dept.name, value: dept.id };
+    });
+    departmentSelect.options = departmentOptions;
     functionsSelect.options = $functionsCache;
 
     if (isEdit) {
-      departmentSelect.value = $customServiceLinkForm.department.value;
+      departmentSelect.value = $customServiceLinkForm.departmentId;
       functionsSelect.value = $customServiceLinkForm.functions;
     }
   });
@@ -47,10 +51,7 @@
   function onDepartmentChange(event) {
     customServiceLinkForm.update((state) => ({
       ...state,
-      department: {
-        label: services.find((s) => s.department.value === event.detail).department.label,
-        value: event.detail
-      }
+      departmentId: event.detail
     }));
   }
 
@@ -80,11 +81,11 @@
   <forge-stack>
     <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="service-title">Service title</label>
-      <input type="text" id="service-title" bind:value={$customServiceLinkForm.serviceTitle} required />
+      <input type="text" id="service-title" bind:value={$customServiceLinkForm.title} required />
     </forge-text-field>
     <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="service-title">Service description</label>
-      <textarea type="text" id="service-title" bind:value={$customServiceLinkForm.serviceDescription} required />
+      <textarea type="text" id="service-title" bind:value={$customServiceLinkForm.description} required />
     </forge-text-field>
     <forge-stack inline stretch>
       <forge-radio-group>
@@ -143,7 +144,9 @@
       float-label-type={isEdit ? 'always' : 'auto'}>
     </forge-select>
 
-    <KeywordsInput keywords={$customServiceLinkForm.keywords} />
+    {#if $customServiceLinkForm.keywords}
+      <KeywordsInput keywords={$customServiceLinkForm.keywords} />
+    {/if}
 
     <forge-text-field required float-label-type={isEdit ? 'always' : 'auto'}>
       <label for="url">Url</label>

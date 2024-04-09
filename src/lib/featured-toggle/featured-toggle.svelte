@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { servicesCache } from '../../globalStore';
-  import { openToast } from '../utils/utils';
+  import { fetchServices, openToast, supabase } from '../utils/utils';
   export let status;
   export let service;
   export let index;
@@ -13,14 +13,15 @@
     }
   });
 
-  const onFeaturedChanged = (e) => {
-    setTimeout(() => {
-      servicesCache.update((services) => {
-        services.find((s) => s.id === service.id).isFeatured = e.detail;
-        return services;
-      });
-    }, 250);
-    openToast('Service updated!');
+  const onFeaturedChanged = async (e) => {
+    const { data, error } = await supabase.from('services').update({ isFeatured: e.detail }).eq('id', service.id).select();
+    if (error) {
+      openToast('There was an error with the update');
+    }
+
+    if (data) {
+      fetchServices();
+    }
   };
 </script>
 

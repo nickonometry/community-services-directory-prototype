@@ -1,6 +1,6 @@
 <script>
   import MobileStepper from '../../../lib/mobile-stepper/mobile-stepper.svelte';
-  import { openConfirmationDialog } from '../../../lib/utils/utils.js';
+  import { fetchServices, openConfirmationDialog, supabase } from '../../../lib/utils/utils.js';
   import { onMount } from 'svelte';
   import { beforeNavigate } from '$app/navigation';
   import SelectServiceType from '../../../lib/select-service-type/select-service-type.svelte';
@@ -34,10 +34,10 @@
   });
 
   const onNextClicked = () => {
-    if (!$customServiceLinkForm.serviceType) {
-      showValidation = true;
-      return;
-    }
+    // if (!$customServiceLinkForm.serviceType) {
+    //   showValidation = true;
+    //   return;
+    // }
     steps[stepSelected].completed = true;
     steps[stepSelected].optionalLabel = 'Completed';
     stepper.steps = steps;
@@ -50,9 +50,15 @@
     stepper.selectedIndex = stepSelected;
   };
 
-  const onSave = () => {
-    servicesCache.update((state) => [...state, $customServiceLinkForm]);
+  const onSave = async () => {
+    let newService = $customServiceLinkForm;
+    const { data, error } = await supabase.from('services').insert(newService);
+    if (error) {
+      console.log(error);
+      return;
+    }
     openConfirmationDialog('Your new service has been created');
+    fetchServices();
   };
 </script>
 
@@ -80,12 +86,7 @@
           <SelectServiceType {showValidation} />
         </forge-view>
         <forge-view>
-          {#if $customServiceLinkForm.serviceType === 'user-defined'}
-            <CustomServiceLinkForm />
-          {/if}
-          {#if $customServiceLinkForm.serviceType === 'tyler application'}
-            <TylerApplicationForm />
-          {/if}
+          <CustomServiceLinkForm />
         </forge-view>
         <forge-view>
           <PreviewStep />

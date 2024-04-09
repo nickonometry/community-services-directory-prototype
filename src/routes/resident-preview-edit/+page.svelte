@@ -21,7 +21,7 @@
           <forge-stack>
             {#each $servicesCache as service}
               {#if service.isPublished && !service.isFeatured}
-                <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} url="" />
+                <ServiceCard icon={service.iconName} title={service.title} description={service.description} url="" />
               {/if}
             {/each}
           </forge-stack>

@@ -1,10 +1,10 @@
 import {
   createActionIconButton,
   createFeaturedIcon,
-  createPartnerAccessIcon,
   createServiceAvatarIcon,
   createStatusBadge,
   createStatusToggle,
+  createDepartmentElement,
   createFeaturedToggle
 } from './utils';
 
@@ -15,18 +15,19 @@ export const columnConfigurations = [
     width: '96px'
   },
   {
-    property: 'serviceTitle',
+    property: 'title',
     header: 'Service Name',
     sortable: true
   },
   {
-    property: 'serviceDescription',
+    property: 'description',
     header: 'Service Description',
     width: '400px'
   },
   {
-    property: 'department.label',
-    header: 'Department'
+    property: 'department.name',
+    header: 'Department',
+    template: (i, div, data) => createDepartmentElement(i, div, data)
   },
   {
     property: 'isPublished',

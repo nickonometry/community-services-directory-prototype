@@ -3,19 +3,13 @@ import { writable } from 'svelte/store';
 
 // Custom service link form
 const customServiceLinkDefaults = {
-  tylerService: false,
-  serviceType: '',
-  serviceTitle: '',
-  serviceDescription: '',
-  department: {
-    label: '',
-    value: ''
-  },
-  function: '',
+  title: '',
+  description: '',
+  departmentId: '',
+  functions: [],
   isFeatured: false,
   isPublished: false,
   iconName: '',
-  group: '',
   keywords: [],
   url: ''
 };

@@ -5,7 +5,7 @@
   import { customServiceLinkForm } from '../custom-service-link-form/custom-service-link-form-store.js';
   export let services;
   let table;
-  let sortPropertyName = 'serviceTitle';
+  let sortPropertyName = 'title';
   let sortDirection = 'DESC';
 
   onMount(() => {
@@ -22,7 +22,7 @@
 
   const onRowClicked = (e) => {
     let rowData = e.detail.data;
-    customServiceLinkForm.set(rowData);
+    // customServiceLinkForm.set(rowData);
     goto(`/edit-service?id=${rowData.id}`);
   };
 

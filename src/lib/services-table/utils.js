@@ -2,7 +2,7 @@ import { randomBrightColorPicker } from '../utils/color-picker';
 import { customServiceLinkForm } from '../custom-service-link-form/custom-service-link-form-store';
 import publishToggle from '../publish-toggle/publish-toggle.svelte';
 import featuredToggle from '../featured-toggle/featured-toggle.svelte';
-import { avatarCache } from '../../globalStore';
+import { avatarCache, departmentsCache } from '../../globalStore';
 
 export const createIcon = (iconName) => {
   let icon = document.createElement('forge-icon');
@@ -55,13 +55,17 @@ export const createFeaturedIcon = (index, div, data) => {
   return icon;
 };
 
-export const createPartnerAccessIcon = (index, div, data) => {
-  if (!data.allowPartnerAccess) {
-    return;
+export const createDepartmentElement = (index, div, data) => {
+  let $departmentsCache;
+  departmentsCache.subscribe((val) => {
+    $departmentsCache = val;
+  });
+  let departmentName;
+  if (data.departmentId) {
+    return (departmentName = $departmentsCache.find((dc) => dc.id === data.departmentId).name);
+  } else {
+    return 'No department defined';
   }
-  let icon = createIcon('groups');
-  icon.style.color = 'var(--forge-theme-on-secondary-container)';
-  return icon;
 };
 
 export const createActionIconButton = (index, div, data) => {
@@ -73,7 +77,7 @@ export const createActionIconButton = (index, div, data) => {
   iconButton.appendChild(icon);
   iconButton.addEventListener('click', (e) => {
     e.preventDefault();
-    customServiceLinkForm.set(data);
+    // customServiceLinkForm.set(data);
   });
   return iconButton;
 };

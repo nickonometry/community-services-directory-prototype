@@ -5,18 +5,18 @@
   import { loadForgeComponents } from '$lib/utils/forge-components.js';
   import { fade } from 'svelte/transition';
   import '../../app.scss';
-  import { servicesCache } from '../../globalStore';
+  import { fetchDepartments, fetchFunctions, fetchServices, supabase } from '../../lib/utils/utils';
   export let data;
   let modalDrawerIsOpen = false;
   let innerWidth;
-  let services = data.data.data;
-  servicesCache.set(services);
-
-  let isLoaded = false;
+  let isLoaded;
 
   onMount(async () => {
     loadForgeComponents();
-    Promise.allSettled([window.customElements.whenDefined('forge-scaffold')]).then(() => (isLoaded = true));
+    await fetchDepartments();
+    await fetchFunctions();
+    await fetchServices();
+    isLoaded = true;
   });
 
   const toggleDrawer = () => {
@@ -26,29 +26,31 @@
 
 <svelte:window bind:innerWidth />
 
-<forge-scaffold>
-  <div slot="header">
-    <AdminAppBar showMenu={innerWidth < 1024} on:menu-click={toggleDrawer} />
-  </div>
+{#if isLoaded}
+  <forge-scaffold>
+    <div slot="header">
+      <AdminAppBar showMenu={innerWidth < 1024} on:menu-click={toggleDrawer} />
+    </div>
 
-  {#if innerWidth < 1024}
-    <forge-modal-drawer slot="body-left" open={modalDrawerIsOpen} on:forge-modal-drawer-close={toggleDrawer}>
-      <Nav on:nav-item-clicked={toggleDrawer} />
-    </forge-modal-drawer>
-  {/if}
+    {#if innerWidth < 1024}
+      <forge-modal-drawer slot="body-left" open={modalDrawerIsOpen} on:forge-modal-drawer-close={toggleDrawer}>
+        <Nav on:nav-item-clicked={toggleDrawer} />
+      </forge-modal-drawer>
+    {/if}
 
-  {#if innerWidth >= 1024}
-    <forge-mini-drawer slot="body-left">
-      <Nav />
-    </forge-mini-drawer>
-  {/if}
+    {#if innerWidth >= 1024}
+      <forge-mini-drawer slot="body-left">
+        <Nav />
+      </forge-mini-drawer>
+    {/if}
 
-  {#key data.data.pathname}
-    <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
-      <slot />
-    </main>
-  {/key}
-</forge-scaffold>
+    {#key data.data.pathname}
+      <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
+        <slot />
+      </main>
+    {/key}
+  </forge-scaffold>
+{/if}
 
 <style lang="scss">
   [slot='logo'] {
@@ -59,10 +61,6 @@
 
   forge-scaffold {
     --forge-scaffold-height: 100%;
-  }
-
-  main {
-    // scrollbar-gutter: stable both-edges;
   }
 
   @media screen and (max-width: 1024px) {

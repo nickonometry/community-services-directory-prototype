@@ -12,7 +12,6 @@
   });
 
   const onEditServiceClick = () => {
-    customServiceLinkForm.set(service);
     goto(`/edit-service?id=${service.id}`);
   };
 </script>
@@ -36,15 +35,15 @@
         </div>
         <forge-label-value>
           <span slot="label">Service name</span>
-          <span slot="value">{service.serviceTitle}</span>
+          <span slot="value">{service.title}</span>
         </forge-label-value>
         <forge-label-value>
           <span slot="label">Service description</span>
-          <span slot="value">{service.serviceDescription}</span>
+          <span slot="value">{service.description}</span>
         </forge-label-value>
         <forge-label-value>
           <span slot="label">Department</span>
-          <span slot="value">{service.department.label}</span>
+          <span slot="value">{service.departmentId}</span>
         </forge-label-value>
       </forge-stack>
     </div>

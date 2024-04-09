@@ -42,7 +42,7 @@
               <div class="services-grid">
                 {#each $servicesCache as service}
                   {#if service.isFeatured && service.isPublished}
-                    <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} url={service.url} />
+                    <ServiceCard icon={service.iconName} title={service.title} description={service.description} url={service.url} />
                   {/if}
                 {/each}
                 <div class="view-all-inner span-full">
@@ -156,7 +156,7 @@
                 <h3 class="forge-typography--heading3 span-full">Popular Services</h3>
                 {#each popularServices.slice(0, 5) as service}
                   {#if service.isPublished && !service.isFeatured}
-                    <ServiceCard icon={service.iconName} title={service.serviceTitle} description={service.serviceDescription} />
+                    <ServiceCard icon={service.iconName} title={service.title} description={service.description} />
                   {/if}
                 {/each}
               </div> -->

@@ -1,648 +1,498 @@
 [
   {
-    "serviceTitle": "Farmers Market Permit",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Agriculture",
-      "value": "department-of-agriculture"
-    },
+    "title": "Farmers Market Permit",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a permit to sell goods at the local farmers market.",
+    "description": "Apply for a permit to sell goods at the local farmers market.",
     "isFeatured": true,
-    "allowPartnerAccess": false,
     "iconName": "shopping_basket",
-    "keywords": ["farmers market", "permit", "agriculture"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "FMP001",
-    "functions": ["permit", "form"]
+    "id": "1",
+    "functions": []
   },
   {
-    "serviceTitle": "Food Safety Inspection",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Health and Human Services",
-      "value": "department-of-health-and-human-services"
-    },
+    "title": "Food Safety Inspection",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Pay for your food establishments safety inspection.",
+    "description": "Pay for your food establishments safety inspection.",
     "isFeatured": true,
-    "allowPartnerAccess": false,
     "iconName": "restaurant",
-    "keywords": ["food safety", "inspection", "health"],
+    "keywords": [],
     "url": "https://rentonwa.tcpci.com/payments/billsearch/search-form/3b7129d4-d975-4c6a-80a0-f6adb04d65a1",
-    "id": "FSI001",
-    "functions": ["bill-invoice", "fee"]
+    "id": "2",
+    "functions": []
   },
   {
-    "serviceTitle": "Affordable Housing Program",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Housing and Urban Development",
-      "value": "department-of-housing-and-urban-development"
-    },
+    "title": "Affordable Housing Program",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Learn about and apply for affordable housing programs.",
+    "description": "Learn about and apply for affordable housing programs.",
     "isFeatured": true,
-    "allowPartnerAccess": false,
+
     "iconName": "home",
-    "keywords": ["affordable housing", "housing program", "urban development"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "AHP001",
-    "functions": ["appointment", "subscription"]
+    "id": "3",
+    "functions": []
   },
   {
-    "serviceTitle": "Unemployment Benefits Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Labor",
-      "value": "department-of-labor"
-    },
+    "title": "Unemployment Benefits Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for unemployment benefits.",
+    "description": "Apply for unemployment benefits.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
+
     "iconName": "money",
-    "keywords": ["unemployment benefits", "appointment", "labor"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "UBA001",
-    "functions": ["appointment"]
+    "id": "4",
+    "functions": []
   },
   {
-    "serviceTitle": "Vehicle Registration Renewal",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Motor Vehicles",
-      "value": "department-of-motor-vehicles"
-    },
+    "title": "Vehicle Registration Renewal",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Renew your vehicle registration online.",
+    "description": "Renew your vehicle registration online.",
     "isFeatured": true,
-    "allowPartnerAccess": true,
     "iconName": "directions_car",
-    "keywords": ["vehicle registration", "renewal", "DMV"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "VRR001",
-    "functions": ["bill-invoice", "fee"]
+    "id": "5",
+    "functions": []
   },
   {
-    "serviceTitle": "Aircraft Registration",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Federal Aviation Administration",
-      "value": "federal-aviation-administration"
-    },
+    "title": "Aircraft Registration",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Register your aircraft with the Federal Aviation Administration.",
+    "description": "Register your aircraft with the Federal Aviation Administration.",
     "isFeatured": true,
-    "allowPartnerAccess": false,
     "iconName": "local_airport",
-    "keywords": ["aircraft", "registration", "FAA"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "AR001",
-    "functions": ["form"]
+    "id": "6",
+    "functions": []
   },
   {
-    "serviceTitle": "Taxpayer Assistance",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Internal Revenue Service",
-      "value": "internal-revenue-service"
-    },
+    "title": "Taxpayer Assistance",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Get assistance with tax-related issues from the IRS.",
+    "description": "Get assistance with tax-related issues from the IRS.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "account_balance_wallet",
-    "keywords": ["taxpayer assistance", "IRS", "taxes"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "TA001",
-    "functions": ["form"]
+    "id": "7",
+    "functions": []
   },
   {
-    "serviceTitle": "Small Business Loan Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Small Business Administration",
-      "value": "small-business-administration"
-    },
+    "title": "Small Business Loan Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a small business loan.",
+    "description": "Apply for a small business loan.",
     "isFeatured": true,
-    "allowPartnerAccess": false,
     "iconName": "business",
-    "keywords": ["small business", "loan", "appointment"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "SBLA001",
-    "functions": ["appointment"]
+    "id": "8",
+    "functions": []
   },
   {
-    "serviceTitle": "Social Security Benefits Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Social Security Administration",
-      "value": "social-security-administration"
-    },
+    "title": "Social Security Benefits Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": false,
-    "serviceDescription": "Apply for Social Security benefits.",
+    "description": "Apply for Social Security benefits.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "person",
-    "keywords": ["social security", "benefits", "appointment"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "SSBA001",
-    "functions": ["appointment"]
+    "id": "9",
+    "functions": []
   },
   {
-    "serviceTitle": "Student Aid Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Education",
-      "value": "u.s.-department-of-education"
-    },
+    "title": "Student Aid Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": false,
-    "serviceDescription": "Apply for federal student aid.",
+    "description": "Apply for federal student aid.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "school",
-    "keywords": ["student aid", "appointment", "education"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "SAA001",
-    "functions": ["appointment"]
+    "id": "10",
+    "functions": []
   },
   {
-    "serviceTitle": "Passport Renewal",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of State",
-      "value": "u.s.-department-of-state"
-    },
+    "title": "Passport Renewal",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Renew your passport.",
+    "description": "Renew your passport.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "flight",
-    "keywords": ["passport", "renewal", "travel"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "PR001",
-    "functions": ["form"]
+    "id": "11",
+    "functions": []
   },
   {
-    "serviceTitle": "Agricultural Permit",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Agriculture",
-      "value": "department-of-agriculture"
-    },
+    "title": "Agricultural Permit",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a permit for agricultural activities.",
+    "description": "Apply for a permit for agricultural activities.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "eco",
-    "keywords": ["agriculture", "permit", "farming"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "AP001",
-    "functions": ["permit"]
+    "id": "12",
+    "functions": []
   },
   {
-    "serviceTitle": "Health Clinic Appointment",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Health and Human Services",
-      "value": "department-of-health-and-human-services"
-    },
+    "title": "Health Clinic Appointment",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Schedule an appointment at a health clinic.",
+    "description": "Schedule an appointment at a health clinic.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "mediation",
-    "keywords": ["health clinic", "appointment", "healthcare"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "HCA001",
-    "functions": ["appointment"]
+    "id": "13",
+    "functions": []
   },
   {
-    "serviceTitle": "Public Housing Maintenance Request",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Housing and Urban Development",
-      "value": "department-of-housing-and-urban-development"
-    },
+    "title": "Public Housing Maintenance Request",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Report maintenance issues in public housing.",
+    "description": "Report maintenance issues in public housing.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "apartment",
-    "keywords": ["public housing", "maintenance", "report"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "PHMR001",
-    "functions": ["form"]
+    "id": "14",
+    "functions": []
   },
   {
-    "serviceTitle": "Job Training Program Enrollment",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Labor",
-      "value": "department-of-labor"
-    },
+    "title": "Job Training Program Enrollment",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Enroll in job training programs.",
+    "description": "Enroll in job training programs.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "work",
-    "keywords": ["job training", "enrollment", "employment"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "JTP001",
-    "functions": ["appointment"]
+    "id": "15",
+    "functions": []
   },
   {
-    "serviceTitle": "Vehicle Inspection Appointment",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Motor Vehicles",
-      "value": "department-of-motor-vehicles"
-    },
+    "title": "Vehicle Inspection Appointment",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Schedule an appointment for vehicle inspection.",
+    "description": "Schedule an appointment for vehicle inspection.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "car_repair",
-    "keywords": ["vehicle inspection", "appointment", "DMV"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "VIA001",
-    "functions": ["appointment"]
+    "id": "16",
+    "functions": []
   },
   {
-    "serviceTitle": "Tax Payment",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Internal Revenue Service",
-      "value": "internal-revenue-service"
-    },
+    "title": "Tax Payment",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Pay taxes online.",
+    "description": "Pay taxes online.",
     "isFeatured": false,
-    "allowPartnerAccess": true,
     "iconName": "attach_money",
-    "keywords": ["tax payment", "IRS", "taxes"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "TP001",
-    "functions": ["bill-invoice", "fee", "tax"]
+    "id": "17",
+    "functions": []
   },
   {
-    "serviceTitle": "Public Library Membership",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Education",
-      "value": "u.s.-department-of-education"
-    },
+    "title": "Public Library Membership",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a membership at the public library.",
+    "description": "Apply for a membership at the public library.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "library_books",
-    "keywords": ["library", "membership", "education"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "PLM001",
-    "functions": ["application"]
+    "id": "18",
+    "functions": []
   },
   {
-    "serviceTitle": "Passport Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of State",
-      "value": "u.s.-department-of-state"
-    },
+    "title": "Passport Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a new passport.",
+    "description": "Apply for a new passport.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "airplanemode_active",
-    "keywords": ["passport", "application", "travel"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "PA002",
-    "functions": ["application"]
+    "id": "19",
+    "functions": []
   },
   {
-    "serviceTitle": "Business Tax Registration",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Internal Revenue Service",
-      "value": "internal-revenue-service"
-    },
+    "title": "Business Tax Registration",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Register your business for tax purposes.",
+    "description": "Register your business for tax purposes.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "business_center",
-    "keywords": ["business", "tax", "registration"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "BTR002",
-    "functions": ["form", "tax"]
+    "id": "20",
+    "functions": []
   },
   {
-    "serviceTitle": "Public Health Clinic Immunization",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Health and Human Services",
-      "value": "department-of-health-and-human-services"
-    },
+    "title": "Public Health Clinic Immunization",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Get immunization shots at a public health clinic.",
+    "description": "Get immunization shots at a public health clinic.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "local_hospital",
-    "keywords": ["public health", "clinic", "immunization"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "PHCI002",
-    "functions": ["appointment"]
+    "id": "21",
+    "functions": []
   },
   {
-    "serviceTitle": "Environmental Impact Assessment",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Environmental Protection",
-      "value": "department-of-environmental-protection"
-    },
+    "title": "Environmental Impact Assessment",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Request an environmental impact assessment for development projects.",
+    "description": "Request an environmental impact assessment for development projects.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "nature",
-    "keywords": ["environmental impact", "assessment", "development"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "EIA002",
-    "functions": ["permit", "form"]
+    "id": "22",
+    "functions": []
   },
   {
-    "serviceTitle": "Child Support Payment",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Social Services",
-      "value": "department-of-social-services"
-    },
+    "title": "Child Support Payment",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Make child support payments online.",
+    "description": "Make child support payments online.",
     "isFeatured": false,
-    "allowPartnerAccess": true,
     "iconName": "child_friendly",
-    "keywords": ["child support", "payment", "family"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "CSP002",
-    "functions": ["bill-invoice"]
+    "id": "23",
+    "functions": []
   },
   {
-    "serviceTitle": "Renew Driver's License",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Motor Vehicles",
-      "value": "department-of-motor-vehicles"
-    },
+    "title": "Renew Driver's License",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Renew your driver's license online.",
+    "description": "Renew your driver's license online.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "drive_eta",
-    "keywords": ["driver's license", "renewal", "DMV"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "RDL002",
-    "functions": ["license", "form"]
+    "id": "24",
+    "functions": []
   },
   {
-    "serviceTitle": "Public Park Reservation",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Parks and Recreation",
-      "value": "parks-and-recreation"
-    },
+    "title": "Public Park Reservation",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Reserve a space in a public park for events.",
+    "description": "Reserve a space in a public park for events.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "nature_people",
-    "keywords": ["public park", "reservation", "recreation"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "PPR002",
-    "functions": ["reservation"]
+    "id": "25",
+    "functions": []
   },
   {
-    "serviceTitle": "Federal Student Loan Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Education",
-      "value": "u.s.-department-of-education"
-    },
+    "title": "Federal Student Loan Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for federal student loans.",
+    "description": "Apply for federal student loans.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "history_edu",
-    "keywords": ["student loan", "application", "education"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "FSLA002",
-    "functions": ["application"]
+    "id": "26",
+    "functions": []
   },
   {
-    "serviceTitle": "Building Permit Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Housing and Urban Development",
-      "value": "department-of-housing-and-urban-development"
-    },
+    "title": "Building Permit Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a building permit for construction projects.",
+    "description": "Apply for a building permit for construction projects.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "build",
-    "keywords": ["building permit", "application", "construction"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "BPA002",
-    "functions": ["permit", "form"]
+    "id": "27",
+    "functions": []
   },
   {
-    "serviceTitle": "Marriage License Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "City Clerk's Office",
-      "value": "city-clerks-office"
-    },
+    "title": "Marriage License Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a marriage license.",
+    "description": "Apply for a marriage license.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "favorite",
-    "keywords": ["marriage license", "application", "city clerk"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "MLA002",
-    "functions": ["application"]
+    "id": "28",
+    "functions": []
   },
   {
-    "serviceTitle": "Public Transportation Pass Purchase",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Transportation",
-      "value": "department-of-transportation"
-    },
+    "title": "Public Transportation Pass Purchase",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Purchase monthly passes for public transportation.",
+    "description": "Purchase monthly passes for public transportation.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "directions_bus",
-    "keywords": ["public transportation", "pass", "purchase"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "PTPP002",
-    "functions": ["purchase", "subscription"]
+    "id": "29",
+    "functions": []
   },
   {
-    "serviceTitle": "Zoning Variance Request",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Urban Planning",
-      "value": "department-of-urban-planning"
-    },
+    "title": "Zoning Variance Request",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Request a variance for zoning regulations.",
+    "description": "Request a variance for zoning regulations.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "settings",
-    "keywords": ["zoning", "variance", "urban planning"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "ZVR002",
-    "functions": ["request", "form"]
+    "id": "30",
+    "functions": []
   },
   {
-    "serviceTitle": "Voter Registration",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of State",
-      "value": "u.s.-department-of-state"
-    },
+    "title": "Voter Registration",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Register to vote in upcoming elections.",
+    "description": "Register to vote in upcoming elections.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "how_to_vote",
-    "keywords": ["voter registration", "elections", "politics"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "VR002",
-    "functions": ["form"]
+    "id": "31",
+    "functions": []
   },
   {
-    "serviceTitle": "City Park Event Permit",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Parks and Recreation",
-      "value": "parks-and-recreation"
-    },
+    "title": "City Park Event Permit",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a permit to host an event in a city park.",
+    "description": "Apply for a permit to host an event in a city park.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "event",
-    "keywords": ["city park", "event", "permit"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "CPEP002",
-    "functions": ["permit", "form"]
+    "id": "32",
+    "functions": []
   },
   {
-    "serviceTitle": "Elderly Care Assistance Program",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Health and Human Services",
-      "value": "department-of-health-and-human-services"
-    },
+    "title": "Elderly Care Assistance Program",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for assistance programs for elderly care.",
+    "description": "Apply for assistance programs for elderly care.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "elderly",
-    "keywords": ["elderly care", "assistance", "health"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "ECAP002",
-    "functions": ["application"]
+    "id": "33",
+    "functions": []
   },
   {
-    "serviceTitle": "Construction Permit",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Building and Safety",
-      "value": "department-of-building-and-safety"
-    },
+    "title": "Construction Permit",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a permit for construction projects.",
+    "description": "Apply for a permit for construction projects.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "construction",
-    "keywords": ["construction", "permit", "building"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "CP002",
-    "functions": ["permit", "form"]
+    "id": "34",
+    "functions": []
   },
   {
-    "serviceTitle": "Tax Exemption Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Internal Revenue Service",
-      "value": "internal-revenue-service"
-    },
+    "title": "Tax Exemption Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for tax exemption status for nonprofit organizations.",
+    "description": "Apply for tax exemption status for nonprofit organizations.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "money_off",
-    "keywords": ["tax exemption", "application", "nonprofit"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "TEA002",
-    "functions": ["application"]
+    "id": "35",
+    "functions": []
   },
   {
-    "serviceTitle": "Firearm Permit Application",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Justice",
-      "value": "department-of-justice"
-    },
+    "title": "Firearm Permit Application",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Apply for a permit to carry a firearm.",
+    "description": "Apply for a permit to carry a firearm.",
     "isFeatured": false,
-    "allowPartnerAccess": false,
     "iconName": "security",
-    "keywords": ["firearm permit", "application", "justice"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "FPA002",
-    "functions": ["application"]
+    "id": "36",
+    "functions": []
   },
   {
-    "serviceTitle": "Parking Permit Renewal",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Department of Transportation",
-      "value": "department-of-transportation"
-    },
+    "title": "Parking Permit Renewal",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "Renew your parking permit online.",
+    "description": "Renew your parking permit online.",
     "isFeatured": true,
-    "allowPartnerAccess": false,
     "iconName": "local_parking",
-    "keywords": ["parking permit", "renewal", "transportation"],
+    "keywords": [],
     "url": "https://www.google.com",
-    "id": "PPR002-PPR",
-    "functions": ["bill-invoice"]
+    "id": "37",
+    "functions": []
   },
   {
-    "serviceTitle": "My Bills",
-    "lastAccessDate": "2024-03-27",
-    "department": {
-      "label": "Utilities",
-      "value": "utilities"
-    },
+    "title": "My Bills",
+    "created_at": "2024-03-27",
+    "departmentId": "",
     "isPublished": true,
-    "serviceDescription": "See utility and other bills in one place.",
+    "description": "See utility and other bills in one place.",
     "isFeatured": true,
-    "allowPartnerAccess": false,
     "iconName": "payments",
-    "keywords": ["fees", "pay", "bills"],
+    "keywords": [],
     "url": "https://rentonwa.tcpci.com/payments/dashboard/user/home",
-    "id": "PPR00266666",
-    "functions": ["bill-invoice"]
+    "id": "38",
+    "functions": []
   }
 ]

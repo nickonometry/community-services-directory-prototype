@@ -20,7 +20,6 @@
   });
 
   const setToOob = () => {
-    console.log('clicked');
     map.off();
     map.remove();
     setMapView(43.5178, -70.3773);

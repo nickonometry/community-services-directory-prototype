@@ -8,10 +8,7 @@
 </forge-toolbar>
 
 <div class="preview-container">
-  <ServiceCard
-    icon={$customServiceLinkForm.iconName}
-    title={$customServiceLinkForm.serviceTitle}
-    description={$customServiceLinkForm.serviceDescription} />
+  <ServiceCard icon={$customServiceLinkForm.iconName} title={$customServiceLinkForm.title} description={$customServiceLinkForm.description} />
 </div>
 
 <style lang="scss">
