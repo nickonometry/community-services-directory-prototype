@@ -23,7 +23,7 @@
     <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
       <slot />
     </main>
-    <div slot="footer">
+    <div slot="body-footer">
       <TylFooter />
     </div>
   </forge-scaffold>
