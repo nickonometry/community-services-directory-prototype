@@ -64,8 +64,13 @@ export let filteredServices = derived(
 export const functionsCache = writable([]);
 export const departmentsCache = writable([]);
 
-export const getDepartmentById = (id) => {
-  return $departmentsCache.find((dc) => dc.id === id);
+export const getDepartmentById = (departments, id) => {
+  let departmentName = departments.find((dc) => dc.id === id);
+  if (departmentName) {
+    return departmentName.name;
+  } else {
+    return 'No Department assigned';
+  }
 };
 
 export const getFunctionById = (id) => {

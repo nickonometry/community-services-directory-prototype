@@ -1,14 +1,5 @@
 <script>
-  import { departmentsCache } from '../../../globalStore';
-
-  const getDepartmentById = (id) => {
-    let departmentName = $departmentsCache.find((dc) => dc.id === id);
-    if (departmentName) {
-      return departmentName.name;
-    } else {
-      return 'No Department assigned';
-    }
-  };
+  import { departmentsCache, getDepartmentById } from '../../../globalStore';
   export let service;
 </script>
 
@@ -25,7 +16,7 @@
             <forge-stack gap="16">
               <p class="forge-typography--heading2" id="button-area-heading">{service.title}</p>
               <p class="forge-typography--body1">{service.description}</p>
-              <forge-badge theme="info" class="department-badge">{getDepartmentById(service.id)}</forge-badge>
+              <forge-badge theme="info" class="department-badge">{getDepartmentById($departmentsCache, service.departmentId)}</forge-badge>
             </forge-stack>
           </div>
         </div>
