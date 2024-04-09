@@ -4,12 +4,8 @@
   import { loadForgeComponents } from '$lib/utils/forge-components.js';
   import { fade } from 'svelte/transition';
   import '../../app.scss';
-  import { servicesCache } from '../../globalStore';
   import BrandedHeader from '../../lib/branded-header/branded-header.svelte';
   import { fetchDepartments, fetchFunctions, fetchServices } from '../../lib/utils/utils';
-  export let data;
-  let services = data.data.data;
-  servicesCache.set(services);
 
   let isLoaded = false;
 

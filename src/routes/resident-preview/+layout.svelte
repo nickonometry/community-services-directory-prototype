@@ -5,15 +5,18 @@
   import { fade } from 'svelte/transition';
   import '../../app.scss';
   import { servicesCache } from '../../globalStore';
+  import { fetchDepartments, fetchFunctions, fetchServices } from '../../lib/utils/utils';
   export let data;
-  let services = data.data.data;
-  servicesCache.set(services);
 
   let isLoaded = false;
 
   onMount(async () => {
     loadForgeComponents();
-    Promise.allSettled([window.customElements.whenDefined('forge-scaffold')]).then(() => (isLoaded = true));
+    await fetchDepartments();
+    await fetchFunctions();
+    await fetchServices();
+    isLoaded = true;
+    // Promise.allSettled([window.customElements.whenDefined('forge-scaffold')]).then(() => (isLoaded = true));
   });
 </script>
 
