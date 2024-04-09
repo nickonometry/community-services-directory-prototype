@@ -4,6 +4,7 @@
   import CustomServiceLinkForm from '../../../lib/custom-service-link-form/custom-service-link-form.svelte';
   import { servicesCache } from '../../../globalStore';
   import { customServiceLinkForm } from '../../../lib/custom-service-link-form/custom-service-link-form-store.js';
+  import SkeletonLoader from '../../../lib/skeleton-loader/skeleton-loader.svelte';
   let serviceId;
   let service;
 
@@ -57,7 +58,7 @@
       {#if service}
         <CustomServiceLinkForm isEdit="true"></CustomServiceLinkForm>
       {:else}
-        <p>LOADING!!!!!</p>
+        <SkeletonLoader />
       {/if}
     </div>
     <forge-toolbar inverted slot="footer">
