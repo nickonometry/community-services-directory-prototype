@@ -15,7 +15,7 @@
             <forge-stack gap="16">
               <p class="forge-typography--heading2" id="button-area-heading">{service.title}</p>
               <p class="forge-typography--body1">{service.description}</p>
-              <forge-badge theme="info" class="department-badge">{service.department.label}</forge-badge>
+              <forge-badge theme="info" class="department-badge">{service.departmentId}</forge-badge>
             </forge-stack>
           </div>
         </div>
@@ -28,6 +28,10 @@
   a {
     text-decoration: none;
     color: inherit;
+
+    &:visited {
+      color: inherit;
+    }
   }
 
   li {
