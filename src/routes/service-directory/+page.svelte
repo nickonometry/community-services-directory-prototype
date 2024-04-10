@@ -1,8 +1,9 @@
 <script>
+  import SkeletonLoader from './../../lib/skeleton-loader/skeleton-loader.svelte';
   import ServicesEmptyState from './../../lib/services-empty-state/services-empty-state.svelte';
   import { fade } from 'svelte/transition';
   import { onMount } from 'svelte';
-  import { filterText, filteredServices, serviceFilters } from './../../globalStore.js';
+  import { filterText, filteredServices, serviceFilters, servicesCache } from './../../globalStore.js';
   import Banner from './components/banner.svelte';
   import DirectoryServiceCard from './components/directory-service-card.svelte';
   import FilterSidesheet from './components/filter-sidesheet.svelte';
@@ -48,52 +49,56 @@
   </div>
   <div class="card-container">
     <forge-card>
-      <div class="directory-card-inner" transition:fade={{ delay: 0, duration: 200 }}>
-        <div class="filters">
-          <forge-card>
-            <forge-stack>
-              <forge-stack inline alignment="center">
-                <forge-icon name="filter_list" external></forge-icon>
-                <h3 class="forge-typography--heading2" id="filter-group-label">Filter by function</h3>
+      {#if $servicesCache.length}
+        <div class="directory-card-inner" transition:fade={{ delay: 0, duration: 200 }}>
+          <div class="filters">
+            <forge-card>
+              <forge-stack>
+                <forge-stack inline alignment="center">
+                  <forge-icon name="filter_list" external></forge-icon>
+                  <h3 class="forge-typography--heading2" id="filter-group-label">Filter by function</h3>
+                </forge-stack>
+                <div role="group" aria-labelledby="filter-group-label">
+                  <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
+                </div>
               </forge-stack>
-              <div role="group" aria-labelledby="filter-group-label">
-                <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
-              </div>
-            </forge-stack>
-          </forge-card>
-        </div>
+            </forge-card>
+          </div>
 
-        <div class="services-list">
-          <forge-stack>
-            <forge-text-field id="text-field" variant="filled" class="span-full" bind:this={serviceFilterInput}>
-              <forge-icon slot="leading" name="search" external></forge-icon>
-              <input type="text" id="service-filter" placeholder="Search for a service.." bind:value={$filterText} on:input={(e) => onSearch(e)} />
-              {#if windowWidth <= pageBreakpoint}
-                <div class="mobile-filter-button" slot="accessory">
-                  <forge-icon-button on:click={() => openFilterSidesheet()}>
-                    <forge-icon name="filter_list" external></forge-icon>
-                  </forge-icon-button>
+          <div class="services-list">
+            <forge-stack>
+              <forge-text-field id="text-field" variant="filled" class="span-full" bind:this={serviceFilterInput}>
+                <forge-icon slot="leading" name="search" external></forge-icon>
+                <input type="text" id="service-filter" placeholder="Search for a service.." bind:value={$filterText} on:input={(e) => onSearch(e)} />
+                {#if windowWidth <= pageBreakpoint}
+                  <div class="mobile-filter-button" slot="accessory">
+                    <forge-icon-button on:click={() => openFilterSidesheet()}>
+                      <forge-icon name="filter_list" external></forge-icon>
+                    </forge-icon-button>
+                  </div>
+                {/if}
+              </forge-text-field>
+              <forge-modal-drawer bind:this={filterDrawer} direction="right" class="filter-drawer">
+                <FilterSidesheet dialogRef={filterDrawer} />
+              </forge-modal-drawer>
+              {#if !$filteredServices.length}
+                <div>
+                  <ServicesEmptyState />
                 </div>
               {/if}
-            </forge-text-field>
-            <forge-modal-drawer bind:this={filterDrawer} direction="right" class="filter-drawer">
-              <FilterSidesheet dialogRef={filterDrawer} />
-            </forge-modal-drawer>
-            {#if !$filteredServices.length}
-              <div>
-                <ServicesEmptyState />
-              </div>
-            {/if}
-            <ul>
-              {#each $filteredServices as service}
-                {#if service.isPublished}
-                  <DirectoryServiceCard {service} />
-                {/if}
-              {/each}
-            </ul>
-          </forge-stack>
+              <ul>
+                {#each $filteredServices as service}
+                  {#if service.isPublished}
+                    <DirectoryServiceCard {service} />
+                  {/if}
+                {/each}
+              </ul>
+            </forge-stack>
+          </div>
         </div>
-      </div>
+      {:else}
+        <SkeletonLoader />
+      {/if}
     </forge-card>
   </div>
 </div>

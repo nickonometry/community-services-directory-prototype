@@ -11,6 +11,7 @@
 
   onMount(async () => {
     loadForgeComponents();
+
     // Promise.allSettled([window.customElements.whenDefined('forge-scaffold')]).then(() => (isLoaded = true));
     await fetchDepartments();
     await fetchFunctions();
@@ -19,19 +20,17 @@
   });
 </script>
 
-{#if isLoaded}
-  <forge-scaffold>
-    <div slot="header">
-      <BrandedHeader />
-    </div>
-    <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
-      <slot />
-    </main>
-    <div slot="footer">
-      <TylFooter />
-    </div>
-  </forge-scaffold>
-{/if}
+<forge-scaffold>
+  <div slot="header">
+    <BrandedHeader />
+  </div>
+  <main slot="body" transition:fade={{ delay: 0, duration: 200 }}>
+    <slot />
+  </main>
+  <div slot="footer">
+    <TylFooter />
+  </div>
+</forge-scaffold>
 
 <style lang="scss">
   [slot='logo'] {
