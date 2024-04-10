@@ -21,8 +21,8 @@
   <forge-stack gap="0">
     {#each $functionsCache as func}
       <forge-list-item>
-        <span slot="title">{func.label}</span>
-        <forge-checkbox slot="leading" value={func.value}></forge-checkbox>
+        <span slot="title" id="function-label">{func.label}</span>
+        <forge-checkbox slot="leading" value={func.value} aria-labelledby="function-label"></forge-checkbox>
       </forge-list-item>
     {/each}
   </forge-stack>

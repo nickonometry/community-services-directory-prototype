@@ -1,29 +1,32 @@
 <script>
+  import { onMount } from 'svelte';
   import { departmentsCache, getDepartmentById } from '../../../globalStore';
   export let service;
+  let departmentName = '';
+
+  onMount(() => {
+    departmentName = getDepartmentById($departmentsCache, service.departmentId);
+  });
 </script>
 
-<a href={service.url} target="_blank">
-  <li>
+<li>
+  <a href={service.url} target="_blank">
     <forge-card>
-      <forge-button-area id="button-area">
-        <button slot="button" aria-labelledby="button-area-heading"></button>
-        <div class="card-inner">
-          <div class="icon-container">
-            <forge-icon name={service.iconName} external></forge-icon>
-          </div>
-          <div class="service-details">
-            <forge-stack gap="16">
-              <p class="forge-typography--heading2" id="button-area-heading">{service.title}</p>
-              <p class="forge-typography--body1">{service.description}</p>
-              <forge-badge theme="info" class="department-badge">{getDepartmentById($departmentsCache, service.departmentId)}</forge-badge>
-            </forge-stack>
-          </div>
+      <div class="card-inner">
+        <div class="icon-container">
+          <forge-icon name={service.iconName} external></forge-icon>
         </div>
-      </forge-button-area>
+        <div class="service-details">
+          <forge-stack gap="16">
+            <p class="forge-typography--heading2" id="button-area-heading">{service.title}</p>
+            <p class="forge-typography--body1">{service.description}</p>
+            <forge-badge theme="info" class="department-badge" aria-label={`Department: ${departmentName}`}>{departmentName}</forge-badge>
+          </forge-stack>
+        </div>
+      </div>
     </forge-card>
-  </li>
-</a>
+  </a>
+</li>
 
 <style lang="scss">
   a {
@@ -42,6 +45,12 @@
 
     forge-card {
       --forge-card-padding: 0;
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-right: 2px solid var(--forge-theme-secondary);
+      border-radius: 4px;
     }
   }
 

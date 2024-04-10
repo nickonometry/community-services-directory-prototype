@@ -32,7 +32,7 @@
         <div class="services-card-container">
           <forge-card class="card" raised>
             <forge-toolbar no-border>
-              <h3 class="forge-typography--heading3 span-full" slot="start">Featured Services</h3>
+              <h2 class="forge-typography--heading3 span-full" slot="start">Featured Services</h2>
               <!-- <forge-button href="/service-directory" slot="end">
                 <span>View all services</span>
                 <forge-icon name="chevron_right" external></forge-icon>
