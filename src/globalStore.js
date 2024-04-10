@@ -65,9 +65,9 @@ export const functionsCache = writable([]);
 export const departmentsCache = writable([]);
 
 export const getDepartmentById = (departments, id) => {
-  let departmentName = departments.find((dc) => dc.id === id);
-  if (departmentName) {
-    return departmentName.name;
+  let department = departments.find((dc) => dc.id === id);
+  if (department) {
+    return department.name;
   } else {
     return 'No Department assigned';
   }

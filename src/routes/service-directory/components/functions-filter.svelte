@@ -1,24 +1,23 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
   import { functionsCache, functionFilters } from '../../../globalStore.js';
 
-  const dispatch = createEventDispatcher();
-  const dispatchDepartmentsSelected = (e) => {
+  const filterServicesByFunction = (e) => {
     const wasFilterUnchecked = e.target.checked;
-    const filterApplied = e.target.value;
+    const filterApplied = Number(e.target.value);
+
+    // remove from array here
     if (!wasFilterUnchecked) {
-      // remove from array here
       $functionFilters = $functionFilters.filter((f) => {
         return f !== filterApplied;
       });
       return;
     }
+
     functionFilters.update((state) => [...state, filterApplied]);
-    dispatch('filter-selected', e);
   };
 </script>
 
-<forge-list on:change={(e) => dispatchDepartmentsSelected(e)}>
+<forge-list on:change={(e) => filterServicesByFunction(e)}>
   <forge-stack gap="0">
     {#each $functionsCache as func}
       <forge-list-item>
