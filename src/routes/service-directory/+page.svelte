@@ -11,10 +11,18 @@
   let serviceFilterInput;
   let windowWidth;
   let pageBreakpoint = 1024;
+  let searchTerm;
 
-  onMount(() => {
+  onMount(async () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('searchTerm')) {
+      searchTerm = searchParams.get('searchTerm');
+      filterText.set(searchTerm);
+    } else {
+      filterText.set('');
+    }
+
     // Make sure we reset the store since the codotype shares one store
-    filterText.set('');
     serviceFilters.set([]);
   });
 

@@ -1,9 +1,11 @@
 <script>
+  import { goto } from '$app/navigation';
   import ServiceCard from '../service-card/service-card.svelte';
   import Banner from './banner/banner.svelte';
   import { servicesCache } from '../../globalStore';
   import BrandedHeader from '../branded-header/branded-header.svelte';
   let popularServices = [];
+  let searchInput;
 
   // This is just simulating a list of popular services. This would ideally be based on usage analytics
   $servicesCache.forEach((s) => {
@@ -11,6 +13,11 @@
       popularServices.push(s);
     }
   });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    goto(`/service-directory?searchTerm=${searchInput.value}`);
+  };
 </script>
 
 <div class="container">
@@ -24,10 +31,12 @@
           <Banner />
         </div>
         <div class="search-container">
-          <forge-text-field id="text-field" variant="filled">
-            <forge-icon slot="trailing" name="search" external></forge-icon>
-            <input type="text" id="text-field-input" placeholder="How can we help you?" />
-          </forge-text-field>
+          <form on:submit={onSubmit}>
+            <forge-text-field id="text-field" variant="filled">
+              <forge-icon slot="trailing" name="search" external></forge-icon>
+              <input type="text" id="text-field-input" placeholder="How can we help you?" bind:this={searchInput} />
+            </forge-text-field>
+          </form>
         </div>
         <div class="services-card-container">
           <forge-card class="card" raised>
