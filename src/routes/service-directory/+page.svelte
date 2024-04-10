@@ -54,6 +54,17 @@
   </div>
   <div class="card-container">
     <forge-card>
+      <div style="margin-block-end: 16px;">
+        <forge-stack inline gap="8" alignment="center">
+          <forge-stack inline gap="8" alignment="center">
+            <!-- <forge-icon name="home" external style="color: var(--forge-theme-text-medium); font-size: 20px;"></forge-icon> -->
+            <a href="/resident-preview">Featured Services</a>
+          </forge-stack>
+          <forge-icon name="chevron_right" external style="color: var(--forge-theme-text-medium)"></forge-icon>
+          <span class="forge-typography--body2">Service Directory</span>
+        </forge-stack>
+      </div>
+
       {#if $servicesCache.length}
         <div class="directory-card-inner" transition:fade={{ delay: 0, duration: 200 }}>
           <div class="filters">
