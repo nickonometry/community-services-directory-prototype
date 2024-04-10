@@ -19,6 +19,7 @@
     }
 
     if (data) {
+      openToast('Service updated successfully');
       fetchServices();
     }
   };

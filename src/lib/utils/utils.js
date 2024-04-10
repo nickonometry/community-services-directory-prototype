@@ -24,6 +24,7 @@ export const openConfirmationDialog = (message) => {
 export const openToast = (message) => {
   if (browser) {
     const toast = document.createElement('forge-toast');
+    toast.style.display = 'contents';
     toast.message = message;
     document.body.appendChild(toast);
   }

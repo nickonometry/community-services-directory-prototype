@@ -46,9 +46,11 @@
             <forge-stack>
               <forge-stack inline alignment="center">
                 <forge-icon name="filter_list" external></forge-icon>
-                <h3 class="forge-typography--heading2">Filter by function</h3>
+                <h3 class="forge-typography--heading2" id="filter-group-label">Filter by function</h3>
               </forge-stack>
-              <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
+              <div role="group" aria-labelledby="filter-group-label">
+                <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
+              </div>
             </forge-stack>
           </forge-card>
         </div>
@@ -75,13 +77,11 @@
               </div>
             {/if}
             <ul>
-              <forge-stack>
-                {#each $filteredServices as service}
-                  {#if service.isPublished}
-                    <DirectoryServiceCard {service} />
-                  {/if}
-                {/each}
-              </forge-stack>
+              {#each $filteredServices as service}
+                {#if service.isPublished}
+                  <DirectoryServiceCard {service} />
+                {/if}
+              {/each}
             </ul>
           </forge-stack>
         </div>
@@ -130,6 +130,8 @@
     ul {
       margin: 0;
       padding: 0;
+      display: grid;
+      gap: 16px;
     }
   }
 

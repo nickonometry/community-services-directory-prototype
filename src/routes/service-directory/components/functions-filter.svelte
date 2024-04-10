@@ -17,12 +17,12 @@
   };
 </script>
 
-<forge-list on:change={(e) => filterServicesByFunction(e)}>
+<forge-list>
   <forge-stack gap="0">
-    {#each $functionsCache as func}
-      <forge-list-item>
-        <span slot="title" id="function-label">{func.label}</span>
-        <forge-checkbox slot="leading" value={func.value} aria-labelledby="function-label"></forge-checkbox>
+    {#each $functionsCache as func, index}
+      <forge-list-item on:change={(e) => filterServicesByFunction(e)}>
+        <forge-checkbox slot="leading" value={func.value} tabindex="-1"></forge-checkbox>
+        <span slot="title">{func.label}</span>
       </forge-list-item>
     {/each}
   </forge-stack>
