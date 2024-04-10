@@ -12,10 +12,12 @@
   onMount(async () => {
     loadForgeComponents();
 
-    // Promise.allSettled([window.customElements.whenDefined('forge-scaffold')]).then(() => (isLoaded = true));
-    await fetchDepartments();
-    await fetchFunctions();
-    await fetchServices();
+    Promise.allSettled([window.customElements.whenDefined(['forge-scaffold', 'forge-app-bar', 'forge-card', 'forge-skeleton'])]).then(async () => {
+      await fetchDepartments();
+      await fetchFunctions();
+      await fetchServices();
+    });
+
     isLoaded = true;
   });
 </script>
