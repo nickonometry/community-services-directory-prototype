@@ -1,4 +1,5 @@
 <script>
+  import { beforeNavigate } from '$app/navigation';
   import SkeletonLoader from './../../lib/skeleton-loader/skeleton-loader.svelte';
   import ServicesEmptyState from './../../lib/services-empty-state/services-empty-state.svelte';
   import { fade } from 'svelte/transition';
@@ -13,6 +14,10 @@
   let windowWidth;
   let pageBreakpoint = 1024;
   let searchTerm;
+
+  beforeNavigate(() => {
+    filterText.set('');
+  });
 
   onMount(async () => {
     const searchParams = new URLSearchParams(window.location.search);
