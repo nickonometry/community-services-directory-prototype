@@ -17,25 +17,17 @@
   };
 </script>
 
-<forge-list>
-  <forge-stack gap="0">
-    {#each $functionsCache as func, index}
-      <forge-list-item on:change={(e) => filterServicesByFunction(e)}>
-        <forge-checkbox slot="leading" value={func.value} tabindex="-1"></forge-checkbox>
-        <span slot="title">{func.label}</span>
-      </forge-list-item>
-    {/each}
-  </forge-stack>
-</forge-list>
+<forge-stack>
+  {#each $functionsCache as func}
+    <forge-checkbox on:change={filterServicesByFunction} value={func.value}>
+      <span class="forge-typography--body2">{func.label}</span>
+    </forge-checkbox>
+  {/each}
+</forge-stack>
 
 <style>
-  forge-list-item {
-    --forge-list-item-gap: 16px;
-    --forge-list-item-padding: 0;
-  }
-  @media screen and (max-width: 900px) {
-    forge-list-item {
-      margin-inline-start: -12px;
-    }
+  forge-checkbox {
+    --forge-checkbox-justify: start;
+    --forge-checkbox-gap: 16px;
   }
 </style>

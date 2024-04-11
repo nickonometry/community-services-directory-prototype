@@ -27,7 +27,6 @@
 
   <div slot="body">
     <div class="filter-container">
-      <span class="forge-typography--label1">Department</span>
       <FunctionsFilter on:filter-selected={(e) => onFilterSelected(e)} />
     </div>
   </div>
